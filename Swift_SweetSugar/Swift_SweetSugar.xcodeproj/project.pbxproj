@@ -15,6 +15,7 @@
 		B425AC7E2252526200B02B77 /* Swift_SweetSugarTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B425AC7D2252526200B02B77 /* Swift_SweetSugarTests.swift */; };
 		B425AC892252526200B02B77 /* Swift_SweetSugarUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B425AC882252526200B02B77 /* Swift_SweetSugarUITests.swift */; };
 		B425AC982252529A00B02B77 /* UIKit+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B425AC972252529A00B02B77 /* UIKit+Extension.swift */; };
+		DF9227E722CB07A600ABB221 /* UIColor+MM_Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF9227E622CB07A600ABB221 /* UIColor+MM_Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +50,7 @@
 		B425AC882252526200B02B77 /* Swift_SweetSugarUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Swift_SweetSugarUITests.swift; sourceTree = "<group>"; };
 		B425AC8A2252526200B02B77 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B425AC972252529A00B02B77 /* UIKit+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIKit+Extension.swift"; sourceTree = "<group>"; };
+		DF9227E622CB07A600ABB221 /* UIColor+MM_Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+MM_Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -132,6 +134,7 @@
 			isa = PBXGroup;
 			children = (
 				B425AC972252529A00B02B77 /* UIKit+Extension.swift */,
+				DF9227E622CB07A600ABB221 /* UIColor+MM_Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -270,6 +273,7 @@
 				B425AC6B2252526000B02B77 /* ViewController.swift in Sources */,
 				B425AC982252529A00B02B77 /* UIKit+Extension.swift in Sources */,
 				B425AC692252526000B02B77 /* AppDelegate.swift in Sources */,
+				DF9227E722CB07A600ABB221 /* UIColor+MM_Extension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
