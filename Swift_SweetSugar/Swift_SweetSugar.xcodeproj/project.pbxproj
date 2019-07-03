@@ -15,6 +15,7 @@
 		B425AC7E2252526200B02B77 /* Swift_SweetSugarTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B425AC7D2252526200B02B77 /* Swift_SweetSugarTests.swift */; };
 		B425AC892252526200B02B77 /* Swift_SweetSugarUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B425AC882252526200B02B77 /* Swift_SweetSugarUITests.swift */; };
 		B425AC982252529A00B02B77 /* UIKit+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B425AC972252529A00B02B77 /* UIKit+Extension.swift */; };
+		B459B5EF22CCF0A700DEEA87 /* Solution.swift in Sources */ = {isa = PBXBuildFile; fileRef = B459B5EE22CCF0A700DEEA87 /* Solution.swift */; };
 		DF9227E722CB07A600ABB221 /* UIColor+MM_Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF9227E622CB07A600ABB221 /* UIColor+MM_Extension.swift */; };
 /* End PBXBuildFile section */
 
@@ -50,6 +51,7 @@
 		B425AC882252526200B02B77 /* Swift_SweetSugarUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Swift_SweetSugarUITests.swift; sourceTree = "<group>"; };
 		B425AC8A2252526200B02B77 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B425AC972252529A00B02B77 /* UIKit+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIKit+Extension.swift"; sourceTree = "<group>"; };
+		B459B5EE22CCF0A700DEEA87 /* Solution.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Solution.swift; sourceTree = "<group>"; };
 		DF9227E622CB07A600ABB221 /* UIColor+MM_Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+MM_Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -101,6 +103,7 @@
 		B425AC672252526000B02B77 /* Swift_SweetSugar */ = {
 			isa = PBXGroup;
 			children = (
+				B459B5ED22CCF08100DEEA87 /* Algorithm */,
 				B425AC962252526800B02B77 /* Extension */,
 				B425AC682252526000B02B77 /* AppDelegate.swift */,
 				B425AC6A2252526000B02B77 /* ViewController.swift */,
@@ -137,6 +140,14 @@
 				DF9227E622CB07A600ABB221 /* UIColor+MM_Extension.swift */,
 			);
 			path = Extension;
+			sourceTree = "<group>";
+		};
+		B459B5ED22CCF08100DEEA87 /* Algorithm */ = {
+			isa = PBXGroup;
+			children = (
+				B459B5EE22CCF0A700DEEA87 /* Solution.swift */,
+			);
+			path = Algorithm;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -270,6 +281,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B459B5EF22CCF0A700DEEA87 /* Solution.swift in Sources */,
 				B425AC6B2252526000B02B77 /* ViewController.swift in Sources */,
 				B425AC982252529A00B02B77 /* UIKit+Extension.swift in Sources */,
 				B425AC692252526000B02B77 /* AppDelegate.swift in Sources */,
