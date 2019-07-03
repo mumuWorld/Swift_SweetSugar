@@ -67,4 +67,10 @@ class Solution {
         } while (tmpIndex < mutiNums.count-2)
         return result
     }
+    
+    /// 无重复最长子串
+    /// https://leetcode-cn.com/problems/longest-substring-without-repeating-characters/
+    func lengthOfLongestSubstring(_ s: String) -> Int {
+        
+    }
 }
