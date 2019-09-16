@@ -71,6 +71,46 @@ class Solution {
     /// 无重复最长子串
     /// https://leetcode-cn.com/problems/longest-substring-without-repeating-characters/
     func lengthOfLongestSubstring(_ s: String) -> Int {
-        
+        return 0
     }
+    
+    
+    /// 逆波兰表达式
+    /// https://leetcode-cn.com/problems/evaluate-reverse-polish-notation/
+    /// - Parameter tokens: source
+    /// - Returns: reslut
+    func evalRPN(_ tokens: [String]) -> Int {
+        var stackArr:[Int] = Array()
+        
+        stackArr.append(0)
+        for item in tokens {
+            if let itemValue = Int(item) {
+                stackArr.append(itemValue)
+            } else {
+//                 = stackArr.last
+                let second = stackArr.remove(at: stackArr.count - 1)
+                let first = stackArr.remove(at: stackArr.count - 1)
+                var result = 0
+                if item == "+" {
+                    result = first + second
+                } else if item == "-" {
+                    result = first - second
+                    
+                } else if item == "*" {
+                    result = first * second
+                    
+                } else if item == "/" {
+                    if first == 0 || second == 0 {
+                        result = 0
+                    } else {
+                        result = first / second 
+                    }
+                }
+                stackArr.append(result)
+            }
+        }
+        return stackArr.last!
+    }
+    
+    
 }
