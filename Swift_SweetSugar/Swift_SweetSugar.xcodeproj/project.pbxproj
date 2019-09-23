@@ -18,6 +18,7 @@
 		B459B5EF22CCF0A700DEEA87 /* Solution.swift in Sources */ = {isa = PBXBuildFile; fileRef = B459B5EE22CCF0A700DEEA87 /* Solution.swift */; };
 		DF128F3B232F2C5100491475 /* DispatchTime+MM_Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF128F3A232F2C5100491475 /* DispatchTime+MM_Extension.swift */; };
 		DF128F3D232F2C5A00491475 /* Date+MM_Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF128F3C232F2C5A00491475 /* Date+MM_Extension.swift */; };
+		DF128F3F232F2FF900491475 /* CommonModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF128F3E232F2FF900491475 /* CommonModel.swift */; };
 		DF9227E722CB07A600ABB221 /* UIColor+MM_Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF9227E622CB07A600ABB221 /* UIColor+MM_Extension.swift */; };
 		DFF332AA2328C5DE0015295C /* Bundle+MM_extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFF332A92328C5DE0015295C /* Bundle+MM_extension.swift */; };
 /* End PBXBuildFile section */
@@ -57,6 +58,7 @@
 		B459B5EE22CCF0A700DEEA87 /* Solution.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Solution.swift; sourceTree = "<group>"; };
 		DF128F3A232F2C5100491475 /* DispatchTime+MM_Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "DispatchTime+MM_Extension.swift"; path = "../../../../LuMeniOS/Lumen/Lumen/Class/Extension/DispatchTime+MM_Extension.swift"; sourceTree = "<group>"; };
 		DF128F3C232F2C5A00491475 /* Date+MM_Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Date+MM_Extension.swift"; sourceTree = "<group>"; };
+		DF128F3E232F2FF900491475 /* CommonModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonModel.swift; sourceTree = "<group>"; };
 		DF9227E622CB07A600ABB221 /* UIColor+MM_Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+MM_Extension.swift"; sourceTree = "<group>"; };
 		DFF332A92328C5DE0015295C /* Bundle+MM_extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bundle+MM_extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -155,6 +157,7 @@
 			isa = PBXGroup;
 			children = (
 				B459B5EE22CCF0A700DEEA87 /* Solution.swift */,
+				DF128F3E232F2FF900491475 /* CommonModel.swift */,
 			);
 			path = Algorithm;
 			sourceTree = "<group>";
@@ -292,6 +295,7 @@
 			files = (
 				B459B5EF22CCF0A700DEEA87 /* Solution.swift in Sources */,
 				DFF332AA2328C5DE0015295C /* Bundle+MM_extension.swift in Sources */,
+				DF128F3F232F2FF900491475 /* CommonModel.swift in Sources */,
 				B425AC6B2252526000B02B77 /* ViewController.swift in Sources */,
 				DF128F3B232F2C5100491475 /* DispatchTime+MM_Extension.swift in Sources */,
 				DF128F3D232F2C5A00491475 /* Date+MM_Extension.swift in Sources */,

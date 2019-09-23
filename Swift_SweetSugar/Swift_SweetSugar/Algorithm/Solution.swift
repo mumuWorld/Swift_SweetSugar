@@ -112,5 +112,72 @@ class Solution {
         return stackArr.last!
     }
     
+
+    /**  合并两个有序链表
+     * https://leetcode-cn.com/problems/merge-two-sorted-lists/
+     * Definition for singly-linked list.
+     * public class ListNode {
+     *     public var val: Int
+     *     public var next: ListNode?
+     *     public init(_ val: Int) {
+     *         self.val = val
+     *         self.next = nil
+     *     }
+     * }
+     */
+    class Solution {
+        func mergeTwoLists(_ l1: ListNode?, _ l2: ListNode?) -> ListNode? {
+            
+            if l1 == nil {
+                return l2
+            }  else if l2 == nil {
+                return l1
+            }
+//            guard let l1List = l1 else { return l2 }
+//            guard let l2List = l2 else { return l1List }
+            
+            var k1List: ListNode? = l1
+            var k2List: ListNode? = l2
+
+            /// 虚拟头结点  dummy head
+            let head: ListNode? = ListNode(0)
+//            let head: ListNode?
+//
+//            if k1List!.val <= k2List!.val  {
+//                head = k1List
+//                k1List = k1List!.next
+//            } else {
+//                head = k2List
+//                k2List = k2List!.next
+//            }
+            var curList = head
+            while k1List != nil, k2List != nil {
+                if k1List!.val <= k2List!.val {
+                    curList?.next = k1List
+                    k1List = k1List?.next
+                } else {
+                    curList?.next = k2List
+                    k2List = k2List?.next
+                }
+                curList = curList?.next
+            }
+            
+            if k1List == nil {
+                curList?.next = k2List
+            } else {
+                curList?.next = k1List
+            }
+            
+            return head?.next
+        }
+    }
     
+    
+    /// 合并k个有序链表
+    ///  https://leetcode-cn.com/problems/merge-k-sorted-lists/
+    /// - Parameter lists: list
+    /// - Returns: node
+    func mergeKLists(_ lists: [ListNode?]) -> ListNode? {
+        
+    }
 }
