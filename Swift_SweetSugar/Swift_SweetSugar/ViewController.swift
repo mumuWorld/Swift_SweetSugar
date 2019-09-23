@@ -11,17 +11,18 @@ import UIKit
 class ViewController: UIViewController {
     let solution = Solution()
     let strSolution = StringSolution()
+
+    @IBOutlet weak var testImgView: UIImageView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        let str = "abcdefghijklmnopqrstuvwxyzA"
-        let startInde = str.index(str.startIndex, offsetBy: 3)
-        let endIndex = str.index(after: startInde)
-//
-//        let char = str[startInde..<endIndex]
-//        print(char)
-        sol3()
+//        redPin.png
+//        let bundleUrl: URL = Bundle.main.url(forResource: "AMap", withExtension: "bundle")!
+//        let bundle = Bundle.init(url: bundleUrl)
+//        let imgPath = bundle?.path(forResource: "images/redPin.png", ofType: nil)
+//        testImgView.image = UIImage.init(contentsOfFile: imgPath!)
     }
+    
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         sum2()
     }

@@ -91,5 +91,121 @@ class Solution {
         } while (tmpIndex < mutiNums.count-2)
         return result
     }
+    
+    /// 无重复最长子串
+    /// https://leetcode-cn.com/problems/longest-substring-without-repeating-characters/
+    func lengthOfLongestSubstring(_ s: String) -> Int {
+        return 0
+    }
+    
+    
+    /// 逆波兰表达式
+    /// https://leetcode-cn.com/problems/evaluate-reverse-polish-notation/
+    /// - Parameter tokens: source
+    /// - Returns: reslut
+    func evalRPN(_ tokens: [String]) -> Int {
+        var stackArr:[Int] = Array()
+        
+        stackArr.append(0)
+        for item in tokens {
+            if let itemValue = Int(item) {
+                stackArr.append(itemValue)
+            } else {
+//                 = stackArr.last
+                let second = stackArr.remove(at: stackArr.count - 1)
+                let first = stackArr.remove(at: stackArr.count - 1)
+                var result = 0
+                if item == "+" {
+                    result = first + second
+                } else if item == "-" {
+                    result = first - second
+                    
+                } else if item == "*" {
+                    result = first * second
+                    
+                } else if item == "/" {
+                    if first == 0 || second == 0 {
+                        result = 0
+                    } else {
+                        result = first / second 
+                    }
+                }
+                stackArr.append(result)
+            }
+        }
+        return stackArr.last!
+    }
+    
 
+    /**  合并两个有序链表
+     * https://leetcode-cn.com/problems/merge-two-sorted-lists/
+     * Definition for singly-linked list.
+     * public class ListNode {
+     *     public var val: Int
+     *     public var next: ListNode?
+     *     public init(_ val: Int) {
+     *         self.val = val
+     *         self.next = nil
+     *     }
+     * }
+     */
+    class Solution {
+        func mergeTwoLists(_ l1: ListNode?, _ l2: ListNode?) -> ListNode? {
+            
+            if l1 == nil {
+                return l2
+            }  else if l2 == nil {
+                return l1
+            }
+//            guard let l1List = l1 else { return l2 }
+//            guard let l2List = l2 else { return l1List }
+            
+            var k1List: ListNode? = l1
+            var k2List: ListNode? = l2
+
+            /// 虚拟头结点  dummy head
+            let head: ListNode? = ListNode(0)
+//            let head: ListNode?
+//
+//            if k1List!.val <= k2List!.val  {
+//                head = k1List
+//                k1List = k1List!.next
+//            } else {
+//                head = k2List
+//                k2List = k2List!.next
+//            }
+            var curList = head
+            while k1List != nil, k2List != nil {
+                if k1List!.val <= k2List!.val {
+                    curList?.next = k1List
+                    k1List = k1List?.next
+                } else {
+                    curList?.next = k2List
+                    k2List = k2List?.next
+                }
+                curList = curList?.next
+            }
+            
+            if k1List == nil {
+                curList?.next = k2List
+            } else {
+                curList?.next = k1List
+            }
+            
+            return head?.next
+        }
+    }
+    
+    
+    /// 合并k个有序链表
+    ///  https://leetcode-cn.com/problems/merge-k-sorted-lists/
+    /// - Parameter lists: list
+    /// - Returns: node
+    func mergeKLists(_ lists: [ListNode?]) -> ListNode? {
+        
+        //小顶堆  优先级队列
+        //将d所有链表的头结点添加到小顶堆(优先级队列)中
+        //不断删除堆顶元素、 并且把对顶元素的next 添加到堆中
+        return nil
+    }
 }
