@@ -9,7 +9,31 @@
 import Foundation
 
 class Solution {
-    
+    /// 两数之和     哈希表。
+    /// https://leetcode-cn.com/problems/two-sum/
+    /// - Parameters:
+    ///   - target: 目标值
+    func twoSum(_ nums: [Int], _ target: Int) -> [Int] {
+        // for  i in 0..<nums.count {
+        //      let num1 = nums[i];
+        //      for  j in (i+1)..<nums.count {
+        //          let num2 = nums[j];
+        //          if (num1 + num2) == target {
+        //              return [i,j]
+        //          }
+        //      }
+        //  }
+        // return []
+        var map = Dictionary<Int64, Int>()
+        for i in 0..<nums.count {
+            let comTar = target - nums[i]
+            if map.keys.contains(Int64(comTar)) {
+                return [i,map[Int64(comTar)]!]
+            }
+            map[Int64(nums[i])] = i
+        }
+        return []
+    }
     /// 三数之和
     /// https://leetcode-cn.com/problems/3sum/
     func threeSum(_ nums: [Int]) -> [[Int]] {
@@ -67,10 +91,5 @@ class Solution {
         } while (tmpIndex < mutiNums.count-2)
         return result
     }
-    
-    /// 无重复最长子串
-    /// https://leetcode-cn.com/problems/longest-substring-without-repeating-characters/
-    func lengthOfLongestSubstring(_ s: String) -> Int {
-        
-    }
+
 }
