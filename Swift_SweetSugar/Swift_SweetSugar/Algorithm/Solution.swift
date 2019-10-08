@@ -149,7 +149,6 @@ class Solution {
      *     }
      * }
      */
-    class Solution {
         func mergeTwoLists(_ l1: ListNode?, _ l2: ListNode?) -> ListNode? {
             
             if l1 == nil {
@@ -165,15 +164,7 @@ class Solution {
 
             /// 虚拟头结点  dummy head
             let head: ListNode? = ListNode(0)
-//            let head: ListNode?
-//
-//            if k1List!.val <= k2List!.val  {
-//                head = k1List
-//                k1List = k1List!.next
-//            } else {
-//                head = k2List
-//                k2List = k2List!.next
-//            }
+            
             var curList = head
             while k1List != nil, k2List != nil {
                 if k1List!.val <= k2List!.val {
@@ -194,7 +185,9 @@ class Solution {
             
             return head?.next
         }
-    }
+        
+        
+
     
     
     /// 合并k个有序链表
@@ -206,6 +199,24 @@ class Solution {
         //小顶堆  优先级队列
         //将d所有链表的头结点添加到小顶堆(优先级队列)中
         //不断删除堆顶元素、 并且把对顶元素的next 添加到堆中
-        return nil
+        
+        //方法2 分治策略
+        if  lists.count == 0 {
+            return nil
+        }
+        var tmpList = lists
+        
+        var step = 1
+        while step < tmpList.count {
+            let nextStep = step << 1
+            for i in stride(from: 0, to: tmpList.count, by: nextStep) {
+                if i + step >= tmpList.count {
+                    break
+                }
+                tmpList[i] = mergeTwoLists(tmpList[i], tmpList[i + step])
+            }
+            step = nextStep
+        }
+        return tmpList.first!
     }
 }
