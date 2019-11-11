@@ -25,7 +25,7 @@ class ViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         print("viewWillAppear")
-        sort()
+//        sort()
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -49,7 +49,8 @@ class ViewController: UIViewController {
         var randomArr = CreateTool.createIntArray(count: 10, minP: 10, maxP: 1000)
         print(randomArr)
         CreateTool.timeRecord(title: "冒泡") {
-            BaseSort.popSort(arr: &randomArr)
+//            BaseSort.popSort(arr: &randomArr)
+            BaseSort.selectedSort(arr: &randomArr)
         }
         print(randomArr)
     }
