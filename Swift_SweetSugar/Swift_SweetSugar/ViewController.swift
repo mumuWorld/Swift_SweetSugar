@@ -16,6 +16,9 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let str = "123456"
+        
 //        redPin.png
 //        let bundleUrl: URL = Bundle.main.url(forResource: "AMap", withExtension: "bundle")!
 //        let bundle = Bundle.init(url: bundleUrl)
