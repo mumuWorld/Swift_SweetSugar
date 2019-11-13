@@ -7,6 +7,9 @@
 //
 
 import UIKit
+enum Season: Int {
+    case spring = 0,summer
+}
 
 class ViewController: UIViewController {
     let solution = Solution()
@@ -21,6 +24,11 @@ class ViewController: UIViewController {
 //        let bundle = Bundle.init(url: bundleUrl)
 //        let imgPath = bundle?.path(forResource: "images/redPin.png", ofType: nil)
 //        testImgView.image = UIImage.init(contentsOfFile: imgPath!)
+        var s1 = Season.init(rawValue: 0)
+        let size = MemoryLayout.size(ofValue: s1)
+        print(size)
+        let testInt = 1 >> 2
+        print(testInt)
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
