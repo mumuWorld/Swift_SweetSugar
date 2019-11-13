@@ -59,4 +59,25 @@ class TreeSolution {
         distance = distance > addLeftRight ? distance : addLeftRight
         return heightLeft > heightRight ? heightLeft : heightRight
     }
+    
+    
+    /// 二叉树层次遍历
+    /// - Parameter rootNode:
+    func levelOrder(rootNode: TreeNode?) -> Void {
+        if rootNode == nil { return }
+        var queueArr: [TreeNode] = Array()
+        queueArr.append(rootNode!)
+        while queueArr.count > 0 {
+            let firstNode = queueArr[0]
+            let data = firstNode.val
+            print("data->\(data)")
+            queueArr.removeFirst()
+            if let leftNode = firstNode.left {
+                queueArr.append(leftNode)
+            }
+            if let rightNode = firstNode.right {
+                queueArr.append(rightNode)
+            }
+        }
+    }
 }
