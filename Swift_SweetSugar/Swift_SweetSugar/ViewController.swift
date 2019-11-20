@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import Kingfisher
+
 enum Season: Int {
     case spring = 0,summer
 }
@@ -30,9 +32,49 @@ class ViewController: UIViewController {
         var s1 = Season.init(rawValue: 0)
         let size = MemoryLayout.size(ofValue: s1)
         print(size)
-        let testInt = 1 >> 2
-        print(testInt)
+        var testInt = 10
+        let block = {(_ input: Int) in
+            let test = input + testInt
+            testInt += 1
+            print("test->\(test) ->\(testInt)")
+        }
+        block(1)
+        testInt = 11
+        block(1)
+        paramTest(parm1: "must not nil", param2: nil, param3: nil)
+        let test = "test"
+        paramTest(parm1: test, param2: test, param3: test)
+        var test2: String?
+//        let test3: String = test2 ?? ""
+        paramTest(parm1: "must not nil2", param2: test2, param3: test2)
+        let imgView = UIImageView()
+        imgView.kf.setImage(with: <#T##Resource?#>, placeholder: <#T##Placeholder?#>, options: <#T##KingfisherOptionsInfo?#>, progressBlock: <#T##DownloadProgressBlock?##DownloadProgressBlock?##(Int64, Int64) -> Void#>, completionHandler: <#T##((Result<RetrieveImageResult, KingfisherError>) -> Void)?##((Result<RetrieveImageResult, KingfisherError>) -> Void)?##(Result<RetrieveImageResult, KingfisherError>) -> Void#>)
     }
+    /// 验证
+    /// - Parameter parm1: 此时param1 必须不为空 并且必须不是可选类型
+    /// - Parameter param2: 等同于 param3 可为可选类型 也可为nil
+//    🔨 ["param1->must not nil,param2->nil,param3->nil"]
+//    🔨 ["param1->test,param2->Optional(\"test\"),param3->Optional(\"test\")"]
+//    🔨 ["param1->test2,param2->Optional(\"test2\"),param3->Optional(\"test2\")"]
+    func paramTest(parm1: String, param2: String?, param3: String!) -> Void {
+        mm_printsLog("param1->\(parm1),param2->\(param2),param3->\(param3)")
+//        if param3 != nil {
+//           mm_printLog(message: param3 + "test")
+//        }
+//        mm_printLog(message: param2 + "test")
+        var tValue  = 10
+        while tValue > 0 {
+            mm_printLog(message: tValue)
+        }
+        
+    }
+    
+        
+    //    func paramTest2(param: String) -> Void {
+    //        mm_printsLog(param)
+    //    }
+        
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         print("viewWillAppear")
