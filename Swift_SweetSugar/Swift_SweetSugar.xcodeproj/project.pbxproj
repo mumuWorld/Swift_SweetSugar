@@ -30,6 +30,9 @@
 		DF128F3F232F2FF900491475 /* CommonModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF128F3E232F2FF900491475 /* CommonModel.swift */; };
 		DF2ED5D8238546F7001617F8 /* Stack.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF2ED5D7238546F7001617F8 /* Stack.swift */; };
 		DF2ED5DA23854856001617F8 /* Queue.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF2ED5D923854856001617F8 /* Queue.swift */; };
+		DF2ED5DC2386219A001617F8 /* QuickSort.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF2ED5DB2386219A001617F8 /* QuickSort.swift */; };
+		DF2ED5F12387BCB7001617F8 /* MergeSort.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF2ED5F02387BCB7001617F8 /* MergeSort.swift */; };
+		DF2ED5F52387C31F001617F8 /* Sort.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF2ED5F42387C31F001617F8 /* Sort.swift */; };
 		DF9227E722CB07A600ABB221 /* UIColor+MM_Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF9227E622CB07A600ABB221 /* UIColor+MM_Extension.swift */; };
 		DFF332AA2328C5DE0015295C /* Bundle+MM_extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFF332A92328C5DE0015295C /* Bundle+MM_extension.swift */; };
 		E2F379AE7FBB9740FD285199 /* Pods_Swift_SweetSugar.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D7F28C83142AE50A58FF1D0E /* Pods_Swift_SweetSugar.framework */; };
@@ -87,6 +90,9 @@
 		DF128F3E232F2FF900491475 /* CommonModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonModel.swift; sourceTree = "<group>"; };
 		DF2ED5D7238546F7001617F8 /* Stack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stack.swift; sourceTree = "<group>"; };
 		DF2ED5D923854856001617F8 /* Queue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Queue.swift; sourceTree = "<group>"; };
+		DF2ED5DB2386219A001617F8 /* QuickSort.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuickSort.swift; sourceTree = "<group>"; };
+		DF2ED5F02387BCB7001617F8 /* MergeSort.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MergeSort.swift; sourceTree = "<group>"; };
+		DF2ED5F42387C31F001617F8 /* Sort.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sort.swift; sourceTree = "<group>"; };
 		DF9227E622CB07A600ABB221 /* UIColor+MM_Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+MM_Extension.swift"; sourceTree = "<group>"; };
 		DFF332A92328C5DE0015295C /* Bundle+MM_extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bundle+MM_extension.swift"; sourceTree = "<group>"; };
 		E91559239FA7BD9C330F7798 /* Pods-Swift_SweetSugar.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Swift_SweetSugar.release.xcconfig"; path = "Target Support Files/Pods-Swift_SweetSugar/Pods-Swift_SweetSugar.release.xcconfig"; sourceTree = "<group>"; };
@@ -226,6 +232,7 @@
 		B459B5ED22CCF08100DEEA87 /* Algorithm */ = {
 			isa = PBXGroup;
 			children = (
+				DF2ED5EF2387BCA7001617F8 /* Sort */,
 				DF0D36E6235D701B006EE6D5 /* 动态规划 */,
 				B4B69E76233E55BD0061AF93 /* Tool */,
 				B45763C8233A68D6003AE3A5 /* Model */,
@@ -251,6 +258,16 @@
 				DF0D36E7235D705C006EE6D5 /* LeeCodeTrueSubject.swift */,
 			);
 			path = "动态规划";
+			sourceTree = "<group>";
+		};
+		DF2ED5EF2387BCA7001617F8 /* Sort */ = {
+			isa = PBXGroup;
+			children = (
+				DF2ED5DB2386219A001617F8 /* QuickSort.swift */,
+				DF2ED5F02387BCB7001617F8 /* MergeSort.swift */,
+				DF2ED5F42387C31F001617F8 /* Sort.swift */,
+			);
+			path = Sort;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -502,9 +519,12 @@
 				DF2ED5DA23854856001617F8 /* Queue.swift in Sources */,
 				B49D61DE23390BA700ED9352 /* DispatchTime+MM_Extension.swift in Sources */,
 				DF128F3F232F2FF900491475 /* CommonModel.swift in Sources */,
+				DF2ED5DC2386219A001617F8 /* QuickSort.swift in Sources */,
+				DF2ED5F52387C31F001617F8 /* Sort.swift in Sources */,
 				B4B69E78233E55D40061AF93 /* CreateTool.swift in Sources */,
 				B425AC6B2252526000B02B77 /* ViewController.swift in Sources */,
 				DF128F3D232F2C5A00491475 /* Date+MM_Extension.swift in Sources */,
+				DF2ED5F12387BCB7001617F8 /* MergeSort.swift in Sources */,
 				B461A4C2234E3D660054B907 /* HeapModel.swift in Sources */,
 				B425AC982252529A00B02B77 /* UIKit+Extension.swift in Sources */,
 				B425AC692252526000B02B77 /* AppDelegate.swift in Sources */,
