@@ -41,7 +41,10 @@ class ViewController: UIViewController {
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
 //        sum2()
-        sort()
+//        sort()
+        let vc = MonitorViewController()
+        present(vc, animated: true, completion: nil)
+        
     }
     
     func sum1() -> Void {

@@ -17,6 +17,9 @@
 		B425AC982252529A00B02B77 /* UIKit+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B425AC972252529A00B02B77 /* UIKit+Extension.swift */; };
 		B4417A3322CE42AC00818FA0 /* StringSolution.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4417A3222CE42AC00818FA0 /* StringSolution.swift */; };
 		B45763C7233A674E003AE3A5 /* TreeSolution.swift in Sources */ = {isa = PBXBuildFile; fileRef = B45763C6233A674E003AE3A5 /* TreeSolution.swift */; };
+		B45853582386D899005A4FFA /* LXDBacktraceLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = B45853542386D899005A4FFA /* LXDBacktraceLogger.m */; };
+		B45853592386D899005A4FFA /* LXDAppFluecyMonitor.m in Sources */ = {isa = PBXBuildFile; fileRef = B45853572386D899005A4FFA /* LXDAppFluecyMonitor.m */; };
+		B45853632386D95E005A4FFA /* MonitorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B45853622386D95E005A4FFA /* MonitorViewController.swift */; };
 		B459B5EF22CCF0A700DEEA87 /* Solution.swift in Sources */ = {isa = PBXBuildFile; fileRef = B459B5EE22CCF0A700DEEA87 /* Solution.swift */; };
 		B461A4C2234E3D660054B907 /* HeapModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B461A4C1234E3D660054B907 /* HeapModel.swift */; };
 		B49D61DD23390BA700ED9352 /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B49D61DB23390BA700ED9352 /* UIView+Extension.swift */; };
@@ -64,6 +67,12 @@
 		B425AC972252529A00B02B77 /* UIKit+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIKit+Extension.swift"; sourceTree = "<group>"; };
 		B4417A3222CE42AC00818FA0 /* StringSolution.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringSolution.swift; sourceTree = "<group>"; };
 		B45763C6233A674E003AE3A5 /* TreeSolution.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TreeSolution.swift; sourceTree = "<group>"; };
+		B45853542386D899005A4FFA /* LXDBacktraceLogger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LXDBacktraceLogger.m; sourceTree = "<group>"; };
+		B45853552386D899005A4FFA /* LXDBacktraceLogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LXDBacktraceLogger.h; sourceTree = "<group>"; };
+		B45853562386D899005A4FFA /* LXDAppFluecyMonitor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LXDAppFluecyMonitor.h; sourceTree = "<group>"; };
+		B45853572386D899005A4FFA /* LXDAppFluecyMonitor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LXDAppFluecyMonitor.m; sourceTree = "<group>"; };
+		B458535D2386D8EB005A4FFA /* Swift-Sugar-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Swift-Sugar-Bridging-Header.h"; sourceTree = "<group>"; };
+		B45853622386D95E005A4FFA /* MonitorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonitorViewController.swift; sourceTree = "<group>"; };
 		B459B5EE22CCF0A700DEEA87 /* Solution.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Solution.swift; sourceTree = "<group>"; };
 		B461A4C1234E3D660054B907 /* HeapModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeapModel.swift; sourceTree = "<group>"; };
 		B49D61DB23390BA700ED9352 /* UIView+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
@@ -125,6 +134,9 @@
 		B425AC672252526000B02B77 /* Swift_SweetSugar */ = {
 			isa = PBXGroup;
 			children = (
+				B458535E2386D92F005A4FFA /* OtherVC */,
+				B458535D2386D8EB005A4FFA /* Swift-Sugar-Bridging-Header.h */,
+				B45853522386D899005A4FFA /* LXDAppFluecyMonitor */,
 				B459B5ED22CCF08100DEEA87 /* Algorithm */,
 				B425AC962252526800B02B77 /* Extension */,
 				B425AC682252526000B02B77 /* AppDelegate.swift */,
@@ -175,6 +187,33 @@
 				B461A4C1234E3D660054B907 /* HeapModel.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		B45853522386D899005A4FFA /* LXDAppFluecyMonitor */ = {
+			isa = PBXGroup;
+			children = (
+				B45853532386D899005A4FFA /* Backtrace */,
+				B45853562386D899005A4FFA /* LXDAppFluecyMonitor.h */,
+				B45853572386D899005A4FFA /* LXDAppFluecyMonitor.m */,
+			);
+			path = LXDAppFluecyMonitor;
+			sourceTree = "<group>";
+		};
+		B45853532386D899005A4FFA /* Backtrace */ = {
+			isa = PBXGroup;
+			children = (
+				B45853542386D899005A4FFA /* LXDBacktraceLogger.m */,
+				B45853552386D899005A4FFA /* LXDBacktraceLogger.h */,
+			);
+			path = Backtrace;
+			sourceTree = "<group>";
+		};
+		B458535E2386D92F005A4FFA /* OtherVC */ = {
+			isa = PBXGroup;
+			children = (
+				B45853622386D95E005A4FFA /* MonitorViewController.swift */,
+			);
+			path = OtherVC;
 			sourceTree = "<group>";
 		};
 		B459B5ED22CCF08100DEEA87 /* Algorithm */ = {
@@ -344,12 +383,15 @@
 				B45763C7233A674E003AE3A5 /* TreeSolution.swift in Sources */,
 				B4B69E75233E55950061AF93 /* BaseSort.swift in Sources */,
 				DFF332AA2328C5DE0015295C /* Bundle+MM_extension.swift in Sources */,
+				B45853632386D95E005A4FFA /* MonitorViewController.swift in Sources */,
 				B49D61DE23390BA700ED9352 /* DispatchTime+MM_Extension.swift in Sources */,
 				DF128F3F232F2FF900491475 /* CommonModel.swift in Sources */,
 				B4B69E78233E55D40061AF93 /* CreateTool.swift in Sources */,
 				B425AC6B2252526000B02B77 /* ViewController.swift in Sources */,
 				DF128F3D232F2C5A00491475 /* Date+MM_Extension.swift in Sources */,
 				B461A4C2234E3D660054B907 /* HeapModel.swift in Sources */,
+				B45853582386D899005A4FFA /* LXDBacktraceLogger.m in Sources */,
+				B45853592386D899005A4FFA /* LXDAppFluecyMonitor.m in Sources */,
 				B425AC982252529A00B02B77 /* UIKit+Extension.swift in Sources */,
 				B425AC692252526000B02B77 /* AppDelegate.swift in Sources */,
 				B49D61DD23390BA700ED9352 /* UIView+Extension.swift in Sources */,
@@ -536,6 +578,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.mm.CoreTextDemo.Swift-SweetSugar";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "/Users/mumu/Documents/Git_Pro/Swift_SweetSugar/Swift_SweetSugar/Swift_SweetSugar/Swift-Sugar-Bridging-Header.h";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -553,6 +596,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.mm.CoreTextDemo.Swift-SweetSugar";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "/Users/mumu/Documents/Git_Pro/Swift_SweetSugar/Swift_SweetSugar/Swift_SweetSugar/Swift-Sugar-Bridging-Header.h";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
