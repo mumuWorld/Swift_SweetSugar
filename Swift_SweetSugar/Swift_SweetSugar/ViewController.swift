@@ -8,6 +8,7 @@
 
 import UIKit
 import Kingfisher
+import os
 
 enum Season: Int {
     case spring = 0,summer
@@ -81,9 +82,34 @@ class ViewController: UIViewController {
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+//        let parsingLog = OSLog(subsystem: "com.coderhg.json", category: "Sort")
+//        os_signpost(.begin, log: parsingLog, name: "Sort", "Sort started")
 //        sum2()
-        arc4random_stir()
-        sort()
+//        arc4random_stir()
+//        sort()
+//        os_signpost(.end, log: parsingLog, name: "Sort", "Sort End")
+           // log 句柄
+            let parsingLog = OSLog(subsystem: "com.coderhg.json", category: "JSONDecode")
+            
+            // 开始
+            os_signpost(.begin, log: parsingLog, name: "Parsing", "Parsing started")
+            
+            // 模拟: Decode the JSON we just downloaded
+            let size = jsonDecode()
+            
+            // 结束
+            os_signpost(.end, log: parsingLog, name: "Parsing", "Parsing finished SIZE:%ld", size)
+    }
+    
+    /// 模拟事件
+    func jsonDecode() -> UInt32 {
+        // 0 ~ 3.0 秒的时间
+        let timeOut = (arc4random()%6)/2
+        sleep(timeOut)
+        
+        // 模拟当前解析字符串的大小
+        let size = arc4random()%100 + 10
+        return size
     }
     
     func sum1() -> Void {
@@ -97,14 +123,15 @@ class ViewController: UIViewController {
         let result =  strSolution.longestPalindrome(str)
         print(result)
     }
+    
     func sort() -> Void {
                 let randomArr = CreateTool.createIntArray(count: 10, minP: 10, maxP: 1000)
 
 //        let arr = [77, 27, 44, 73, 30, 33,  20]
         mm_printLog(message: randomArr)
-        let merge = MergeSort(arr: randomArr).sort()
-//        let quick = QuickSort().sort(arr: randomArr)
-        mm_printLog(message: merge)
+//        let merge = MergeSort(arr: randomArr).sort()
+        let quick = QuickSort().sort(arr: randomArr)
+        mm_printLog(message: quick)
 //        print(randomArr)
 //        CreateTool.timeRecord(title: "冒泡") {
 ////            BaseSort.popSort(arr: &randomArr)
