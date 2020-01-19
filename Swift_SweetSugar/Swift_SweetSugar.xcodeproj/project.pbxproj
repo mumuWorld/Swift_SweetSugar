@@ -3,10 +3,12 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		28A507479ECE4589E15E1031 /* Pods_Swift_SweetSugar_Swift_SweetSugarUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B848029ED193933CC2D84BE /* Pods_Swift_SweetSugar_Swift_SweetSugarUITests.framework */; };
+		A0396A2258FA5779AF29F082 /* Pods_Swift_SweetSugarTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2941FEBD81CA692F50BC3FD2 /* Pods_Swift_SweetSugarTests.framework */; };
 		B425AC692252526000B02B77 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B425AC682252526000B02B77 /* AppDelegate.swift */; };
 		B425AC6B2252526000B02B77 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B425AC6A2252526000B02B77 /* ViewController.swift */; };
 		B425AC6E2252526000B02B77 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B425AC6C2252526000B02B77 /* Main.storyboard */; };
@@ -22,6 +24,7 @@
 		B45853632386D95E005A4FFA /* MonitorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B45853622386D95E005A4FFA /* MonitorViewController.swift */; };
 		B459B5EF22CCF0A700DEEA87 /* Solution.swift in Sources */ = {isa = PBXBuildFile; fileRef = B459B5EE22CCF0A700DEEA87 /* Solution.swift */; };
 		B461A4C2234E3D660054B907 /* HeapModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B461A4C1234E3D660054B907 /* HeapModel.swift */; };
+		B46FED52238C2FA30023F0FA /* GCDTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B46FED51238C2FA30023F0FA /* GCDTest.swift */; };
 		B49D61DD23390BA700ED9352 /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B49D61DB23390BA700ED9352 /* UIView+Extension.swift */; };
 		B49D61DE23390BA700ED9352 /* DispatchTime+MM_Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B49D61DC23390BA700ED9352 /* DispatchTime+MM_Extension.swift */; };
 		B4B69E75233E55950061AF93 /* BaseSort.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4B69E74233E55950061AF93 /* BaseSort.swift */; };
@@ -29,8 +32,14 @@
 		DF0D36E8235D705C006EE6D5 /* LeeCodeTrueSubject.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF0D36E7235D705C006EE6D5 /* LeeCodeTrueSubject.swift */; };
 		DF128F3D232F2C5A00491475 /* Date+MM_Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF128F3C232F2C5A00491475 /* Date+MM_Extension.swift */; };
 		DF128F3F232F2FF900491475 /* CommonModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF128F3E232F2FF900491475 /* CommonModel.swift */; };
+		DF2ED5D8238546F7001617F8 /* Stack.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF2ED5D7238546F7001617F8 /* Stack.swift */; };
+		DF2ED5DA23854856001617F8 /* Queue.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF2ED5D923854856001617F8 /* Queue.swift */; };
+		DF2ED5DC2386219A001617F8 /* QuickSort.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF2ED5DB2386219A001617F8 /* QuickSort.swift */; };
+		DF2ED5F12387BCB7001617F8 /* MergeSort.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF2ED5F02387BCB7001617F8 /* MergeSort.swift */; };
+		DF2ED5F52387C31F001617F8 /* Sort.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF2ED5F42387C31F001617F8 /* Sort.swift */; };
 		DF9227E722CB07A600ABB221 /* UIColor+MM_Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF9227E622CB07A600ABB221 /* UIColor+MM_Extension.swift */; };
 		DFF332AA2328C5DE0015295C /* Bundle+MM_extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFF332A92328C5DE0015295C /* Bundle+MM_extension.swift */; };
+		E2F379AE7FBB9740FD285199 /* Pods_Swift_SweetSugar.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D7F28C83142AE50A58FF1D0E /* Pods_Swift_SweetSugar.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +60,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2028267AE1A8AD89F66A9103 /* Pods-Swift_SweetSugar-Swift_SweetSugarUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Swift_SweetSugar-Swift_SweetSugarUITests.debug.xcconfig"; path = "Target Support Files/Pods-Swift_SweetSugar-Swift_SweetSugarUITests/Pods-Swift_SweetSugar-Swift_SweetSugarUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		2941FEBD81CA692F50BC3FD2 /* Pods_Swift_SweetSugarTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Swift_SweetSugarTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5517FE394A1BE726129E9488 /* Pods-Swift_SweetSugarTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Swift_SweetSugarTests.release.xcconfig"; path = "Target Support Files/Pods-Swift_SweetSugarTests/Pods-Swift_SweetSugarTests.release.xcconfig"; sourceTree = "<group>"; };
+		5B848029ED193933CC2D84BE /* Pods_Swift_SweetSugar_Swift_SweetSugarUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Swift_SweetSugar_Swift_SweetSugarUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		673050F51396BFDC2DD7DD6F /* Pods-Swift_SweetSugarTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Swift_SweetSugarTests.debug.xcconfig"; path = "Target Support Files/Pods-Swift_SweetSugarTests/Pods-Swift_SweetSugarTests.debug.xcconfig"; sourceTree = "<group>"; };
 		B425AC652252526000B02B77 /* Swift_SweetSugar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Swift_SweetSugar.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B425AC682252526000B02B77 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B425AC6A2252526000B02B77 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -75,15 +89,25 @@
 		B45853622386D95E005A4FFA /* MonitorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonitorViewController.swift; sourceTree = "<group>"; };
 		B459B5EE22CCF0A700DEEA87 /* Solution.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Solution.swift; sourceTree = "<group>"; };
 		B461A4C1234E3D660054B907 /* HeapModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeapModel.swift; sourceTree = "<group>"; };
+		B46FED51238C2FA30023F0FA /* GCDTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GCDTest.swift; sourceTree = "<group>"; };
 		B49D61DB23390BA700ED9352 /* UIView+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
 		B49D61DC23390BA700ED9352 /* DispatchTime+MM_Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "DispatchTime+MM_Extension.swift"; sourceTree = "<group>"; };
 		B4B69E74233E55950061AF93 /* BaseSort.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseSort.swift; sourceTree = "<group>"; };
 		B4B69E77233E55D40061AF93 /* CreateTool.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateTool.swift; sourceTree = "<group>"; };
+		C2ACA8F3D60150B1196BFC32 /* Pods-Swift_SweetSugar.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Swift_SweetSugar.debug.xcconfig"; path = "Target Support Files/Pods-Swift_SweetSugar/Pods-Swift_SweetSugar.debug.xcconfig"; sourceTree = "<group>"; };
+		D7F28C83142AE50A58FF1D0E /* Pods_Swift_SweetSugar.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Swift_SweetSugar.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DF0D36E7235D705C006EE6D5 /* LeeCodeTrueSubject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeeCodeTrueSubject.swift; sourceTree = "<group>"; };
 		DF128F3C232F2C5A00491475 /* Date+MM_Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Date+MM_Extension.swift"; sourceTree = "<group>"; };
 		DF128F3E232F2FF900491475 /* CommonModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonModel.swift; sourceTree = "<group>"; };
+		DF2ED5D7238546F7001617F8 /* Stack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stack.swift; sourceTree = "<group>"; };
+		DF2ED5D923854856001617F8 /* Queue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Queue.swift; sourceTree = "<group>"; };
+		DF2ED5DB2386219A001617F8 /* QuickSort.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuickSort.swift; sourceTree = "<group>"; };
+		DF2ED5F02387BCB7001617F8 /* MergeSort.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MergeSort.swift; sourceTree = "<group>"; };
+		DF2ED5F42387C31F001617F8 /* Sort.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sort.swift; sourceTree = "<group>"; };
 		DF9227E622CB07A600ABB221 /* UIColor+MM_Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+MM_Extension.swift"; sourceTree = "<group>"; };
 		DFF332A92328C5DE0015295C /* Bundle+MM_extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bundle+MM_extension.swift"; sourceTree = "<group>"; };
+		E91559239FA7BD9C330F7798 /* Pods-Swift_SweetSugar.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Swift_SweetSugar.release.xcconfig"; path = "Target Support Files/Pods-Swift_SweetSugar/Pods-Swift_SweetSugar.release.xcconfig"; sourceTree = "<group>"; };
+		EF72E443349B2F9714AEBC68 /* Pods-Swift_SweetSugar-Swift_SweetSugarUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Swift_SweetSugar-Swift_SweetSugarUITests.release.xcconfig"; path = "Target Support Files/Pods-Swift_SweetSugar-Swift_SweetSugarUITests/Pods-Swift_SweetSugar-Swift_SweetSugarUITests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -91,6 +115,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E2F379AE7FBB9740FD285199 /* Pods_Swift_SweetSugar.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -98,6 +123,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A0396A2258FA5779AF29F082 /* Pods_Swift_SweetSugarTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -105,12 +131,36 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				28A507479ECE4589E15E1031 /* Pods_Swift_SweetSugar_Swift_SweetSugarUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4E6714CB298AA82AC607BC91 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				C2ACA8F3D60150B1196BFC32 /* Pods-Swift_SweetSugar.debug.xcconfig */,
+				E91559239FA7BD9C330F7798 /* Pods-Swift_SweetSugar.release.xcconfig */,
+				2028267AE1A8AD89F66A9103 /* Pods-Swift_SweetSugar-Swift_SweetSugarUITests.debug.xcconfig */,
+				EF72E443349B2F9714AEBC68 /* Pods-Swift_SweetSugar-Swift_SweetSugarUITests.release.xcconfig */,
+				673050F51396BFDC2DD7DD6F /* Pods-Swift_SweetSugarTests.debug.xcconfig */,
+				5517FE394A1BE726129E9488 /* Pods-Swift_SweetSugarTests.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		A4A95448E64B4A94ABF19911 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				D7F28C83142AE50A58FF1D0E /* Pods_Swift_SweetSugar.framework */,
+				5B848029ED193933CC2D84BE /* Pods_Swift_SweetSugar_Swift_SweetSugarUITests.framework */,
+				2941FEBD81CA692F50BC3FD2 /* Pods_Swift_SweetSugarTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		B425AC5C2252526000B02B77 = {
 			isa = PBXGroup;
 			children = (
@@ -118,6 +168,8 @@
 				B425AC7C2252526200B02B77 /* Swift_SweetSugarTests */,
 				B425AC872252526200B02B77 /* Swift_SweetSugarUITests */,
 				B425AC662252526000B02B77 /* Products */,
+				4E6714CB298AA82AC607BC91 /* Pods */,
+				A4A95448E64B4A94ABF19911 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -134,6 +186,7 @@
 		B425AC672252526000B02B77 /* Swift_SweetSugar */ = {
 			isa = PBXGroup;
 			children = (
+				B46FED50238C2F6B0023F0FA /* GCDTest */,
 				B458535E2386D92F005A4FFA /* OtherVC */,
 				B458535D2386D8EB005A4FFA /* Swift-Sugar-Bridging-Header.h */,
 				B45853522386D899005A4FFA /* LXDAppFluecyMonitor */,
@@ -185,6 +238,8 @@
 			children = (
 				DF128F3E232F2FF900491475 /* CommonModel.swift */,
 				B461A4C1234E3D660054B907 /* HeapModel.swift */,
+				DF2ED5D7238546F7001617F8 /* Stack.swift */,
+				DF2ED5D923854856001617F8 /* Queue.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -219,6 +274,7 @@
 		B459B5ED22CCF08100DEEA87 /* Algorithm */ = {
 			isa = PBXGroup;
 			children = (
+				DF2ED5EF2387BCA7001617F8 /* Sort */,
 				DF0D36E6235D701B006EE6D5 /* 动态规划 */,
 				B4B69E76233E55BD0061AF93 /* Tool */,
 				B45763C8233A68D6003AE3A5 /* Model */,
@@ -228,6 +284,14 @@
 				B4B69E74233E55950061AF93 /* BaseSort.swift */,
 			);
 			path = Algorithm;
+			sourceTree = "<group>";
+		};
+		B46FED50238C2F6B0023F0FA /* GCDTest */ = {
+			isa = PBXGroup;
+			children = (
+				B46FED51238C2FA30023F0FA /* GCDTest.swift */,
+			);
+			path = GCDTest;
 			sourceTree = "<group>";
 		};
 		B4B69E76233E55BD0061AF93 /* Tool */ = {
@@ -246,6 +310,16 @@
 			path = "动态规划";
 			sourceTree = "<group>";
 		};
+		DF2ED5EF2387BCA7001617F8 /* Sort */ = {
+			isa = PBXGroup;
+			children = (
+				DF2ED5DB2386219A001617F8 /* QuickSort.swift */,
+				DF2ED5F02387BCB7001617F8 /* MergeSort.swift */,
+				DF2ED5F42387C31F001617F8 /* Sort.swift */,
+			);
+			path = Sort;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -253,9 +327,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = B425AC8D2252526200B02B77 /* Build configuration list for PBXNativeTarget "Swift_SweetSugar" */;
 			buildPhases = (
+				FD6E8D8522F8722E8F38846A /* [CP] Check Pods Manifest.lock */,
 				B425AC612252526000B02B77 /* Sources */,
 				B425AC622252526000B02B77 /* Frameworks */,
 				B425AC632252526000B02B77 /* Resources */,
+				63DDD9DEBBD9399D37CA83E9 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -270,6 +346,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = B425AC902252526200B02B77 /* Build configuration list for PBXNativeTarget "Swift_SweetSugarTests" */;
 			buildPhases = (
+				0CDFF99E0707615BAA1176DE /* [CP] Check Pods Manifest.lock */,
 				B425AC752252526200B02B77 /* Sources */,
 				B425AC762252526200B02B77 /* Frameworks */,
 				B425AC772252526200B02B77 /* Resources */,
@@ -288,9 +365,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = B425AC932252526200B02B77 /* Build configuration list for PBXNativeTarget "Swift_SweetSugarUITests" */;
 			buildPhases = (
+				26D5B3C8D023FD4A58340921 /* [CP] Check Pods Manifest.lock */,
 				B425AC802252526200B02B77 /* Sources */,
 				B425AC812252526200B02B77 /* Frameworks */,
 				B425AC822252526200B02B77 /* Resources */,
+				D93967D7928A6650F3469CA4 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -372,6 +451,109 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		0CDFF99E0707615BAA1176DE /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Swift_SweetSugarTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		26D5B3C8D023FD4A58340921 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Swift_SweetSugar-Swift_SweetSugarUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		63DDD9DEBBD9399D37CA83E9 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Swift_SweetSugar/Pods-Swift_SweetSugar-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Swift_SweetSugar/Pods-Swift_SweetSugar-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Swift_SweetSugar/Pods-Swift_SweetSugar-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D93967D7928A6650F3469CA4 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Swift_SweetSugar-Swift_SweetSugarUITests/Pods-Swift_SweetSugar-Swift_SweetSugarUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Swift_SweetSugar-Swift_SweetSugarUITests/Pods-Swift_SweetSugar-Swift_SweetSugarUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Swift_SweetSugar-Swift_SweetSugarUITests/Pods-Swift_SweetSugar-Swift_SweetSugarUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		FD6E8D8522F8722E8F38846A /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Swift_SweetSugar-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		B425AC612252526000B02B77 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -380,21 +562,27 @@
 				B459B5EF22CCF0A700DEEA87 /* Solution.swift in Sources */,
 				B4417A3322CE42AC00818FA0 /* StringSolution.swift in Sources */,
 				DF0D36E8235D705C006EE6D5 /* LeeCodeTrueSubject.swift in Sources */,
+				DF2ED5D8238546F7001617F8 /* Stack.swift in Sources */,
 				B45763C7233A674E003AE3A5 /* TreeSolution.swift in Sources */,
 				B4B69E75233E55950061AF93 /* BaseSort.swift in Sources */,
 				DFF332AA2328C5DE0015295C /* Bundle+MM_extension.swift in Sources */,
 				B45853632386D95E005A4FFA /* MonitorViewController.swift in Sources */,
+				DF2ED5DA23854856001617F8 /* Queue.swift in Sources */,
 				B49D61DE23390BA700ED9352 /* DispatchTime+MM_Extension.swift in Sources */,
 				DF128F3F232F2FF900491475 /* CommonModel.swift in Sources */,
+				DF2ED5DC2386219A001617F8 /* QuickSort.swift in Sources */,
+				DF2ED5F52387C31F001617F8 /* Sort.swift in Sources */,
 				B4B69E78233E55D40061AF93 /* CreateTool.swift in Sources */,
 				B425AC6B2252526000B02B77 /* ViewController.swift in Sources */,
 				DF128F3D232F2C5A00491475 /* Date+MM_Extension.swift in Sources */,
+				DF2ED5F12387BCB7001617F8 /* MergeSort.swift in Sources */,
 				B461A4C2234E3D660054B907 /* HeapModel.swift in Sources */,
 				B45853582386D899005A4FFA /* LXDBacktraceLogger.m in Sources */,
 				B45853592386D899005A4FFA /* LXDAppFluecyMonitor.m in Sources */,
 				B425AC982252529A00B02B77 /* UIKit+Extension.swift in Sources */,
 				B425AC692252526000B02B77 /* AppDelegate.swift in Sources */,
 				B49D61DD23390BA700ED9352 /* UIView+Extension.swift in Sources */,
+				B46FED52238C2FA30023F0FA /* GCDTest.swift in Sources */,
 				DF9227E722CB07A600ABB221 /* UIColor+MM_Extension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -568,15 +756,18 @@
 		};
 		B425AC8E2252526200B02B77 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C2ACA8F3D60150B1196BFC32 /* Pods-Swift_SweetSugar.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = QVSN8UVQ39;
 				INFOPLIST_FILE = Swift_SweetSugar/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.mm.CoreTextDemo.Swift-SweetSugar";
+				PRODUCT_BUNDLE_IDENTIFIER = com.mm.test.demo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "/Users/mumu/Documents/Git_Pro/Swift_SweetSugar/Swift_SweetSugar/Swift_SweetSugar/Swift-Sugar-Bridging-Header.h";
 				SWIFT_VERSION = 4.2;
@@ -586,15 +777,18 @@
 		};
 		B425AC8F2252526200B02B77 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E91559239FA7BD9C330F7798 /* Pods-Swift_SweetSugar.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = QVSN8UVQ39;
 				INFOPLIST_FILE = Swift_SweetSugar/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.mm.CoreTextDemo.Swift-SweetSugar";
+				PRODUCT_BUNDLE_IDENTIFIER = com.mm.test.demo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "/Users/mumu/Documents/Git_Pro/Swift_SweetSugar/Swift_SweetSugar/Swift_SweetSugar/Swift-Sugar-Bridging-Header.h";
 				SWIFT_VERSION = 4.2;
@@ -604,6 +798,7 @@
 		};
 		B425AC912252526200B02B77 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 673050F51396BFDC2DD7DD6F /* Pods-Swift_SweetSugarTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -624,6 +819,7 @@
 		};
 		B425AC922252526200B02B77 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5517FE394A1BE726129E9488 /* Pods-Swift_SweetSugarTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -644,6 +840,7 @@
 		};
 		B425AC942252526200B02B77 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2028267AE1A8AD89F66A9103 /* Pods-Swift_SweetSugar-Swift_SweetSugarUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -663,6 +860,7 @@
 		};
 		B425AC952252526200B02B77 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = EF72E443349B2F9714AEBC68 /* Pods-Swift_SweetSugar-Swift_SweetSugarUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;

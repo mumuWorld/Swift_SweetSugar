@@ -7,8 +7,8 @@
 //
 
 import Foundation
-
-struct Heap<Element> {
+//where Element: Comparable
+struct Heap<Element>  {
     ///存放元素的数组
     var elements: [Element]
     //比较两个元素大小的方法
@@ -19,7 +19,6 @@ struct Heap<Element> {
         self.priorityFunction = priorityFunction // 3
         buildHeap() // 4
     }
-    
     
     /// 批量建堆
     mutating func buildHeap() {
