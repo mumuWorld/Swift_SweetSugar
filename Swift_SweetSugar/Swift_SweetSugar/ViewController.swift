@@ -26,8 +26,10 @@ class ViewController: UIViewController {
 //        let arr = CreateTool.createIntArray(count: 10, minP: 0, maxP: 100)
         //        if let octor = CFAllocatorGetDefault() {
 
-        
-      
+        var arr:[Int] = [114,117]
+        var consolution: LeetCodeTureSubject = LeetCodeTureSubject()
+        let result = consolution.rob(arr);
+        mm_printsLog(result)
     }
     
     override func viewDidAppear(_ animated: Bool) {
