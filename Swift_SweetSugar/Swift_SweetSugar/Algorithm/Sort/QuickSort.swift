@@ -66,7 +66,7 @@ class QuickSort<E> where E: Comparable{
             }
         }
         elelments[tBegin] = pivot
-        mm_printLog(message: elelments)
+        mm_printLog(elelments)
         return tBegin
     }
 

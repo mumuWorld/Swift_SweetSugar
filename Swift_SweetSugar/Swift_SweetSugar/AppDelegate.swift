@@ -44,7 +44,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 }
 
-func mm_printLog<T>(message : T, file : String = #file, funcName : String = #function, lineNum : Int = #line) {
+func mm_printLog<T>(_ message : T, file : String = #file, funcName : String = #function, lineNum : Int = #line) {
 
     #if DEBUG
     // 1.获取文件名,包含后缀名

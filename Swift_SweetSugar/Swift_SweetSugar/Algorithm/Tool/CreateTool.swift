@@ -22,9 +22,9 @@ class CreateTool {
     class func timeRecord(title: String, call: () -> ()) -> Void {
 //        CFAbsoluteTimeGetCurrent()
         let startTime = CACurrentMediaTime()
-        mm_printLog(message: "\(title)-计时开始 ->")
+        mm_printLog("\(title)-计时开始 ->")
         call()
         let endTime = CACurrentMediaTime()
-        mm_printLog(message: "结束耗时 -> \(String(format: "%0.5f", (endTime - startTime)))")
+        mm_printLog("结束耗时 -> \(String(format: "%0.5f", (endTime - startTime)))")
     }
 }

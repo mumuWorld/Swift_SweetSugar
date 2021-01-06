@@ -13,11 +13,11 @@ class GCDTest {
         let ser = DispatchQueue(label: "serial")
         let con = DispatchQueue(label: "con", qos: .default, attributes: .concurrent, autoreleaseFrequency: .inherit, target: nil)
         ser.async {
-            mm_printLog(message: "1")
+            mm_printLog("1")
             DispatchQueue.global().async {
-                mm_printLog(message: "2")
+                mm_printLog("2")
                 DispatchQueue.main.async {
-                    mm_printLog(message: "3")
+                    mm_printLog("3")
                 }
             }
         }

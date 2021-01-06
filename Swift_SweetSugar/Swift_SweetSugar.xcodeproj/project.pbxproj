@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		28A507479ECE4589E15E1031 /* Pods_Swift_SweetSugar_Swift_SweetSugarUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B848029ED193933CC2D84BE /* Pods_Swift_SweetSugar_Swift_SweetSugarUITests.framework */; };
 		A0396A2258FA5779AF29F082 /* Pods_Swift_SweetSugarTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2941FEBD81CA692F50BC3FD2 /* Pods_Swift_SweetSugarTests.framework */; };
+		B422B29025A3158800293646 /* MMFileManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B422B28F25A3158800293646 /* MMFileManager.swift */; };
+		B422B29725A3167200293646 /* MMFileTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B422B29625A3167200293646 /* MMFileTest.swift */; };
+		B422B2A525A3194500293646 /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B422B2A425A3194500293646 /* String+Extension.swift */; };
 		B425AC692252526000B02B77 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B425AC682252526000B02B77 /* AppDelegate.swift */; };
 		B425AC6B2252526000B02B77 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B425AC6A2252526000B02B77 /* ViewController.swift */; };
 		B425AC6E2252526000B02B77 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B425AC6C2252526000B02B77 /* Main.storyboard */; };
@@ -67,6 +70,9 @@
 		5517FE394A1BE726129E9488 /* Pods-Swift_SweetSugarTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Swift_SweetSugarTests.release.xcconfig"; path = "Target Support Files/Pods-Swift_SweetSugarTests/Pods-Swift_SweetSugarTests.release.xcconfig"; sourceTree = "<group>"; };
 		5B848029ED193933CC2D84BE /* Pods_Swift_SweetSugar_Swift_SweetSugarUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Swift_SweetSugar_Swift_SweetSugarUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		673050F51396BFDC2DD7DD6F /* Pods-Swift_SweetSugarTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Swift_SweetSugarTests.debug.xcconfig"; path = "Target Support Files/Pods-Swift_SweetSugarTests/Pods-Swift_SweetSugarTests.debug.xcconfig"; sourceTree = "<group>"; };
+		B422B28F25A3158800293646 /* MMFileManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MMFileManager.swift; sourceTree = "<group>"; };
+		B422B29625A3167200293646 /* MMFileTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MMFileTest.swift; sourceTree = "<group>"; };
+		B422B2A425A3194500293646 /* String+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
 		B425AC652252526000B02B77 /* Swift_SweetSugar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Swift_SweetSugar.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B425AC682252526000B02B77 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B425AC6A2252526000B02B77 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -166,6 +172,14 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		B422B29525A3165F00293646 /* FileTool */ = {
+			isa = PBXGroup;
+			children = (
+				B422B29625A3167200293646 /* MMFileTest.swift */,
+			);
+			path = FileTool;
+			sourceTree = "<group>";
+		};
 		B425AC5C2252526000B02B77 = {
 			isa = PBXGroup;
 			children = (
@@ -193,6 +207,7 @@
 		B425AC672252526000B02B77 /* Swift_SweetSugar */ = {
 			isa = PBXGroup;
 			children = (
+				B422B29525A3165F00293646 /* FileTool */,
 				B4A3625124889B2A006696C3 /* Component */,
 				B46FED50238C2F6B0023F0FA /* GCDTest */,
 				B458535E2386D92F005A4FFA /* OtherVC */,
@@ -231,6 +246,7 @@
 		B425AC962252526800B02B77 /* Extension */ = {
 			isa = PBXGroup;
 			children = (
+				B422B2A425A3194500293646 /* String+Extension.swift */,
 				B49D61DC23390BA700ED9352 /* DispatchTime+MM_Extension.swift */,
 				B49D61DB23390BA700ED9352 /* UIView+Extension.swift */,
 				DF128F3C232F2C5A00491475 /* Date+MM_Extension.swift */,
@@ -313,6 +329,7 @@
 		B4A3625124889B2A006696C3 /* Component */ = {
 			isa = PBXGroup;
 			children = (
+				B422B28F25A3158800293646 /* MMFileManager.swift */,
 				B4A3624E24889B26006696C3 /* Timer */,
 			);
 			path = Component;
@@ -620,6 +637,7 @@
 				DFF332AA2328C5DE0015295C /* Bundle+MM_extension.swift in Sources */,
 				B45853632386D95E005A4FFA /* MonitorViewController.swift in Sources */,
 				DF2ED5DA23854856001617F8 /* Queue.swift in Sources */,
+				B422B29025A3158800293646 /* MMFileManager.swift in Sources */,
 				B49D61DE23390BA700ED9352 /* DispatchTime+MM_Extension.swift in Sources */,
 				DF128F3F232F2FF900491475 /* CommonModel.swift in Sources */,
 				DF2ED5DC2386219A001617F8 /* QuickSort.swift in Sources */,
@@ -635,6 +653,8 @@
 				B425AC692252526000B02B77 /* AppDelegate.swift in Sources */,
 				B49D61DD23390BA700ED9352 /* UIView+Extension.swift in Sources */,
 				B46FED52238C2FA30023F0FA /* GCDTest.swift in Sources */,
+				B422B29725A3167200293646 /* MMFileTest.swift in Sources */,
+				B422B2A525A3194500293646 /* String+Extension.swift in Sources */,
 				DF9227E722CB07A600ABB221 /* UIColor+MM_Extension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

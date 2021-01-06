@@ -30,6 +30,8 @@ class ViewController: UIViewController {
         var consolution: LeetCodeTureSubject = LeetCodeTureSubject()
         let result = consolution.rob(arr);
         mm_printsLog(result)
+        
+        MMFileTest.create()
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -57,7 +59,7 @@ class ViewController: UIViewController {
 //        mm_printLog(message: param2 + "test")
         var tValue  = 10
         while tValue > 0 {
-            mm_printLog(message: tValue)
+            mm_printLog(tValue)
         }
         
     }
@@ -77,9 +79,16 @@ class ViewController: UIViewController {
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
 //        sum2()
 //        sort()
-        let vc = MonitorViewController()
-        present(vc, animated: true, completion: nil)
+//        let vc = MonitorViewController()
+//        present(vc, animated: true, completion: nil)
+        MMFileTest().testF_1()
         
+//        do {
+//            try MMFileTest.direcotryProperty()
+//            try MMFileTest.itemProperty()
+//        } catch {
+//
+//        }
     }
     
     func sum1() -> Void {
@@ -97,10 +106,10 @@ class ViewController: UIViewController {
         let randomArr = CreateTool.createIntArray(count: 10, minP: 10, maxP: 1000)
 
 //        let arr = [77, 27, 44, 73, 30, 33,  20]
-        mm_printLog(message: randomArr)
+        mm_printLog(randomArr)
         let merge = MergeSort(arr: randomArr).sort()
 //        let quick = QuickSort().sort(arr: randomArr)
-        mm_printLog(message: merge)
+        mm_printLog(merge)
 //        print(randomArr)
 //        CreateTool.timeRecord(title: "冒泡") {
 ////            BaseSort.popSort(arr: &randomArr)

@@ -31,7 +31,7 @@ class MergeSort<E>: Sort<E>  where E: Comparable {
             return
         }
         let mid = (begin + end) >> 1
-        mm_printLog(message: "mid->\(mid)")
+        mm_printLog("mid->\(mid)")
         sort(begin: begin, end: mid)
         sort(begin: mid, end: end)
         merge(begin: begin, mid: mid, end: end)

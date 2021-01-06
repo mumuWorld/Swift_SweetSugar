@@ -40,7 +40,7 @@ class MonitorViewController: UIViewController {
     }
     
     deinit {
-        mm_printLog(message: "释放->\(self)")
+        mm_printLog("释放->\(self)")
     }
 }
 
