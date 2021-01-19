@@ -1,6 +1,6 @@
 //
 //  MMDispatchTimer.swift
-//  Demo汇总
+//  定时器组件
 //
 //  Created by yangjie on 2019/8/12.
 //  Copyright © 2019 YangJie. All rights reserved.
@@ -29,6 +29,17 @@ class MMDispatchTimer {
         pthread_mutex_destroy(&mutex_lock)
     }
     
+    
+    /// 只有一次的block
+    /// - Parameters:
+    ///   - afterTime: 多少时间后执行
+    ///   - async: 是否异步 default:false
+    ///   - task: 任务
+    /// - Returns: timerkey
+    @discardableResult
+    class func createOnceTimer(afterTime: TimeInterval, async: Bool = false, task: (() -> (Void))?) -> String? {
+        return createTimer(startTime: afterTime, infiniteInterval: 0, isRepeat: false, async: async, task: task)
+    }
     
     /// block定时器
     ///
