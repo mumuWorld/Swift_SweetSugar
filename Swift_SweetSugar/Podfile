@@ -5,6 +5,7 @@ target 'Swift_SweetSugar' do
   # Comment the next line if you don't want to use dynamic frameworks
   use_frameworks!
   pod 'Kingfisher'
+  pod 'HandyJSON'
   # Pods for Swift_SweetSugar
 
   target 'Swift_SweetSugarTests' do
