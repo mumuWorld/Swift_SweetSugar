@@ -19,14 +19,22 @@
             <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <stackView opaque="NO" contentMode="scaleToFill" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="vyg-O4-ulE">
-                    <rect key="frame" x="0.0" y="53" width="72" height="44"/>
+                <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="vyg-O4-ulE">
+                    <rect key="frame" x="8" y="53" width="140" height="44"/>
                     <subviews>
                         <button opaque="NO" tag="10" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Q7v-1Y-qLo">
                             <rect key="frame" x="0.0" y="7" width="72" height="30"/>
                             <state key="normal" title="block_test"/>
                             <connections>
                                 <action selector="handleClick:" destination="-1" eventType="touchUpInside" id="Yh4-rh-ALp"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" tag="11" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9Xf-FD-mcM">
+                            <rect key="frame" x="80" y="7" width="60" height="30"/>
+                            <color key="backgroundColor" red="1" green="0.40000000000000002" blue="0.35686274509999999" alpha="1" colorSpace="calibratedRGB"/>
+                            <state key="normal" title="Wrapper"/>
+                            <connections>
+                                <action selector="handleClick:" destination="-1" eventType="touchUpInside" id="rlR-x8-3VZ"/>
                             </connections>
                         </button>
                     </subviews>
@@ -40,7 +48,7 @@
             <constraints>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="vyg-O4-ulE" secondAttribute="trailing" constant="8" id="Kl8-bD-IG2"/>
                 <constraint firstItem="vyg-O4-ulE" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="9" id="aER-CS-LQa"/>
-                <constraint firstItem="vyg-O4-ulE" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="tmx-nh-Kun"/>
+                <constraint firstItem="vyg-O4-ulE" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="8" id="tmx-nh-Kun"/>
             </constraints>
             <point key="canvasLocation" x="-146.37681159420291" y="29.464285714285712"/>
         </view>

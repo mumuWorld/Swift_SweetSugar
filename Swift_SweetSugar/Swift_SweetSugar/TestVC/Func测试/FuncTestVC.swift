@@ -24,7 +24,9 @@ class FuncTestVC: UIViewController {
         case 10:
             //此代码会造成循环引用
             self.block = testFunc
-            break
+        case 11:
+            //propertyWrapper 测试
+            UserDefaultsUnit.test = "test_str"
         default:
             break
         }
