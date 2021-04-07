@@ -3,20 +3,24 @@ PODS:
   - Kingfisher (5.9.0):
     - Kingfisher/Core (= 5.9.0)
   - Kingfisher/Core (5.9.0)
+  - YYText (1.0.7)
 
 DEPENDENCIES:
   - HandyJSON
   - Kingfisher
+  - YYText
 
 SPEC REPOS:
   trunk:
     - HandyJSON
     - Kingfisher
+    - YYText
 
 SPEC CHECKSUMS:
   HandyJSON: 9e4e236f5d2dbefad5155a77417bbea438201c03
   Kingfisher: ff98240aebb7302bdc4f1ecd701761030ce18b16
+  YYText: 5c461d709e24d55a182d1441c41dc639a18a4849
 
-PODFILE CHECKSUM: 342835514dd133e760e040410516446a59a05be2
+PODFILE CHECKSUM: b02a1101361fef57d92b3d2b847b4bfa865ceb5d
 
 COCOAPODS: 1.10.1

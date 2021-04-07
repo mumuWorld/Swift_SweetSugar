@@ -49,6 +49,9 @@
 		B4B69E78233E55D40061AF93 /* CreateTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4B69E77233E55D40061AF93 /* CreateTool.swift */; };
 		B4BE2D4B26171F7300E84967 /* SubProject_1.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B4BE2D3D26171E9600E84967 /* SubProject_1.framework */; };
 		B4BE2D4C26171F7300E84967 /* SubProject_1.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B4BE2D3D26171E9600E84967 /* SubProject_1.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		B4C6AA0E261D9A9800D4B243 /* GestureTestVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4C6AA0C261D9A9800D4B243 /* GestureTestVC.swift */; };
+		B4C6AA0F261D9A9800D4B243 /* GestureTestVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = B4C6AA0D261D9A9800D4B243 /* GestureTestVC.xib */; };
+		B4C6AA18261D9CE000D4B243 /* MMTouchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4C6AA17261D9CE000D4B243 /* MMTouchView.swift */; };
 		DF0D36E8235D705C006EE6D5 /* LeeCodeTrueSubject.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF0D36E7235D705C006EE6D5 /* LeeCodeTrueSubject.swift */; };
 		DF128F3D232F2C5A00491475 /* Date+MM_Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF128F3C232F2C5A00491475 /* Date+MM_Extension.swift */; };
 		DF128F3F232F2FF900491475 /* CommonModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF128F3E232F2FF900491475 /* CommonModel.swift */; };
@@ -155,6 +158,10 @@
 		B4B69E74233E55950061AF93 /* BaseSort.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseSort.swift; sourceTree = "<group>"; };
 		B4B69E77233E55D40061AF93 /* CreateTool.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateTool.swift; sourceTree = "<group>"; };
 		B4BE2D3826171E9600E84967 /* SubProject_1.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SubProject_1.xcodeproj; path = SubProject_1/SubProject_1.xcodeproj; sourceTree = "<group>"; };
+		B4C6AA0C261D9A9800D4B243 /* GestureTestVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GestureTestVC.swift; sourceTree = "<group>"; };
+		B4C6AA0D261D9A9800D4B243 /* GestureTestVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GestureTestVC.xib; sourceTree = "<group>"; };
+		B4C6AA17261D9CE000D4B243 /* MMTouchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MMTouchView.swift; sourceTree = "<group>"; };
+		B4CC274B261D8D9600472318 /* Kingfisher.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Kingfisher.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C2ACA8F3D60150B1196BFC32 /* Pods-Swift_SweetSugar.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Swift_SweetSugar.debug.xcconfig"; path = "Target Support Files/Pods-Swift_SweetSugar/Pods-Swift_SweetSugar.debug.xcconfig"; sourceTree = "<group>"; };
 		D7F28C83142AE50A58FF1D0E /* Pods_Swift_SweetSugar.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Swift_SweetSugar.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DF0D36E7235D705C006EE6D5 /* LeeCodeTrueSubject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeeCodeTrueSubject.swift; sourceTree = "<group>"; };
@@ -225,6 +232,7 @@
 		A4A95448E64B4A94ABF19911 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				B4CC274B261D8D9600472318 /* Kingfisher.framework */,
 				D7F28C83142AE50A58FF1D0E /* Pods_Swift_SweetSugar.framework */,
 				5B848029ED193933CC2D84BE /* Pods_Swift_SweetSugar_Swift_SweetSugarUITests.framework */,
 				2941FEBD81CA692F50BC3FD2 /* Pods_Swift_SweetSugarTests.framework */,
@@ -235,6 +243,7 @@
 		B4063D59260B49B800F3135E /* TestVC */ = {
 			isa = PBXGroup;
 			children = (
+				B4C6AA0A261D9A8700D4B243 /* Gesture */,
 				B4063DAB260B633500F3135E /* Func测试 */,
 				B4063D98260B609F00F3135E /* UI测试 */,
 				B4063D85260B52EC00F3135E /* View */,
@@ -474,6 +483,24 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		B4C6AA0A261D9A8700D4B243 /* Gesture */ = {
+			isa = PBXGroup;
+			children = (
+				B4C6AA16261D9CCD00D4B243 /* TouchView */,
+				B4C6AA0C261D9A9800D4B243 /* GestureTestVC.swift */,
+				B4C6AA0D261D9A9800D4B243 /* GestureTestVC.xib */,
+			);
+			path = Gesture;
+			sourceTree = "<group>";
+		};
+		B4C6AA16261D9CCD00D4B243 /* TouchView */ = {
+			isa = PBXGroup;
+			children = (
+				B4C6AA17261D9CE000D4B243 /* MMTouchView.swift */,
+			);
+			path = TouchView;
+			sourceTree = "<group>";
+		};
 		DF0D36E6235D701B006EE6D5 /* 动态规划 */ = {
 			isa = PBXGroup;
 			children = (
@@ -648,6 +675,7 @@
 			files = (
 				B425AC732252526200B02B77 /* LaunchScreen.storyboard in Resources */,
 				B4063D67260B4D7100F3135E /* HomeListVC.xib in Resources */,
+				B4C6AA0F261D9A9800D4B243 /* GestureTestVC.xib in Resources */,
 				B4063D73260B4F1300F3135E /* home_list.plist in Resources */,
 				B4063D9C260B60C100F3135E /* UITestVC.xib in Resources */,
 				B4063DAF260B637500F3135E /* FuncTestVC.xib in Resources */,
@@ -804,10 +832,12 @@
 				B4B69E78233E55D40061AF93 /* CreateTool.swift in Sources */,
 				B425AC6B2252526000B02B77 /* ViewController.swift in Sources */,
 				B4063D66260B4D7100F3135E /* HomeListVC.swift in Sources */,
+				B4C6AA0E261D9A9800D4B243 /* GestureTestVC.swift in Sources */,
 				DF128F3D232F2C5A00491475 /* Date+MM_Extension.swift in Sources */,
 				DF2ED5F12387BCB7001617F8 /* MergeSort.swift in Sources */,
 				B461A4C2234E3D660054B907 /* HeapModel.swift in Sources */,
 				B45853582386D899005A4FFA /* LXDBacktraceLogger.m in Sources */,
+				B4C6AA18261D9CE000D4B243 /* MMTouchView.swift in Sources */,
 				B45853592386D899005A4FFA /* LXDAppFluecyMonitor.m in Sources */,
 				B4063DA6260B618A00F3135E /* ConstParams.swift in Sources */,
 				B425AC982252529A00B02B77 /* UIKit+Extension.swift in Sources */,

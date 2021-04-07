@@ -33,6 +33,7 @@ class FuncTestVC: UIViewController {
         default:
             break
         }
+        mm_printLog("->\(self.block) -> \(String(describing: testFunc))")
     }
 
     func testFunc() -> Void {

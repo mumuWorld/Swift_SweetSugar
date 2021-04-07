@@ -6,6 +6,7 @@ target 'Swift_SweetSugar' do
   use_frameworks!
   pod 'Kingfisher'
   pod 'HandyJSON'
+  pod 'YYText'
   # Pods for Swift_SweetSugar
 
   target 'Swift_SweetSugarTests' do

@@ -34,6 +34,7 @@
 			children = (
 				B4BE2D1E26171C7600E84967 /* SubProject_1 */,
 				B4BE2D1D26171C7600E84967 /* Products */,
+				B4CC2737261D8C3300472318 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -53,6 +54,13 @@
 				B4BE2D4326171ED000E84967 /* ProjectOneTool.swift */,
 			);
 			path = SubProject_1;
+			sourceTree = "<group>";
+		};
+		B4CC2737261D8C3300472318 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
