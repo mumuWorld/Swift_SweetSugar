@@ -6,8 +6,12 @@
 //  Copyright © 2021 Mumu. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 let NAME_SPACE: String = {() -> String in
     return Bundle.main.object(forInfoDictionaryKey: "CFBundleExecutable") as! String
 }()
+
+
+let ScreenWidth: CGFloat = UIScreen.main.bounds.width
+

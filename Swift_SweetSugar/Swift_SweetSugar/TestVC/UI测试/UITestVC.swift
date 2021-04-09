@@ -9,18 +9,32 @@
 import UIKit
 import YYText
 
+func creat(_ block:(UIButton)->()) -> UIButton {
+    let btn = UIButton()
+    block(btn)
+    return btn
+}
+
 class UITestVC: UIViewController {
 
     @IBOutlet weak var shadowView: UIView!
     
+    let bar: UIButton = creat { (btn) in
+        mm_printLog("测试调用")
+        btn.backgroundColor = .black
+        btn.addTarget(self, action: #selector(handleClick(sender:)), for: .touchUpInside)
+    }
+    
     var attrText: YYLabel = {
         let label = YYLabel()
         label.numberOfLines = 0
-        label.lineBreakMode = .byCharWrapping
+        label.lineBreakMode = .byWordWrapping
         label.font = UIFont.systemFont(ofSize: 14)
         label.backgroundColor = .cyan
         return label
     }()
+    
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -46,7 +60,7 @@ class UITestVC: UIViewController {
     }
     
     func setupAttr() -> Void {
-        let str = "Your project does not explicitly specify the  tCocoaPodsmaster specs repo. Since CDN is now used as the default, you may safely remove it from your repos directory via `pod repo remove master`. To suppress this warning please add `warn_for_unused_master_specs_repo => false` to your Podfile"
+        let str = "Your project does not explicitly specify the CocoaPodsmassdfssdfter specs repo. Since CDN is now used as the default, you may safely remove it from your repos directory via `pod repo remove master`. To suppress this warning please add `warn_for_unused_master_specs_repo => false` to your Podfile"
         
         let attr = NSMutableAttributedString(string: str)
         attr.addAttribute(NSAttributedString.Key.font, value: attrText.font, range: str.mm_range())
@@ -62,19 +76,29 @@ class UITestVC: UIViewController {
         
         let layout = YYTextLayout(container: container, text: attr)
         
-        if let lines = layout?.lines, (layout?.lines.count ?? 0) > 2 {
+        if let lines = layout?.lines, (layout?.lines.count ?? 0) > 20 {
             let maxRange = lines[1]
-            guard let subAttr = attr.attributedSubstring(from: NSRange(location: 0, length: NSMaxRange(maxRange.range))).mutableCopy() as? NSMutableAttributedString else {
+            guard var subAttr = attr.attributedSubstring(from: NSRange(location: 0, length: NSMaxRange(maxRange.range))).mutableCopy() as? NSMutableAttributedString else {
                 return
             }
             let suffixAttr = beyondAttach()
-            //多减去两个字符
-            subAttr.replaceCharacters(in: NSRange(location: subAttr.length - suffixAttr.length - 1, length: suffixAttr.length), with: suffixAttr)
-            let fitLayout = YYTextLayout(container: container, text: subAttr)
-
+            //判断是否有换行
+            let tmpSubAttr = subAttr.mutableCopy() as! NSMutableAttributedString
+            tmpSubAttr.append(suffixAttr)
+            let tmpLayout = YYTextLayout(container: container, text: tmpSubAttr)
+            
+            var fitLayout: YYTextLayout?
+            
+            if (tmpLayout?.lines.count ?? 0) > 2 {
+                //多减去1个字符
+                subAttr.replaceCharacters(in: NSRange(location: subAttr.length - suffixAttr.length - 1, length: suffixAttr.length), with: suffixAttr)
+                fitLayout = YYTextLayout(container: container, text: subAttr)
+            } else {
+                fitLayout = tmpLayout
+                subAttr = tmpSubAttr
+            }
+            
             attrText.attributedText = subAttr
-            attrText.textLayout = fitLayout
-
             attrText.mm_x = 50
             attrText.mm_y = 200
             attrText.mm_size = CGSize(width: 200, height: fitLayout?.textBoundingSize.height ?? 0)
@@ -90,7 +114,7 @@ class UITestVC: UIViewController {
     }
 
     func beyondAttach() -> NSAttributedString {
-        let attr = NSMutableAttributedString(string: "...")
+        let attr = NSMutableAttributedString(string: " ...")
         attr.addAttribute(NSAttributedString.Key.font, value: attrText.font, range: attr.yy_rangeOfAll())
         
         let btn = UIButton(type: .custom)
@@ -101,5 +125,9 @@ class UITestVC: UIViewController {
         attr.append(attach)
         
         return attr
+    }
+    
+    @objc func handleClick(sender: UIButton) {
+        mm_printLog("点击了")
     }
 }

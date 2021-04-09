@@ -20,7 +20,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="vyg-O4-ulE">
-                    <rect key="frame" x="8" y="53" width="239" height="44"/>
+                    <rect key="frame" x="8" y="53" width="329" height="44"/>
                     <subviews>
                         <button opaque="NO" tag="10" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Q7v-1Y-qLo">
                             <rect key="frame" x="0.0" y="7" width="72" height="30"/>
@@ -43,6 +43,14 @@
                             <state key="normal" title="block_cancel"/>
                             <connections>
                                 <action selector="handleClick:" destination="-1" eventType="touchUpInside" id="zKU-D3-6eu"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" tag="13" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xKR-Wm-los">
+                            <rect key="frame" x="247" y="7" width="82" height="30"/>
+                            <color key="backgroundColor" red="1" green="0.40000000000000002" blue="0.35686274509999999" alpha="1" colorSpace="calibratedRGB"/>
+                            <state key="normal" title="String_print"/>
+                            <connections>
+                                <action selector="handleClick:" destination="-1" eventType="touchUpInside" id="X66-AI-iAP"/>
                             </connections>
                         </button>
                     </subviews>

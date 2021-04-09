@@ -26,5 +26,13 @@
 		<key>showName</key>
 		<string>手势测试</string>
 	</dict>
+	<dict>
+		<key>desc</key>
+		<string>手势测试</string>
+		<key>routerVC</key>
+		<string>CollectionViewController</string>
+		<key>showName</key>
+		<string>手势测试</string>
+	</dict>
 </array>
 </plist>
