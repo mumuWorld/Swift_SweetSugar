@@ -32,6 +32,7 @@ struct UserDefaultWrapper<T> {
 }
 
 struct UserDefaultsUnit {
+    //这里调用的就是 初始化方法
     @UserDefaultWrapper("test")
     static var test: String?
 }
