@@ -206,7 +206,6 @@ extension KingfisherWrapper where Base: KFCrossPlatformImageView {
             options: options,
             progressBlock: progressBlock,
             completionHandler: completionHandler)
-
     }
 
     /// Sets an image to the image view with a data provider.
