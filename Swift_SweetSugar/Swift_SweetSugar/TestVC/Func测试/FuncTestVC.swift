@@ -30,6 +30,10 @@ class FuncTestVC: UIViewController {
             UserDefaultsUnit.test = "test_str"
         case 12:
             cancelBlock()
+        case 13:
+            strTest()
+        case 14:
+            testNumber()
         default:
             break
         }
@@ -68,5 +72,36 @@ extension FuncTestVC {
             opera.cancel()
         }
                 
+    }
+    
+    func strTest() -> Void {
+        let price = 2
+           let number = 3
+           let message = """
+                          If one cookie costs \(price) dollars, \
+                          \(number) cookies cost \(price * number) dollars.
+                        """
+        
+        let message_2 = """
+                if test \n
+            hello \n
+            world
+            """
+        mm_printLog(message)
+        mm_printLog(message_2)
+    }
+    
+    func testNumber() {
+        //0.900000002  0.5
+        let res1 = 1.8 / 2
+        let res2 = 1.0 / 2
+        // 0 0
+        let res3 = Int(1.8 / 2)
+        let res4 = Int(1.0 / 2)
+        // 1 1
+        let res5 = Int(1.9)
+        let res6 = Int(1.1)
+        
+        mm_printsLog(res1, res2)
     }
 }
