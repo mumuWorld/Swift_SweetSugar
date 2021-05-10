@@ -14,5 +14,3 @@ FOUNDATION_EXPORT double SubProject_1VersionNumber;
 FOUNDATION_EXPORT const unsigned char SubProject_1VersionString[];
 
 // In this header, you should import all the public headers of your framework using statements like #import <SubProject_1/PublicHeader.h>
-
-

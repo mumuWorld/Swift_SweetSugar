@@ -1070,7 +1070,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.mm.test.demo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "/Users/mumu/Documents/Git_Pro/Swift_SweetSugar/Swift_SweetSugar/Swift_SweetSugar/Swift-Sugar-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "$(SRCROOT)/Swift_SweetSugar/Swift-Sugar-Bridging-Header.h";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -1095,7 +1095,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.mm.test.demo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "/Users/mumu/Documents/Git_Pro/Swift_SweetSugar/Swift_SweetSugar/Swift_SweetSugar/Swift-Sugar-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "$(SRCROOT)/Swift_SweetSugar/Swift-Sugar-Bridging-Header.h";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
