@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<array>
+	<dict>
+		<key>desc</key>
+		<string>UI测试</string>
+		<key>routerVC</key>
+		<string>UITestVC</string>
+		<key>showName</key>
+		<string>first</string>
+	</dict>
+	<dict>
+		<key>desc</key>
+		<string>功能测试</string>
+		<key>routerVC</key>
+		<string>FuncTestVC</string>
+		<key>showName</key>
+		<string>功能测试</string>
+	</dict>
+	<dict>
+		<key>desc</key>
+		<string>手势测试</string>
+		<key>routerVC</key>
+		<string>GestureTestVC</string>
+		<key>showName</key>
+		<string>手势测试</string>
+	</dict>
+	<dict>
+		<key>desc</key>
+		<string>手势测试</string>
+		<key>routerVC</key>
+		<string>CollectionViewController</string>
+		<key>showName</key>
+		<string>手势测试</string>
+	</dict>
+</array>
+</plist>

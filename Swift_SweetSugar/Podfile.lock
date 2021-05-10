@@ -1,0 +1,30 @@
+PODS:
+  - HandyJSON (5.0.2)
+  - Kingfisher (5.9.0):
+    - Kingfisher/Core (= 5.9.0)
+  - Kingfisher/Core (5.9.0)
+  - SnapKit (5.0.1)
+  - YYText (1.0.7)
+
+DEPENDENCIES:
+  - HandyJSON
+  - Kingfisher
+  - SnapKit
+  - YYText
+
+SPEC REPOS:
+  trunk:
+    - HandyJSON
+    - Kingfisher
+    - SnapKit
+    - YYText
+
+SPEC CHECKSUMS:
+  HandyJSON: 9e4e236f5d2dbefad5155a77417bbea438201c03
+  Kingfisher: ff98240aebb7302bdc4f1ecd701761030ce18b16
+  SnapKit: 97b92857e3df3a0c71833cce143274bf6ef8e5eb
+  YYText: 5c461d709e24d55a182d1441c41dc639a18a4849
+
+PODFILE CHECKSUM: 8850fa6bc90a75321c4ee229754eb3ba8cbc1b95
+
+COCOAPODS: 1.10.1

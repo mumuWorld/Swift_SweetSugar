@@ -93,4 +93,13 @@ extension UIView {
             center = tempCenter;
         }
     }
+    
+    var origin: CGPoint {
+        set {
+            frame.origin = newValue
+        }
+        get {
+            return frame.origin
+        }
+    }
 }

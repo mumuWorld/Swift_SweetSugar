@@ -1,0 +1,6 @@
+framework module Pods_Swift_SweetSugar_Swift_SweetSugarUITests {
+  umbrella header "Pods-Swift_SweetSugar-Swift_SweetSugarUITests-umbrella.h"
+
+  export *
+  module * { export * }
+}
