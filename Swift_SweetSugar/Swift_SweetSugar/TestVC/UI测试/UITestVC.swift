@@ -8,6 +8,7 @@
 
 import UIKit
 import YYText
+import SnapKit
 
 func creat(_ block:(UIButton)->()) -> UIButton {
     let btn = UIButton()
@@ -18,6 +19,15 @@ func creat(_ block:(UIButton)->()) -> UIButton {
 class UITestVC: UIViewController {
 
     @IBOutlet weak var shadowView: UIView!
+    
+    @IBOutlet weak var textView: UITextView!
+    @IBOutlet weak var textView_h: NSLayoutConstraint!
+    
+    @IBOutlet weak var topView: UIView!
+    
+    @IBOutlet weak var bottomView: UIView!
+    
+    @IBOutlet weak var leftView: UIView!
     
     let bar: UIButton = creat { (btn) in
         mm_printLog("测试调用")
@@ -46,6 +56,14 @@ class UITestVC: UIViewController {
         shadowView.layer.shadowRadius = 3
         shadowView.layer.shadowOpacity = 1
         
+//        shadowView.layer.maskedCorners = [.layerMaxXMaxYCorner, .layerMinXMinYCorner]
+        
+        let shadowSub = UIView(frame: CGRect(x: 0, y: -10, width: 30, height: 30))
+        shadowSub.backgroundColor = .red
+        shadowView.addSubview(shadowSub)
+        
+        shadowView.mm_y = 100
+        
         let line: MMDottedLine = MMDottedLine()
         line.mm_size = CGSize(width: 100, height: 10)
         line.test()
@@ -53,10 +71,26 @@ class UITestVC: UIViewController {
         view.addSubview(line)
         
         view.addSubview(attrText)
+        
+        shadowView.layer.anchorPoint = CGPoint(x: 1, y: 0)
+        view.layoutIfNeeded()
+        DispatchQueue.main.async {
+            let origin = self.shadowView.origin
+            self.shadowView.origin = CGPoint(x: origin.x + self.shadowView.mm_width * 0.5, y: origin.y - self.shadowView.mm_height * 0.5)
+        }
+        addConstants()
     }
     
+    var show = false
+    
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        setupAttr()
+//        handleClick(sender: bar)
+        if show {
+            dismiss()
+        } else {
+            showAnimation()
+        }
+        show = !show
     }
     
     func setupAttr() -> Void {
@@ -126,8 +160,73 @@ class UITestVC: UIViewController {
         
         return attr
     }
-    
+    var str = "Your project does not explicitly specify"
     @objc func handleClick(sender: UIButton) {
-        mm_printLog("点击了")
+        
+        str += " a"
+        let attr = getInputAttr(input: str, font: UIFont.systemFont(ofSize: 20))
+        
+        let number = attr.numberOfLine(width: 150)
+        
+        mm_printLog("点击了->\(number)")
+        
+        textView.attributedText = attr
+    }
+}
+
+
+extension UITestVC {
+    func getInputAttr(input: String, font: UIFont) -> NSAttributedString {
+        let paragraph = NSMutableParagraphStyle()
+        paragraph.lineSpacing = 5.0
+        let attribute = NSAttributedString(string: input,
+                                           attributes: [
+                                            NSAttributedString.Key.paragraphStyle: paragraph,
+                                            NSAttributedString.Key.font: font as Any,
+//                                            NSAttributedString.Key.kern: 0.01
+                                           ])
+        return attribute
+    }
+    
+    func showAnimation() -> Void {
+//        view.layoutIfNeeded()
+//        let transfrom = CGAffineTransform(scaleX: 0.4, y: 0.4)
+//        shadowView.transform = transfrom
+//        let origin = shadowView.origin
+//
+//        shadowView.origin = CGPoint(x: origin.x + shadowView.mm_width * 0.5, y: origin.y - shadowView.mm_height * 0.5)
+
+//        shadowView.origin = CGPoint(x: 100, y: 200)
+        let base = CABasicAnimation(keyPath: "transform.scale")
+        base.fromValue = 0.4
+        base.toValue = 1
+
+//        base.
+        shadowView.layer.add(base, forKey: "scale")
+   
+    }
+    func dismiss() -> Void {
+        let base = CABasicAnimation(keyPath: "transform.scale")
+        base.fromValue = 1
+        base.toValue = 0.4
+        
+//        base.
+        shadowView.layer.add(base, forKey: "dismiss")
+    }
+    
+    func addConstants() -> Void {
+        topView.snp.makeConstraints { (make) in
+            make.height.equalTo(10)
+            make.left.equalTo(leftView.snp.right).offset(10)
+            make.trailing.equalTo(-10)
+            make.top.equalTo(leftView)
+        }
+        
+        bottomView.snp.makeConstraints { (make) in
+            make.height.equalTo(10)
+            make.right.equalTo(-10)
+            make.left.equalTo(leftView.snp.right).offset(10)
+            make.top.equalTo(topView.snp.bottom).offset(10)
+        }
     }
 }

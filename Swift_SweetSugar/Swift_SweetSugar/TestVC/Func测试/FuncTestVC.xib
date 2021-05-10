@@ -66,12 +66,61 @@
                         <constraint firstAttribute="height" constant="44" id="euP-Bb-otz"/>
                     </constraints>
                 </stackView>
+                <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="1fS-P6-FT2">
+                    <rect key="frame" x="8" y="105" width="353" height="44"/>
+                    <subviews>
+                        <button opaque="NO" tag="15" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wdm-cd-3Lf">
+                            <rect key="frame" x="0.0" y="7" width="63" height="30"/>
+                            <state key="normal" title="Dict_test"/>
+                            <connections>
+                                <action selector="handleClick:" destination="-1" eventType="touchUpInside" id="8Fc-Ya-Arm"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" tag="16" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ddY-cA-iKD">
+                            <rect key="frame" x="71" y="7" width="32" height="30"/>
+                            <color key="backgroundColor" red="1" green="0.40000000000000002" blue="0.35686274509999999" alpha="1" colorSpace="calibratedRGB"/>
+                            <state key="normal" title="Print"/>
+                            <connections>
+                                <action selector="handleClick:" destination="-1" eventType="touchUpInside" id="53Q-Bf-x0j"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" tag="12" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jds-RL-eT1">
+                            <rect key="frame" x="111" y="7" width="91" height="30"/>
+                            <color key="backgroundColor" red="1" green="0.40000000000000002" blue="0.35686274509999999" alpha="1" colorSpace="calibratedRGB"/>
+                            <state key="normal" title="block_cancel"/>
+                            <connections>
+                                <action selector="handleClick:" destination="-1" eventType="touchUpInside" id="m7G-aW-BKh"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" tag="13" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Le4-YJ-OYX">
+                            <rect key="frame" x="210" y="7" width="82" height="30"/>
+                            <color key="backgroundColor" red="1" green="0.40000000000000002" blue="0.35686274509999999" alpha="1" colorSpace="calibratedRGB"/>
+                            <state key="normal" title="String_print"/>
+                            <connections>
+                                <action selector="handleClick:" destination="-1" eventType="touchUpInside" id="Ljm-3t-g1W"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" tag="14" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hQu-Oy-U4f">
+                            <rect key="frame" x="300" y="7" width="53" height="30"/>
+                            <color key="backgroundColor" red="1" green="0.40000000000000002" blue="0.35686274509999999" alpha="1" colorSpace="calibratedRGB"/>
+                            <state key="normal" title="number"/>
+                            <connections>
+                                <action selector="handleClick:" destination="-1" eventType="touchUpInside" id="Hec-5G-Mmy"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="44" id="srm-yn-zUs"/>
+                    </constraints>
+                </stackView>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
+                <constraint firstItem="1fS-P6-FT2" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="8" id="BfW-w6-YpB"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="vyg-O4-ulE" secondAttribute="trailing" constant="8" id="Kl8-bD-IG2"/>
                 <constraint firstItem="vyg-O4-ulE" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="9" id="aER-CS-LQa"/>
+                <constraint firstItem="1fS-P6-FT2" firstAttribute="top" secondItem="vyg-O4-ulE" secondAttribute="bottom" constant="8" id="ncD-Yb-SkY"/>
                 <constraint firstItem="vyg-O4-ulE" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="8" id="tmx-nh-Kun"/>
             </constraints>
             <point key="canvasLocation" x="-146.37681159420291" y="29.464285714285712"/>

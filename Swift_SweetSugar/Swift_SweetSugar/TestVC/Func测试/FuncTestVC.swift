@@ -15,6 +15,13 @@ class FuncTestVC: UIViewController {
 
     var block: emptyBlock?
     
+    var unit: UITableView = UITableView()
+    
+    lazy var removeItem: UIView? = {
+        let item = UIView()
+        return item
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -34,6 +41,10 @@ class FuncTestVC: UIViewController {
             strTest()
         case 14:
             testNumber()
+        case 15:
+            testDict()
+        case 16:
+            errorTest()
         default:
             break
         }
@@ -103,5 +114,47 @@ extension FuncTestVC {
         let res6 = Int(1.1)
         
         mm_printsLog(res1, res2)
+    }
+    
+    func testDict() -> Void {
+        var transNameCodeDict = [String: String]()
+        
+        var simultaneousLanguageNameCodeDict = transNameCodeDict
+//        var simultaneousLanguageCodeNameDict = transCodeNameDict
+        transNameCodeDict["AutoDetectLanguage"] = "自动检测语言"
+//        transCodeNameDict["自动检测语言"] = "AutoDetectLanguage"
+        
+        removeItem?.backgroundColor = .clear
+        
+        DispatchQueue.main.asyncAfter(deadline: DispatchTime.secondTime(value: 2)) {
+            self.removeItem = nil
+        }
+        mm_printLog("test")
+    }
+    
+    func errorTest() -> Void {
+        let error = MMError.MMNormalError.unknowError(message: nil)
+        
+        let data = Date().timeIntervalSince1970
+
+        let str = " hello test mornigi \n test hehl "
+        let str_2 = "hello test mornigi \n test hehl \n"
+        let str_3 = " hello test mornigi \n test hehl \n "
+        //"hello test mornigi \n test hehl"
+        let str_t = str.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
+        //"hello test mornigi \n test hehl"  替换前后换行 和 空格
+        let str_2_t = str_2.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
+        //"hello test mornigi \n test hehl \n"  替换前后空格
+        let str_3_t = str_3.trimmingCharacters(in: CharacterSet.whitespaces)
+        
+        let tmpUnit = unit
+        
+        if tmpUnit == unit {
+            mm_printLog("相等")
+        }
+        if tmpUnit === unit {
+            mm_printLog("相等")
+        }
+        mm_printLog("error->\(error.reason)")
     }
 }

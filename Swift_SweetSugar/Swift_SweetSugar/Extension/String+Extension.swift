@@ -587,3 +587,18 @@ extension String {
     }
     
 }
+
+extension NSAttributedString {
+    
+    func numberOfLine(width: CGFloat) -> Int {
+        let framesetter = CTFramesetterCreateWithAttributedString(self)
+//        let path  = CGMutablePath()
+        
+//        path.addRect(CGRect(x: 0, y: 0, width: width, height: CGFloat.greatestFiniteMagnitude), transform: CGAffineTransform(scaleX: 1, y: -1))
+        let path = CGPath(rect: CGRect(x: 0, y: 0, width: width, height: CGFloat.greatestFiniteMagnitude), transform: nil)
+        let frame  = CTFramesetterCreateFrame(framesetter, CFRangeMake(0, length), path, nil)
+        let rows = CTFrameGetLines(frame)
+        let number = CFArrayGetCount(rows)
+        return number
+    }
+}

@@ -11,7 +11,12 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="UITestVC" customModule="Swift_SweetSugar" customModuleProvider="target">
             <connections>
+                <outlet property="bottomView" destination="phe-5K-alU" id="8oV-FS-XLv"/>
+                <outlet property="leftView" destination="lll-pu-NQP" id="dHV-bX-asc"/>
                 <outlet property="shadowView" destination="lll-pu-NQP" id="OvH-uM-JIs"/>
+                <outlet property="textView" destination="OZe-ce-Eyp" id="gqR-jf-6LI"/>
+                <outlet property="textView_h" destination="0UK-JE-4eB" id="dS8-Eh-6fs"/>
+                <outlet property="topView" destination="13Z-oM-VZf" id="3EF-QM-p4z"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -48,14 +53,27 @@
                         <constraint firstAttribute="width" constant="161" id="u4j-DX-xcO"/>
                     </constraints>
                 </view>
-                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="ssdfsdfsdfsdffsdfsdfdssdfsdfssdfsdfsdfsdffsdfsdfdssdfsdf" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="OZe-ce-Eyp">
-                    <rect key="frame" x="8" y="271" width="232" height="54"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="ssdfsdfsdfsdffsdfsdfdssdfsdfssdfsdfsdfsdffsdfsdfdssdfsdf" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="OZe-ce-Eyp">
+                    <rect key="frame" x="50" y="313" width="150" height="50"/>
                     <color key="backgroundColor" red="0.2901960784" green="0.56470588239999997" blue="0.8862745098" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="50" id="0UK-JE-4eB"/>
+                        <constraint firstAttribute="width" constant="150" id="hoX-CR-TuX"/>
+                    </constraints>
                     <color key="textColor" systemColor="labelColor"/>
                     <fontDescription key="fontDescription" type="system" pointSize="32"/>
                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                 </textView>
+                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="13Z-oM-VZf">
+                    <rect key="frame" x="229" y="159" width="97" height="51"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <color key="backgroundColor" systemColor="systemIndigoColor"/>
+                </view>
+                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="phe-5K-alU">
+                    <rect key="frame" x="229" y="218" width="97" height="51"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <color key="backgroundColor" systemColor="systemOrangeColor"/>
+                </view>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -64,7 +82,9 @@
                 <constraint firstItem="lll-pu-NQP" firstAttribute="top" secondItem="UTX-5i-QA6" secondAttribute="bottom" constant="57" id="Sio-Vx-p8C"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="UTX-5i-QA6" secondAttribute="trailing" constant="8" id="Tji-2l-J32"/>
                 <constraint firstItem="UTX-5i-QA6" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="8" id="UYV-xr-F1l"/>
+                <constraint firstItem="OZe-ce-Eyp" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="50" id="WhG-xA-Mve"/>
                 <constraint firstItem="lll-pu-NQP" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="43" id="q2c-Ip-Nlu"/>
+                <constraint firstItem="OZe-ce-Eyp" firstAttribute="top" secondItem="lll-pu-NQP" secondAttribute="bottom" constant="50" id="qaa-3j-sOl"/>
             </constraints>
             <point key="canvasLocation" x="-13.043478260869566" y="66.964285714285708"/>
         </view>
@@ -75,6 +95,12 @@
         </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemIndigoColor">
+            <color red="0.34509803921568627" green="0.33725490196078434" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemOrangeColor">
+            <color red="1" green="0.58431372549019611" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemTealColor">
             <color red="0.35294117647058826" green="0.78431372549019607" blue="0.98039215686274506" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

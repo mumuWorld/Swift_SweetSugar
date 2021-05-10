@@ -76,10 +76,10 @@ extension CollectionViewController: UICollectionViewDelegate, UICollectionViewDa
         handleScroll(scrollView)
     }
 
-//    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
-//        mm_printLog("最终拖动")
-//        handleScroll(scrollView)
-//    }
+    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+        mm_printLog("最终拖动")
+        handleScroll(scrollView)
+    }
     
     func handleScroll(_ scrollView: UIScrollView) -> Void {
         let offset = abs(Int(scrollView.contentOffset.x) % Int(ScreenWidth))
