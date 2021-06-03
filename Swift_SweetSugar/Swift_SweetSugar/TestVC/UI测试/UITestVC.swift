@@ -24,10 +24,13 @@ class UITestVC: UIViewController {
     @IBOutlet weak var textView_h: NSLayoutConstraint!
     
     @IBOutlet weak var topView: UIView!
+    var top_h: Constraint?
     
     @IBOutlet weak var bottomView: UIView!
     
     @IBOutlet weak var leftView: UIView!
+    
+    @IBOutlet weak var gradientLayer: UIImageView!
     
     let bar: UIButton = creat { (btn) in
         mm_printLog("测试调用")
@@ -74,23 +77,35 @@ class UITestVC: UIViewController {
         
         shadowView.layer.anchorPoint = CGPoint(x: 1, y: 0)
         view.layoutIfNeeded()
-        DispatchQueue.main.async {
-            let origin = self.shadowView.origin
-            self.shadowView.origin = CGPoint(x: origin.x + self.shadowView.mm_width * 0.5, y: origin.y - self.shadowView.mm_height * 0.5)
-        }
+//        DispatchQueue.main.async {
+//            let origin = self.shadowView.origin
+//            self.shadowView.origin = CGPoint(x: origin.x + self.shadowView.mm_width * 0.5, y: origin.y - self.shadowView.mm_height * 0.5)
+//        }
         addConstants()
     }
     
     var show = false
-    
+    var model = 0
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
 //        handleClick(sender: bar)
-        if show {
-            dismiss()
-        } else {
-            showAnimation()
+        textView.text = textView.text
+        textView.textContainer.lineFragmentPadding = 0
+        textView.textContainerInset = .zero
+        mm_printLog("mode=\(NSLineBreakMode(rawValue: model)!.rawValue)")
+        
+//        let image = create(width: self.gradientLayer.mm_width)
+//        self.gradientLayer.contentMode = .scaleToFill
+//        self.gradientLayer.image = image
+        
+        //            self.top_h?.update(offset: 100)
+        self.topView.snp.updateConstraints { make in
+            make.height.equalTo(200)
         }
-        show = !show
+        UIView.animate(withDuration: 1) {
+            self.view.layoutIfNeeded()
+        }
+//
+        
     }
     
     func setupAttr() -> Void {
@@ -216,10 +231,10 @@ extension UITestVC {
     
     func addConstants() -> Void {
         topView.snp.makeConstraints { (make) in
-            make.height.equalTo(10)
+            self.top_h = make.height.equalTo(10).constraint
             make.left.equalTo(leftView.snp.right).offset(10)
             make.trailing.equalTo(-10)
-            make.top.equalTo(leftView)
+            make.top.equalToSuperview().offset(200)
         }
         
         bottomView.snp.makeConstraints { (make) in
@@ -228,5 +243,26 @@ extension UITestVC {
             make.left.equalTo(leftView.snp.right).offset(10)
             make.top.equalTo(topView.snp.bottom).offset(10)
         }
+    }
+    
+    func create(width: CGFloat) -> UIImage? {
+        let layer = CAGradientLayer()
+        layer.colors = [UIColor.mm_colorFromHex(color_vaule: 0xCDF4FF).cgColor,
+                        UIColor.mm_colorFromHex(color_vaule: 0xB1ECFE).cgColor,
+                        UIColor.mm_colorFromHex(color_vaule: 0xCDF4FF).cgColor]
+        layer.startPoint = .zero
+        layer.endPoint = CGPoint(x: 1, y: 0);
+        layer.locations = [0,0.61,1.0]
+        let frame = CGRect(x: 0, y: 0, width: width, height: 1)
+        layer.frame = frame
+        
+        UIGraphicsBeginImageContextWithOptions(CGSize(width: width, height: 1), false, UIScreen.main.scale)
+        guard let context = UIGraphicsGetCurrentContext() else {
+            return nil
+        }
+        layer.render(in: context)
+        let image = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        return image
     }
 }

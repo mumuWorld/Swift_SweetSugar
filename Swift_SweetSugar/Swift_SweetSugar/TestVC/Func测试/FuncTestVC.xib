@@ -67,7 +67,7 @@
                     </constraints>
                 </stackView>
                 <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="1fS-P6-FT2">
-                    <rect key="frame" x="8" y="105" width="353" height="44"/>
+                    <rect key="frame" x="8" y="105" width="315" height="44"/>
                     <subviews>
                         <button opaque="NO" tag="15" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wdm-cd-3Lf">
                             <rect key="frame" x="0.0" y="7" width="63" height="30"/>
@@ -84,16 +84,16 @@
                                 <action selector="handleClick:" destination="-1" eventType="touchUpInside" id="53Q-Bf-x0j"/>
                             </connections>
                         </button>
-                        <button opaque="NO" tag="12" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jds-RL-eT1">
-                            <rect key="frame" x="111" y="7" width="91" height="30"/>
+                        <button opaque="NO" tag="17" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jds-RL-eT1">
+                            <rect key="frame" x="111" y="7" width="53" height="30"/>
                             <color key="backgroundColor" red="1" green="0.40000000000000002" blue="0.35686274509999999" alpha="1" colorSpace="calibratedRGB"/>
-                            <state key="normal" title="block_cancel"/>
+                            <state key="normal" title="url_test"/>
                             <connections>
                                 <action selector="handleClick:" destination="-1" eventType="touchUpInside" id="m7G-aW-BKh"/>
                             </connections>
                         </button>
                         <button opaque="NO" tag="13" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Le4-YJ-OYX">
-                            <rect key="frame" x="210" y="7" width="82" height="30"/>
+                            <rect key="frame" x="172" y="7" width="82" height="30"/>
                             <color key="backgroundColor" red="1" green="0.40000000000000002" blue="0.35686274509999999" alpha="1" colorSpace="calibratedRGB"/>
                             <state key="normal" title="String_print"/>
                             <connections>
@@ -101,7 +101,7 @@
                             </connections>
                         </button>
                         <button opaque="NO" tag="14" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hQu-Oy-U4f">
-                            <rect key="frame" x="300" y="7" width="53" height="30"/>
+                            <rect key="frame" x="262" y="7" width="53" height="30"/>
                             <color key="backgroundColor" red="1" green="0.40000000000000002" blue="0.35686274509999999" alpha="1" colorSpace="calibratedRGB"/>
                             <state key="normal" title="number"/>
                             <connections>

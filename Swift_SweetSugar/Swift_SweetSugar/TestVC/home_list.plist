@@ -34,5 +34,21 @@
 		<key>showName</key>
 		<string>手势测试</string>
 	</dict>
+	<dict>
+		<key>desc</key>
+		<string>webkit</string>
+		<key>routerVC</key>
+		<string>MMWebViewController</string>
+		<key>showName</key>
+		<string>网页测试</string>
+	</dict>
+	<dict>
+		<key>desc</key>
+		<string>textKit</string>
+		<key>routerVC</key>
+		<string>MMTextVC</string>
+		<key>showName</key>
+		<string>TextView</string>
+	</dict>
 </array>
 </plist>

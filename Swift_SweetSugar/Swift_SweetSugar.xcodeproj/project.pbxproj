@@ -40,7 +40,11 @@
 		B459B5EF22CCF0A700DEEA87 /* Solution.swift in Sources */ = {isa = PBXBuildFile; fileRef = B459B5EE22CCF0A700DEEA87 /* Solution.swift */; };
 		B461A4C2234E3D660054B907 /* HeapModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B461A4C1234E3D660054B907 /* HeapModel.swift */; };
 		B46FED52238C2FA30023F0FA /* GCDTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B46FED51238C2FA30023F0FA /* GCDTest.swift */; };
+		B47F342126608DEC00F46C90 /* MMWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B47F341F26608DEC00F46C90 /* MMWebViewController.swift */; };
+		B47F342226608DEC00F46C90 /* MMWebViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B47F342026608DEC00F46C90 /* MMWebViewController.xib */; };
 		B47F39E6260DB6CF007592A1 /* WrapperTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B47F39E5260DB6CF007592A1 /* WrapperTest.swift */; };
+		B480AD0E266882F600E53DED /* MMTextVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B480AD0C266882F600E53DED /* MMTextVC.swift */; };
+		B480AD0F266882F600E53DED /* MMTextVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = B480AD0D266882F600E53DED /* MMTextVC.xib */; };
 		B480D0C52615CEB700965530 /* MMDottedLine.swift in Sources */ = {isa = PBXBuildFile; fileRef = B480D0C42615CEB700965530 /* MMDottedLine.swift */; };
 		B49BAB812620223B0097DFC9 /* SingleViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B49BAB7F2620223B0097DFC9 /* SingleViewCell.swift */; };
 		B49BAB822620223B0097DFC9 /* SingleViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B49BAB802620223B0097DFC9 /* SingleViewCell.xib */; };
@@ -154,7 +158,11 @@
 		B459B5EE22CCF0A700DEEA87 /* Solution.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Solution.swift; sourceTree = "<group>"; };
 		B461A4C1234E3D660054B907 /* HeapModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeapModel.swift; sourceTree = "<group>"; };
 		B46FED51238C2FA30023F0FA /* GCDTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GCDTest.swift; sourceTree = "<group>"; };
+		B47F341F26608DEC00F46C90 /* MMWebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MMWebViewController.swift; sourceTree = "<group>"; };
+		B47F342026608DEC00F46C90 /* MMWebViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MMWebViewController.xib; sourceTree = "<group>"; };
 		B47F39E5260DB6CF007592A1 /* WrapperTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WrapperTest.swift; sourceTree = "<group>"; };
+		B480AD0C266882F600E53DED /* MMTextVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MMTextVC.swift; sourceTree = "<group>"; };
+		B480AD0D266882F600E53DED /* MMTextVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MMTextVC.xib; sourceTree = "<group>"; };
 		B480D0C42615CEB700965530 /* MMDottedLine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MMDottedLine.swift; sourceTree = "<group>"; };
 		B49BAB7F2620223B0097DFC9 /* SingleViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleViewCell.swift; sourceTree = "<group>"; };
 		B49BAB802620223B0097DFC9 /* SingleViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SingleViewCell.xib; sourceTree = "<group>"; };
@@ -251,6 +259,8 @@
 		B4063D59260B49B800F3135E /* TestVC */ = {
 			isa = PBXGroup;
 			children = (
+				B480AD05266882C700E53DED /* TextKit */,
+				B47F341D26608DC900F46C90 /* Webview */,
 				B49BAB872620225B0097DFC9 /* Collection测试 */,
 				B4C6AA0A261D9A8700D4B243 /* Gesture */,
 				B4063DAB260B633500F3135E /* Func测试 */,
@@ -445,12 +455,30 @@
 			path = GCDTest;
 			sourceTree = "<group>";
 		};
+		B47F341D26608DC900F46C90 /* Webview */ = {
+			isa = PBXGroup;
+			children = (
+				B47F341F26608DEC00F46C90 /* MMWebViewController.swift */,
+				B47F342026608DEC00F46C90 /* MMWebViewController.xib */,
+			);
+			path = Webview;
+			sourceTree = "<group>";
+		};
 		B47F39E4260DB6AF007592A1 /* Test */ = {
 			isa = PBXGroup;
 			children = (
 				B47F39E5260DB6CF007592A1 /* WrapperTest.swift */,
 			);
 			path = Test;
+			sourceTree = "<group>";
+		};
+		B480AD05266882C700E53DED /* TextKit */ = {
+			isa = PBXGroup;
+			children = (
+				B480AD0C266882F600E53DED /* MMTextVC.swift */,
+				B480AD0D266882F600E53DED /* MMTextVC.xib */,
+			);
+			path = TextKit;
 			sourceTree = "<group>";
 		};
 		B480D0C32615CEA300965530 /* View */ = {
@@ -696,6 +724,7 @@
 				B49BAB822620223B0097DFC9 /* SingleViewCell.xib in Resources */,
 				B425AC732252526200B02B77 /* LaunchScreen.storyboard in Resources */,
 				B4063D67260B4D7100F3135E /* HomeListVC.xib in Resources */,
+				B47F342226608DEC00F46C90 /* MMWebViewController.xib in Resources */,
 				B4C6AA0F261D9A9800D4B243 /* GestureTestVC.xib in Resources */,
 				B4063D73260B4F1300F3135E /* home_list.plist in Resources */,
 				B49BAB8B262022730097DFC9 /* CollectionViewController.xib in Resources */,
@@ -704,6 +733,7 @@
 				B425AC702252526200B02B77 /* Assets.xcassets in Resources */,
 				B425AC6E2252526000B02B77 /* Main.storyboard in Resources */,
 				B4063D89260B530C00F3135E /* HomeListItemCell.xib in Resources */,
+				B480AD0F266882F600E53DED /* MMTextVC.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -836,6 +866,7 @@
 				B4417A3322CE42AC00818FA0 /* StringSolution.swift in Sources */,
 				DF0D36E8235D705C006EE6D5 /* LeeCodeTrueSubject.swift in Sources */,
 				DF2ED5D8238546F7001617F8 /* Stack.swift in Sources */,
+				B480AD0E266882F600E53DED /* MMTextVC.swift in Sources */,
 				B45763C7233A674E003AE3A5 /* TreeSolution.swift in Sources */,
 				B4063D88260B530C00F3135E /* HomeListItemCell.swift in Sources */,
 				B4A3625024889B26006696C3 /* MMDispatchTimer.swift in Sources */,
@@ -873,6 +904,7 @@
 				B4063D6D260B4E2800F3135E /* HomeListItem.swift in Sources */,
 				B422B2A525A3194500293646 /* String+Extension.swift in Sources */,
 				DF9227E722CB07A600ABB221 /* UIColor+MM_Extension.swift in Sources */,
+				B47F342126608DEC00F46C90 /* MMWebViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
