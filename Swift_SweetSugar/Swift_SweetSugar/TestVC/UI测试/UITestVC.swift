@@ -27,9 +27,7 @@ class UITestVC: UIViewController {
     var top_h: Constraint?
     
     @IBOutlet weak var bottomView: UIView!
-    
-    @IBOutlet weak var leftView: UIView!
-    
+        
     @IBOutlet weak var gradientLayer: UIImageView!
     
     let bar: UIButton = creat { (btn) in
@@ -81,16 +79,15 @@ class UITestVC: UIViewController {
 //            let origin = self.shadowView.origin
 //            self.shadowView.origin = CGPoint(x: origin.x + self.shadowView.mm_width * 0.5, y: origin.y - self.shadowView.mm_height * 0.5)
 //        }
-        addConstants()
     }
     
     var show = false
-    var model = 0
+    var model = 200
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
 //        handleClick(sender: bar)
         textView.text = textView.text
         textView.textContainer.lineFragmentPadding = 0
-        textView.textContainerInset = .zero
+//        textView.textContainerInset = .zero
         mm_printLog("mode=\(NSLineBreakMode(rawValue: model)!.rawValue)")
         
 //        let image = create(width: self.gradientLayer.mm_width)
@@ -98,12 +95,17 @@ class UITestVC: UIViewController {
 //        self.gradientLayer.image = image
         
         //            self.top_h?.update(offset: 100)
-        self.topView.snp.updateConstraints { make in
-            make.height.equalTo(200)
+        MMDispatchTimer.createTimer(startTime: 0, infiniteInterval: 2, isRepeat: true, async: false) {
+            self.topView.snp.updateConstraints { make in
+                make.height.equalTo(self.model + 10)
+            }
+            self.model += 10
+            UIView.animate(withDuration: 1) {
+                self.view.layoutIfNeeded()
+            }
         }
-        UIView.animate(withDuration: 1) {
-            self.view.layoutIfNeeded()
-        }
+        
+        
 //
         
     }
@@ -227,22 +229,6 @@ extension UITestVC {
         
 //        base.
         shadowView.layer.add(base, forKey: "dismiss")
-    }
-    
-    func addConstants() -> Void {
-        topView.snp.makeConstraints { (make) in
-            self.top_h = make.height.equalTo(10).constraint
-            make.left.equalTo(leftView.snp.right).offset(10)
-            make.trailing.equalTo(-10)
-            make.top.equalToSuperview().offset(200)
-        }
-        
-        bottomView.snp.makeConstraints { (make) in
-            make.height.equalTo(10)
-            make.right.equalTo(-10)
-            make.left.equalTo(leftView.snp.right).offset(10)
-            make.top.equalTo(topView.snp.bottom).offset(10)
-        }
     }
     
     func create(width: CGFloat) -> UIImage? {

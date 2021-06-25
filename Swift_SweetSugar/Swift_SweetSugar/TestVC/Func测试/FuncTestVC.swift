@@ -47,6 +47,10 @@ class FuncTestVC: UIViewController {
             errorTest()
         case 17:
             urlTest()
+        case 18:
+            typeTest()
+        case 19:
+            emojiTest()
         default:
             break
         }
@@ -158,6 +162,58 @@ extension FuncTestVC {
             mm_printLog("相等")
         }
         mm_printLog("error->\(error.reason)")
+    }
+    
+    func typeTest() {
+        /*
+         Printing description of name_1:
+         "<Swift_SweetSugar.FuncTestVC: 0x7fea3ae29450>"
+         Printing description of name_2:
+         "FuncTestVC"
+         Printing description of name_3:
+         "FuncTestVC"
+         Printing description of name_4:
+         "<Swift_SweetSugar.FuncTestVC: 0x7fea3ae29450>"
+         */
+        let name_1 = String(describing: self)
+        let name_2 = String(describing: type(of: self))
+        let name_3 = String(describing: type(of: self.self))
+        let name_4 = String(describing: self.self)
+        mm_printLog("1/2/3/4")
+    }
+    
+    func emojiTest() {
+        let str = "ab我cd🤩😁haha"
+        let nsStr = str as NSString
+        // count=11, 19,13, nsStr=13， nsstring中使用的 utf16格式的长度
+        // utf8中，中文4个了， emoji为4个 ，在utf16中 emoji长度为2, 中文为1，
+        mm_printLog("count=\(str.count), \(str.utf8.count),\(str.utf16.count), nsStr=\( nsStr.length)")
+        let str_1 = str.substring(to: 6) // hello🤩
+        let str_2 = str.substring(to: 7) // hello🤩😁
+        
+        let nsStr_1 = nsStr.substring(to: 6) // ab我cd�
+        let nsStr_2 = nsStr.substring(to: 7) // ab我cd🤩
+        let nsStr_3 = nsStr.substring(to: 8) // ab我cd🤩�
+
+        /*
+         ab我cd🤩😁ha{
+             NSFont = "<UICTFont: 0x7f917c832460> font-family: \".SFUI-Regular\"; font-weight: normal; font-style: normal; font-size: 30.00pt";
+         }ha{
+         }
+         */
+        let mutAttr = NSMutableAttributedString(string: str)
+        mutAttr.addAttribute(.font, value: UIFont.systemFont(ofSize: 30), range: str.mm_range())
+        //lenght= 13, 11, mutattr 中的length 也是 用的utf16格式的长度
+        mm_printLog("lenght=\(mutAttr.length), \(mutAttr.string.count) ")
+        /*
+         ab我cd🤩😁haha{
+             NSFont = "<UICTFont: 0x7ffb60663950> font-family: \".SFUI-Regular\"; font-weight: normal; font-style: normal; font-size: 30.00pt";
+         }
+         */
+        let mutAttr_2 = NSMutableAttributedString(string: nsStr as String)
+        mutAttr_2.addAttribute(.font, value: UIFont.systemFont(ofSize: 30), range: nsStr.mm_range())
+        
+        mm_printLog("1/2/3/4")
     }
     
     func urlTest() {

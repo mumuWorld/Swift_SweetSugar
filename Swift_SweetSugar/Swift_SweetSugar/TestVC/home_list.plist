@@ -50,5 +50,29 @@
 		<key>showName</key>
 		<string>TextView</string>
 	</dict>
+	<dict>
+		<key>desc</key>
+		<string>或者其他的</string>
+		<key>routerVC</key>
+		<string>MMAuthorizationVC</string>
+		<key>showName</key>
+		<string>权限处理</string>
+	</dict>
+	<dict>
+		<key>desc</key>
+		<string>或者其他的</string>
+		<key>routerVC</key>
+		<string>MMTableViewVC</string>
+		<key>showName</key>
+		<string>列表测试</string>
+	</dict>
+	<dict>
+		<key>desc</key>
+		<string>CoreAnimation</string>
+		<key>routerVC</key>
+		<string>MMLayerAnimationVC</string>
+		<key>showName</key>
+		<string>CoreAnimation动画</string>
+	</dict>
 </array>
 </plist>

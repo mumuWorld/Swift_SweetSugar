@@ -11,33 +11,52 @@ import CommonCrypto
 import CoreGraphics
 import UIKit
 
-// 下标截取任意位置的便捷方法
-extension String {
+// MARK: - 字符串截取
+public extension String {
     
-    var length: Int {
-        return self.count
+    /// 判断index是否合法
+    func judgeLegalIndex(i: Int) -> Bool {
+        return i >= 0 && i < count
     }
-    
-    subscript (i: Int) -> String {
-        return self[i ..< i + 1]
+    /// String使用下标截取字符串
+    /// string[index] 例如："abcdefg"[3] // c
+    subscript (i:Int) -> String {
+        guard judgeLegalIndex(i: i) else { return self }
+        let startIndex = self.index(self.startIndex, offsetBy: i)
+        let endIndex = self.index(startIndex, offsetBy: 1)
+        return String(self[startIndex..<endIndex])
     }
-    
-    func substring(fromIndex: Int) -> String {
-        return self[min(fromIndex, length) ..< length]
-    }
-    
-    func substring(toIndex: Int) -> String {
-        return self[0 ..< max(0, toIndex)]
-    }
-    
+    /// String使用下标截取字符串
+    /// string[index..<index] 例如："abcdefg"[3..<4] // d
     subscript (r: Range<Int>) -> String {
-        let range = Range(uncheckedBounds: (lower: max(0, min(length, r.lowerBound)), upper: min(length, max(0, r.upperBound))))
-        let start = index(startIndex, offsetBy: range.lowerBound)
-        let end = index(start, offsetBy: range.upperBound - range.lowerBound)
-        return String(self[start ..< end])
+        get {
+            guard judgeLegalIndex(i: r.lowerBound) , judgeLegalIndex(i: r.upperBound) else { return self }
+            let startIndex = self.index(self.startIndex, offsetBy: r.lowerBound)
+            let endIndex = self.index(self.startIndex, offsetBy: r.upperBound)
+            return String(self[startIndex..<endIndex])
+        }
+    }
+    /// String使用下标截取字符串
+    /// string[index,length] 例如："abcdefg"[3,2] // de
+    subscript (index:Int , length:Int) -> String {
+        get {
+            guard judgeLegalIndex(i: index) , judgeLegalIndex(i: index + length - 1) else { return self }
+            let startIndex = self.index(self.startIndex, offsetBy: index)
+            let endIndex = self.index(startIndex, offsetBy: length)
+            return String(self[startIndex..<endIndex])
+        }
+    }
+    /// 截取 从头到i位置  abcd[to: 3] -> abc
+    func substring(to:Int) -> String {
+        return self[0..<to]
+    }
+    /// 截取 从i到尾部
+    func substring(from:Int) -> String {
+        return self[from..<self.count]
     }
     
 }
+
 
 extension String {
     //将原始的url编码为合法的url
@@ -62,7 +81,12 @@ extension NSString {
 extension String {
     
     func mm_range() -> NSRange {
-        return NSRange(location: 0, length: length)
+        return NSRange(location: 0, length: count)
+    }
+    
+    /// 因为可能包含emoji的情况，所以需要获取utf16的长度
+    func mm_attributeRange() -> NSRange {
+        return NSRange(location: 0, length: utf16.count)
     }
     
     /// 匹配字符串 返回 NSRange
@@ -270,7 +294,7 @@ extension String {
     
     func chk18PaperId() -> Bool {
         //判断位数
-        if self.length != 15 && self.length != 18 {
+        if self.count != 15 && self.count != 18 {
             return false
         }
         var carid = self.uppercased()
@@ -282,7 +306,7 @@ extension String {
         //将15位身份证号转换成18位
         let mString = NSMutableString.init(string: self)
         
-        if self.length == 15 {
+        if self.count == 15 {
             mString.insert("19", at: 6)
             var p = 0
             let pid = mString.utf8String
@@ -296,7 +320,7 @@ extension String {
         }
         
         //判断地区码
-        let sProvince = carid.substring(toIndex: 2)
+        let sProvince = carid.substring(to: 2)
         if (!areaCodeAt(code: sProvince)) {
             return false
         }
@@ -323,7 +347,7 @@ extension String {
         
         let paperId = carid.utf8CString
         //检验长度
-        if 18 != carid.length {
+        if 18 != carid.count {
             return false
         }
         //校验数字
