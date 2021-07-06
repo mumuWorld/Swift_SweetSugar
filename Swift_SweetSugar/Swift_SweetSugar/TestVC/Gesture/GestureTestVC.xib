@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19115.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19107.4"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -22,18 +22,61 @@
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TCZ-Kb-dn3" customClass="MMTouchView" customModule="Swift_SweetSugar" customModuleProvider="target">
                     <rect key="frame" x="0.0" y="44" width="100" height="100"/>
+                    <subviews>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Cjc-Yg-w2M" customClass="MMButton" customModule="Swift_SweetSugar" customModuleProvider="target">
+                            <rect key="frame" x="50" y="50" width="50" height="50"/>
+                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="50" id="ibh-Ux-6dH"/>
+                                <constraint firstAttribute="width" constant="50" id="p41-5d-0oH"/>
+                            </constraints>
+                            <connections>
+                                <action selector="handleClick:" destination="-1" eventType="touchUpInside" id="CqR-Qq-V1B"/>
+                            </connections>
+                        </view>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oJ0-Nv-j8C">
+                            <rect key="frame" x="0.0" y="0.0" width="75" height="35"/>
+                            <color key="backgroundColor" red="0.2901960784" green="0.56470588239999997" blue="0.8862745098" alpha="1" colorSpace="calibratedRGB"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="35" id="IfR-6y-qbY"/>
+                                <constraint firstAttribute="width" constant="75" id="Y5n-sZ-Kc5"/>
+                            </constraints>
+                            <state key="normal" title="Button"/>
+                            <buttonConfiguration key="configuration" style="plain" title="Button"/>
+                            <connections>
+                                <action selector="handelBtnClick:" destination="-1" eventType="touchUpInside" id="INw-76-7H5"/>
+                            </connections>
+                        </button>
+                    </subviews>
                     <color key="backgroundColor" systemColor="systemGreenColor"/>
                     <constraints>
+                        <constraint firstItem="oJ0-Nv-j8C" firstAttribute="leading" secondItem="TCZ-Kb-dn3" secondAttribute="leading" id="5fi-gb-NVL"/>
+                        <constraint firstItem="oJ0-Nv-j8C" firstAttribute="top" secondItem="TCZ-Kb-dn3" secondAttribute="top" id="MF9-m5-JCU"/>
+                        <constraint firstAttribute="bottom" secondItem="Cjc-Yg-w2M" secondAttribute="bottom" id="Nho-NN-CfL"/>
                         <constraint firstAttribute="width" constant="100" id="VQn-wg-fnM"/>
                         <constraint firstAttribute="height" constant="100" id="niw-Cp-Ceb"/>
+                        <constraint firstAttribute="trailing" secondItem="Cjc-Yg-w2M" secondAttribute="trailing" id="rvu-gq-RPx"/>
                     </constraints>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4Ha-Oo-mhk" customClass="MMControlView" customModule="Swift_SweetSugar" customModuleProvider="target">
+                    <rect key="frame" x="0.0" y="164" width="60" height="40"/>
+                    <color key="backgroundColor" systemColor="systemPinkColor"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="60" id="TeN-Er-8bp"/>
+                        <constraint firstAttribute="height" constant="40" id="c1J-sd-BXl"/>
+                    </constraints>
+                    <connections>
+                        <action selector="handleControlClick:" destination="-1" eventType="touchUpInside" id="2Mf-lM-i1e"/>
+                    </connections>
                 </view>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
                 <constraint firstItem="TCZ-Kb-dn3" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="6Mv-Z2-Ekt"/>
+                <constraint firstItem="4Ha-Oo-mhk" firstAttribute="top" secondItem="TCZ-Kb-dn3" secondAttribute="bottom" constant="20" id="DD9-9a-5on"/>
                 <constraint firstItem="TCZ-Kb-dn3" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="eJO-tq-iby"/>
+                <constraint firstItem="4Ha-Oo-mhk" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="prA-TP-LLl"/>
             </constraints>
             <point key="canvasLocation" x="60.869565217391312" y="65.625"/>
         </view>
@@ -44,6 +87,9 @@
         </systemColor>
         <systemColor name="systemGreenColor">
             <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemPinkColor">
+            <color red="1" green="0.17647058823529413" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

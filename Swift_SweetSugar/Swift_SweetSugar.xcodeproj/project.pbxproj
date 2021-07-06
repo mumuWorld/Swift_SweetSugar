@@ -58,6 +58,9 @@
 		B4A17DE42669FA870030E40D /* MMTableViewVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4A17DE22669FA870030E40D /* MMTableViewVC.swift */; };
 		B4A17DE52669FA870030E40D /* MMTableViewVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = B4A17DE32669FA870030E40D /* MMTableViewVC.xib */; };
 		B4A3625024889B26006696C3 /* MMDispatchTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4A3624F24889B26006696C3 /* MMDispatchTimer.swift */; };
+		B4A936962689ADD7001E181B /* MMControlView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4A936952689ADD7001E181B /* MMControlView.swift */; };
+		B4A936992689B129001E181B /* MMCustomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4A936982689B129001E181B /* MMCustomView.swift */; };
+		B4A9369B2689B6E9001E181B /* MMButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4A9369A2689B6E9001E181B /* MMButton.swift */; };
 		B4B69E75233E55950061AF93 /* BaseSort.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4B69E74233E55950061AF93 /* BaseSort.swift */; };
 		B4B69E78233E55D40061AF93 /* CreateTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4B69E77233E55D40061AF93 /* CreateTool.swift */; };
 		B4BE2D4B26171F7300E84967 /* SubProject_1.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B4BE2D3D26171E9600E84967 /* SubProject_1.framework */; };
@@ -181,6 +184,9 @@
 		B4A17DE22669FA870030E40D /* MMTableViewVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MMTableViewVC.swift; sourceTree = "<group>"; };
 		B4A17DE32669FA870030E40D /* MMTableViewVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MMTableViewVC.xib; sourceTree = "<group>"; };
 		B4A3624F24889B26006696C3 /* MMDispatchTimer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MMDispatchTimer.swift; sourceTree = "<group>"; };
+		B4A936952689ADD7001E181B /* MMControlView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MMControlView.swift; sourceTree = "<group>"; };
+		B4A936982689B129001E181B /* MMCustomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MMCustomView.swift; sourceTree = "<group>"; };
+		B4A9369A2689B6E9001E181B /* MMButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MMButton.swift; sourceTree = "<group>"; };
 		B4B69E74233E55950061AF93 /* BaseSort.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseSort.swift; sourceTree = "<group>"; };
 		B4B69E77233E55D40061AF93 /* CreateTool.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateTool.swift; sourceTree = "<group>"; };
 		B4BE2D3826171E9600E84967 /* SubProject_1.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SubProject_1.xcodeproj; path = SubProject_1/SubProject_1.xcodeproj; sourceTree = "<group>"; };
@@ -584,6 +590,9 @@
 			isa = PBXGroup;
 			children = (
 				B4C6AA17261D9CE000D4B243 /* MMTouchView.swift */,
+				B4A936952689ADD7001E181B /* MMControlView.swift */,
+				B4A936982689B129001E181B /* MMCustomView.swift */,
+				B4A9369A2689B6E9001E181B /* MMButton.swift */,
 			);
 			path = TouchView;
 			sourceTree = "<group>";
@@ -906,14 +915,17 @@
 				B459B5EF22CCF0A700DEEA87 /* Solution.swift in Sources */,
 				B4417A3322CE42AC00818FA0 /* StringSolution.swift in Sources */,
 				DF0D36E8235D705C006EE6D5 /* LeeCodeTrueSubject.swift in Sources */,
+				B4A936962689ADD7001E181B /* MMControlView.swift in Sources */,
 				DF2ED5D8238546F7001617F8 /* Stack.swift in Sources */,
 				B480AD0E266882F600E53DED /* MMTextVC.swift in Sources */,
 				B45763C7233A674E003AE3A5 /* TreeSolution.swift in Sources */,
 				B4063D88260B530C00F3135E /* HomeListItemCell.swift in Sources */,
 				B4A3625024889B26006696C3 /* MMDispatchTimer.swift in Sources */,
 				B4B69E75233E55950061AF93 /* BaseSort.swift in Sources */,
+				B4A9369B2689B6E9001E181B /* MMButton.swift in Sources */,
 				B47F39E6260DB6CF007592A1 /* WrapperTest.swift in Sources */,
 				B4063DAE260B637500F3135E /* FuncTestVC.swift in Sources */,
+				B4A936992689B129001E181B /* MMCustomView.swift in Sources */,
 				B4063D9B260B60C100F3135E /* UITestVC.swift in Sources */,
 				B480D0C52615CEB700965530 /* MMDottedLine.swift in Sources */,
 				DFF332AA2328C5DE0015295C /* Bundle+MM_extension.swift in Sources */,

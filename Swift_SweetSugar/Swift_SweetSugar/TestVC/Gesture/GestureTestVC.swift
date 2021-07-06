@@ -18,28 +18,30 @@ class GestureTestVC: UIViewController {
         touchView.addGestureRecognizer(long)
         long.delegate = self
         let tap = UITapGestureRecognizer(target: self, action: #selector(handleTapGes(sender:)))
-        touchView.addGestureRecognizer(tap)
+        view.addGestureRecognizer(tap)
         
         touchView.layer.cornerRadius = 15
+        
         // Do any additional setup after loading the view.
     }
     
     @objc func handleGes(sender: UILongPressGestureRecognizer) {
-        mm_printLog("state->\(sender.state.rawValue)")
+        mm_printLog("state->\(sender.state)")
     }
     @objc func handleTapGes(sender: UITapGestureRecognizer) {
-        mm_printLog("state->\(sender.state.rawValue)")
+        mm_printLog("state->\(sender.state)")
     }
-    /*
-    // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    @IBAction func handelBtnClick(_ sender: UIButton) {
+        mm_printLog("handleClick->UIButton")
     }
-    */
-
+    
+    @IBAction func handleClick(_ sender: MMButton) {
+        mm_printLog("handleClick->MMButton")
+    }
+    
+    @IBAction func handleControlClick(_ sender: MMControlView) {
+    }
 }
 
 extension GestureTestVC: UIGestureRecognizerDelegate {

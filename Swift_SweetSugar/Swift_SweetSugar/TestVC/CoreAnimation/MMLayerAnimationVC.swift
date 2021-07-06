@@ -86,7 +86,7 @@ class MMLayerAnimationVC: UIViewController {
         base.toValue = to
         base.byValue = by
         base.duration = 2.0
-        base.fillMode = .forwards
+        base.fillMode = .removed
         base.isRemovedOnCompletion = false
         view_1.layer.add(base, forKey: "test_base")
     }

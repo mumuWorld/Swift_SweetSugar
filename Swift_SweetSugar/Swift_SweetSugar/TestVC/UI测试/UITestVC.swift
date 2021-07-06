@@ -30,6 +30,8 @@ class UITestVC: UIViewController {
         
     @IBOutlet weak var gradientLayer: UIImageView!
     
+    @IBOutlet weak var widthLabel: UILabel!
+    
     let bar: UIButton = creat { (btn) in
         mm_printLog("测试调用")
         btn.backgroundColor = .black
@@ -79,35 +81,50 @@ class UITestVC: UIViewController {
 //            let origin = self.shadowView.origin
 //            self.shadowView.origin = CGPoint(x: origin.x + self.shadowView.mm_width * 0.5, y: origin.y - self.shadowView.mm_height * 0.5)
 //        }
+        widthLabel.text = "大约两行高度的文字试一下"
     }
     
     var show = false
     var model = 200
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-//        handleClick(sender: bar)
-        textView.text = textView.text
-        textView.textContainer.lineFragmentPadding = 0
-//        textView.textContainerInset = .zero
-        mm_printLog("mode=\(NSLineBreakMode(rawValue: model)!.rawValue)")
         
+//
 //        let image = create(width: self.gradientLayer.mm_width)
 //        self.gradientLayer.contentMode = .scaleToFill
 //        self.gradientLayer.image = image
         
         //            self.top_h?.update(offset: 100)
-        MMDispatchTimer.createTimer(startTime: 0, infiniteInterval: 2, isRepeat: true, async: false) {
-            self.topView.snp.updateConstraints { make in
-                make.height.equalTo(self.model + 10)
-            }
-            self.model += 10
-            UIView.animate(withDuration: 1) {
-                self.view.layoutIfNeeded()
-            }
-        }
-        
-        
-//
-        
+//        MMDispatchTimer.createTimer(startTime: 0, infiniteInterval: 2, isRepeat: true, async: false) {
+//            self.topView.snp.updateConstraints { make in
+//                make.height.equalTo(self.model + 10)
+//            }
+//            self.model += 10
+//            UIView.animate(withDuration: 1) {
+//                self.view.layoutIfNeeded()
+//            }
+//        }
+        textViewTest()
+        view.invalidateIntrinsicContentSize()
+    }
+    
+    func textViewTest() {
+        textView.textContainerInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 4)
+        textView.textContainer.lineFragmentPadding = 20
+    }
+    
+    /// 测试结果，会根据最大行数返回size，也会根据约束的宽度，计算合适的结果
+    func numberOfLinesTest() {
+        widthLabel.numberOfLines = 2
+        let size = widthLabel.intrinsicContentSize
+        widthLabel.mm_size = size
+    }
+    
+    /// 结论：transform 会改变frame
+    func transformTest() {
+                mm_printLog("mode=\(NSLineBreakMode(rawValue: model)!.rawValue)")
+//                mm_printLog("\(textView)")
+                textView.transform = CGAffineTransform(scaleX: 1, y: 1.2)
+//                mm_printLog("\(textView)")
     }
     
     func setupAttr() -> Void {
