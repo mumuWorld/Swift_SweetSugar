@@ -21,10 +21,10 @@ class MMControlView: UIControl {
     
     override func beginTracking(_ touch: UITouch, with event: UIEvent?) -> Bool {
         mm_printLog("beginTracking->")
-        guard let gestureRecognizers = touch.gestureRecognizers else { return true }
-        for ges in gestureRecognizers {
-            ges.cancelsTouchesInView = false
-        }
+//        guard let gestureRecognizers = touch.gestureRecognizers else { return true }
+//        for ges in gestureRecognizers {
+//            ges.cancelsTouchesInView = false
+//        }
         return true
     }
 

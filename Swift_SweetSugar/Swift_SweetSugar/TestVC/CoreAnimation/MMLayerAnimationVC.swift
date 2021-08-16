@@ -12,15 +12,41 @@ class MMLayerAnimationVC: UIViewController {
 
     @IBOutlet weak var view_1: UIView!
     
+    @IBOutlet weak var view_2: UIView!
+    
+    @IBOutlet weak var animationImgView: UIImageView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 //        self.navigationController?.interactivePopGestureRecognizer?.delegate
         // Do any additional setup after loading the view.
+        animationImgView.backgroundColor = .blue
     }
 
 
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        test_transform_x()
+//        test_transform_x()
+        createMask()
+    }
+    
+    func createMask() {
+        let img = UIImage(named: "mask")
+        let layer = CAGradientLayer()
+        layer.colors = [UIColor.red.cgColor, UIColor.blue.cgColor, UIColor.green.cgColor]
+        layer.contents = img?.cgImage
+        layer.frame = CGRect(x: 0, y: 0, width: 20, height: 30)
+        layer.opacity = 0.7
+        
+//        view_2.layer.mask = layer
+        
+        let image = UIImage.createLayerImg(layer: animationImgView.layer)
+        animationImgView.image = image
+        
+        animationImgView.layer.mask = layer
+
+        let transAni = createBaseAnimation(path: "transform.translation.x", from: 0, to: ScreenWidth)
+        layer.add(transAni, forKey: "test")
+//        view_2.layer.addSublayer(layer)
     }
 
     func test1() -> Void {
@@ -73,6 +99,18 @@ class MMLayerAnimationVC: UIViewController {
         base.fillMode = .forwards
         base.isRemovedOnCompletion = false
         view_1.layer.add(base, forKey: "test_base")
+    }
+    
+    func createBaseAnimation(path: String, from: Any, to: Any) -> CABasicAnimation {
+        //有效
+        let base = CABasicAnimation(keyPath: path)
+        base.fromValue = from
+        base.toValue = to
+        base.duration = 2.0
+        base.fillMode = .forwards
+        base.isRemovedOnCompletion = false
+        base.repeatCount = Float.infinity
+        return base
     }
     
     ///  1 代表有值 0 为 0

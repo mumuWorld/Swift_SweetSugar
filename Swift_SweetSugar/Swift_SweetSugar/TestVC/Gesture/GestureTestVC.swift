@@ -12,17 +12,23 @@ class GestureTestVC: UIViewController {
 
     @IBOutlet weak var touchView: MMTouchView!
     
+    @IBOutlet weak var controlView: MMControlView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        let long = UILongPressGestureRecognizer(target: self, action: #selector(handleGes(sender:)))
-        touchView.addGestureRecognizer(long)
-        long.delegate = self
+//        let long = UILongPressGestureRecognizer(target: self, action: #selector(handleGes(sender:)))
+//        touchView.addGestureRecognizer(long)
+//        long.delegate = self
         let tap = UITapGestureRecognizer(target: self, action: #selector(handleTapGes(sender:)))
-        view.addGestureRecognizer(tap)
-        
+//        view.addGestureRecognizer(tap)
+        touchView.addGestureRecognizer(tap)
         touchView.layer.cornerRadius = 15
         
+        controlView.addTarget(self, action: #selector(handleControlClick(_:)), for: .touchUpInside)
         // Do any additional setup after loading the view.
+        
+        let tap_2 = UITapGestureRecognizer(target: self, action: #selector(handleTapGes(sender:)))
+        view.addGestureRecognizer(tap_2)
     }
     
     @objc func handleGes(sender: UILongPressGestureRecognizer) {
@@ -40,7 +46,8 @@ class GestureTestVC: UIViewController {
         mm_printLog("handleClick->MMButton")
     }
     
-    @IBAction func handleControlClick(_ sender: MMControlView) {
+    @objc func handleControlClick(_ sender: MMControlView) {
+        mm_printLog("handleClick->MMControlView")
     }
 }
 

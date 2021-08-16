@@ -7,7 +7,8 @@
 //
 
 import UIKit
-import SubProject_1
+import AVFAudio
+//import SubProject_1
 
 typealias emptyBlock = () -> ()
 
@@ -51,6 +52,16 @@ class FuncTestVC: UIViewController {
             typeTest()
         case 19:
             emojiTest()
+        case 20:
+            userdefaultTest()
+        case 21:
+            emptyTest()
+        case 22:
+            regularTest()
+        case 23:
+            speechSynthesisVoiceTest()
+        case 24:
+            stackTest()
         default:
             break
         }
@@ -59,8 +70,8 @@ class FuncTestVC: UIViewController {
 
     func testFunc() -> Void {
         mm_printLog("test")
-        let test = ProjectOneTool()
-        test.test()
+//        let test = ProjectOneTool()
+//        test.test()
     }
 
     deinit {
@@ -69,6 +80,86 @@ class FuncTestVC: UIViewController {
 }
 
 extension FuncTestVC {
+    
+    func stackTest() -> Void {
+        let p1 = MMPoint(x: 1, y: 2)
+        var p2 = p1
+        mm_printLog("\(Unmanaged.passUnretained(p1 as AnyObject).toOpaque()),\(Unmanaged.passUnretained(p2 as AnyObject).toOpaque())")
+    }
+    
+    func speechSynthesisVoiceTest() -> Void {
+        let arr = AVSpeechSynthesisVoice.speechVoices()
+        mm_printLog(arr)
+    }
+    
+    func regularTest() {
+        let str = " "
+        let result = str.mm_hasSpecialCharactor()
+        
+        let str_2 = "good"
+        let result_2 = str_2.mm_hasSpecialCharactor()
+        
+        let str_3 = "mm+"
+        let result_3 = str_3.mm_hasSpecialCharactor()
+        mm_printLog("test")
+    }
+    
+    func emptyTest() {
+        var str: String? = " "
+        let e1 = "".isEmpty
+        let e2 = " ".isEmpty
+        let e3 = str?.isEmpty
+        let e4 = str!.isEmpty
+        str = ""
+        let e5 = str?.isEmpty
+        let e6 = str!.isEmpty
+        // true,false,Optional(false),false,Optional(true),true
+        mm_printLog("\(e1),\(e2),\(e3),\(e4),\(e5),\(e6)")
+    }
+    
+    /// 添加 非 synchronize  第一次没有plist时可能耗时在此 0.007 0.001
+    ///🔨[FuncTestVC userdefaultTest()](80): UserDefaults->0.007955064000270795
+    ///🔨[FuncTestVC userdefaultTest()](99): UserDefaults->0.001040723999722104
+    ///🔨[FuncTestVC userdefaultTest()](85): UserDefaults2->0.3899746900001446
+    ///🔨[FuncTestVC userdefaultTest()](90): UserDefaults3->4.776035887000035
+    ///🔨更新 value值未改变
+    ///🔨[FuncTestVC userdefaultTest()](99): UserDefaults->0.00012117200003558537
+    ///🔨[FuncTestVC userdefaultTest()](105): UserDefaults2->0.01495678700030112
+    ///🔨[FuncTestVC userdefaultTest()](111): UserDefaults3->0.11341833899996345
+    ///添加 synchronize
+    ///🔨[FuncTestVC userdefaultTest()](92): UserDefaults->0.001109764000375435
+    ///🔨[FuncTestVC userdefaultTest()](98): UserDefaults2->0.4162251910001942
+    ///🔨[FuncTestVC userdefaultTest()](104): UserDefaults3->4.6923362510001425
+    ///更新key value此时value改变
+    ///🔨[FuncTestVC userdefaultTest()](95): UserDefaults->0.001175490000150603
+    ///🔨[FuncTestVC userdefaultTest()](101): UserDefaults2->0.4427957829998377
+    ///🔨[FuncTestVC userdefaultTest()](107): UserDefaults3->4.606776253999669
+    /// 更新key value  sync 此时value未改变
+    ///🔨[FuncTestVC userdefaultTest()](86): UserDefaults->0.00014505399985864642
+    ///🔨[FuncTestVC userdefaultTest()](92): UserDefaults2->0.014028745999894454
+    ///🔨[FuncTestVC userdefaultTest()](98): UserDefaults3->0.09163771099974838
+    /// - Returns:
+    func userdefaultTest() -> Void {
+        let ud = UserDefaults.standard
+        var start_t = CACurrentMediaTime()
+        mm_printLog("UserDefaults->\(start_t)")
+        ud.setValue("value2", forKey: "key")
+//        ud.synchronize()
+        mm_printLog("UserDefaults->\(CACurrentMediaTime() - start_t)")
+        start_t = CACurrentMediaTime()
+        for i in 0...1000 {
+            ud.setValue(String(format: "value2%d", i), forKey: String(format: "key%d", i))
+        }
+//        ud.synchronize()
+        mm_printLog("UserDefaults2->\(CACurrentMediaTime() - start_t)")
+        start_t = CACurrentMediaTime()
+        for i in 1000...11000 {
+            ud.setValue(String(format: "value2%d", i), forKey: String(format: "key%d", i))
+        }
+//        ud.synchronize()
+        mm_printLog("UserDefaults3->\(CACurrentMediaTime() - start_t)")
+        
+    }
     //已经运行的block 无法取消
     func cancelBlock() -> Void {
         let operationQ = OperationQueue()

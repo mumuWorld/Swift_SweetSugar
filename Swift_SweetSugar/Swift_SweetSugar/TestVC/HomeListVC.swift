@@ -25,6 +25,7 @@ class HomeListVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         tableview.mm_registerNibCell(classType: HomeListItemCell.self)
+        mm_printLog(MMFileManager.cachePath)
     }
 
 }

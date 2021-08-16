@@ -74,5 +74,13 @@
 		<key>showName</key>
 		<string>CoreAnimation动画</string>
 	</dict>
+	<dict>
+		<key>desc</key>
+		<string>CAEmitterLayer</string>
+		<key>routerVC</key>
+		<string>MMEmitterVC</string>
+		<key>showName</key>
+		<string>粒子动画</string>
+	</dict>
 </array>
 </plist>

@@ -227,6 +227,21 @@ enum verifyType{
 }
 
 extension String {
+    func mm_hasSpecialCharactor() -> Bool {
+        var regex: NSRegularExpression? = nil
+        do {
+            //[;¥?!+#^*£€•$><~|/=&%`·,，。、？！_(){}\\[\\]\\]  \\
+            try regex = NSRegularExpression(pattern: "[\\\\;¥?!+#^*£€•$><~|`·,，。、=@/&%？！_《》(){}\\[\\] \n]", options: [])
+        } catch let e {
+            mm_printLog(e)
+        }
+        let match = regex?.firstMatch(in: self, options: [], range: self.mm_range())
+        return match != nil
+    }
+}
+extension String {
+    
+    
     
     func verifyText(type : verifyType) -> Bool {
         

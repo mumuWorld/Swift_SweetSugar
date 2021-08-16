@@ -9,6 +9,7 @@
 import UIKit
 import YYText
 import SnapKit
+import AVKit
 
 func creat(_ block:(UIButton)->()) -> UIButton {
     let btn = UIButton()
@@ -32,6 +33,10 @@ class UITestVC: UIViewController {
     
     @IBOutlet weak var widthLabel: UILabel!
     
+    @IBOutlet weak var pieChartView: MMPieChartView!
+    
+    var emitter: CAEmitterLayer?
+    
     let bar: UIButton = creat { (btn) in
         mm_printLog("测试调用")
         btn.backgroundColor = .black
@@ -47,7 +52,20 @@ class UITestVC: UIViewController {
         return label
     }()
     
+    lazy var avPlayer: AVPlayer = {
+        let path = Bundle.main.path(forResource: "RPReplay", ofType: "MP4")
+        let item = AVPlayer(playerItem: AVPlayerItem(url: URL(fileURLWithPath: path!)))
+        return item
+    }()
+    
+    lazy var avPlayerLayer: AVPlayerLayer = {
+        let item = AVPlayerLayer(player: avPlayer)
+        item.frame = CGRect(x: 10, y: 200, width: 200, height: 200)
+        item.videoGravity = .resizeAspect
+        return item
+    }()
 
+    var pictureVC: AVPictureInPictureController?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -82,16 +100,19 @@ class UITestVC: UIViewController {
 //            self.shadowView.origin = CGPoint(x: origin.x + self.shadowView.mm_width * 0.5, y: origin.y - self.shadowView.mm_height * 0.5)
 //        }
         widthLabel.text = "大约两行高度的文字试一下"
+//        view.layer.addSublayer(avPlayerLayer)
+//        setupPip()
+        
+        pieChartView.colors = [.red,.blue,.green, .yellow]
+        pieChartView.drawWidth = 20
+        pieChartView.percents = [0.5, 0.3, 0.1, 0.1]
+        pieChartView.setNeedsDisplay()
     }
     
     var show = false
     var model = 200
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        
-//
-//        let image = create(width: self.gradientLayer.mm_width)
-//        self.gradientLayer.contentMode = .scaleToFill
-//        self.gradientLayer.image = image
+        textViewTest()
         
         //            self.top_h?.update(offset: 100)
 //        MMDispatchTimer.createTimer(startTime: 0, infiniteInterval: 2, isRepeat: true, async: false) {
@@ -103,13 +124,106 @@ class UITestVC: UIViewController {
 //                self.view.layoutIfNeeded()
 //            }
 //        }
-        textViewTest()
-        view.invalidateIntrinsicContentSize()
+//        addEmitter()
+//        MMDispatchTimer.createOnceTimer(afterTime: 3) {
+//            self.emitter?.removeFromSuperlayer()
+//        }
+//        view.invalidateIntrinsicContentSize()
+    }
+    // 添加粒子效果
+    func addEmitter() {
+        
+        // 1.创建发射器
+        emitter = CAEmitterLayer()
+        guard let emitter = self.emitter else { return }
+        // 2.发射器位置
+        emitter.emitterPosition = CGPoint(x: UIScreen.main.bounds.width * 0.5, y:  -20)
+        // 3.开启三维效果
+        emitter.preservesDepth = true
+        // 4.设置 Cell(对应其中一个粒子)
+        // 4.0.创建粒子
+        let cell = CAEmitterCell()
+        // 4.1.每秒发射粒子数
+        cell.birthRate = 3
+        // 4.2.粒子存活时间
+        cell.lifetime = 5
+        cell.lifetimeRange = 2.5
+        // 4.3.缩放比例
+        cell.scale = 0.7
+        cell.scaleRange = 0.3
+        // 4.4.粒子发射方向
+        cell.emissionLongitude = CGFloat.pi * 0.5
+        cell.emissionRange = CGFloat.pi * 0.25
+        // 4.5.粒子速度
+        cell.velocity = 150
+        cell.velocityRange = 50
+        // 4.6.旋转速度
+        cell.spin = CGFloat.pi * 0.5
+        // 4.7.粒子内容
+        cell.contents = UIImage(named: "carrot6")?.cgImage
+        // 5.将粒子添加到发射器中
+        emitter.emitterCells = [cell]
+        view.layer.addSublayer(emitter)
     }
     
+    func videoTest() -> Void {
+        self.pictureVC?.startPictureInPicture()
+        var count: UInt32 = 0
+        let list = class_copyIvarList(AVPictureInPictureController.self, &count)
+        
+        for i in 0..<count {
+            let ivar = list?[Int(i)]
+            var emptyCChar: CChar = 1
+            let name = ivar_getName(ivar!) ?? UnsafePointer<CChar>(&emptyCChar)
+            
+            let str = String(cString: name)
+            mm_printLog("->\(str)")
+        }
+//        let simplePlayerLayerView = pictureVC?.value(forKeyPath: "_playerLayer")
+        let _AVPlayerController = pictureVC?.value(forKeyPath: "_playerController")
+        let _observationController = pictureVC?.value(forKeyPath: "_observationController")
+//        let layerView = pictureVC?.value(forKey: "AVPictureInPicturePlayerLayerView")
+//        let simpleLayerView = pictureVC?.value(forKey: "_AVSimplePlayerLayerView")
+        mm_printLog("")
+    }
+    
+    func setupPip() {
+        if AVPictureInPictureController.isPictureInPictureSupported() {
+            do {
+//                let error: AVAudioSession.SetActiveOptions
+                try AVAudioSession.sharedInstance().setCategory(.playback)
+                try AVAudioSession.sharedInstance().setActive(true, options: .notifyOthersOnDeactivation)
+                
+                pictureVC = AVPictureInPictureController(playerLayer: avPlayerLayer)
+                pictureVC?.delegate = self
+                avPlayer.play()
+            } catch let e {
+                mm_printLog(e)
+            }
+        }
+    }
+    
+    /// 测试结果 lineFragmentPadding + textContainerInset 为最终内边距
     func textViewTest() {
-        textView.textContainerInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 4)
-        textView.textContainer.lineFragmentPadding = 20
+        textView.text = ""
+//        textView.textContainerInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 4)
+//        //两边间距
+//        textView.textContainer.lineFragmentPadding = 20
+        
+        //新属性测试
+//        textView.textContentType = .newPassword
+//        textView.isSecureTextEntry = true
+//        //大写，小写、连续字符次数最大值、最小长度
+//        let descriptor = "required: upper; required: lower; required: special; max-consecutive: 3; minlength: 8;"
+//        let rules = UITextInputPasswordRules(descriptor: descriptor)
+//        textView.passwordRules = rules
+//        textView.smartDashesType = .no
+        
+        let text = "bgText"
+        let attr = NSMutableAttributedString(string: text)
+        attr.addAttributes([.backgroundColor: UIColor.red,
+                            .foregroundColor: UIColor.green], range: NSRange(location: 0, length: 3))
+        textView.attributedText = attr
     }
     
     /// 测试结果，会根据最大行数返回size，也会根据约束的宽度，计算合适的结果
@@ -208,6 +322,17 @@ class UITestVC: UIViewController {
     }
 }
 
+extension UITestVC: AVPictureInPictureControllerDelegate {
+    func pictureInPictureControllerWillStartPictureInPicture(_ pictureInPictureController: AVPictureInPictureController) {
+        mm_printLog("WillStart")
+    }
+    func pictureInPictureControllerDidStartPictureInPicture(_ pictureInPictureController: AVPictureInPictureController) {
+        mm_printLog("DidStart")
+    }
+    func pictureInPictureControllerDidStopPictureInPicture(_ pictureInPictureController: AVPictureInPictureController) {
+        mm_printLog("DidStop")
+    }
+}
 
 extension UITestVC {
     func getInputAttr(input: String, font: UIFont) -> NSAttributedString {
