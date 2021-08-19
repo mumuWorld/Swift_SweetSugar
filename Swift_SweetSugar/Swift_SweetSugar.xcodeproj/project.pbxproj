@@ -69,6 +69,7 @@
 		B4A9369B2689B6E9001E181B /* MMButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4A9369A2689B6E9001E181B /* MMButton.swift */; };
 		B4B69E75233E55950061AF93 /* BaseSort.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4B69E74233E55950061AF93 /* BaseSort.swift */; };
 		B4B69E78233E55D40061AF93 /* CreateTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4B69E77233E55D40061AF93 /* CreateTool.swift */; };
+		B4B6FDAF26CE6D6400C57423 /* MMStackCollectionViewLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4B6FDAE26CE6D6400C57423 /* MMStackCollectionViewLayout.swift */; };
 		B4BE2D4B26171F7300E84967 /* SubProject_1.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B4BE2D3D26171E9600E84967 /* SubProject_1.framework */; };
 		B4BE2D4C26171F7300E84967 /* SubProject_1.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B4BE2D3D26171E9600E84967 /* SubProject_1.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		B4C6AA0E261D9A9800D4B243 /* GestureTestVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4C6AA0C261D9A9800D4B243 /* GestureTestVC.swift */; };
@@ -202,6 +203,7 @@
 		B4A9369A2689B6E9001E181B /* MMButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MMButton.swift; sourceTree = "<group>"; };
 		B4B69E74233E55950061AF93 /* BaseSort.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseSort.swift; sourceTree = "<group>"; };
 		B4B69E77233E55D40061AF93 /* CreateTool.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateTool.swift; sourceTree = "<group>"; };
+		B4B6FDAE26CE6D6400C57423 /* MMStackCollectionViewLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MMStackCollectionViewLayout.swift; sourceTree = "<group>"; };
 		B4BE2D3826171E9600E84967 /* SubProject_1.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SubProject_1.xcodeproj; path = SubProject_1/SubProject_1.xcodeproj; sourceTree = "<group>"; };
 		B4C6AA0C261D9A9800D4B243 /* GestureTestVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GestureTestVC.swift; sourceTree = "<group>"; };
 		B4C6AA0D261D9A9800D4B243 /* GestureTestVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GestureTestVC.xib; sourceTree = "<group>"; };
@@ -541,6 +543,7 @@
 			children = (
 				B49BAB88262022730097DFC9 /* CollectionViewController.swift */,
 				B49BAB89262022730097DFC9 /* CollectionViewController.xib */,
+				B4B6FDAE26CE6D6400C57423 /* MMStackCollectionViewLayout.swift */,
 			);
 			path = "Collection测试";
 			sourceTree = "<group>";
@@ -982,6 +985,7 @@
 				B461A4C2234E3D660054B907 /* HeapModel.swift in Sources */,
 				B45853582386D899005A4FFA /* LXDBacktraceLogger.m in Sources */,
 				B4C6AA18261D9CE000D4B243 /* MMTouchView.swift in Sources */,
+				B4B6FDAF26CE6D6400C57423 /* MMStackCollectionViewLayout.swift in Sources */,
 				B45853592386D899005A4FFA /* LXDAppFluecyMonitor.m in Sources */,
 				B4063DA6260B618A00F3135E /* ConstParams.swift in Sources */,
 				B425AC982252529A00B02B77 /* UIKit+Extension.swift in Sources */,

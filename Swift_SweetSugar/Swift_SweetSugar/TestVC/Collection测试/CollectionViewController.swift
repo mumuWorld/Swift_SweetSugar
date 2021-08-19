@@ -30,11 +30,35 @@ class CollectionViewController: UIViewController {
         return cv
     }()
     
+    lazy var collectionView_2: UICollectionView = {
+        let layout = MMStackCollectionViewLayout()
+//        layout.itemSize = CGSize(width: ScreenWidth + 40, height: 100)
+        layout.maxItemSize = CGSize(width: 200, height: 100)
+        layout.itemSize = CGSize(width: 200, height: 100)
+        layout.minimumInteritemSpacing = 0
+        layout.minimumLineSpacing = 0
+        
+        layout.scrollDirection = .horizontal
+        layout.minimumInteritemSpacing = 0
+        layout.minimumLineSpacing = 0
+        let cv = UICollectionView(frame: CGRect(x: -ScreenWidth, y: 250, width: ScreenWidth * 3, height: 100), collectionViewLayout: layout)
+//        let cv = UICollectionView(frame: CGRect(x: 0, y: 100, width: ScreenWidth + 40, height: 100), collectionViewLayout: layout)
+        
+//        cv.isPagingEnabled = true
+        cv.isPagingEnabled = false
+        cv.delegate = self
+        cv.dataSource = self
+        cv.mm_registerNibCell(classType: SingleViewCell.self)
+//        cv.contentInset = UIEdgeInsets(top: 0, left: -20, bottom: 0, right: 20)
+        return cv
+    }()
+    
     var curOffset: CGPoint = .zero
     
     override func viewDidLoad() {
         super.viewDidLoad()
         view.addSubview(collectionView)
+        view.addSubview(collectionView_2)
         // Do any additional setup after loading the view.
     }
 
@@ -82,6 +106,9 @@ extension CollectionViewController: UICollectionViewDelegate, UICollectionViewDa
     }
     
     func handleScroll(_ scrollView: UIScrollView) -> Void {
+        if scrollView == collectionView_2 {
+            return
+        }
         let offset = abs(Int(scrollView.contentOffset.x) % Int(ScreenWidth))
         var index = Int(floor(scrollView.contentOffset.x / ScreenWidth))
         

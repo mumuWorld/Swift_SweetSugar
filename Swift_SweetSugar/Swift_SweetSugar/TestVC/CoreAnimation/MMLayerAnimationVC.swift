@@ -16,6 +16,8 @@ class MMLayerAnimationVC: UIViewController {
     
     @IBOutlet weak var animationImgView: UIImageView!
     
+    @IBOutlet weak var searchIconImgView: UIImageView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 //        self.navigationController?.interactivePopGestureRecognizer?.delegate
@@ -26,7 +28,20 @@ class MMLayerAnimationVC: UIViewController {
 
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
 //        test_transform_x()
-        createMask()
+//        createMask()
+        trans()
+    }
+    
+    func trans() -> Void {
+        let trans = CABasicAnimation(keyPath: "transform")
+        var form = CATransform3DMakeRotation(Double.pi * 0.3, 0, 1, 0)
+        form.m34 =  -1.0 / 1000
+        trans.fromValue = CATransform3DIdentity
+        trans.toValue = form
+        trans.duration = 2.0
+        trans.fillMode = .forwards
+        trans.isRemovedOnCompletion = false
+        searchIconImgView.layer.add(trans, forKey: "trans")
     }
     
     func createMask() {

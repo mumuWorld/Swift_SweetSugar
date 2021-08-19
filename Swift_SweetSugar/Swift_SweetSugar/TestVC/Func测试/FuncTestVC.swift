@@ -104,6 +104,10 @@ extension FuncTestVC {
         mm_printLog("test")
     }
     
+    @objc func application(_ application: UIApplication, performActionFor shortcutItem: UIApplicationShortcutItem, completionHandler: @escaping (Bool) -> Void) {
+        
+    }
+    
     func emptyTest() {
         var str: String? = " "
         let e1 = "".isEmpty
@@ -237,13 +241,18 @@ extension FuncTestVC {
         let str = " hello test mornigi \n test hehl "
         let str_2 = "hello test mornigi \n test hehl \n"
         let str_3 = " hello test mornigi \n test hehl \n "
+        
+        let str_4 = "           "
+
         //"hello test mornigi \n test hehl"
         let str_t = str.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
         //"hello test mornigi \n test hehl"  替换前后换行 和 空格
         let str_2_t = str_2.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
         //"hello test mornigi \n test hehl \n"  替换前后空格
         let str_3_t = str_3.trimmingCharacters(in: CharacterSet.whitespaces)
-        
+        /// "" 全部替换
+        let str_4_t = str_4.trimmingCharacters(in: .whitespacesAndNewlines)
+
         let tmpUnit = unit
         
         if tmpUnit == unit {

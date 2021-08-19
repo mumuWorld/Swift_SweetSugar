@@ -5,6 +5,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19107.5"/>
+        <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -13,6 +14,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MMLayerAnimationVC" customModule="Swift_SweetSugar" customModuleProvider="target">
             <connections>
                 <outlet property="animationImgView" destination="sy1-oR-8ou" id="vTN-hF-JXI"/>
+                <outlet property="searchIconImgView" destination="0In-Vg-ODz" id="cbc-Ma-ejl"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
                 <outlet property="view_1" destination="uyQ-4R-AML" id="agw-i0-l4t"/>
                 <outlet property="view_2" destination="NXJ-I5-PHw" id="YPW-v4-DGl"/>
@@ -65,13 +67,23 @@
                         <constraint firstAttribute="bottom" secondItem="sy1-oR-8ou" secondAttribute="bottom" id="uvo-Ap-ULR"/>
                     </constraints>
                 </view>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="0In-Vg-ODz">
+                    <rect key="frame" x="10" y="352" width="200" height="200"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="200" id="0sA-1W-svq"/>
+                        <constraint firstAttribute="height" constant="200" id="sQo-7L-a0e"/>
+                    </constraints>
+                    <imageReference key="image" image="ic_search"/>
+                </imageView>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
+                <constraint firstItem="0In-Vg-ODz" firstAttribute="top" secondItem="NXJ-I5-PHw" secondAttribute="bottom" constant="198" id="WrK-1d-EYV"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="NXJ-I5-PHw" secondAttribute="trailing" constant="10" id="XM3-P1-aTP"/>
                 <constraint firstItem="uyQ-4R-AML" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="10" id="htN-yp-vWI"/>
                 <constraint firstItem="NXJ-I5-PHw" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="10" id="nlj-9d-GuA"/>
+                <constraint firstItem="0In-Vg-ODz" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="10" id="rDJ-wW-198"/>
                 <constraint firstItem="uyQ-4R-AML" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="10" id="y3B-j1-ANG"/>
                 <constraint firstItem="NXJ-I5-PHw" firstAttribute="top" secondItem="uyQ-4R-AML" secondAttribute="bottom" constant="20" id="ydu-hg-ili"/>
             </constraints>
@@ -79,6 +91,7 @@
         </view>
     </objects>
     <resources>
+        <image name="ic_search" width="28" height="28"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
