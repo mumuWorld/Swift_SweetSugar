@@ -23,7 +23,7 @@ class MMStackCollectionViewLayout: UICollectionViewFlowLayout {
         let center_y = (collectionView?.mm_height ?? 0) * 0.5
         for i in 0...count {
             let  attr = UICollectionViewLayoutAttributes(forCellWith: IndexPath(item: i, section: 0))
-            let center_x = CGFloat(i) * 150 + itemSize.width
+            let center_x = CGFloat(i) * 170 + itemSize.width
             attr.size = itemSize
             attr.center = CGPoint(x: center_x, y: center_y)
             _attributes.append(attr)
@@ -36,10 +36,17 @@ class MMStackCollectionViewLayout: UICollectionViewFlowLayout {
 //        guard var attributes = _attributes else { return _attributes }
         let size = collectionView?.mm_size ?? .zero
         let curOffset = collectionView?.contentOffset ?? .zero
-        for attribute in _attributes {
+        for (i, attribute) in _attributes.enumerated() {
             //距中心点距离
             let distance = abs(attribute.center.x - curOffset.x - size.width * 0.5)
-            let scale = 1 - (distance / (size.width * 0.5)) * 0.5
+            attribute.zIndex = -Int(distance)
+//            if distance < itemSize.width * 0.5 {
+//                if let cell = collectionView?.cellForItem(at: IndexPath(item: i, section: 0)) {
+//                    collectionView?.bringSubviewToFront(cell)
+//                }
+//            }
+        
+            let scale = 1 - (distance / (size.width * 0.5)) * 0.6
             attribute.transform = CGAffineTransform(scaleX: scale, y:  scale)
 //            attribute.
         }

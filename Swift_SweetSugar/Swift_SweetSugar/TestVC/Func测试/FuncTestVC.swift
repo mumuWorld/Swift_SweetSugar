@@ -25,7 +25,27 @@ class FuncTestVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        title = "功能测试水电费水电费水电费水电费水电费"
         
+        var arr: [UIBarButtonItem] = []
+        for i in 0...7 {
+            let btn = UIButton()
+            btn.setTitle("按钮\(i)", for: .normal)
+            btn.backgroundColor = .lightGray
+            let item = UIBarButtonItem(customView: btn)
+            arr.append(item)
+        }
+        navigationItem.rightBarButtonItems = arr
+        
+        var leftArr: [UIBarButtonItem] = []
+        for i in 0...7 {
+            let btn = UIButton()
+            btn.setTitle("按钮\(i)", for: .normal)
+            btn.backgroundColor = .lightGray
+            let item = UIBarButtonItem(customView: btn)
+            leftArr.append(item)
+        }
+        navigationItem.leftBarButtonItems = leftArr
     }
 
     @IBAction func handleClick(_ sender: UIButton) {
