@@ -27,25 +27,44 @@ class FuncTestVC: UIViewController {
         super.viewDidLoad()
         title = "功能测试水电费水电费水电费水电费水电费"
         
-        var arr: [UIBarButtonItem] = []
-        for i in 0...7 {
-            let btn = UIButton()
-            btn.setTitle("按钮\(i)", for: .normal)
-            btn.backgroundColor = .lightGray
-            let item = UIBarButtonItem(customView: btn)
-            arr.append(item)
-        }
-        navigationItem.rightBarButtonItems = arr
-        
-        var leftArr: [UIBarButtonItem] = []
-        for i in 0...7 {
-            let btn = UIButton()
-            btn.setTitle("按钮\(i)", for: .normal)
-            btn.backgroundColor = .lightGray
-            let item = UIBarButtonItem(customView: btn)
-            leftArr.append(item)
-        }
-        navigationItem.leftBarButtonItems = leftArr
+//        var arr: [UIBarButtonItem] = []
+//        for i in 0...7 {
+//            let btn = UIButton()
+//            btn.setTitle("按钮\(i)", for: .normal)
+//            btn.backgroundColor = .lightGray
+//            let item = UIBarButtonItem(customView: btn)
+//            arr.append(item)
+//        }
+//        navigationItem.rightBarButtonItems = arr
+//        
+//        var leftArr: [UIBarButtonItem] = []
+//        for i in 0...7 {
+//            let btn = UIButton()
+//            btn.setTitle("按钮\(i)", for: .normal)
+//            btn.backgroundColor = .lightGray
+//            let item = UIBarButtonItem(customView: btn)
+//            leftArr.append(item)
+//        }
+//        navigationItem.leftBarButtonItems = leftArr
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        mm_printLog("")
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        mm_printLog("")
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        mm_printLog("")
+    }
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        mm_printLog("")
     }
 
     @IBAction func handleClick(_ sender: UIButton) {
