@@ -22,10 +22,17 @@ class HomeListVC: UIViewController {
         return arr
     }()
     
+    var model: MMSimpleModel = MMSimpleModel()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         tableview.mm_registerNibCell(classType: HomeListItemCell.self)
         mm_printLog(MMFileManager.cachePath)
+        model.name = "original"
+        model.target = self
+#if Test
+        mm_printLog("get log")
+        #endif
     }
 
     override func viewWillAppear(_ animated: Bool) {

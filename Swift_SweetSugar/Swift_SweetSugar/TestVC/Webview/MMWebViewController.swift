@@ -14,7 +14,9 @@ class MMWebViewController: UIViewController {
     lazy var webview: WKWebView = {
         let configure = WKWebViewConfiguration()
         let userContent = WKUserContentController()
-        let item = WKWebView()
+//        userContent.add(self, name: "translate")
+        configure.userContentController = userContent
+        let item = WKWebView(frame: .zero, configuration: configure)
         item.uiDelegate = self
         item.navigationDelegate = self
         return item
@@ -39,6 +41,18 @@ class MMWebViewController: UIViewController {
 //        url = "https://mr.baidu.com/r/naQBhqv9W8?f=cp&u=7d85acc17a4065ed"
         url = "http://www.globaltimes.cn"
     }
+    
+    deinit {
+        mm_printLog("MMWebViewController deinit")
+    }
+}
+
+extension MMWebViewController: WKScriptMessageHandler {
+    
+    func userContentController(_ userContentController: WKUserContentController, didReceive message: WKScriptMessage) {
+        mm_printLog("message->\(message)")
+    }
+    
 }
 
 extension MMWebViewController: WKUIDelegate {
@@ -51,6 +65,9 @@ extension MMWebViewController: WKNavigationDelegate {
         let jsUrl = URL(string: "https://c.youdao.com/fanyiguan/webTrans/index.js")
         let str = try? String(contentsOf: jsUrl!, encoding: .utf8)
         webView.evaluateJavaScript(str!, completionHandler: nil)
+        webView.evaluateJavaScript("document.documentElement.outerHTML") { str, error in
+            mm_printLog("html->\(self.webview)")
+        }
     }
     func webView(_ webView: WKWebView, didFail navigation: WKNavigation!, withError error: Error) {
         mm_printLog("加载失败")

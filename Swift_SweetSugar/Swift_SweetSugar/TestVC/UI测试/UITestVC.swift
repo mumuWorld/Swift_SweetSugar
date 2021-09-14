@@ -35,6 +35,8 @@ class UITestVC: UIViewController {
     
     @IBOutlet weak var pieChartView: MMPieChartView!
     
+    @IBOutlet weak var changeImageSizeBtn: UIButton!
+    
     var emitter: CAEmitterLayer?
     
     let bar: UIButton = creat { (btn) in
@@ -70,21 +72,24 @@ class UITestVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        shadowView.layer.cornerRadius = 24
+//        shadowView.layer.cornerRadius = 24
       //        layer.shadowColor = UIColor(hex: 0x3C4D59, alpha: 0.9).cgColor
         shadowView.layer.shadowColor = UIColor.black.cgColor
         shadowView.layer.shadowOffset = CGSize(width: 0, height: 0)
         shadowView.layer.shadowRadius = 3
         shadowView.layer.shadowOpacity = 1
-        
+        shadowView.frame = CGRect(x: 10, y: 150, width: 100, height: 50)
 //        shadowView.layer.maskedCorners = [.layerMaxXMaxYCorner, .layerMinXMinYCorner]
         
-        let shadowSub = UIView(frame: CGRect(x: 0, y: -10, width: 30, height: 30))
+        let shadowSub = UIView(frame: CGRect(x: 0, y: 10, width: 30, height: 30))
         shadowSub.backgroundColor = .red
         shadowView.addSubview(shadowSub)
-        
-        shadowView.mm_y = 100
-        
+        mm_printLog("center->\(shadowView.center),position->\(shadowView.layer.position),frame->\(shadowView.frame)")
+        //位置比较
+        let compareView = UIView(frame: shadowView.frame)
+        compareView.backgroundColor = .red
+        view.insertSubview(compareView, belowSubview: shadowView)
+
         let line: MMDottedLine = MMDottedLine()
         line.mm_size = CGSize(width: 100, height: 10)
         line.test()
@@ -92,9 +97,7 @@ class UITestVC: UIViewController {
         view.addSubview(line)
         
         view.addSubview(attrText)
-        
-        shadowView.layer.anchorPoint = CGPoint(x: 1, y: 0)
-        view.layoutIfNeeded()
+
 //        DispatchQueue.main.async {
 //            let origin = self.shadowView.origin
 //            self.shadowView.origin = CGPoint(x: origin.x + self.shadowView.mm_width * 0.5, y: origin.y - self.shadowView.mm_height * 0.5)
@@ -109,11 +112,16 @@ class UITestVC: UIViewController {
         pieChartView.setNeedsDisplay()
     }
     
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .default
+    }
+    
     var show = false
     var model = 200
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        textViewTest()
-        
+//        navigationController?.navigationBar.barStyle = UIBarStyle.black
+//        anchorTest()
+
         //            self.top_h?.update(offset: 100)
 //        MMDispatchTimer.createTimer(startTime: 0, infiniteInterval: 2, isRepeat: true, async: false) {
 //            self.topView.snp.updateConstraints { make in
@@ -129,7 +137,30 @@ class UITestVC: UIViewController {
 //            self.emitter?.removeFromSuperlayer()
 //        }
 //        view.invalidateIntrinsicContentSize()
+        changeImgSize()
     }
+    
+    func changeImgSize() {
+        mm_printLog(changeImageSizeBtn.mm_size)
+        mm_printLog(changeImageSizeBtn.imageView?.mm_size)
+        changeImageSizeBtn.imageView?.mm_size = CGSize(width: 50, height: 50)
+    }
+    
+    func anchorTest() {
+        /*
+         [UITestVC viewDidLoad()](86): center->(60.0, 184.0),frame->(10.0, 159.0, 100.0, 50.0)
+         [UITestVC anchorTest()](134): center->(60.0, 210.0),frame->(-40.0, 210.0, 100.0, 50.0)
+         */
+        shadowView.layer.anchorPoint = CGPoint(x: 1, y: 0)
+        mm_printLog("center->\(shadowView.center),position->\(shadowView.layer.position),frame->\(shadowView.frame)")
+        let nowFrame = shadowView.frame
+        let x = nowFrame.minX  + 100 * 0.5
+        let y = nowFrame.minY - 50 * 0.5
+        shadowView.origin = CGPoint(x: x, y: y)
+        mm_printLog("center->\(shadowView.center),position->\(shadowView.layer.position),frame->\(shadowView.frame)")
+
+    }
+    
     // 添加粒子效果
     func addEmitter() {
         

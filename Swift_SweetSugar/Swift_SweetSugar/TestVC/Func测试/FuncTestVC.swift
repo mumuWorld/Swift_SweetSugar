@@ -18,6 +18,8 @@ class FuncTestVC: UIViewController {
     
     var unit: UITableView = UITableView()
     
+    var model: MMSimpleModel?
+    
     lazy var removeItem: UIView? = {
         let item = UIView()
         return item
@@ -46,6 +48,11 @@ class FuncTestVC: UIViewController {
 //            leftArr.append(item)
 //        }
 //        navigationItem.leftBarButtonItems = leftArr
+        
+        model?.name = "change"
+        
+        let index = Int(2.0 / 4.0)
+        mm_printLog("")
     }
     
     override func viewWillAppear(_ animated: Bool) {

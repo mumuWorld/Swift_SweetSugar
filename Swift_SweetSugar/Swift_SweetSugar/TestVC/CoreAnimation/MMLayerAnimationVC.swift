@@ -29,7 +29,42 @@ class MMLayerAnimationVC: UIViewController {
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
 //        test_transform_x()
 //        createMask()
-        trans()
+        groupTest()
+    }
+    
+    func groupTest() {
+        view_1.layer.removeAllAnimations()
+        let trans = CGAffineTransform.identity
+        
+        var toTrans = CGAffineTransform(scaleX: 1.3, y: 1)
+        toTrans = toTrans.translatedBy(x: 0, y: 20)
+        
+        let base = CABasicAnimation(keyPath: "transform.translation.y")
+        //延迟0.1秒执行
+//        base.beginTime = CACurrentMediaTime() + 0.1
+        base.fromValue = 0
+        base.toValue = -50
+        base.duration = 3
+        
+        let baseWidth = CABasicAnimation(keyPath: "opacity")
+//        //延迟0.1秒执行
+        baseWidth.beginTime = CACurrentMediaTime() + 0.1
+        baseWidth.fromValue = 0.1
+        baseWidth.toValue = 1
+        baseWidth.duration = 6
+        
+        let group = CAAnimationGroup()
+        group.duration = 3
+        group.animations = [base, baseWidth]
+        group.delegate = self
+        group.timingFunction = CAMediaTimingFunction(name: .easeOut)
+        group.isRemovedOnCompletion = false
+        group.fillMode = .forwards
+        
+//        view_1.layer.add(base, forKey: nil)
+//        view_1.layer.add(baseWidth, forKey: nil)
+
+        view_1.layer.add(group, forKey: nil)
     }
     
     func trans() -> Void {
@@ -121,10 +156,10 @@ class MMLayerAnimationVC: UIViewController {
         let base = CABasicAnimation(keyPath: path)
         base.fromValue = from
         base.toValue = to
-        base.duration = 2.0
+        base.duration = 3.0
         base.fillMode = .forwards
         base.isRemovedOnCompletion = false
-        base.repeatCount = Float.infinity
+//        base.repeatCount = Float.infinity
         return base
     }
     
@@ -142,5 +177,15 @@ class MMLayerAnimationVC: UIViewController {
         base.fillMode = .removed
         base.isRemovedOnCompletion = false
         view_1.layer.add(base, forKey: "test_base")
+    }
+}
+
+extension MMLayerAnimationVC: CAAnimationDelegate {
+    func animationDidStart(_ anim: CAAnimation) {
+        mm_printLog("start->\(anim)")
+    }
+    
+    func animationDidStop(_ anim: CAAnimation, finished flag: Bool) {
+        mm_printLog("Stop->\(anim)")
     }
 }

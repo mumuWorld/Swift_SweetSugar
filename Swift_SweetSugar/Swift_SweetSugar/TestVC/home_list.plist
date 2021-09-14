@@ -82,5 +82,13 @@
 		<key>showName</key>
 		<string>粒子动画</string>
 	</dict>
+	<dict>
+		<key>desc</key>
+		<string>CoreGraphic</string>
+		<key>routerVC</key>
+		<string>MMGraphicViewController</string>
+		<key>showName</key>
+		<string>画图</string>
+	</dict>
 </array>
 </plist>
