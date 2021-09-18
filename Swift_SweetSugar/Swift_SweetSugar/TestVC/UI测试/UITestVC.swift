@@ -92,7 +92,7 @@ class UITestVC: UIViewController {
 
         let line: MMDottedLine = MMDottedLine()
         line.mm_size = CGSize(width: 100, height: 10)
-        line.test()
+//        line.test()
         line.mm_y = 100
         view.addSubview(line)
         

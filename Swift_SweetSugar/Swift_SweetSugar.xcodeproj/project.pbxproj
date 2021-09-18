@@ -49,7 +49,7 @@
 		B47F39E6260DB6CF007592A1 /* WrapperTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B47F39E5260DB6CF007592A1 /* WrapperTest.swift */; };
 		B480AD0E266882F600E53DED /* MMTextVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B480AD0C266882F600E53DED /* MMTextVC.swift */; };
 		B480AD0F266882F600E53DED /* MMTextVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = B480AD0D266882F600E53DED /* MMTextVC.xib */; };
-		B480D0C52615CEB700965530 /* MMDottedLine.swift in Sources */ = {isa = PBXBuildFile; fileRef = B480D0C42615CEB700965530 /* MMDottedLine.swift */; };
+		B48AEBC226F070BB000C513B /* MMDottedLine.swift in Sources */ = {isa = PBXBuildFile; fileRef = B48AEBC126F070BB000C513B /* MMDottedLine.swift */; };
 		B495034A26E1FF3800C10601 /* MMBaseNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B495034926E1FF3800C10601 /* MMBaseNavigationController.swift */; };
 		B495035126E2463C00C10601 /* MMGraphicViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B495034F26E2463C00C10601 /* MMGraphicViewController.swift */; };
 		B495035226E2463C00C10601 /* MMGraphicViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B495035026E2463C00C10601 /* MMGraphicViewController.xib */; };
@@ -186,7 +186,7 @@
 		B47F39E5260DB6CF007592A1 /* WrapperTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WrapperTest.swift; sourceTree = "<group>"; };
 		B480AD0C266882F600E53DED /* MMTextVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MMTextVC.swift; sourceTree = "<group>"; };
 		B480AD0D266882F600E53DED /* MMTextVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MMTextVC.xib; sourceTree = "<group>"; };
-		B480D0C42615CEB700965530 /* MMDottedLine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MMDottedLine.swift; sourceTree = "<group>"; };
+		B48AEBC126F070BB000C513B /* MMDottedLine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MMDottedLine.swift; sourceTree = "<group>"; };
 		B495034926E1FF3800C10601 /* MMBaseNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MMBaseNavigationController.swift; sourceTree = "<group>"; };
 		B495034F26E2463C00C10601 /* MMGraphicViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MMGraphicViewController.swift; sourceTree = "<group>"; };
 		B495035026E2463C00C10601 /* MMGraphicViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MMGraphicViewController.xib; sourceTree = "<group>"; };
@@ -542,7 +542,6 @@
 		B480D0C32615CEA300965530 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				B480D0C42615CEB700965530 /* MMDottedLine.swift */,
 				B49751C0269C1E08004445E4 /* MMPieChartView.swift */,
 			);
 			path = View;
@@ -553,6 +552,7 @@
 			children = (
 				B495034F26E2463C00C10601 /* MMGraphicViewController.swift */,
 				B495035026E2463C00C10601 /* MMGraphicViewController.xib */,
+				B48AEBC126F070BB000C513B /* MMDottedLine.swift */,
 			);
 			path = Graphic;
 			sourceTree = "<group>";
@@ -992,7 +992,6 @@
 				B4063DAE260B637500F3135E /* FuncTestVC.swift in Sources */,
 				B4A936992689B129001E181B /* MMCustomView.swift in Sources */,
 				B4063D9B260B60C100F3135E /* UITestVC.swift in Sources */,
-				B480D0C52615CEB700965530 /* MMDottedLine.swift in Sources */,
 				DFF332AA2328C5DE0015295C /* Bundle+MM_extension.swift in Sources */,
 				B45853632386D95E005A4FFA /* MonitorViewController.swift in Sources */,
 				DF2ED5DA23854856001617F8 /* Queue.swift in Sources */,
@@ -1013,6 +1012,7 @@
 				DF128F3D232F2C5A00491475 /* Date+MM_Extension.swift in Sources */,
 				DF2ED5F12387BCB7001617F8 /* MergeSort.swift in Sources */,
 				B49DC0E02681805A009DE0FB /* MMLayerAnimationVC.swift in Sources */,
+				B48AEBC226F070BB000C513B /* MMDottedLine.swift in Sources */,
 				B461A4C2234E3D660054B907 /* HeapModel.swift in Sources */,
 				B45853582386D899005A4FFA /* LXDBacktraceLogger.m in Sources */,
 				B4C6AA18261D9CE000D4B243 /* MMTouchView.swift in Sources */,

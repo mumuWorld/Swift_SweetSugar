@@ -7,18 +7,40 @@
 //
 
 import UIKit
+import SnapKit
 
 class MMGraphicViewController: UIViewController {
     
     @IBOutlet weak var imageV: UIImageView!
     
+    @IBOutlet weak var lineWidthInput: UITextField!
+    
+    @IBOutlet weak var leftIntpu: UITextField!
+    
+    @IBOutlet weak var rightInput: UITextField!
+    
+    lazy var lineView: MMDottedLine = {
+        let item = MMDottedLine()
+        return item
+    }()
+    
+    @IBOutlet weak var topContainerView: UIView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        topContainerView.addSubview(lineView)
+        lineView.snp.makeConstraints { (make) in
+            make.width.leading.centerY.equalToSuperview()
+            make.height.equalTo(40)
+        }
         // Do any additional setup after loading the view.
     }
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        create()
+//        create()
+        lineView.lineWidth = lineWidthInput.text?.floatValue() ?? 1
+        lineView.leftNumber = leftIntpu.text?.floatValue() ?? 3
+        lineView.rightNumber = rightInput.text?.floatValue() ?? 6
+        lineView.drawLine()
     }
 
 }

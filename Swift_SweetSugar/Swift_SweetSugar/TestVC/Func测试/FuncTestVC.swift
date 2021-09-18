@@ -53,6 +53,9 @@ class FuncTestVC: UIViewController {
         
         let index = Int(2.0 / 4.0)
         mm_printLog("")
+        
+        decodeString()
+      
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -108,6 +111,8 @@ class FuncTestVC: UIViewController {
             speechSynthesisVoiceTest()
         case 24:
             stackTest()
+        case 25:
+            decodeString()
         default:
             break
         }
@@ -126,6 +131,19 @@ class FuncTestVC: UIViewController {
 }
 
 extension FuncTestVC {
+    
+    func decodeString() -> Void {
+        let value = "AppVersion=4.0.0&brand=apple&client=iOS&logout=false&product=fanyi&push=on&token=545703ddeb3dd3d556249ced6b3e09b90e0288f2bc50d49ace39bd1a13ffc2cd"
+        let result = value.data(using: .utf8, allowLossyConversion: false)!
+        let url = URL(fileURLWithPath: "/Users/mumu/Desktop/二维码/result_sentence的副本.json")
+        do {
+            try result.write(to: url, options: .atomicWrite)
+        } catch let e {
+            mm_printLog(e)
+        }
+        let decode = String(data: result, encoding: .utf8)
+        mm_printLog(result)
+    }
     
     func stackTest() -> Void {
         let p1 = MMPoint(x: 1, y: 2)
