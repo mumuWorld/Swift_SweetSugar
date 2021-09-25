@@ -43,6 +43,8 @@
 		B469D030269D9C57001D7234 /* MMEmitterVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = B469D02E269D9C57001D7234 /* MMEmitterVC.xib */; };
 		B469D033269DBCDF001D7234 /* UIImage+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B469D032269DBCDF001D7234 /* UIImage+Extension.swift */; };
 		B46FED52238C2FA30023F0FA /* GCDTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B46FED51238C2FA30023F0FA /* GCDTest.swift */; };
+		B47468F126FED2F300C79F2C /* MMGraphic2VC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B47468EF26FED2F300C79F2C /* MMGraphic2VC.swift */; };
+		B47468F226FED2F300C79F2C /* MMGraphic2VC.xib in Resources */ = {isa = PBXBuildFile; fileRef = B47468F026FED2F300C79F2C /* MMGraphic2VC.xib */; };
 		B474765626948B2C006922D8 /* RPReplay.MP4 in Resources */ = {isa = PBXBuildFile; fileRef = B474765526948B2C006922D8 /* RPReplay.MP4 */; };
 		B47F342126608DEC00F46C90 /* MMWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B47F341F26608DEC00F46C90 /* MMWebViewController.swift */; };
 		B47F342226608DEC00F46C90 /* MMWebViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B47F342026608DEC00F46C90 /* MMWebViewController.xib */; };
@@ -180,6 +182,8 @@
 		B469D02E269D9C57001D7234 /* MMEmitterVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MMEmitterVC.xib; sourceTree = "<group>"; };
 		B469D032269DBCDF001D7234 /* UIImage+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Extension.swift"; sourceTree = "<group>"; };
 		B46FED51238C2FA30023F0FA /* GCDTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GCDTest.swift; sourceTree = "<group>"; };
+		B47468EF26FED2F300C79F2C /* MMGraphic2VC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MMGraphic2VC.swift; sourceTree = "<group>"; };
+		B47468F026FED2F300C79F2C /* MMGraphic2VC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MMGraphic2VC.xib; sourceTree = "<group>"; };
 		B474765526948B2C006922D8 /* RPReplay.MP4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = RPReplay.MP4; sourceTree = "<group>"; };
 		B47F341F26608DEC00F46C90 /* MMWebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MMWebViewController.swift; sourceTree = "<group>"; };
 		B47F342026608DEC00F46C90 /* MMWebViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MMWebViewController.xib; sourceTree = "<group>"; };
@@ -512,6 +516,15 @@
 			path = GCDTest;
 			sourceTree = "<group>";
 		};
+		B47468ED26FED2D000C79F2C /* Graphic_2 */ = {
+			isa = PBXGroup;
+			children = (
+				B47468EF26FED2F300C79F2C /* MMGraphic2VC.swift */,
+				B47468F026FED2F300C79F2C /* MMGraphic2VC.xib */,
+			);
+			path = Graphic_2;
+			sourceTree = "<group>";
+		};
 		B47F341D26608DC900F46C90 /* Webview */ = {
 			isa = PBXGroup;
 			children = (
@@ -550,6 +563,7 @@
 		B495034D26E2461600C10601 /* Graphic */ = {
 			isa = PBXGroup;
 			children = (
+				B47468ED26FED2D000C79F2C /* Graphic_2 */,
 				B495034F26E2463C00C10601 /* MMGraphicViewController.swift */,
 				B495035026E2463C00C10601 /* MMGraphicViewController.xib */,
 				B48AEBC126F070BB000C513B /* MMDottedLine.swift */,
@@ -839,6 +853,7 @@
 				B4063D73260B4F1300F3135E /* home_list.plist in Resources */,
 				B49BAB8B262022730097DFC9 /* CollectionViewController.xib in Resources */,
 				B4063D9C260B60C100F3135E /* UITestVC.xib in Resources */,
+				B47468F226FED2F300C79F2C /* MMGraphic2VC.xib in Resources */,
 				B469D030269D9C57001D7234 /* MMEmitterVC.xib in Resources */,
 				B4063DAF260B637500F3135E /* FuncTestVC.xib in Resources */,
 				B425AC702252526200B02B77 /* Assets.xcassets in Resources */,
@@ -1026,6 +1041,7 @@
 				B46FED52238C2FA30023F0FA /* GCDTest.swift in Sources */,
 				B4063D93260B546500F3135E /* UITableViewCell+Extension.swift in Sources */,
 				B422B29725A3167200293646 /* MMFileTest.swift in Sources */,
+				B47468F126FED2F300C79F2C /* MMGraphic2VC.swift in Sources */,
 				B4063D6D260B4E2800F3135E /* HomeListItem.swift in Sources */,
 				B422B2A525A3194500293646 /* String+Extension.swift in Sources */,
 				DF9227E722CB07A600ABB221 /* UIColor+MM_Extension.swift in Sources */,
