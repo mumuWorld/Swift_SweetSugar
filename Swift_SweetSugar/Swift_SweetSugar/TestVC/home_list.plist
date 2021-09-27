@@ -90,5 +90,13 @@
 		<key>showName</key>
 		<string>画图</string>
 	</dict>
+	<dict>
+		<key>desc</key>
+		<string>ipad</string>
+		<key>routerVC</key>
+		<string>MMIpadController</string>
+		<key>showName</key>
+		<string>ipad适配</string>
+	</dict>
 </array>
 </plist>

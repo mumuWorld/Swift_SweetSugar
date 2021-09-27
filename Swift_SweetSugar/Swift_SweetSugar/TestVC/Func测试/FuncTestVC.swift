@@ -27,8 +27,9 @@ class FuncTestVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = "功能测试水电费水电费水电费水电费水电费"
-        
+        title = "123456"
+        let word:String = title ?? ""
+        let resxult = String(word[word.startIndex..<word.index(word.startIndex, offsetBy: 3)])
 //        var arr: [UIBarButtonItem] = []
 //        for i in 0...7 {
 //            let btn = UIButton()
@@ -113,6 +114,8 @@ class FuncTestVC: UIViewController {
             stackTest()
         case 25:
             decodeString()
+        case 26:
+            MMFuncTool().past()
         default:
             break
         }
@@ -132,6 +135,7 @@ class FuncTestVC: UIViewController {
 
 extension FuncTestVC {
     
+    
     func decodeString() -> Void {
         let value = "AppVersion=4.0.0&brand=apple&client=iOS&logout=false&product=fanyi&push=on&token=545703ddeb3dd3d556249ced6b3e09b90e0288f2bc50d49ace39bd1a13ffc2cd"
         let result = value.data(using: .utf8, allowLossyConversion: false)!
@@ -143,11 +147,19 @@ extension FuncTestVC {
         }
         let decode = String(data: result, encoding: .utf8)
         mm_printLog(result)
+        let c: Character = "a"
+        let str = String(c)
+        
     }
     
     func stackTest() -> Void {
         let p1 = MMPoint(x: 1, y: 2)
         var p2 = p1
+//        withUnsafePointer(to: &p1) { p in
+//            UnsafeMutableRawPointer(p)
+//        }
+//        let str = String(format: "%p, %p",)
+//        mm_printLog("\(str)")
         mm_printLog("\(Unmanaged.passUnretained(p1 as AnyObject).toOpaque()),\(Unmanaged.passUnretained(p2 as AnyObject).toOpaque())")
     }
     

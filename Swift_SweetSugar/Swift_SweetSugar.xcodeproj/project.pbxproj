@@ -70,6 +70,10 @@
 		B4A936962689ADD7001E181B /* MMControlView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4A936952689ADD7001E181B /* MMControlView.swift */; };
 		B4A936992689B129001E181B /* MMCustomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4A936982689B129001E181B /* MMCustomView.swift */; };
 		B4A9369B2689B6E9001E181B /* MMButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4A9369A2689B6E9001E181B /* MMButton.swift */; };
+		B4B4346F2701701100F7FAD4 /* UIDevice+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4B4346E2701701100F7FAD4 /* UIDevice+Extension.swift */; };
+		B4B43474270170CC00F7FAD4 /* MMIpadController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4B43472270170CC00F7FAD4 /* MMIpadController.swift */; };
+		B4B43475270170CC00F7FAD4 /* MMIpadController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B4B43473270170CC00F7FAD4 /* MMIpadController.xib */; };
+		B4B434772701ADA900F7FAD4 /* MMFuncTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4B434762701ADA900F7FAD4 /* MMFuncTool.swift */; };
 		B4B69E75233E55950061AF93 /* BaseSort.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4B69E74233E55950061AF93 /* BaseSort.swift */; };
 		B4B69E78233E55D40061AF93 /* CreateTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4B69E77233E55D40061AF93 /* CreateTool.swift */; };
 		B4B6FDAF26CE6D6400C57423 /* MMStackCollectionViewLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4B6FDAE26CE6D6400C57423 /* MMStackCollectionViewLayout.swift */; };
@@ -208,6 +212,10 @@
 		B4A936952689ADD7001E181B /* MMControlView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MMControlView.swift; sourceTree = "<group>"; };
 		B4A936982689B129001E181B /* MMCustomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MMCustomView.swift; sourceTree = "<group>"; };
 		B4A9369A2689B6E9001E181B /* MMButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MMButton.swift; sourceTree = "<group>"; };
+		B4B4346E2701701100F7FAD4 /* UIDevice+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIDevice+Extension.swift"; sourceTree = "<group>"; };
+		B4B43472270170CC00F7FAD4 /* MMIpadController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MMIpadController.swift; sourceTree = "<group>"; };
+		B4B43473270170CC00F7FAD4 /* MMIpadController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MMIpadController.xib; sourceTree = "<group>"; };
+		B4B434762701ADA900F7FAD4 /* MMFuncTool.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MMFuncTool.swift; sourceTree = "<group>"; };
 		B4B69E74233E55950061AF93 /* BaseSort.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseSort.swift; sourceTree = "<group>"; };
 		B4B69E77233E55D40061AF93 /* CreateTool.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateTool.swift; sourceTree = "<group>"; };
 		B4B6FDAE26CE6D6400C57423 /* MMStackCollectionViewLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MMStackCollectionViewLayout.swift; sourceTree = "<group>"; };
@@ -298,6 +306,7 @@
 		B4063D59260B49B800F3135E /* TestVC */ = {
 			isa = PBXGroup;
 			children = (
+				B4B43471270170B300F7FAD4 /* iPad */,
 				B495034D26E2461600C10601 /* Graphic */,
 				B4C10E5426D9100F00AEF417 /* Model */,
 				B469D02B269D9C06001D7234 /* 粒子 */,
@@ -438,6 +447,7 @@
 				B4063D92260B546500F3135E /* UITableViewCell+Extension.swift */,
 				B4063DA5260B618A00F3135E /* ConstParams.swift */,
 				B469D032269DBCDF001D7234 /* UIImage+Extension.swift */,
+				B4B4346E2701701100F7FAD4 /* UIDevice+Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -526,6 +536,7 @@
 			children = (
 				B47F39E5260DB6CF007592A1 /* WrapperTest.swift */,
 				B4A308E726CA781800500055 /* MMPoint.swift */,
+				B4B434762701ADA900F7FAD4 /* MMFuncTool.swift */,
 			);
 			path = Test;
 			sourceTree = "<group>";
@@ -609,6 +620,15 @@
 				B495034926E1FF3800C10601 /* MMBaseNavigationController.swift */,
 			);
 			path = Component;
+			sourceTree = "<group>";
+		};
+		B4B43471270170B300F7FAD4 /* iPad */ = {
+			isa = PBXGroup;
+			children = (
+				B4B43472270170CC00F7FAD4 /* MMIpadController.swift */,
+				B4B43473270170CC00F7FAD4 /* MMIpadController.xib */,
+			);
+			path = iPad;
 			sourceTree = "<group>";
 		};
 		B4B69E76233E55BD0061AF93 /* Tool */ = {
@@ -830,6 +850,7 @@
 			files = (
 				B4A17DE52669FA870030E40D /* MMTableViewVC.xib in Resources */,
 				B49BAB822620223B0097DFC9 /* SingleViewCell.xib in Resources */,
+				B4B43475270170CC00F7FAD4 /* MMIpadController.xib in Resources */,
 				B49DC0E12681805A009DE0FB /* MMLayerAnimationVC.xib in Resources */,
 				B425AC732252526200B02B77 /* LaunchScreen.storyboard in Resources */,
 				B4063D67260B4D7100F3135E /* HomeListVC.xib in Resources */,
@@ -986,6 +1007,7 @@
 				B49751C1269C1E08004445E4 /* MMPieChartView.swift in Sources */,
 				B495035126E2463C00C10601 /* MMGraphicViewController.swift in Sources */,
 				B4A3625024889B26006696C3 /* MMDispatchTimer.swift in Sources */,
+				B4B43474270170CC00F7FAD4 /* MMIpadController.swift in Sources */,
 				B4B69E75233E55950061AF93 /* BaseSort.swift in Sources */,
 				B4A9369B2689B6E9001E181B /* MMButton.swift in Sources */,
 				B47F39E6260DB6CF007592A1 /* WrapperTest.swift in Sources */,
@@ -1024,12 +1046,14 @@
 				B49D61DD23390BA700ED9352 /* UIView+Extension.swift in Sources */,
 				B4A17DE02669D5EF0030E40D /* MMAuthorizationVC.swift in Sources */,
 				B46FED52238C2FA30023F0FA /* GCDTest.swift in Sources */,
+				B4B4346F2701701100F7FAD4 /* UIDevice+Extension.swift in Sources */,
 				B4063D93260B546500F3135E /* UITableViewCell+Extension.swift in Sources */,
 				B422B29725A3167200293646 /* MMFileTest.swift in Sources */,
 				B4063D6D260B4E2800F3135E /* HomeListItem.swift in Sources */,
 				B422B2A525A3194500293646 /* String+Extension.swift in Sources */,
 				DF9227E722CB07A600ABB221 /* UIColor+MM_Extension.swift in Sources */,
 				B47F342126608DEC00F46C90 /* MMWebViewController.swift in Sources */,
+				B4B434772701ADA900F7FAD4 /* MMFuncTool.swift in Sources */,
 				B495034A26E1FF3800C10601 /* MMBaseNavigationController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
