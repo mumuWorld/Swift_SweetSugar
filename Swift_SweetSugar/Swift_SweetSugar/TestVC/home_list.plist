@@ -98,5 +98,12 @@
 		<key>showName</key>
 		<string>ipad适配</string>
 	</dict>
+	<dict>
+		<string>CoreGraphic</string>
+		<key>routerVC</key>
+		<string>MMGraphic2VC</string>
+		<key>showName</key>
+		<string>画图2</string>
+	</dict>
 </array>
 </plist>

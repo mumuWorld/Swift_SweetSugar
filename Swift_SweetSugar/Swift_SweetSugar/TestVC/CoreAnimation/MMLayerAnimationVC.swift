@@ -69,7 +69,7 @@ class MMLayerAnimationVC: UIViewController {
     
     func trans() -> Void {
         let trans = CABasicAnimation(keyPath: "transform")
-        var form = CATransform3DMakeRotation(Double.pi * 0.3, 0, 1, 0)
+        var form = CATransform3DMakeRotation(CGFloat(Double.pi * 0.3), 0, 1, 0)
         form.m34 =  -1.0 / 1000
         trans.fromValue = CATransform3DIdentity
         trans.toValue = form
