@@ -99,11 +99,20 @@
 		<string>ipad适配</string>
 	</dict>
 	<dict>
+		<key>desc</key>
 		<string>CoreGraphic</string>
 		<key>routerVC</key>
 		<string>MMGraphic2VC</string>
 		<key>showName</key>
 		<string>画图2</string>
+	</dict>
+	<dict>
+		<key>desc</key>
+		<string>CoreText</string>
+		<key>routerVC</key>
+		<string>MMCoreTextVC</string>
+		<key>showName</key>
+		<string>富文本</string>
 	</dict>
 </array>
 </plist>
