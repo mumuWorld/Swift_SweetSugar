@@ -137,7 +137,29 @@ class UITestVC: UIViewController {
 //            self.emitter?.removeFromSuperlayer()
 //        }
 //        view.invalidateIntrinsicContentSize()
-        changeImgSize()
+        convertRect()
+        
+    }
+    
+    func convertRect() {
+        //▿ Optional<UIView>
+//        - some : <UIView: 0x7fe28380a440; frame = (10 150; 100 50); autoresize = RM+BM; layer = <CALayer: 0x600001ff5460>>
+//      Printing description of $19:
+//      <UIView: 0x7fe28380a440; frame = (10 -200; 100 50); autoresize = RM+BM; layer = <CALayer: 0x600001ff5460>>
+        var applyFrame = shadowView.frame.applying(CGAffineTransform(scaleX: 1.0, y: -1))
+        applyFrame.origin.y = 100
+        shadowView.frame = applyFrame
+    }
+    
+    func alertShow() {
+        let alert = UIAlertController.init(title: "确定删除历史?", message: nil, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "", style: .default, handler: { _ in
+            
+        }))
+        alert.addAction(UIAlertAction(title: "", style: .cancel, handler: { _ in
+            
+        }))
+        navigationController?.present(alert, animated: true, completion: nil)
     }
     
     func changeImgSize() {

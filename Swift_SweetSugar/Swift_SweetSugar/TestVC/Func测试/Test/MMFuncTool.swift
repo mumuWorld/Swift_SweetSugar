@@ -27,12 +27,15 @@ class MMFuncTool {
                         }
                     }
                     break
-                case .failure(let error):
+                case .failure(_):
                     break
                 }
             }
         } else {
             
         }
+        mm_printLog("str->\(pasted.string)")
+        mm_printLog("str->\(pasted.strings)")
+
     }
 }

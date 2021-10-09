@@ -49,7 +49,6 @@ class FuncTestVC: UIViewController {
 //            leftArr.append(item)
 //        }
 //        navigationItem.leftBarButtonItems = leftArr
-        
         model?.name = "change"
         
         let index = Int(2.0 / 4.0)
