@@ -11,3 +11,11 @@ import Foundation
 struct MMPoint {
     var x, y: Float
 }
+
+struct TestJsonStruct: Codable {
+    var text: String?
+}
+
+class TestJsonClass: Codable {
+    var text: String?
+}

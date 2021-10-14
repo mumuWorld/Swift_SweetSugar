@@ -56,6 +56,8 @@ class FuncTestVC: UIViewController {
         
         decodeString()
       
+        MMFuncTool().testPrint()
+        self.testPrint()
     }
     
     override func viewWillAppear(_ animated: Bool) {

@@ -38,4 +38,28 @@ class MMFuncTool {
         mm_printLog("str->\(pasted.strings)")
 
     }
+    
+    func makeData(s: String) {
+//        s.data(using: .utf8).map {
+////            JSONSerialization.jsonObject(with: <#T##Data#>, options: <#T##JSONSerialization.ReadingOptions#>)
+//            try? JSONSerialization.jsonObject(with: $0, options: .fragmentsAllowed)
+//        }?.map({
+//            MMFuncTool()
+//        })
+    }
 }
+
+
+protocol MMEmptyProtocol {
+    func testPrint()
+}
+
+extension MMEmptyProtocol {
+    func testPrint() {
+        mm_printLog(self)
+    }
+}
+
+extension MMFuncTool: MMEmptyProtocol {}
+
+extension FuncTestVC: MMEmptyProtocol {}
