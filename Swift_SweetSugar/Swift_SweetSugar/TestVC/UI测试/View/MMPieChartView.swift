@@ -56,4 +56,12 @@ class MMPieChartView: UIView {
             context.strokePath()
         }
     }
+    
+    public override func layoutSubviews() {
+        super.layoutSubviews()
+    }
+    
+    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+        
+    }
 }

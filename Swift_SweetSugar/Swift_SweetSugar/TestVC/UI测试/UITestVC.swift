@@ -71,7 +71,6 @@ class UITestVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
 //        shadowView.layer.cornerRadius = 24
       //        layer.shadowColor = UIColor(hex: 0x3C4D59, alpha: 0.9).cgColor
         shadowView.layer.shadowColor = UIColor.black.cgColor

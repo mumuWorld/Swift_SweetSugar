@@ -47,6 +47,24 @@ class MMFuncTool {
 //            MMFuncTool()
 //        })
     }
+    
+    func operationQueueTest() {
+        let operation = Operation()
+        operation.completionBlock = {
+            mm_printLog("finished")
+        }
+        OperationQueue.main.addOperation(operation)
+        
+        MMFuncTool.add(a: 1, b: 3) { result in
+            mm_printLog(result)
+        }
+    }
+    
+    static func add(a: Int, b: Int, block: @escaping ((Int) -> Void)) {
+        OperationQueue.main.addOperation {
+            block(a + b)
+        }
+    }
 }
 
 
@@ -63,3 +81,5 @@ extension MMEmptyProtocol {
 extension MMFuncTool: MMEmptyProtocol {}
 
 extension FuncTestVC: MMEmptyProtocol {}
+
+

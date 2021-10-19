@@ -56,7 +56,7 @@ class FuncTestVC: UIViewController {
         
         decodeString()
       
-        MMFuncTool().testPrint()
+        MMFuncTool().operationQueueTest()
         self.testPrint()
     }
     
