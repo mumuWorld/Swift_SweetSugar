@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19162" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19144"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
         <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -16,7 +16,9 @@
                 <outlet property="changeImageSizeBtn" destination="lqR-hW-LST" id="7xL-TO-Cot"/>
                 <outlet property="gradientLayer" destination="YbM-Jx-yAU" id="iKv-uw-tkw"/>
                 <outlet property="pieChartView" destination="Ugm-HH-YRJ" id="KWG-Mj-sLu"/>
+                <outlet property="shadowBtn" destination="gwf-3y-oOz" id="aQO-fv-1Ut"/>
                 <outlet property="shadowView" destination="lll-pu-NQP" id="OvH-uM-JIs"/>
+                <outlet property="testButton" destination="DeY-ja-ekh" id="KIr-Jm-SI0"/>
                 <outlet property="textView" destination="OZe-ce-Eyp" id="gqR-jf-6LI"/>
                 <outlet property="textView_h" destination="0UK-JE-4eB" id="dS8-Eh-6fs"/>
                 <outlet property="topView" destination="13Z-oM-VZf" id="3EF-QM-p4z"/>
@@ -55,7 +57,7 @@
                         <constraint firstAttribute="height" constant="200" id="0UK-JE-4eB"/>
                         <constraint firstAttribute="width" constant="150" id="hoX-CR-TuX"/>
                     </constraints>
-                    <string key="text">httpsmp.weixin.qq.comsyqnSahzYV_kWhPVnztTQ3Qhttps:mp.weixin.qq.comsyqnSahzYV_kWhPVnztTQ3Qhttps:mp.weixin.qq.comsyqnSahzYV_kWhPVnztTQ3Qhttpsmp.weixin.qq.comsyqnSahzYV_kWhPVnztTQ3Qhttps:m</string>
+                    <mutableString key="text">httpsmp.weixin.qq.comsyqnSahzYV_kWhPVnztTQ3Qhttps:mp.weixin.qq.comsyqnSahzYV_kWhPVnztTQ3Qhttps:mp.weixin.qq.comsyqnSahzYV_kWhPVnztTQ3Qhttpsmp.weixin.qq.comsyqnSahzYV_kWhPVnztTQ3Qhttps:mhttpsmp.weixin.qq.comsyqnSahzYV_kWhPVnztTQ3Qhttps:mp.weixin.qq.comsyqnSahzYV_kWhPVnztTQ3Qhttps:mp.weixin.qq.comsyqnSahzYV_kWhPVnztTQ3Qhttpsmp.weixin.qq.comsyqnSahzYV_kWhPVnztTQ3Qhttps:mhttpsmp.weixin.qq.comsyqnSahzYV_kWhPVnztTQ3Qhttps:mp.weixin.qq.comsyqnSahzYV_kWhPVnztTQ3Qhttps:mp.weixin.qq.comsyqnSahzYV_kWhPVnztTQ3Qhttpsmp.weixin.qq.comsyqnSahzYV_kWhPVnztTQ3Qhttps:mhttpsmp.weixin.qq.comsyqnSahzYV_kWhPVnztTQ3Qhttps:mp.weixin.qq.comsyqnSahzYV_kWhPVnztTQ3Qhttps:mp.weixin.qq.comsyqnSahzYV_kWhPVnztTQ3Qhttpsmp.weixin.qq.comsyqnSahzYV_kWhPVnztTQ3Qhttps:m</mutableString>
                     <color key="textColor" systemColor="labelColor"/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -68,16 +70,6 @@
                         <constraint firstAttribute="height" constant="50" id="emB-3g-ycy"/>
                     </constraints>
                 </view>
-                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="leading" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DeY-ja-ekh">
-                    <rect key="frame" x="104" y="43" width="118" height="59"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <inset key="titleEdgeInsets" minX="-4" minY="0.0" maxX="0.0" maxY="0.0"/>
-                    <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="5" maxY="0.0"/>
-                    <state key="normal" title="测试文字">
-                        <color key="titleColor" red="1" green="0.50588235290000005" blue="0.50588235290000005" alpha="1" colorSpace="calibratedRGB"/>
-                        <imageReference key="image" image="ic_voice_3"/>
-                    </state>
-                </button>
                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="YbM-Jx-yAU">
                     <rect key="frame" x="191" y="595" width="97" height="51"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -101,11 +93,6 @@
                         <constraint firstAttribute="height" constant="100" id="doO-kH-bWT"/>
                     </constraints>
                 </view>
-                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="uRX-9u-BV9">
-                    <rect key="frame" x="69" y="380" width="341" height="174"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <imageReference key="image" image="pop-1"/>
-                </imageView>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lqR-hW-LST">
                     <rect key="frame" x="325" y="256" width="81" height="42"/>
                     <inset key="imageEdgeInsets" minX="10" minY="22" maxX="200" maxY="100"/>
@@ -114,17 +101,27 @@
                         <imageReference key="image" image="ic_search"/>
                     </buttonConfiguration>
                 </button>
-                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="sak-sE-yfd">
-                    <rect key="frame" x="35" y="662" width="240" height="128"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                    <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="9zy-TR-FXX">
-                        <size key="itemSize" width="128" height="128"/>
-                        <size key="headerReferenceSize" width="0.0" height="0.0"/>
-                        <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                        <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
-                    </collectionViewFlowLayout>
-                </collectionView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DeY-ja-ekh">
+                    <rect key="frame" x="300" y="546" width="98" height="24"/>
+                    <color key="backgroundColor" red="0.2901960784" green="0.56470588239999997" blue="0.8862745098" alpha="0.84705882349999995" colorSpace="calibratedRGB"/>
+                    <inset key="titleEdgeInsets" minX="-4" minY="0.0" maxX="0.0" maxY="0.0"/>
+                    <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="5" maxY="0.0"/>
+                    <state key="normal" title="测试文字">
+                        <color key="titleColor" red="1" green="0.50588235290000005" blue="0.50588235290000005" alpha="1" colorSpace="calibratedRGB"/>
+                        <imageReference key="image" image="btn_heart"/>
+                    </state>
+                    <state key="selected" image="btn_heart_selected"/>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gwf-3y-oOz" customClass="MMShadowButton" customModule="Swift_SweetSugar" customModuleProvider="target">
+                    <rect key="frame" x="354" y="452" width="50" height="50"/>
+                    <color key="backgroundColor" red="1" green="0.40000000000000002" blue="0.35686274509999999" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="50" id="YXY-v6-U3v"/>
+                        <constraint firstAttribute="height" constant="50" id="vIC-eT-ihM"/>
+                    </constraints>
+                    <state key="normal" title="Button"/>
+                    <buttonConfiguration key="configuration" style="plain" title="Button"/>
+                </button>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -138,20 +135,24 @@
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="UTX-5i-QA6" secondAttribute="trailing" constant="8" id="Tji-2l-J32"/>
                 <constraint firstItem="UTX-5i-QA6" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="8" id="UYV-xr-F1l"/>
                 <constraint firstItem="OZe-ce-Eyp" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="50" id="WhG-xA-Mve"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="DeY-ja-ekh" secondAttribute="trailing" constant="16" id="ZSs-C2-C0O"/>
+                <constraint firstAttribute="trailing" secondItem="gwf-3y-oOz" secondAttribute="trailing" constant="10" id="emX-dV-sXI"/>
                 <constraint firstItem="Ugm-HH-YRJ" firstAttribute="top" secondItem="phe-5K-alU" secondAttribute="bottom" constant="119" id="h7m-r8-JWa"/>
                 <constraint firstItem="lqR-hW-LST" firstAttribute="top" secondItem="phe-5K-alU" secondAttribute="bottom" constant="62" id="hwJ-8Y-fLP"/>
                 <constraint firstItem="13Z-oM-VZf" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="40" id="mCa-Hk-8do"/>
                 <constraint firstItem="phe-5K-alU" firstAttribute="top" secondItem="13Z-oM-VZf" secondAttribute="bottom" constant="10" id="sDH-eq-rrj"/>
+                <constraint firstItem="gwf-3y-oOz" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="452" id="tjd-xB-8aS"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="Ugm-HH-YRJ" secondAttribute="trailing" constant="41" id="w1D-5P-k0M"/>
+                <constraint firstItem="DeY-ja-ekh" firstAttribute="top" secondItem="Ugm-HH-YRJ" secondAttribute="bottom" constant="133" id="wKI-pl-7CP"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="phe-5K-alU" secondAttribute="trailing" constant="20" id="zQ5-S4-Azd"/>
             </constraints>
             <point key="canvasLocation" x="353.62318840579712" y="-10.044642857142856"/>
         </view>
     </objects>
     <resources>
+        <image name="btn_heart" width="24" height="24"/>
+        <image name="btn_heart_selected" width="24" height="24"/>
         <image name="ic_search" width="28" height="28"/>
-        <image name="ic_voice_3" width="18.333333969116211" height="18.333333969116211"/>
-        <image name="pop-1" width="341" height="174"/>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

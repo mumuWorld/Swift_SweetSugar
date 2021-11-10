@@ -65,6 +65,50 @@ class MMFuncTool {
             block(a + b)
         }
     }
+    
+//    var dataArray: [Data] = [Data]()
+    var dataArray: [String] = [String]()
+
+    
+    let backQueue = DispatchQueue(label: "com.mumu.back")
+    
+    func arrayTest() -> Void {
+        for i in 0...100000 {
+            backQueue.async {
+                self.dataArray.append(String(format: "%d", i))
+            }
+        }
+        mm_printLog(dataArray.count)
+        backQueue.async {
+            mm_printLog(self.dataArray.count)
+        }
+    }
+    
+    func deviceInfo() -> Void {
+        let device = UIDevice.current
+        let name = device.name
+        let model = device.model
+        var systemInfo: utsname = utsname()
+        uname(&systemInfo)
+        //第一种方法
+        let machineMirror = Mirror(reflecting: systemInfo.machine)
+        let identifier = machineMirror.children.reduce("") { identifier, element in
+            guard let value = element.value as? Int8, value != 0 else { return identifier }
+            return identifier + String(UnicodeScalar(UInt8(value)))
+        }
+        //第二种方法
+        let platform = withUnsafePointer(to: &systemInfo.machine.0) { ptr in
+            return String(cString: ptr)
+        }
+            
+//        systemInfo.sysname.withUnsafeBufferPointer { ptr in
+//                 let s = String(validatingUTF8: ptr.baseAddress!)
+//               print(s)
+//        }
+//        let machine = String(cString: sname.machine)
+//        let machine = String(cString: sname.sysname)
+        mm_printLog(identifier)
+    }
 }
 
 
@@ -75,6 +119,16 @@ protocol MMEmptyProtocol {
 extension MMEmptyProtocol {
     func testPrint() {
         mm_printLog(self)
+//        #define PTHREAD_MUTEX_NORMAL        0
+//        #define PTHREAD_MUTEX_ERRORCHECK    1
+//        #define PTHREAD_MUTEX_RECURSIVE        2
+//        #define PTHREAD_MUTEX_DEFAULT        PTHREAD_MUTEX_NORMAL
+//        var mutex_lock: pthread_mutex_t
+//        var mutex_attr: pthread_mutexattr_t
+//
+//        pthread_mutexattr_init(&mutex_attr)
+//        pthread_mutexattr_settype(&mutex_attr, PTHREAD_MUTEX_NORMAL)
+//        pthread_mutex_init(&mutex_lock, &mutex_attr)
     }
 }
 

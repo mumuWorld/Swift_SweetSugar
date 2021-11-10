@@ -60,6 +60,7 @@
 		B49BAB822620223B0097DFC9 /* SingleViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B49BAB802620223B0097DFC9 /* SingleViewCell.xib */; };
 		B49BAB8A262022730097DFC9 /* CollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B49BAB88262022730097DFC9 /* CollectionViewController.swift */; };
 		B49BAB8B262022730097DFC9 /* CollectionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B49BAB89262022730097DFC9 /* CollectionViewController.xib */; };
+		B49C47832739296B0041F245 /* MMShadowButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B49C47822739296B0041F245 /* MMShadowButton.swift */; };
 		B49D61DD23390BA700ED9352 /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B49D61DB23390BA700ED9352 /* UIView+Extension.swift */; };
 		B49D61DE23390BA700ED9352 /* DispatchTime+MM_Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B49D61DC23390BA700ED9352 /* DispatchTime+MM_Extension.swift */; };
 		B49DC0E02681805A009DE0FB /* MMLayerAnimationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B49DC0DE2681805A009DE0FB /* MMLayerAnimationVC.swift */; };
@@ -72,6 +73,8 @@
 		B4A936962689ADD7001E181B /* MMControlView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4A936952689ADD7001E181B /* MMControlView.swift */; };
 		B4A936992689B129001E181B /* MMCustomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4A936982689B129001E181B /* MMCustomView.swift */; };
 		B4A9369B2689B6E9001E181B /* MMButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4A9369A2689B6E9001E181B /* MMButton.swift */; };
+		B4AC61532732374200B76990 /* YDCustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4AC61512732374200B76990 /* YDCustomButton.swift */; };
+		B4AC6155273237A700B76990 /* Foundation+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4AC6154273237A700B76990 /* Foundation+Extension.swift */; };
 		B4B4346F2701701100F7FAD4 /* UIDevice+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4B4346E2701701100F7FAD4 /* UIDevice+Extension.swift */; };
 		B4B43474270170CC00F7FAD4 /* MMIpadController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4B43472270170CC00F7FAD4 /* MMIpadController.swift */; };
 		B4B43475270170CC00F7FAD4 /* MMIpadController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B4B43473270170CC00F7FAD4 /* MMIpadController.xib */; };
@@ -206,6 +209,7 @@
 		B49BAB802620223B0097DFC9 /* SingleViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SingleViewCell.xib; sourceTree = "<group>"; };
 		B49BAB88262022730097DFC9 /* CollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewController.swift; sourceTree = "<group>"; };
 		B49BAB89262022730097DFC9 /* CollectionViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CollectionViewController.xib; sourceTree = "<group>"; };
+		B49C47822739296B0041F245 /* MMShadowButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MMShadowButton.swift; sourceTree = "<group>"; };
 		B49D61DB23390BA700ED9352 /* UIView+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
 		B49D61DC23390BA700ED9352 /* DispatchTime+MM_Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "DispatchTime+MM_Extension.swift"; sourceTree = "<group>"; };
 		B49DC0DE2681805A009DE0FB /* MMLayerAnimationVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MMLayerAnimationVC.swift; sourceTree = "<group>"; };
@@ -219,6 +223,8 @@
 		B4A936952689ADD7001E181B /* MMControlView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MMControlView.swift; sourceTree = "<group>"; };
 		B4A936982689B129001E181B /* MMCustomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MMCustomView.swift; sourceTree = "<group>"; };
 		B4A9369A2689B6E9001E181B /* MMButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MMButton.swift; sourceTree = "<group>"; };
+		B4AC61512732374200B76990 /* YDCustomButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YDCustomButton.swift; sourceTree = "<group>"; };
+		B4AC6154273237A700B76990 /* Foundation+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Foundation+Extension.swift"; sourceTree = "<group>"; };
 		B4B4346E2701701100F7FAD4 /* UIDevice+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIDevice+Extension.swift"; sourceTree = "<group>"; };
 		B4B43472270170CC00F7FAD4 /* MMIpadController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MMIpadController.swift; sourceTree = "<group>"; };
 		B4B43473270170CC00F7FAD4 /* MMIpadController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MMIpadController.xib; sourceTree = "<group>"; };
@@ -459,6 +465,7 @@
 				B4063DA5260B618A00F3135E /* ConstParams.swift */,
 				B469D032269DBCDF001D7234 /* UIImage+Extension.swift */,
 				B4B4346E2701701100F7FAD4 /* UIDevice+Extension.swift */,
+				B4AC6154273237A700B76990 /* Foundation+Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -574,6 +581,7 @@
 			isa = PBXGroup;
 			children = (
 				B49751C0269C1E08004445E4 /* MMPieChartView.swift */,
+				B49C47822739296B0041F245 /* MMShadowButton.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -636,6 +644,7 @@
 		B4A3625124889B2A006696C3 /* Component */ = {
 			isa = PBXGroup;
 			children = (
+				B4AC61512732374200B76990 /* YDCustomButton.swift */,
 				B422B28F25A3158800293646 /* MMFileManager.swift */,
 				B4A3624E24889B26006696C3 /* Timer */,
 				B495034926E1FF3800C10601 /* MMBaseNavigationController.swift */,
@@ -1053,7 +1062,9 @@
 				DF2ED5DA23854856001617F8 /* Queue.swift in Sources */,
 				B422B29025A3158800293646 /* MMFileManager.swift in Sources */,
 				B49D61DE23390BA700ED9352 /* DispatchTime+MM_Extension.swift in Sources */,
+				B49C47832739296B0041F245 /* MMShadowButton.swift in Sources */,
 				B49BAB8A262022730097DFC9 /* CollectionViewController.swift in Sources */,
+				B4AC61532732374200B76990 /* YDCustomButton.swift in Sources */,
 				DF128F3F232F2FF900491475 /* CommonModel.swift in Sources */,
 				DF2ED5DC2386219A001617F8 /* QuickSort.swift in Sources */,
 				DF2ED5F52387C31F001617F8 /* Sort.swift in Sources */,
@@ -1082,6 +1093,7 @@
 				B4A17DE02669D5EF0030E40D /* MMAuthorizationVC.swift in Sources */,
 				B46FED52238C2FA30023F0FA /* GCDTest.swift in Sources */,
 				B4B4346F2701701100F7FAD4 /* UIDevice+Extension.swift in Sources */,
+				B4AC6155273237A700B76990 /* Foundation+Extension.swift in Sources */,
 				B4063D93260B546500F3135E /* UITableViewCell+Extension.swift in Sources */,
 				B422B29725A3167200293646 /* MMFileTest.swift in Sources */,
 				B47468F126FED2F300C79F2C /* MMGraphic2VC.swift in Sources */,

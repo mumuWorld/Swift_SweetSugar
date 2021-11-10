@@ -13,6 +13,8 @@ import AVFAudio
 typealias emptyBlock = () -> ()
 
 class FuncTestVC: UIViewController {
+    
+    let tool = MMFuncTool()
 
     var block: emptyBlock?
     
@@ -117,6 +119,10 @@ class FuncTestVC: UIViewController {
             decodeString()
         case 26:
             MMFuncTool().past()
+        case 27:
+            tool.arrayTest()
+        case 28:
+            tool.deviceInfo()
         default:
             break
         }
@@ -222,23 +228,29 @@ extension FuncTestVC {
     /// - Returns:
     func userdefaultTest() -> Void {
         let ud = UserDefaults.standard
+        let key = "save_2"
+//        ud.set(true, forKey: key)
+        let valeu = ud.string(forKey: key)
+        ud.set("4.0.4", forKey: key)
+        let value_2 = ud.bool(forKey: key)
+        
         var start_t = CACurrentMediaTime()
-        mm_printLog("UserDefaults->\(start_t)")
-        ud.setValue("value2", forKey: "key")
-//        ud.synchronize()
-        mm_printLog("UserDefaults->\(CACurrentMediaTime() - start_t)")
-        start_t = CACurrentMediaTime()
-        for i in 0...1000 {
-            ud.setValue(String(format: "value2%d", i), forKey: String(format: "key%d", i))
-        }
-//        ud.synchronize()
-        mm_printLog("UserDefaults2->\(CACurrentMediaTime() - start_t)")
-        start_t = CACurrentMediaTime()
-        for i in 1000...11000 {
-            ud.setValue(String(format: "value2%d", i), forKey: String(format: "key%d", i))
-        }
-//        ud.synchronize()
-        mm_printLog("UserDefaults3->\(CACurrentMediaTime() - start_t)")
+//        mm_printLog("UserDefaults->\(start_t)")
+//        ud.setValue("value2", forKey: "key")
+////        ud.synchronize()
+//        mm_printLog("UserDefaults->\(CACurrentMediaTime() - start_t)")
+//        start_t = CACurrentMediaTime()
+//        for i in 0...1000 {
+//            ud.setValue(String(format: "value2%d", i), forKey: String(format: "key%d", i))
+//        }
+////        ud.synchronize()
+//        mm_printLog("UserDefaults2->\(CACurrentMediaTime() - start_t)")
+//        start_t = CACurrentMediaTime()
+//        for i in 1000...11000 {
+//            ud.setValue(String(format: "value2%d", i), forKey: String(format: "key%d", i))
+//        }
+////        ud.synchronize()
+//        mm_printLog("UserDefaults3->\(CACurrentMediaTime() - start_t)")
         
     }
     //已经运行的block 无法取消

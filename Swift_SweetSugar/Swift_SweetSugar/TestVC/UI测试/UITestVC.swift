@@ -37,6 +37,16 @@ class UITestVC: UIViewController {
     
     @IBOutlet weak var changeImageSizeBtn: UIButton!
     
+    @IBOutlet weak var testButton: UIButton!
+    @IBOutlet weak var testButton_width: NSLayoutConstraint!
+    
+    lazy var customButton: YDCustomButton = {
+        let item = YDCustomButton()
+        item.backgroundColor = .blue
+        item.layer.cornerRadius = 15
+        return item
+    }()
+    
     var emitter: CAEmitterLayer?
     
     let bar: UIButton = creat { (btn) in
@@ -66,11 +76,14 @@ class UITestVC: UIViewController {
         item.videoGravity = .resizeAspect
         return item
     }()
-
+    
+    @IBOutlet weak var shadowBtn: MMShadowButton!
+    
     var pictureVC: AVPictureInPictureController?
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        textView.delegate = self
 //        shadowView.layer.cornerRadius = 24
       //        layer.shadowColor = UIColor(hex: 0x3C4D59, alpha: 0.9).cgColor
         shadowView.layer.shadowColor = UIColor.black.cgColor
@@ -109,6 +122,26 @@ class UITestVC: UIViewController {
         pieChartView.drawWidth = 20
         pieChartView.percents = [0.5, 0.3, 0.1, 0.1]
         pieChartView.setNeedsDisplay()
+        
+        var configure = customButton.configure
+        configure.title = "测试文字"
+        configure.titleColor = UIColor.green
+        configure.selectedTitle = ""
+        configure.image = UIImage(named: "btn_heart")
+        configure.selectedImage = UIImage(named: "btn_heart_selected")
+        customButton.setConfigure(con: configure)
+        customButton.mm_size = customButton.fitSizeContent()
+        customButton.origin = CGPoint(x: 100, y: 200)
+        view.addSubview(customButton)
+        customButton.snp.makeConstraints { (make) in
+            make.trailing.equalToSuperview()
+            make.top.equalToSuperview().offset(300)
+            make.size.equalTo(customButton.mm_size)
+        }
+        shadowBtn.layer.cornerRadius = 25
+        shadowBtn.layer.masksToBounds = true
+//        shadowBtn.shadowPath = UIBezierPath(ovalIn:  CGRect(x: 0, y: 0, width: 50, height: 50)).cgPath
+
     }
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
@@ -118,26 +151,10 @@ class UITestVC: UIViewController {
     var show = false
     var model = 200
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-//        navigationController?.navigationBar.barStyle = UIBarStyle.black
-//        anchorTest()
-
-        //            self.top_h?.update(offset: 100)
-//        MMDispatchTimer.createTimer(startTime: 0, infiniteInterval: 2, isRepeat: true, async: false) {
-//            self.topView.snp.updateConstraints { make in
-//                make.height.equalTo(self.model + 10)
-//            }
-//            self.model += 10
-//            UIView.animate(withDuration: 1) {
-//                self.view.layoutIfNeeded()
-//            }
-//        }
-//        addEmitter()
-//        MMDispatchTimer.createOnceTimer(afterTime: 3) {
-//            self.emitter?.removeFromSuperlayer()
-//        }
-//        view.invalidateIntrinsicContentSize()
-        convertRect()
-        
+//        animationButton()
+//        handleClick(sender: bar)
+//        shadowTest()
+        scrollTextView()
     }
     
     func convertRect() {
@@ -148,6 +165,24 @@ class UITestVC: UIViewController {
         var applyFrame = shadowView.frame.applying(CGAffineTransform(scaleX: 1.0, y: -1))
         applyFrame.origin.y = 100
         shadowView.frame = applyFrame
+    }
+    
+    func scrollTextView() {
+        self.textView.scrollRectToVisible(CGRect(x: 0, y: 15, width: 1, height: 1), animated: true)
+
+        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1.0, execute: {
+            self.textView.becomeFirstResponder()
+        })
+//        textView.sele
+//        textView.scrollRectToVisible(CGRect(x: 0, y: 15, width: 1, height: 1), animated: true)
+    }
+    
+    func shadowTest() {
+        
+        shadowBtn.layer.shadowColor = UIColor.black.cgColor
+        shadowBtn.layer.shadowRadius = 20
+        shadowBtn.layer.shadowOffset = CGSize(0, 4)
+        shadowBtn.layer.shadowOpacity = 1
     }
     
     func alertShow() {
@@ -371,6 +406,70 @@ class UITestVC: UIViewController {
         mm_printLog("点击了->\(number)")
         
         textView.attributedText = attr
+    }
+    
+    
+}
+extension UITestVC {
+    func animationButton() {
+//        self.testButton.setTitle(nil, for: .normal)
+//        self.testButton.setImage(UIImage(named: "btn_heart_selected"), for: .normal)
+//        testButton.layer.cornerRadius = 15
+//        testButton.imageView?.transform = .identity
+//        let imgTransform = CGAffineTransform(scaleX: 4, y: 4)
+//        imgTransform.rotated(by: CGFloat.pi)
+        var confi = customButton.configure
+        confi.image = confi.selectedImage
+        customButton.setConfigure(con: confi)
+        
+        let scaleAni = CAKeyframeAnimation(keyPath: "transform.scale")
+        scaleAni.values = [0.8, 1.2, 1.5, 1.2, 1]
+        scaleAni.keyTimes = [0, 0.2, 0.5, 0.8, 1]
+        scaleAni.duration = 2
+        scaleAni.timingFunction =  CAMediaTimingFunction(name: .easeInEaseOut)
+        customButton._imageView.layer.add(scaleAni, forKey: nil)
+        
+        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1) {
+            UIView.animate(withDuration: 1) {
+                self.customButton.isYDSelected = true
+                self.customButton.snp.updateConstraints { make in
+                    make.size.equalTo(self.customButton.fitSizeContent(1))
+                }
+                self.view.layoutIfNeeded()
+            } completion: { _ in
+                
+            }
+        }
+       
+
+//        UIView.animate(withDuration: 1) {
+//            self.testButton.imageView?.transform = imgTransform
+//
+//            self.testButton.transform = CGAffineTransform(scaleX: 2, y: 2)
+//        } completion: { _ in
+//
+//        }
+//        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 2) {
+//            UIView.animate(withDuration: 1) {
+//                self.testButton.imageView?.transform = .identity
+//                self.testButton_width.constant = 50
+//    //            self.testButton.isSelected = true
+//                self.view.layoutIfNeeded()
+//            } completion: { _ in
+//                
+//            }
+//        }
+
+    }
+}
+extension UITestVC: UITextViewDelegate {
+    func textViewDidChange(_ textView: UITextView) {
+        mm_printLog("textViewDidChange")
+    }
+    
+    func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
+        mm_printLog("shouldChangeTextIn")
+        return true
     }
 }
 
