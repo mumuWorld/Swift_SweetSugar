@@ -8,6 +8,7 @@ target 'Swift_SweetSugar' do
   pod 'HandyJSON'
   pod 'YYText'
   pod 'SnapKit'
+  pod 'lottie-ios', '~> 3.2.3'
   # Pods for Swift_SweetSugar
 
   target 'Swift_SweetSugarTests' do

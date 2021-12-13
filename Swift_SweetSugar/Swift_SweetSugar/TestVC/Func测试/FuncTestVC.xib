@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19162" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19144"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -180,7 +180,7 @@
                     </constraints>
                 </stackView>
                 <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="frV-13-JUL">
-                    <rect key="frame" x="8" y="209" width="385" height="44"/>
+                    <rect key="frame" x="8" y="209" width="360" height="44"/>
                     <subviews>
                         <button opaque="NO" tag="28" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hCI-KF-va0">
                             <rect key="frame" x="0.0" y="7" width="62" height="30"/>
@@ -192,32 +192,32 @@
                                 <action selector="handleClick:" destination="-1" eventType="touchUpInside" id="x2M-eY-KuF"/>
                             </connections>
                         </button>
-                        <button opaque="NO" tag="22" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="E04-JW-fjt">
-                            <rect key="frame" x="70" y="7" width="77" height="30"/>
+                        <button opaque="NO" tag="29" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="E04-JW-fjt">
+                            <rect key="frame" x="70" y="7" width="58" height="30"/>
                             <color key="backgroundColor" red="1" green="0.40000000000000002" blue="0.35686274509999999" alpha="1" colorSpace="calibratedRGB"/>
-                            <state key="normal" title="regularTest"/>
+                            <state key="normal" title="Protocol"/>
                             <connections>
                                 <action selector="handleClick:" destination="-1" eventType="touchUpInside" id="4d0-N7-tTi"/>
                             </connections>
                         </button>
-                        <button opaque="NO" tag="23" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VfL-Nq-I6Z">
-                            <rect key="frame" x="155" y="7" width="31" height="30"/>
+                        <button opaque="NO" tag="30" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VfL-Nq-I6Z">
+                            <rect key="frame" x="136" y="7" width="31" height="30"/>
                             <color key="backgroundColor" red="1" green="0.40000000000000002" blue="0.35686274509999999" alpha="1" colorSpace="calibratedRGB"/>
-                            <state key="normal" title="语音"/>
+                            <state key="normal" title="弹出"/>
                             <connections>
                                 <action selector="handleClick:" destination="-1" eventType="touchUpInside" id="1YW-b0-QWO"/>
                             </connections>
                         </button>
-                        <button opaque="NO" tag="24" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XBp-2W-txp">
-                            <rect key="frame" x="194" y="7" width="67" height="30"/>
+                        <button opaque="NO" tag="31" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XBp-2W-txp">
+                            <rect key="frame" x="175" y="7" width="61" height="30"/>
                             <color key="backgroundColor" red="1" green="0.40000000000000002" blue="0.35686274509999999" alpha="1" colorSpace="calibratedRGB"/>
-                            <state key="normal" title="StackTest"/>
+                            <state key="normal" title="JsonTest"/>
                             <connections>
                                 <action selector="handleClick:" destination="-1" eventType="touchUpInside" id="12X-TK-kue"/>
                             </connections>
                         </button>
                         <button opaque="NO" tag="26" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5uA-UD-3dF">
-                            <rect key="frame" x="269" y="7" width="46" height="30"/>
+                            <rect key="frame" x="244" y="7" width="46" height="30"/>
                             <color key="backgroundColor" red="1" green="0.40000000000000002" blue="0.35686274509999999" alpha="1" colorSpace="calibratedRGB"/>
                             <state key="normal" title="剪切板"/>
                             <connections>
@@ -225,7 +225,7 @@
                             </connections>
                         </button>
                         <button opaque="NO" tag="27" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="r0w-fH-vTa">
-                            <rect key="frame" x="323" y="7" width="62" height="30"/>
+                            <rect key="frame" x="298" y="7" width="62" height="30"/>
                             <color key="backgroundColor" red="1" green="0.40000000000000002" blue="0.35686274509999999" alpha="1" colorSpace="calibratedRGB"/>
                             <state key="normal" title="数组测试"/>
                             <connections>

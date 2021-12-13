@@ -19,6 +19,10 @@ class MMWebViewController: UIViewController {
         let item = WKWebView(frame: .zero, configuration: configure)
         item.uiDelegate = self
         item.navigationDelegate = self
+//        item.observe(\.themeColor) { item, _ in
+//
+//        }
+//        item.configuration.preferences.isTextInteractionEnabled
         return item
     }()
     

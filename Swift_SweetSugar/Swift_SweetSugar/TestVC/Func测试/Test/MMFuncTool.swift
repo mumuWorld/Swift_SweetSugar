@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+import SwiftyJSON
 
 class MMFuncTool {
     func past() {
@@ -73,15 +74,27 @@ class MMFuncTool {
     let backQueue = DispatchQueue(label: "com.mumu.back")
     
     func arrayTest() -> Void {
-        for i in 0...100000 {
-            backQueue.async {
-                self.dataArray.append(String(format: "%d", i))
-            }
-        }
-        mm_printLog(dataArray.count)
-        backQueue.async {
-            mm_printLog(self.dataArray.count)
-        }
+//        for i in 0...100000 {
+//            backQueue.async {
+//                self.dataArray.append(String(format: "%d", i))
+//            }
+//        }
+//        mm_printLog(dataArray.count)
+//        backQueue.async {
+//            mm_printLog(self.dataArray.count)
+//        }
+        
+        var emptyArr: [Int] = []
+        //不会crash
+        emptyArr.removeAll()
+        //会crash
+//        emptyArr.removeFirst()
+        mm_printLog("")
+        
+        let array: [String] = []
+        let index = (array.startIndex..<array.endIndex)
+        let c1 = index.contains(0)
+        mm_printLog("")
     }
     
     func deviceInfo() -> Void {
@@ -109,6 +122,29 @@ class MMFuncTool {
 //        let machine = String(cString: sname.sysname)
         mm_printLog(identifier)
     }
+    
+    func jsonTest() {
+        let path = Bundle.main.path(forResource: "result", ofType: "json")
+        
+        do {
+            let data = try Data(contentsOf: URL(fileURLWithPath: path!))
+            let json = try JSON(data: data)
+            let typos = try JSONDecoder().decode([Typo].self, from: json["typos"]["typo"].rawData())
+            mm_printLog(typos)
+        } catch(let e) {
+            mm_printLog(e)
+        }
+        
+    }
+}
+
+struct Typo: Codable {
+    public var word: String?
+    public var trans: String?
+}
+
+extension MMFuncTool {
+ 
 }
 
 
@@ -130,9 +166,21 @@ extension MMEmptyProtocol {
 //        pthread_mutexattr_settype(&mutex_attr, PTHREAD_MUTEX_NORMAL)
 //        pthread_mutex_init(&mutex_lock, &mutex_attr)
     }
+    
+    func testPrint2() {
+        mm_printLog("222")
+    }
+    
+    func testPrint3() {
+        mm_printLog("333")
+    }
 }
 
-extension MMFuncTool: MMEmptyProtocol {}
+extension MMFuncTool: MMEmptyProtocol {
+    func testPrint2() {
+        mm_printLog("111")
+    }
+}
 
 extension FuncTestVC: MMEmptyProtocol {}
 

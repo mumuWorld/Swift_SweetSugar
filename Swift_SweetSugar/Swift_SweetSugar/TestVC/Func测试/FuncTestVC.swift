@@ -98,7 +98,7 @@ class FuncTestVC: UIViewController {
         case 15:
             testDict()
         case 16:
-            errorTest()
+            printTest()
         case 17:
             urlTest()
         case 18:
@@ -123,10 +123,18 @@ class FuncTestVC: UIViewController {
             tool.arrayTest()
         case 28:
             tool.deviceInfo()
+        case 29:
+            tool.testPrint2()
+            tool.testPrint3()
+        case 30:
+            let vc = UITestVC()
+            present(vc, animated: true, completion: nil)
+        case 31:
+            tool.jsonTest()
         default:
             break
         }
-        mm_printLog("->\(self.block) -> \(String(describing: testFunc))")
+//        mm_printLog("->\(self.block) -> \(String(describing: testFunc))")
     }
 
     func testFunc() -> Void {
@@ -322,9 +330,9 @@ extension FuncTestVC {
         mm_printLog("test")
     }
     
-    func errorTest() -> Void {
+    func printTest() -> Void {
         let error = MMError.MMNormalError.unknowError(message: nil)
-        
+        // 1638244301.8361139  秒
         let data = Date().timeIntervalSince1970
 
         let str = " hello test mornigi \n test hehl "

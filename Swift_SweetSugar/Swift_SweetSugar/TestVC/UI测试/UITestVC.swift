@@ -10,6 +10,7 @@ import UIKit
 import YYText
 import SnapKit
 import AVKit
+import Lottie
 
 func creat(_ block:(UIButton)->()) -> UIButton {
     let btn = UIButton()
@@ -39,6 +40,8 @@ class UITestVC: UIViewController {
     
     @IBOutlet weak var testButton: UIButton!
     @IBOutlet weak var testButton_width: NSLayoutConstraint!
+    
+    var newWindow: UIWindow?
     
     lazy var customButton: YDCustomButton = {
         let item = YDCustomButton()
@@ -78,6 +81,13 @@ class UITestVC: UIViewController {
     }()
     
     @IBOutlet weak var shadowBtn: MMShadowButton!
+    
+    lazy var inputIconLotView: AnimationView = {
+        let item = AnimationView(name: "anim_search_transform_light.json", bundle: Bundle.main)
+        item.isUserInteractionEnabled = false
+        item.loopMode = .loop
+        return item
+    }()
     
     var pictureVC: AVPictureInPictureController?
     
@@ -140,12 +150,22 @@ class UITestVC: UIViewController {
         }
         shadowBtn.layer.cornerRadius = 25
         shadowBtn.layer.masksToBounds = true
-//        shadowBtn.shadowPath = UIBezierPath(ovalIn:  CGRect(x: 0, y: 0, width: 50, height: 50)).cgPath
 
+        view.addSubview(inputIconLotView)
+        inputIconLotView.snp.makeConstraints { (make) in
+            make.trailing.equalToSuperview().offset(-19)
+            make.centerY.equalToSuperview()
+            make.size.equalTo(CGSize(28, 28))
+        }
     }
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return .default
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        mm_printLog("111")
     }
     
     var show = false
@@ -154,7 +174,45 @@ class UITestVC: UIViewController {
 //        animationButton()
 //        handleClick(sender: bar)
 //        shadowTest()
-        scrollTextView()
+//        playAnimation()
+//        windowTest()
+//        addActivity()
+        dismiss(animated: true)
+    }
+    
+    func playAnimation() {
+        inputIconLotView.play { finish in
+            mm_printLog("test->\(finish)")
+        }
+    }
+    
+    func addActivity() {
+        let act = NSUserActivity(activityType: "mumu")
+        act.title = "UI测试"
+        act.keywords = ["you", "test", "good"]
+        act.isEligibleForHandoff = true
+        act.isEligibleForSearch = true
+//        activity.isEligibleForPublicIndexing = false;
+        userActivity = act
+        act.becomeCurrent()
+    }
+    
+    func windowTest() -> Void {
+//        let alert = UIAlertController(title: "title", message: "文字", preferredStyle: .alert)
+//        alert.addAction(UIAlertAction(title: "确定", style: .default, handler: { _ in
+//
+//        }))
+//        navigationController?.present(alert, animated: true, completion: nil)
+        
+        let newW = UIWindow(frame: UIScreen.main.bounds)
+        newW.backgroundColor = .lightGray
+        newW.rootViewController = FuncTestVC()
+//        newW.makeKeyAndVisible()
+        newW.isHidden = false
+        newWindow = newW
+        DispatchQueue.main.asyncAfter(deadline:  DispatchTime.now() + 2) {
+            newW.isHidden = true
+        }
     }
     
     func convertRect() {

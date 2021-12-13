@@ -57,7 +57,7 @@
                         <constraint firstAttribute="height" constant="200" id="0UK-JE-4eB"/>
                         <constraint firstAttribute="width" constant="150" id="hoX-CR-TuX"/>
                     </constraints>
-                    <mutableString key="text">httpsmp.weixin.qq.comsyqnSahzYV_kWhPVnztTQ3Qhttps:mp.weixin.qq.comsyqnSahzYV_kWhPVnztTQ3Qhttps:mp.weixin.qq.comsyqnSahzYV_kWhPVnztTQ3Qhttpsmp.weixin.qq.comsyqnSahzYV_kWhPVnztTQ3Qhttps:mhttpsmp.weixin.qq.comsyqnSahzYV_kWhPVnztTQ3Qhttps:mp.weixin.qq.comsyqnSahzYV_kWhPVnztTQ3Qhttps:mp.weixin.qq.comsyqnSahzYV_kWhPVnztTQ3Qhttpsmp.weixin.qq.comsyqnSahzYV_kWhPVnztTQ3Qhttps:mhttpsmp.weixin.qq.comsyqnSahzYV_kWhPVnztTQ3Qhttps:mp.weixin.qq.comsyqnSahzYV_kWhPVnztTQ3Qhttps:mp.weixin.qq.comsyqnSahzYV_kWhPVnztTQ3Qhttpsmp.weixin.qq.comsyqnSahzYV_kWhPVnztTQ3Qhttps:mhttpsmp.weixin.qq.comsyqnSahzYV_kWhPVnztTQ3Qhttps:mp.weixin.qq.comsyqnSahzYV_kWhPVnztTQ3Qhttps:mp.weixin.qq.comsyqnSahzYV_kWhPVnztTQ3Qhttpsmp.weixin.qq.comsyqnSahzYV_kWhPVnztTQ3Qhttps:m</mutableString>
+                    <string key="text">httpsmp.weixin.qq.comsyqnSahzYV_kWhPVnztTQ3Qhttps:mp.weixin.qq.comsyqnSahzYV_kWhPVnztTQ3Qhttps:mp.weixin.qq.comsyqnSahzYV_kWhPVnztTQ3Qhttpsmp.weixin.qq.comsyqnSahzYV_kWhPVnztTQ3Qhttps:mhttpsmp.weixin.qq.comsyqnSahzYV_kWhPVnztTQ3Qhttps:mp.weixin.qq.comsyqnSahzYV_kWhPVnztTQ3Qhttps:mp.weixin.qq.comsyqnSahzYV_kWhPVnztTQ3Qhttpsmp.weixin.qq.comsyqnSahzYV_kWhPVnztTQ3Qhttps:mhttpsmp.weixin.qq.comsyqnSahzYV_kWhPVnztTQ3Qhttps:mp.weixin.qq.comsyqnSahzYV_kWhPVnztTQ3Qhttps:mp.weixin.qq.comsyqnSahzYV_kWhPVnztTQ3Qhttpsmp.weixin.qq.comsyqnSahzYV_kWhPVnztTQ3Qhttps:mhttpsmp.weixin.qq.comsyqnSahzYV_kWhPVnztTQ3Qhttps:mp.weixin.qq.comsyqnSahzYV_kWhPVnztTQ3Qhttps:mp.weixin.qq.comsyqnSahzYV_kWhPVnztTQ3Qhttpsmp.weixin.qq.comsyqnSahzYV_kWhPVnztTQ3Qhttps:m</string>
                     <color key="textColor" systemColor="labelColor"/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -70,7 +70,7 @@
                         <constraint firstAttribute="height" constant="50" id="emB-3g-ycy"/>
                     </constraints>
                 </view>
-                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="YbM-Jx-yAU">
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="graphic" id="YbM-Jx-yAU">
                     <rect key="frame" x="191" y="595" width="97" height="51"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 </imageView>
@@ -152,6 +152,7 @@
     <resources>
         <image name="btn_heart" width="24" height="24"/>
         <image name="btn_heart_selected" width="24" height="24"/>
+        <image name="graphic" width="750" height="1334"/>
         <image name="ic_search" width="28" height="28"/>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

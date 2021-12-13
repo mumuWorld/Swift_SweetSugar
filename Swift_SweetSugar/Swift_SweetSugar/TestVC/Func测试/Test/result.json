@@ -1,0 +1,14 @@
+{
+    "typos": {
+        "typo": [
+            {
+            "word": "test",
+            "trans": "trans"
+            },
+            {
+            "word": "test2",
+            "trans": "trans2"
+            }
+        ]
+    }
+}
