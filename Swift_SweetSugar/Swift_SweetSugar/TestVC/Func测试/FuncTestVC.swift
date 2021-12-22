@@ -129,6 +129,9 @@ class FuncTestVC: UIViewController {
         case 30:
             let vc = UITestVC()
             present(vc, animated: true, completion: nil)
+            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 4) {
+                mm_printLog("self->\(self), \(vc.presentingViewController)")
+            }
         case 31:
             tool.jsonTest()
         default:
