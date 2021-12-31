@@ -83,9 +83,9 @@ class FuncTestVC: UIViewController {
 
     @IBAction func handleClick(_ sender: UIButton) {
         switch sender.tag {
-        case 10:
+        case 10: break
             //此代码会造成循环引用
-            self.block = testFunc
+//            self.block = testFunc
         case 11:
             //propertyWrapper 测试
             UserDefaultsUnit.test = "test_str"
@@ -134,6 +134,12 @@ class FuncTestVC: UIViewController {
             }
         case 31:
             tool.jsonTest()
+        case 32:
+            if #available(iOS 15.0.0, *) {
+                TaskGroupSampleTool().test2()
+            } else {
+                // Fallback on earlier versions
+            }
         default:
             break
         }
@@ -141,6 +147,7 @@ class FuncTestVC: UIViewController {
     }
 
     func testFunc() -> Void {
+        
         mm_printLog("test")
 //        let test = ProjectOneTool()
 //        test.test()
@@ -287,20 +294,43 @@ extension FuncTestVC {
     }
     
     func strTest() -> Void {
-        let price = 2
-           let number = 3
-           let message = """
-                          If one cookie costs \(price) dollars, \
-                          \(number) cookies cost \(price * number) dollars.
-                        """
+//        let price = 2
+//           let number = 3
+//           let message = """
+//                          If one cookie costs \(price) dollars, \
+//                          \(number) cookies cost \(price * number) dollars.
+//                        """
+//
+//        let message_2 = """
+//                if test \n
+//            hello \n
+//            world
+//            """
+//        mm_printLog(message)
+//        mm_printLog(message_2)
+        let a: String = "汉"
+        let b: String = "斐"
+        let e: String = "🌹"
+        let c: String = "a"
+
+        let char_a = (a as NSString).character(at: 0)
+        let char_b =  (b as NSString).character(at: 0)
         
-        let message_2 = """
-                if test \n
-            hello \n
-            world
-            """
-        mm_printLog(message)
-        mm_printLog(message_2)
+        let a_ns = (a as NSString)
+        let c_ns = (c as NSString)
+        let e_ns = (e as NSString)
+        
+        let code = a.utf16
+        mm_printLog(char_a)
+        
+        let flowers = "Flowers 💐"
+         for v in flowers.utf8 {
+             mm_printLog(v)
+           }
+        mm_printLog("-----------")
+        for v in flowers.utf16 {
+            mm_printLog(v)
+          }
     }
     
     func testNumber() {
@@ -394,7 +424,9 @@ extension FuncTestVC {
         let nsStr_1 = nsStr.substring(to: 6) // ab我cd�
         let nsStr_2 = nsStr.substring(to: 7) // ab我cd🤩
         let nsStr_3 = nsStr.substring(to: 8) // ab我cd🤩�
-
+        
+        let str2 = "trans_beliefs"
+        let str2_1 = str2.substring(from: 5)
         /*
          ab我cd🤩😁ha{
              NSFont = "<UICTFont: 0x7f917c832460> font-family: \".SFUI-Regular\"; font-weight: normal; font-style: normal; font-size: 30.00pt";
@@ -413,6 +445,10 @@ extension FuncTestVC {
         let mutAttr_2 = NSMutableAttributedString(string: nsStr as String)
         mutAttr_2.addAttribute(.font, value: UIFont.systemFont(ofSize: 30), range: nsStr.mm_range())
         
+        mm_printLog("1/2/3/4")
+        
+        let composeRange = str.rangeOfComposedCharacterSequence(at: str.index(str.startIndex, offsetBy: 5))
+        let str_c = str[composeRange]
         mm_printLog("1/2/3/4")
     }
     

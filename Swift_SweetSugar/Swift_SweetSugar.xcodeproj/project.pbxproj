@@ -82,6 +82,8 @@
 		B4A3625024889B26006696C3 /* MMDispatchTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4A3624F24889B26006696C3 /* MMDispatchTimer.swift */; };
 		B4A4510727674BB1005AC2E4 /* SwiftyJSON in Frameworks */ = {isa = PBXBuildFile; productRef = B4A4510627674BB1005AC2E4 /* SwiftyJSON */; };
 		B4A4510A27674FE3005AC2E4 /* result.json in Resources */ = {isa = PBXBuildFile; fileRef = B4A4510827674C8B005AC2E4 /* result.json */; };
+		B4A7E0C0277303FE0091687C /* MMListUpdateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4A7E0BE277303FE0091687C /* MMListUpdateViewController.swift */; };
+		B4A7E0C1277303FE0091687C /* MMListUpdateViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B4A7E0BF277303FE0091687C /* MMListUpdateViewController.xib */; };
 		B4A936962689ADD7001E181B /* MMControlView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4A936952689ADD7001E181B /* MMControlView.swift */; };
 		B4A936992689B129001E181B /* MMCustomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4A936982689B129001E181B /* MMCustomView.swift */; };
 		B4A9369B2689B6E9001E181B /* MMButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4A9369A2689B6E9001E181B /* MMButton.swift */; };
@@ -101,7 +103,11 @@
 		B4C06FE927423CDA00681C95 /* anim_search_loop_light.json in Resources */ = {isa = PBXBuildFile; fileRef = B4C06FE827423CDA00681C95 /* anim_search_loop_light.json */; };
 		B4C06FEE274251F800681C95 /* UIImageView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4C06FED274251F800681C95 /* UIImageView+Extension.swift */; };
 		B4C10E5726D9102600AEF417 /* MMSimpleModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4C10E5626D9102600AEF417 /* MMSimpleModel.swift */; };
+		B4C194C12772C8670019553E /* MMSingleLabelTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4C194BF2772C8670019553E /* MMSingleLabelTableCell.swift */; };
+		B4C194C22772C8670019553E /* MMSingleLabelTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B4C194C02772C8670019553E /* MMSingleLabelTableCell.xib */; };
+		B4C194C52772F0FB0019553E /* MMTableViewAdapt.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4C194C42772F0FB0019553E /* MMTableViewAdapt.swift */; };
 		B4C4E3A22710671100387B97 /* MMTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4C4E3A12710671100387B97 /* MMTextView.swift */; };
+		B4C6046C277AC72500EA287E /* Structured.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4C6046B277AC72500EA287E /* Structured.swift */; };
 		B4C6AA0E261D9A9800D4B243 /* GestureTestVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4C6AA0C261D9A9800D4B243 /* GestureTestVC.swift */; };
 		B4C6AA0F261D9A9800D4B243 /* GestureTestVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = B4C6AA0D261D9A9800D4B243 /* GestureTestVC.xib */; };
 		B4C6AA18261D9CE000D4B243 /* MMTouchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4C6AA17261D9CE000D4B243 /* MMTouchView.swift */; };
@@ -264,6 +270,8 @@
 		B4A308E726CA781800500055 /* MMPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MMPoint.swift; sourceTree = "<group>"; };
 		B4A3624F24889B26006696C3 /* MMDispatchTimer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MMDispatchTimer.swift; sourceTree = "<group>"; };
 		B4A4510827674C8B005AC2E4 /* result.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = result.json; sourceTree = "<group>"; };
+		B4A7E0BE277303FE0091687C /* MMListUpdateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MMListUpdateViewController.swift; sourceTree = "<group>"; };
+		B4A7E0BF277303FE0091687C /* MMListUpdateViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MMListUpdateViewController.xib; sourceTree = "<group>"; };
 		B4A936952689ADD7001E181B /* MMControlView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MMControlView.swift; sourceTree = "<group>"; };
 		B4A936982689B129001E181B /* MMCustomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MMCustomView.swift; sourceTree = "<group>"; };
 		B4A9369A2689B6E9001E181B /* MMButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MMButton.swift; sourceTree = "<group>"; };
@@ -282,7 +290,11 @@
 		B4C06FE827423CDA00681C95 /* anim_search_loop_light.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = anim_search_loop_light.json; sourceTree = "<group>"; };
 		B4C06FED274251F800681C95 /* UIImageView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Extension.swift"; sourceTree = "<group>"; };
 		B4C10E5626D9102600AEF417 /* MMSimpleModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MMSimpleModel.swift; sourceTree = "<group>"; };
+		B4C194BF2772C8670019553E /* MMSingleLabelTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MMSingleLabelTableCell.swift; sourceTree = "<group>"; };
+		B4C194C02772C8670019553E /* MMSingleLabelTableCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MMSingleLabelTableCell.xib; sourceTree = "<group>"; };
+		B4C194C42772F0FB0019553E /* MMTableViewAdapt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MMTableViewAdapt.swift; sourceTree = "<group>"; };
 		B4C4E3A12710671100387B97 /* MMTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MMTextView.swift; sourceTree = "<group>"; };
+		B4C6046B277AC72500EA287E /* Structured.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Structured.swift; sourceTree = "<group>"; };
 		B4C6AA0C261D9A9800D4B243 /* GestureTestVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GestureTestVC.swift; sourceTree = "<group>"; };
 		B4C6AA0D261D9A9800D4B243 /* GestureTestVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GestureTestVC.xib; sourceTree = "<group>"; };
 		B4C6AA17261D9CE000D4B243 /* MMTouchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MMTouchView.swift; sourceTree = "<group>"; };
@@ -623,6 +635,7 @@
 				B4A308E726CA781800500055 /* MMPoint.swift */,
 				B4B434762701ADA900F7FAD4 /* MMFuncTool.swift */,
 				B4A4510827674C8B005AC2E4 /* result.json */,
+				B4C6046B277AC72500EA287E /* Structured.swift */,
 			);
 			path = Test;
 			sourceTree = "<group>";
@@ -711,8 +724,12 @@
 		B4A17DE12669FA760030E40D /* Tableview */ = {
 			isa = PBXGroup;
 			children = (
+				B4A7E0BC277303DC0091687C /* List */,
 				B4A17DE22669FA870030E40D /* MMTableViewVC.swift */,
 				B4A17DE32669FA870030E40D /* MMTableViewVC.xib */,
+				B4C194BF2772C8670019553E /* MMSingleLabelTableCell.swift */,
+				B4C194C02772C8670019553E /* MMSingleLabelTableCell.xib */,
+				B4C194C42772F0FB0019553E /* MMTableViewAdapt.swift */,
 			);
 			path = Tableview;
 			sourceTree = "<group>";
@@ -734,6 +751,15 @@
 				B495034926E1FF3800C10601 /* MMBaseNavigationController.swift */,
 			);
 			path = Component;
+			sourceTree = "<group>";
+		};
+		B4A7E0BC277303DC0091687C /* List */ = {
+			isa = PBXGroup;
+			children = (
+				B4A7E0BE277303FE0091687C /* MMListUpdateViewController.swift */,
+				B4A7E0BF277303FE0091687C /* MMListUpdateViewController.xib */,
+			);
+			path = List;
 			sourceTree = "<group>";
 		};
 		B4B43471270170B300F7FAD4 /* iPad */ = {
@@ -1014,8 +1040,10 @@
 				B49BAB822620223B0097DFC9 /* SingleViewCell.xib in Resources */,
 				B4B43475270170CC00F7FAD4 /* MMIpadController.xib in Resources */,
 				B49DC0E12681805A009DE0FB /* MMLayerAnimationVC.xib in Resources */,
+				B4A7E0C1277303FE0091687C /* MMListUpdateViewController.xib in Resources */,
 				B4A4510A27674FE3005AC2E4 /* result.json in Resources */,
 				B425AC732252526200B02B77 /* LaunchScreen.storyboard in Resources */,
+				B4C194C22772C8670019553E /* MMSingleLabelTableCell.xib in Resources */,
 				B4063D67260B4D7100F3135E /* HomeListVC.xib in Resources */,
 				B47F342226608DEC00F46C90 /* MMWebViewController.xib in Resources */,
 				B4C6AA0F261D9A9800D4B243 /* GestureTestVC.xib in Resources */,
@@ -1185,6 +1213,7 @@
 				B480AD0E266882F600E53DED /* MMTextVC.swift in Sources */,
 				B45763C7233A674E003AE3A5 /* TreeSolution.swift in Sources */,
 				B4063D88260B530C00F3135E /* HomeListItemCell.swift in Sources */,
+				B4A7E0C0277303FE0091687C /* MMListUpdateViewController.swift in Sources */,
 				B49751C1269C1E08004445E4 /* MMPieChartView.swift in Sources */,
 				B495035126E2463C00C10601 /* MMGraphicViewController.swift in Sources */,
 				B4A3625024889B26006696C3 /* MMDispatchTimer.swift in Sources */,
@@ -1194,6 +1223,7 @@
 				B47F39E6260DB6CF007592A1 /* WrapperTest.swift in Sources */,
 				B4063DAE260B637500F3135E /* FuncTestVC.swift in Sources */,
 				B4A936992689B129001E181B /* MMCustomView.swift in Sources */,
+				B4C194C12772C8670019553E /* MMSingleLabelTableCell.swift in Sources */,
 				B4063D9B260B60C100F3135E /* UITestVC.swift in Sources */,
 				DFF332AA2328C5DE0015295C /* Bundle+MM_extension.swift in Sources */,
 				B45853632386D95E005A4FFA /* MonitorViewController.swift in Sources */,
@@ -1231,10 +1261,12 @@
 				B4A17DE02669D5EF0030E40D /* MMAuthorizationVC.swift in Sources */,
 				B46FED52238C2FA30023F0FA /* GCDTest.swift in Sources */,
 				B4B4346F2701701100F7FAD4 /* UIDevice+Extension.swift in Sources */,
+				B4C194C52772F0FB0019553E /* MMTableViewAdapt.swift in Sources */,
 				B4AC6155273237A700B76990 /* Foundation+Extension.swift in Sources */,
 				B4063D93260B546500F3135E /* UITableViewCell+Extension.swift in Sources */,
 				B422B29725A3167200293646 /* MMFileTest.swift in Sources */,
 				B47468F126FED2F300C79F2C /* MMGraphic2VC.swift in Sources */,
+				B4C6046C277AC72500EA287E /* Structured.swift in Sources */,
 				B4063D6D260B4E2800F3135E /* HomeListItem.swift in Sources */,
 				B422B2A525A3194500293646 /* String+Extension.swift in Sources */,
 				DF9227E722CB07A600ABB221 /* UIColor+MM_Extension.swift in Sources */,

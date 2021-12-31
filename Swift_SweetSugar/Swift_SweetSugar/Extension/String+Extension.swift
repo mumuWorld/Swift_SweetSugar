@@ -16,7 +16,7 @@ public extension String {
     
     /// 判断index是否合法
     func judgeLegalIndex(i: Int) -> Bool {
-        return i >= 0 && i < count
+        return i >= 0 && i <= count
     }
     /// String使用下标截取字符串
     /// string[index] 例如："abcdefg"[3] // c
@@ -38,7 +38,7 @@ public extension String {
     }
     /// String使用下标截取字符串
     /// string[index,length] 例如："abcdefg"[3,2] // de
-    subscript (index:Int , length:Int) -> String {
+    subscript (index:Int, length:Int) -> String {
         get {
             guard judgeLegalIndex(i: index) , judgeLegalIndex(i: index + length - 1) else { return self }
             let startIndex = self.index(self.startIndex, offsetBy: index)

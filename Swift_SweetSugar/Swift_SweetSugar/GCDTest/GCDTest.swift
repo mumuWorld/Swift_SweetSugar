@@ -22,4 +22,8 @@ class GCDTest {
             }
         }
     }
+    
+    func test2() {
+        
+    }
 }

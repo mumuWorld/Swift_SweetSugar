@@ -74,15 +74,29 @@ class MMFuncTool {
     let backQueue = DispatchQueue(label: "com.mumu.back")
     
     func arrayTest() -> Void {
+        //串行执行，但是不会执行100000次，
 //        for i in 0...100000 {
 //            backQueue.async {
 //                self.dataArray.append(String(format: "%d", i))
+//                mm_printLog(i)
 //            }
 //        }
-//        mm_printLog(dataArray.count)
+        
 //        backQueue.async {
-//            mm_printLog(self.dataArray.count)
+//            for i in 0...100000 {
+//            self.dataArray.append(String(format: "%d", i))
+//            mm_printLog(i)
+//            }
 //        }
+        
+        var removeArr: [Int] = [0,1,2,3,4,5]
+        //保留【1，5】
+        removeArr.removeSubrange(1..<(removeArr.count - 1))
+        var removeArr2: [Int] = [0,1]
+        //不变
+        removeArr2.removeSubrange(1..<(removeArr2.count - 1))
+        var removeArr3: [Int] = [0]
+        removeArr3.removeSubrange(1..<(removeArr3.count - 1))
         
         var emptyArr: [Int] = []
         //不会crash
@@ -134,6 +148,9 @@ class MMFuncTool {
         } catch(let e) {
             mm_printLog(e)
         }
+    }
+    
+    func foo() {
         
     }
 }
