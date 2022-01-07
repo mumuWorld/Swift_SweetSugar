@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import BackgroundTasks
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -57,8 +58,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 }
 
 func mm_printLog<T>(_ message : T, file : String = #file, funcName : String = #function, lineNum : Int = #line) {
-
-    #if DEBUG
+    
+#if DEBUG
     // 1.获取文件名,包含后缀名
     let name = (file as NSString).lastPathComponent
     // 1.1 切割文件名和后缀名
@@ -66,19 +67,33 @@ func mm_printLog<T>(_ message : T, file : String = #file, funcName : String = #f
     // 1.2 获取文件名
     let fileName = fileArray[0]
     // 2.打印内容
-    print("🔨[\(fileName) \(funcName)](\(lineNum)): \(message)")
-    #endif
+    debugPrint("🔨[\(fileName) \(funcName)](\(lineNum)): \(message)")
+#endif
+}
+
+func mm_printLog<T, Target>(_ message : T, file : String = #file, funcName : String = #function, lineNum : Int = #line, target: inout Target) where Target : TextOutputStream {
+    
+#if DEBUG
+    // 1.获取文件名,包含后缀名
+    let name = (file as NSString).lastPathComponent
+    // 1.1 切割文件名和后缀名
+    let fileArray = name.components(separatedBy: ".")
+    // 1.2 获取文件名
+    let fileName = fileArray[0]
+    // 2.打印内容
+    debugPrint("🔨[\(fileName) \(funcName)](\(lineNum)): \(message)", separator: "☆", to: &target)
+#endif
 }
 
 func mm_printsLog(_ messages : Any..., file : String = #file, funcName : String = #function, lineNum : Int = #line) {
-    #if DEBUG
-       // 1.获取文件名,包含后缀名
-       let name = (file as NSString).lastPathComponent
-       // 1.1 切割文件名和后缀名
-       let fileArray = name.components(separatedBy: ".")
-       // 1.2 获取文件名
-       let fileName = fileArray[0]
-       // 2.打印内容
-       print("🔨[\(fileName) \(funcName)](\(lineNum)): \(messages)")
-       #endif
+#if DEBUG
+    // 1.获取文件名,包含后缀名
+    let name = (file as NSString).lastPathComponent
+    // 1.1 切割文件名和后缀名
+    let fileArray = name.components(separatedBy: ".")
+    // 1.2 获取文件名
+    let fileName = fileArray[0]
+    // 2.打印内容
+    debugPrint("🔨[\(fileName) \(funcName)](\(lineNum)): \(messages)")
+#endif
 }

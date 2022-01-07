@@ -88,6 +88,20 @@ class MMFuncTool {
 //            mm_printLog(i)
 //            }
 //        }
+//        var preArr: [Int] = []
+//        preArr.reserveCapacity(100)
+//        // capacity = 100
+//        preArr.append(1)
+//        //会移除所申请的空间 capacity = 0
+//        preArr.removeAll()
+        
+//        let removeArr1: [Int] = [0,1,2,3,4,5]
+        //会全部filter一遍
+//        let tmpArr = removeArr1.filter { item in
+//            mm_printLog("item->\(item)")
+//            return item < 4
+//        }.prefix(2).map({ $0 * 2 })
+        
         
         var removeArr: [Int] = [0,1,2,3,4,5]
         //保留【1，5】

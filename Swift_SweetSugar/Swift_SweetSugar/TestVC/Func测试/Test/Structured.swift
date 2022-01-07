@@ -112,13 +112,17 @@ class TaskGroupSampleTool {
             
             await holder.setResults(["test"])
             await holder.append("new")
+            
+            let res = await holder.results
+            mm_printLog(res)
         }
         
         
     }
     
     /*
-     
+        1 等同于放在一个task中，顺序执行。
+      2 完成的时候是和最后一个await的完成时的线程一致。
      */
     @available(iOS 15.0.0, *)
     func test2() {
@@ -131,16 +135,112 @@ class TaskGroupSampleTool {
         
         Task {
             mm_printLog("执行t2->\(Thread.current)")
-            await TaskGroupSample().start6(v: 2)
+            await TaskGroupSample().start6(v: 3)
             mm_printLog("执行t2e->\(Thread.current)")
         }
         
         Task {
             mm_printLog("执行t3->\(Thread.current)")
-            await TaskGroupSample().start6(v: 3)
+            await TaskGroupSample().start6(v: 2)
+            mm_printLog("执行t3e1->\(Thread.current)")
             await TaskGroupSample().start7()
-            mm_printLog("执行t3e->\(Thread.current)")
+            mm_printLog("执行t3e2->\(Thread.current)")
+            await TaskGroupSample().start7()
+            mm_printLog("执行t3ee->\(Thread.current)")
+        }
+        
+        Task.detached(priority: .none) {
+            mm_printLog("执行t4->\(Thread.current)")
+            await TaskGroupSample().start6(v: 4)
+            mm_printLog("执行t4e1->\(Thread.current)")
+            await TaskGroupSample().start7()
+            mm_printLog("执行t4ee->\(Thread.current)")
         }
         mm_printLog("执行->end")
+    }
+    
+    func shouldLoopAgain() -> Bool {
+        return true
+    }
+
+    @available(iOS 15.0.0, *)
+    func test_3() {
+        //必须对self进行解包 否则不持有self
+        Task.detached { [weak self] in
+            guard let self = self else { return }
+            print("Task 1")
+            var loop = true
+            while loop {
+                loop = self.shouldLoopAgain()
+                //让出线程
+//                if loop {
+//                    await Task.yield()
+//                }
+            }
+            print("All Done")
+        }
+        //有概率，不会执行
+        Task.detached {
+            print("Task 2")
+        }
+        print("Task init")
+    }
+    
+    @available(iOS 15.0.0, *)
+    func test_4() {
+        Task {
+            let res = await callBack_2(type: 0)
+            do {
+                let res_2 = try await callBack(type: 1)
+                mm_printLog(res_2)
+            } catch let e {
+                mm_printLog(e)
+            }
+            mm_printLog(res)
+        }
+    }
+    
+    @available(iOS 15.0.0, *)
+    func callBack(type: Int) async throws -> Int {
+        return try await withCheckedThrowingContinuation({ cc in
+            if type == 0 {
+                cc.resume(with: Result.success(type))
+            } else {
+                cc.resume(throwing: NSError(domain: "com.mumu", code: -1, userInfo: nil))
+            }
+        })
+    }
+    
+    @available(iOS 15.0.0, *)
+    func callBack_2(type: Int) async -> Int {
+        await withCheckedContinuation { cc in
+//            let error = NSError(domain: "com.mumu", code: -2, userInfo: nil)
+//            cc.resume(with: Result.failure(error))
+            cc.resume(with: Result.success(type))
+        }
+    }
+    
+    @available(iOS 15.0.0, *)
+    func test_6() {
+        var name = "hello"
+        Task { [name] in
+            let validName = "onevcat" == name
+        }
+        let name_2 = "hello"
+        Task {
+            let validName = "onevcat" == name_2
+            
+        }
+        let simple = TaskGroupSample()
+        Task {
+            let validName = simple
+            mm_printLog(validName)
+        }
+        
+        let view = UIView()
+        Task {
+            let validName = view
+            mm_printLog(validName)
+        }
     }
 }
