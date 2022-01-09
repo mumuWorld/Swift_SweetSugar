@@ -24,6 +24,12 @@ class MMGraphicViewController: UIViewController {
         return item
     }()
     
+    lazy var curveView: MMCurveView = {
+        let item = MMCurveView()
+        item.backgroundColor = UIColor.cyan
+        return item
+    }()
+    
     @IBOutlet weak var topContainerView: UIView!
     
     override func viewDidLoad() {
@@ -33,7 +39,16 @@ class MMGraphicViewController: UIViewController {
             make.width.leading.centerY.equalToSuperview()
             make.height.equalTo(40)
         }
-        // Do any additional setup after loading the view.
+        
+        topContainerView.addSubview(curveView)
+        curveView.snp.makeConstraints { (make) in
+            make.width.leading.equalToSuperview()
+            make.top.equalTo(lineView.snp.bottom)
+            make.height.equalTo(133)
+        }
+        let hight = [9, 3, 2, 0, 3, 3]
+        let low: [Int] = [-2, -5, -10, -7, -3, -1]
+        curveView.update(highNumbers: hight, lowNumbers: low)
     }
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
 //        create()

@@ -32,6 +32,7 @@
 		B425AC7E2252526200B02B77 /* Swift_SweetSugarTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B425AC7D2252526200B02B77 /* Swift_SweetSugarTests.swift */; };
 		B425AC892252526200B02B77 /* Swift_SweetSugarUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B425AC882252526200B02B77 /* Swift_SweetSugarUITests.swift */; };
 		B425AC982252529A00B02B77 /* UIKit+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B425AC972252529A00B02B77 /* UIKit+Extension.swift */; };
+		B43DF3BA278B17C3009F3BE9 /* MMCurveView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B43DF3B9278B17C3009F3BE9 /* MMCurveView.swift */; };
 		B4417A3322CE42AC00818FA0 /* StringSolution.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4417A3222CE42AC00818FA0 /* StringSolution.swift */; };
 		B45763C7233A674E003AE3A5 /* TreeSolution.swift in Sources */ = {isa = PBXBuildFile; fileRef = B45763C6233A674E003AE3A5 /* TreeSolution.swift */; };
 		B45853582386D899005A4FFA /* LXDBacktraceLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = B45853542386D899005A4FFA /* LXDBacktraceLogger.m */; };
@@ -216,6 +217,7 @@
 		B425AC882252526200B02B77 /* Swift_SweetSugarUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Swift_SweetSugarUITests.swift; sourceTree = "<group>"; };
 		B425AC8A2252526200B02B77 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B425AC972252529A00B02B77 /* UIKit+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIKit+Extension.swift"; sourceTree = "<group>"; };
+		B43DF3B9278B17C3009F3BE9 /* MMCurveView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MMCurveView.swift; sourceTree = "<group>"; };
 		B4417A3222CE42AC00818FA0 /* StringSolution.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringSolution.swift; sourceTree = "<group>"; };
 		B45763C6233A674E003AE3A5 /* TreeSolution.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TreeSolution.swift; sourceTree = "<group>"; };
 		B45853542386D899005A4FFA /* LXDBacktraceLogger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LXDBacktraceLogger.m; sourceTree = "<group>"; };
@@ -665,6 +667,7 @@
 				B495034F26E2463C00C10601 /* MMGraphicViewController.swift */,
 				B495035026E2463C00C10601 /* MMGraphicViewController.xib */,
 				B48AEBC126F070BB000C513B /* MMDottedLine.swift */,
+				B43DF3B9278B17C3009F3BE9 /* MMCurveView.swift */,
 			);
 			path = Graphic;
 			sourceTree = "<group>";
@@ -1211,6 +1214,7 @@
 				B4A936962689ADD7001E181B /* MMControlView.swift in Sources */,
 				DF2ED5D8238546F7001617F8 /* Stack.swift in Sources */,
 				B480AD0E266882F600E53DED /* MMTextVC.swift in Sources */,
+				B43DF3BA278B17C3009F3BE9 /* MMCurveView.swift in Sources */,
 				B45763C7233A674E003AE3A5 /* TreeSolution.swift in Sources */,
 				B4063D88260B530C00F3135E /* HomeListItemCell.swift in Sources */,
 				B4A7E0C0277303FE0091687C /* MMListUpdateViewController.swift in Sources */,
