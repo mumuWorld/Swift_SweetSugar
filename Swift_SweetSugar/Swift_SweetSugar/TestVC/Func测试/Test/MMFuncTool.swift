@@ -10,6 +10,7 @@ import Foundation
 import UIKit
 import SwiftyJSON
 
+
 class MMFuncTool {
     func past() {
 //        UIPasteboard.general.string = "http://hellow world"
@@ -66,6 +67,7 @@ class MMFuncTool {
             block(a + b)
         }
     }
+    
     
 //    var dataArray: [Data] = [Data]()
     var dataArray: [String] = [String]()
@@ -169,6 +171,29 @@ class MMFuncTool {
     }
 }
 
+extension MMFuncTool {
+    func rangeTest() {
+        //直接crash： Thread 1: Fatal error: Range requires lowerBound <= upperBound
+//        let range = 10..<5
+        let range = 0..<5
+        let range_2 = 5..<10
+        
+        var v = 10
+        //21
+        v += 10 + 1
+        v = 10
+        //-1
+        v -= 10 + 1
+        v = 10
+        //1
+        v -= 10 - 1
+        mm_printLog("")
+        
+   
+
+    }
+}
+
 struct Typo: Codable {
     public var word: String?
     public var trans: String?
@@ -190,7 +215,7 @@ extension MMEmptyProtocol {
 //        #define PTHREAD_MUTEX_ERRORCHECK    1
 //        #define PTHREAD_MUTEX_RECURSIVE        2
 //        #define PTHREAD_MUTEX_DEFAULT        PTHREAD_MUTEX_NORMAL
-//        var mutex_lock: pthread_mutex_t
+//        var mutex_lock: pthread_mutex_t/
 //        var mutex_attr: pthread_mutexattr_t
 //
 //        pthread_mutexattr_init(&mutex_attr)

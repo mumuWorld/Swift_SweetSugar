@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -61,6 +61,14 @@
                         <constraint firstAttribute="height" constant="34" id="bk0-ft-hog"/>
                     </constraints>
                 </stackView>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Blt-OD-Vz8" customClass="MMSunMoonView" customModule="Swift_SweetSugar" customModuleProvider="target">
+                    <rect key="frame" x="107" y="265" width="200" height="70"/>
+                    <color key="backgroundColor" systemColor="separatorColor"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="70" id="BeO-24-CgR"/>
+                        <constraint firstAttribute="width" constant="200" id="Gik-Z9-qWY"/>
+                    </constraints>
+                </view>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -68,7 +76,9 @@
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="WAf-MC-k6Z" secondAttribute="trailing" constant="10" id="Hf4-Hf-ep9"/>
                 <constraint firstItem="WAf-MC-k6Z" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="10" id="Ms5-zG-JnH"/>
                 <constraint firstItem="CuV-4A-mh8" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="10" id="Nbu-Pq-aSB"/>
+                <constraint firstItem="Blt-OD-Vz8" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="VED-9g-8p0"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="3cH-75-smf" secondAttribute="trailing" constant="8" id="Xt3-YH-ACS"/>
+                <constraint firstItem="Blt-OD-Vz8" firstAttribute="top" secondItem="3cH-75-smf" secondAttribute="bottom" constant="120" id="oeZ-tW-Rwn"/>
                 <constraint firstItem="3cH-75-smf" firstAttribute="top" secondItem="CuV-4A-mh8" secondAttribute="bottom" constant="8" symbolic="YES" id="tZN-oI-xvX"/>
                 <constraint firstItem="3cH-75-smf" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="8" id="tjQ-hu-vGu"/>
                 <constraint firstItem="CuV-4A-mh8" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="10" id="wWd-nI-E6C"/>
@@ -78,6 +88,9 @@
         </view>
     </objects>
     <resources>
+        <systemColor name="separatorColor">
+            <color red="0.23529411764705882" green="0.23529411764705882" blue="0.2627450980392157" alpha="0.28999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

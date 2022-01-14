@@ -54,6 +54,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         mm_printLog("mumu")
     }
 
+    func application(_ application: UIApplication, willContinueUserActivityWithType userActivityType: String) -> Bool {
+        mm_printLog("mumu")
+        return true
+    }
+    
+    func application(_ application: UIApplication, didUpdate userActivity: NSUserActivity) {
+        mm_printLog("mumu")
+    }
 
 }
 

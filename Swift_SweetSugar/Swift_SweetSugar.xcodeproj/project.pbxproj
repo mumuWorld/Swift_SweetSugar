@@ -108,6 +108,7 @@
 		B4C194C22772C8670019553E /* MMSingleLabelTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B4C194C02772C8670019553E /* MMSingleLabelTableCell.xib */; };
 		B4C194C52772F0FB0019553E /* MMTableViewAdapt.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4C194C42772F0FB0019553E /* MMTableViewAdapt.swift */; };
 		B4C4E3A22710671100387B97 /* MMTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4C4E3A12710671100387B97 /* MMTextView.swift */; };
+		B4C51C14279149CE00F56FEC /* MMSunMoonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4C51C13279149CE00F56FEC /* MMSunMoonView.swift */; };
 		B4C6046C277AC72500EA287E /* Structured.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4C6046B277AC72500EA287E /* Structured.swift */; };
 		B4C6AA0E261D9A9800D4B243 /* GestureTestVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4C6AA0C261D9A9800D4B243 /* GestureTestVC.swift */; };
 		B4C6AA0F261D9A9800D4B243 /* GestureTestVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = B4C6AA0D261D9A9800D4B243 /* GestureTestVC.xib */; };
@@ -296,6 +297,7 @@
 		B4C194C02772C8670019553E /* MMSingleLabelTableCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MMSingleLabelTableCell.xib; sourceTree = "<group>"; };
 		B4C194C42772F0FB0019553E /* MMTableViewAdapt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MMTableViewAdapt.swift; sourceTree = "<group>"; };
 		B4C4E3A12710671100387B97 /* MMTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MMTextView.swift; sourceTree = "<group>"; };
+		B4C51C13279149CE00F56FEC /* MMSunMoonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MMSunMoonView.swift; sourceTree = "<group>"; };
 		B4C6046B277AC72500EA287E /* Structured.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Structured.swift; sourceTree = "<group>"; };
 		B4C6AA0C261D9A9800D4B243 /* GestureTestVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GestureTestVC.swift; sourceTree = "<group>"; };
 		B4C6AA0D261D9A9800D4B243 /* GestureTestVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GestureTestVC.xib; sourceTree = "<group>"; };
@@ -654,7 +656,6 @@
 		B480D0C32615CEA300965530 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				B49751C0269C1E08004445E4 /* MMPieChartView.swift */,
 				B49C47822739296B0041F245 /* MMShadowButton.swift */,
 			);
 			path = View;
@@ -663,11 +664,13 @@
 		B495034D26E2461600C10601 /* Graphic */ = {
 			isa = PBXGroup;
 			children = (
+				B4C51C11279149BA00F56FEC /* SunMoon */,
 				B47468ED26FED2D000C79F2C /* Graphic_2 */,
 				B495034F26E2463C00C10601 /* MMGraphicViewController.swift */,
 				B495035026E2463C00C10601 /* MMGraphicViewController.xib */,
 				B48AEBC126F070BB000C513B /* MMDottedLine.swift */,
 				B43DF3B9278B17C3009F3BE9 /* MMCurveView.swift */,
+				B49751C0269C1E08004445E4 /* MMPieChartView.swift */,
 			);
 			path = Graphic;
 			sourceTree = "<group>";
@@ -814,6 +817,14 @@
 				B4C10E5626D9102600AEF417 /* MMSimpleModel.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		B4C51C11279149BA00F56FEC /* SunMoon */ = {
+			isa = PBXGroup;
+			children = (
+				B4C51C13279149CE00F56FEC /* MMSunMoonView.swift */,
+			);
+			name = SunMoon;
 			sourceTree = "<group>";
 		};
 		B4C6AA0A261D9A8700D4B243 /* Gesture */ = {
@@ -1249,6 +1260,7 @@
 				B469D033269DBCDF001D7234 /* UIImage+Extension.swift in Sources */,
 				B4C10E5726D9102600AEF417 /* MMSimpleModel.swift in Sources */,
 				DF128F3D232F2C5A00491475 /* Date+MM_Extension.swift in Sources */,
+				B4C51C14279149CE00F56FEC /* MMSunMoonView.swift in Sources */,
 				DF2ED5F12387BCB7001617F8 /* MergeSort.swift in Sources */,
 				B49DC0E02681805A009DE0FB /* MMLayerAnimationVC.swift in Sources */,
 				B4B4347F2701CB9C00F7FAD4 /* MMCoreTextVC.swift in Sources */,

@@ -39,7 +39,14 @@ public class MMDottedLine: UIView {
             return
         }
         UIGraphicsBeginImageContextWithOptions(mm_size, false, UIScreen.main.scale)
+
         let context = UIGraphicsGetCurrentContext()
+
+        //绘制背景颜色
+//        context?.setFillColor(UIColor.white.cgColor)
+//        context?.addRect(rect)
+//        context?.fillPath()
+        
         context?.setLineCap(.round)
         context?.setLineJoin(.round)
 //        let dot: CGFloat = 5, space: CGFloat = 3, dash: CGFloat = 12
@@ -62,6 +69,10 @@ public class MMDottedLine: UIView {
         } else {
             context?.addLine(to: CGPoint(x: 0, y: mm_height))
         }
+        
+        let path = UIBezierPath(roundedRect: CGRect(origin: .zero, size: CGSize(50, 50)), cornerRadius: 20)
+        context?.addPath(path.cgPath)
+        
         context?.strokePath()
         let img = UIGraphicsGetImageFromCurrentImageContext()
         layer.contents = img?.cgImage
