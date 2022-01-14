@@ -109,6 +109,7 @@
 		B4C194C52772F0FB0019553E /* MMTableViewAdapt.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4C194C42772F0FB0019553E /* MMTableViewAdapt.swift */; };
 		B4C4E3A22710671100387B97 /* MMTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4C4E3A12710671100387B97 /* MMTextView.swift */; };
 		B4C51C14279149CE00F56FEC /* MMSunMoonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4C51C13279149CE00F56FEC /* MMSunMoonView.swift */; };
+		B4C51C1627918AE600F56FEC /* MMTextContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4C51C1527918AE600F56FEC /* MMTextContainer.swift */; };
 		B4C6046C277AC72500EA287E /* Structured.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4C6046B277AC72500EA287E /* Structured.swift */; };
 		B4C6AA0E261D9A9800D4B243 /* GestureTestVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4C6AA0C261D9A9800D4B243 /* GestureTestVC.swift */; };
 		B4C6AA0F261D9A9800D4B243 /* GestureTestVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = B4C6AA0D261D9A9800D4B243 /* GestureTestVC.xib */; };
@@ -298,6 +299,7 @@
 		B4C194C42772F0FB0019553E /* MMTableViewAdapt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MMTableViewAdapt.swift; sourceTree = "<group>"; };
 		B4C4E3A12710671100387B97 /* MMTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MMTextView.swift; sourceTree = "<group>"; };
 		B4C51C13279149CE00F56FEC /* MMSunMoonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MMSunMoonView.swift; sourceTree = "<group>"; };
+		B4C51C1527918AE600F56FEC /* MMTextContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MMTextContainer.swift; sourceTree = "<group>"; };
 		B4C6046B277AC72500EA287E /* Structured.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Structured.swift; sourceTree = "<group>"; };
 		B4C6AA0C261D9A9800D4B243 /* GestureTestVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GestureTestVC.swift; sourceTree = "<group>"; };
 		B4C6AA0D261D9A9800D4B243 /* GestureTestVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GestureTestVC.xib; sourceTree = "<group>"; };
@@ -649,6 +651,7 @@
 			children = (
 				B480AD0C266882F600E53DED /* MMTextVC.swift */,
 				B480AD0D266882F600E53DED /* MMTextVC.xib */,
+				B4C51C1527918AE600F56FEC /* MMTextContainer.swift */,
 			);
 			path = TextKit;
 			sourceTree = "<group>";
@@ -1268,6 +1271,7 @@
 				B461A4C2234E3D660054B907 /* HeapModel.swift in Sources */,
 				B45853582386D899005A4FFA /* LXDBacktraceLogger.m in Sources */,
 				B4C6AA18261D9CE000D4B243 /* MMTouchView.swift in Sources */,
+				B4C51C1627918AE600F56FEC /* MMTextContainer.swift in Sources */,
 				B4B6FDAF26CE6D6400C57423 /* MMStackCollectionViewLayout.swift in Sources */,
 				B45853592386D899005A4FFA /* LXDAppFluecyMonitor.m in Sources */,
 				B4063DA6260B618A00F3135E /* ConstParams.swift in Sources */,
