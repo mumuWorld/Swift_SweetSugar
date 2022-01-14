@@ -37,21 +37,21 @@ class HomeListVC: UIViewController {
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        mm_printLog("")
+//        mm_printLog("")
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        mm_printLog("")
+//        mm_printLog("")
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        mm_printLog("")
+//        mm_printLog("")
     }
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
-        mm_printLog("")
+//        mm_printLog("")
     }
 }
 

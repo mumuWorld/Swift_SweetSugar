@@ -37,7 +37,7 @@ class MMPieChartView: UIView {
         context.fillPath()
         
         let center = CGPoint(x: rect.width * 0.5, y: rect.height * 0.5)
-        //调整绘画宽度为半径
+        //调整绘画宽度 当线宽大于 宽度一半，就是饼图了。
         let fitWidth = min(rect.width * 0.5, drawWidth)
         let radius = (rect.width - fitWidth) * 0.5
         context.setLineWidth(fitWidth)

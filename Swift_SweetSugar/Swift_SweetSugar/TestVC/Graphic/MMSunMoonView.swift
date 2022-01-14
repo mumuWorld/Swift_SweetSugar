@@ -47,8 +47,8 @@ class MMSunMoonView: UIView {
         context.setStrokeColor(UIColor.green.cgColor)
         let path = UIBezierPath(arcCenter: CGPoint(x: rect.width * 0.5, y: s_r), radius: m_r, startAngle: m_start, endAngle: m_end, clockwise: true)
         context.addPath(path.cgPath)
+        context.setShadow(offset: CGSize(0, 3), blur: 3, color: UIColor.blue.cgColor)
         context.strokePath()
-        
         showAnimation()
     }
     
