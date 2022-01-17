@@ -7,8 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		28A507479ECE4589E15E1031 /* Pods_Swift_SweetSugar_Swift_SweetSugarUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B848029ED193933CC2D84BE /* Pods_Swift_SweetSugar_Swift_SweetSugarUITests.framework */; };
-		A0396A2258FA5779AF29F082 /* Pods_Swift_SweetSugarTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2941FEBD81CA692F50BC3FD2 /* Pods_Swift_SweetSugarTests.framework */; };
+		223F80719E86EDA5E99EFA9B /* Pods_Swift_SweetSugar.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 748C148B6DFFF2BD69E19139 /* Pods_Swift_SweetSugar.framework */; };
+		4EDB48E4FFF4B3DCF6951C75 /* Pods_Swift_SweetSugar_Swift_SweetSugarUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FE472623FF9612F2CF526DCF /* Pods_Swift_SweetSugar_Swift_SweetSugarUITests.framework */; };
+		AC1EC0BBACA998F5DF57DC83 /* Pods_Swift_SweetSugarTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B50AB3DD44E5A70683C35C88 /* Pods_Swift_SweetSugarTests.framework */; };
 		B4063D66260B4D7100F3135E /* HomeListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4063D64260B4D7100F3135E /* HomeListVC.swift */; };
 		B4063D67260B4D7100F3135E /* HomeListVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = B4063D65260B4D7100F3135E /* HomeListVC.xib */; };
 		B4063D6D260B4E2800F3135E /* HomeListItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4063D6C260B4E2800F3135E /* HomeListItem.swift */; };
@@ -125,7 +126,6 @@
 		DF68A8E6238BB3E900610380 /* InsetrumentDemo.instrpkg in Sources */ = {isa = PBXBuildFile; fileRef = DF68A8E5238BB3E900610380 /* InsetrumentDemo.instrpkg */; };
 		DF9227E722CB07A600ABB221 /* UIColor+MM_Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF9227E622CB07A600ABB221 /* UIColor+MM_Extension.swift */; };
 		DFF332AA2328C5DE0015295C /* Bundle+MM_extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFF332A92328C5DE0015295C /* Bundle+MM_extension.swift */; };
-		E2F379AE7FBB9740FD285199 /* Pods_Swift_SweetSugar.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D7F28C83142AE50A58FF1D0E /* Pods_Swift_SweetSugar.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -186,10 +186,9 @@
 
 /* Begin PBXFileReference section */
 		2028267AE1A8AD89F66A9103 /* Pods-Swift_SweetSugar-Swift_SweetSugarUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Swift_SweetSugar-Swift_SweetSugarUITests.debug.xcconfig"; path = "Target Support Files/Pods-Swift_SweetSugar-Swift_SweetSugarUITests/Pods-Swift_SweetSugar-Swift_SweetSugarUITests.debug.xcconfig"; sourceTree = "<group>"; };
-		2941FEBD81CA692F50BC3FD2 /* Pods_Swift_SweetSugarTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Swift_SweetSugarTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5517FE394A1BE726129E9488 /* Pods-Swift_SweetSugarTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Swift_SweetSugarTests.release.xcconfig"; path = "Target Support Files/Pods-Swift_SweetSugarTests/Pods-Swift_SweetSugarTests.release.xcconfig"; sourceTree = "<group>"; };
-		5B848029ED193933CC2D84BE /* Pods_Swift_SweetSugar_Swift_SweetSugarUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Swift_SweetSugar_Swift_SweetSugarUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		673050F51396BFDC2DD7DD6F /* Pods-Swift_SweetSugarTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Swift_SweetSugarTests.debug.xcconfig"; path = "Target Support Files/Pods-Swift_SweetSugarTests/Pods-Swift_SweetSugarTests.debug.xcconfig"; sourceTree = "<group>"; };
+		748C148B6DFFF2BD69E19139 /* Pods_Swift_SweetSugar.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Swift_SweetSugar.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B4063D64260B4D7100F3135E /* HomeListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeListVC.swift; sourceTree = "<group>"; };
 		B4063D65260B4D7100F3135E /* HomeListVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeListVC.xib; sourceTree = "<group>"; };
 		B4063D6C260B4E2800F3135E /* HomeListItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeListItem.swift; sourceTree = "<group>"; };
@@ -305,8 +304,8 @@
 		B4C6AA0D261D9A9800D4B243 /* GestureTestVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GestureTestVC.xib; sourceTree = "<group>"; };
 		B4C6AA17261D9CE000D4B243 /* MMTouchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MMTouchView.swift; sourceTree = "<group>"; };
 		B4CC274B261D8D9600472318 /* Kingfisher.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Kingfisher.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B50AB3DD44E5A70683C35C88 /* Pods_Swift_SweetSugarTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Swift_SweetSugarTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C2ACA8F3D60150B1196BFC32 /* Pods-Swift_SweetSugar.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Swift_SweetSugar.debug.xcconfig"; path = "Target Support Files/Pods-Swift_SweetSugar/Pods-Swift_SweetSugar.debug.xcconfig"; sourceTree = "<group>"; };
-		D7F28C83142AE50A58FF1D0E /* Pods_Swift_SweetSugar.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Swift_SweetSugar.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DF0D36E7235D705C006EE6D5 /* LeeCodeTrueSubject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeeCodeTrueSubject.swift; sourceTree = "<group>"; };
 		DF128F3C232F2C5A00491475 /* Date+MM_Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Date+MM_Extension.swift"; sourceTree = "<group>"; };
 		DF128F3E232F2FF900491475 /* CommonModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonModel.swift; sourceTree = "<group>"; };
@@ -321,6 +320,7 @@
 		DFF332A92328C5DE0015295C /* Bundle+MM_extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bundle+MM_extension.swift"; sourceTree = "<group>"; };
 		E91559239FA7BD9C330F7798 /* Pods-Swift_SweetSugar.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Swift_SweetSugar.release.xcconfig"; path = "Target Support Files/Pods-Swift_SweetSugar/Pods-Swift_SweetSugar.release.xcconfig"; sourceTree = "<group>"; };
 		EF72E443349B2F9714AEBC68 /* Pods-Swift_SweetSugar-Swift_SweetSugarUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Swift_SweetSugar-Swift_SweetSugarUITests.release.xcconfig"; path = "Target Support Files/Pods-Swift_SweetSugar-Swift_SweetSugarUITests/Pods-Swift_SweetSugar-Swift_SweetSugarUITests.release.xcconfig"; sourceTree = "<group>"; };
+		FE472623FF9612F2CF526DCF /* Pods_Swift_SweetSugar_Swift_SweetSugarUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Swift_SweetSugar_Swift_SweetSugarUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -336,8 +336,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				B4A4510727674BB1005AC2E4 /* SwiftyJSON in Frameworks */,
-				E2F379AE7FBB9740FD285199 /* Pods_Swift_SweetSugar.framework in Frameworks */,
 				B4BE2D4B26171F7300E84967 /* SubProject_1.framework in Frameworks */,
+				223F80719E86EDA5E99EFA9B /* Pods_Swift_SweetSugar.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -345,7 +345,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A0396A2258FA5779AF29F082 /* Pods_Swift_SweetSugarTests.framework in Frameworks */,
+				AC1EC0BBACA998F5DF57DC83 /* Pods_Swift_SweetSugarTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -353,7 +353,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				28A507479ECE4589E15E1031 /* Pods_Swift_SweetSugar_Swift_SweetSugarUITests.framework in Frameworks */,
+				4EDB48E4FFF4B3DCF6951C75 /* Pods_Swift_SweetSugar_Swift_SweetSugarUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -384,9 +384,9 @@
 			isa = PBXGroup;
 			children = (
 				B4CC274B261D8D9600472318 /* Kingfisher.framework */,
-				D7F28C83142AE50A58FF1D0E /* Pods_Swift_SweetSugar.framework */,
-				5B848029ED193933CC2D84BE /* Pods_Swift_SweetSugar_Swift_SweetSugarUITests.framework */,
-				2941FEBD81CA692F50BC3FD2 /* Pods_Swift_SweetSugarTests.framework */,
+				748C148B6DFFF2BD69E19139 /* Pods_Swift_SweetSugar.framework */,
+				FE472623FF9612F2CF526DCF /* Pods_Swift_SweetSugar_Swift_SweetSugarUITests.framework */,
+				B50AB3DD44E5A70683C35C88 /* Pods_Swift_SweetSugarTests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -1016,7 +1016,7 @@
 			);
 			mainGroup = B425AC5C2252526000B02B77;
 			packageReferences = (
-				B4A4510527674BB1005AC2E4 /* XCRemoteSwiftPackageReference "SwiftyJSON" */,
+				B4A4510527674BB1005AC2E4 /* XCRemoteSwiftPackageReference "SwiftyJSON.git" */,
 			);
 			productRefGroup = B425AC662252526000B02B77 /* Products */;
 			projectDirPath = "";
@@ -1560,7 +1560,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.mm.CoreTextDemo.Swift-SweetSugarTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Swift_SweetSugar.app/Swift_SweetSugar";
 			};
@@ -1581,7 +1581,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.mm.CoreTextDemo.Swift-SweetSugarTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Swift_SweetSugar.app/Swift_SweetSugar";
 			};
@@ -1601,7 +1601,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.mm.CoreTextDemo.Swift-SweetSugarUITests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_TARGET_NAME = Swift_SweetSugar;
 			};
@@ -1621,7 +1621,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.mm.CoreTextDemo.Swift-SweetSugarUITests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_TARGET_NAME = Swift_SweetSugar;
 			};
@@ -1773,7 +1773,7 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		B4A4510527674BB1005AC2E4 /* XCRemoteSwiftPackageReference "SwiftyJSON" */ = {
+		B4A4510527674BB1005AC2E4 /* XCRemoteSwiftPackageReference "SwiftyJSON.git" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/SwiftyJSON/SwiftyJSON.git";
 			requirement = {
@@ -1786,7 +1786,7 @@
 /* Begin XCSwiftPackageProductDependency section */
 		B4A4510627674BB1005AC2E4 /* SwiftyJSON */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = B4A4510527674BB1005AC2E4 /* XCRemoteSwiftPackageReference "SwiftyJSON" */;
+			package = B4A4510527674BB1005AC2E4 /* XCRemoteSwiftPackageReference "SwiftyJSON.git" */;
 			productName = SwiftyJSON;
 		};
 /* End XCSwiftPackageProductDependency section */

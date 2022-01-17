@@ -106,6 +106,7 @@ class MMCurveView: UIView {
         drawPath(isHigh: false, per_w: per_w, per_h: per_h, path: lowPath, numbers: _lowNumbers, labels: _lowLabels)
         context.addPath(lowPath.cgPath)
         context.setStrokeColor(UIColor.blue.cgColor)
+        context.setShadow(offset: CGSize.zero, blur: 3, color: UIColor.blue.cgColor)
         context.strokePath()
     }
     

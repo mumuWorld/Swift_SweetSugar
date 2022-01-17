@@ -8,6 +8,7 @@
 
 import UIKit
 import BackgroundTasks
+//import FlipperKit
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -24,6 +25,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window?.rootViewController = navi
         window?.makeKeyAndVisible()
         mm_printLog("mumu")
+//        
+//        let client = FlipperClient.shared()
+//            let layoutDescriptorMapper = SKDescriptorMapper(defaults: ())
+//            FlipperKitLayoutComponentKitSupport.setUpWith(layoutDescriptorMapper)
+//            client?.add(FlipperKitLayoutPlugin(rootNode: application, with: layoutDescriptorMapper!))
+//            client?.start()
+        
         return true
     }
 
