@@ -13,15 +13,20 @@ class MMTextVC: UIViewController {
     
     var storage: NSTextStorage = NSTextStorage()
     
+//    var container: MMTextContainer = MMTextContainer(size: CGSize(300, 200))
     var container: NSTextContainer = NSTextContainer()
     
     var layout: NSLayoutManager = NSLayoutManager()
 
     lazy var textView: UITextView = {
 //        container.size = CGSize(width: 100,height: 200)
+        
         layout.addTextContainer(container)
         storage.addLayoutManager(layout)
-        let item = UITextView(frame: CGRect(x: 10, y: 300, width: 300, height: 200), textContainer: container)
+        
+//        container.exclusionPaths = [UIBezierPath(roundedRect: CGRect(x: 10, y: 50, width: 100, height: 100), cornerRadius: 50)]
+//        let item = UITextView(frame: CGRect(x: 10, y: 300, width: 300, height: 200), textContainer: container)
+        let item = UITextView(frame: CGRect(x: 10, y: 300, width: 300, height: 200))
         item.isScrollEnabled = true
         item.textContainerInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
         item.backgroundColor = UIColor.yellow.withAlphaComponent(0.2)
@@ -40,10 +45,12 @@ class MMTextVC: UIViewController {
             // Pass the selected object to the new view controller.
         }
         """
+        textView.textContainer.exclusionPaths = [UIBezierPath(roundedRect: CGRect(x: 10, y: 50, width: 100, height: 100), cornerRadius: 50)]
 //        storage.replaceCharacters(in: NSRange(location: 0, length: 0), with: text)
         
         textView.text = text
         
+        textView.layoutManager.addTextContainer(container)
     }
 
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {

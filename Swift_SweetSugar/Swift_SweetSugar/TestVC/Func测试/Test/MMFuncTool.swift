@@ -188,9 +188,23 @@ extension MMFuncTool {
         //1
         v -= 10 - 1
         mm_printLog("")
+    }
+    
+    func testAnaly() {
+        let path = Bundle.main.path(forResource: "AREACODE", ofType: "txt")!
+        let str = try? String(contentsOfFile: path)
+        let AREACODE = str?.components(separatedBy: "\n") ?? []
         
-   
-
+        let path_2 = Bundle.main.path(forResource: "allcity", ofType: "txt")!
+        let str_2 = try? String(contentsOfFile: path_2)
+        let allcity = str_2?.components(separatedBy: "\n") ?? []
+        
+        let result = allcity.map { item -> [String] in
+            let arr = item.components(separatedBy: "\t")
+            return arr
+        }
+        
+        mm_printLog(result)
     }
 }
 
