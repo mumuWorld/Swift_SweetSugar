@@ -191,20 +191,51 @@ extension MMFuncTool {
     }
     
     func testAnaly() {
-        let path = Bundle.main.path(forResource: "AREACODE", ofType: "txt")!
-        let str = try? String(contentsOfFile: path)
-        let AREACODE = str?.components(separatedBy: "\n") ?? []
+//        let path = Bundle.main.path(forResource: "AREACODE", ofType: "txt")!
+//        let str = try? String(contentsOfFile: path)
+//        let AREACODE = str?.components(separatedBy: "\n") ?? []
         
         let path_2 = Bundle.main.path(forResource: "allcity", ofType: "txt")!
         let str_2 = try? String(contentsOfFile: path_2)
         let allcity = str_2?.components(separatedBy: "\n") ?? []
         
-        let result = allcity.map { item -> [String] in
+        let result = allcity.map { item -> MMCity in
             let arr = item.components(separatedBy: "\t")
-            return arr
+            return MMCity(arr: arr)
         }
+        let data = try? JSONEncoder().encode(result)
+        let savePath = NSSearchPathForDirectoriesInDomains(.cachesDirectory, .userDomainMask, true).first!
+        let filePath = savePath.appendPathComponent(string: "cityList.data")
+        let url = URL(fileURLWithPath: filePath)
+//        try? data?.write(to: url, options: .atomic)
         
-        mm_printLog(result)
+        //读取
+        guard let readData = try? Data(contentsOf: url, options: .alwaysMapped) else { return }
+        let modelArr = try? JSONDecoder().decode([MMCity].self, from: readData)
+        
+        mm_printLog(modelArr)
+    }
+}
+
+struct MMCity: Codable {
+    var cityArea: String = ""
+    var cityId: String = ""
+    var cityEn: String = ""
+    var cityCn: String = ""
+    var districtEn: String = ""
+    var districtCn: String = ""
+    var provEn: String = ""
+    var provCn: String = ""
+    
+    init(arr: [String]) {
+        cityArea = arr[0]
+        cityId = arr[1]
+        cityEn = arr[2]
+        cityCn = arr[3]
+        districtEn = arr[4]
+        districtCn = arr[5]
+        provEn = arr[6]
+        provCn = arr[7]
     }
 }
 
