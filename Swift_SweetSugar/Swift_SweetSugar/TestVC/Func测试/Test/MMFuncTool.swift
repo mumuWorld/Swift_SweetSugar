@@ -190,6 +190,14 @@ extension MMFuncTool {
         mm_printLog("")
     }
     
+    func secretTest() {
+        let text = "appid=1657835537language=zh-Hanslocation=WX4FBXXFKE4Ftimestamp=1642663075000unit=c"
+        let key = "M5B14dsPBVAjt0p5"
+        let r = MMSecret().hmac_sha1(key: key, text: text)
+        let r2 = MMSecret().hmac_sha1_2(key: key, text: text)
+        mm_printLog(r + r2)
+    }
+    
     func testAnaly() {
 //        let path = Bundle.main.path(forResource: "AREACODE", ofType: "txt")!
 //        let str = try? String(contentsOfFile: path)
