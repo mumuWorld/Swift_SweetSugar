@@ -193,7 +193,9 @@ extension MMFuncTool {
         mm_printLog("")
         
         MMLocationManager.shared.startOnceLocation { type, item in
-            mm_printLog(item)
+            item?.reverseLocation(complete: { success, _item in
+                mm_printLog("")
+            })
         }
     }
     
