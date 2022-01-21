@@ -112,9 +112,12 @@ class MMFuncTool {
         //不变
         removeArr2.removeSubrange(1..<(removeArr2.count - 1))
         var removeArr3: [Int] = [0]
-        removeArr3.removeSubrange(1..<(removeArr3.count - 1))
+        //Thread 1: Fatal error: Range requires lowerBound <= upperBound
+//        removeArr3.removeSubrange(1..<(removeArr3.count - 1))
         
         var emptyArr: [Int] = []
+        //不会崩， item = nil
+        let item = emptyArr.last
         //不会crash
         emptyArr.removeAll()
         //会crash
@@ -188,6 +191,10 @@ extension MMFuncTool {
         //1
         v -= 10 - 1
         mm_printLog("")
+        
+        MMLocationManager.shared.startOnceLocation { type, item in
+            mm_printLog(item)
+        }
     }
     
     func secretTest() {

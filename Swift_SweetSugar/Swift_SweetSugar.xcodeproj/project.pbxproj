@@ -113,6 +113,8 @@
 		B4C51C14279149CE00F56FEC /* MMSunMoonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4C51C13279149CE00F56FEC /* MMSunMoonView.swift */; };
 		B4C51C1627918AE600F56FEC /* MMTextContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4C51C1527918AE600F56FEC /* MMTextContainer.swift */; };
 		B4C6046C277AC72500EA287E /* Structured.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4C6046B277AC72500EA287E /* Structured.swift */; };
+		B4C6342C279A4D4D00375D69 /* MMLocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4C6342B279A4D4D00375D69 /* MMLocationManager.swift */; };
+		B4C6342F279A4E0400375D69 /* MMLocationItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4C6342E279A4E0400375D69 /* MMLocationItem.swift */; };
 		B4C67653279565A70088D1A2 /* MMTextStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4C67652279565A70088D1A2 /* MMTextStorage.swift */; };
 		B4C6AA0E261D9A9800D4B243 /* GestureTestVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4C6AA0C261D9A9800D4B243 /* GestureTestVC.swift */; };
 		B4C6AA0F261D9A9800D4B243 /* GestureTestVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = B4C6AA0D261D9A9800D4B243 /* GestureTestVC.xib */; };
@@ -320,6 +322,8 @@
 		B4C51C13279149CE00F56FEC /* MMSunMoonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MMSunMoonView.swift; sourceTree = "<group>"; };
 		B4C51C1527918AE600F56FEC /* MMTextContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MMTextContainer.swift; sourceTree = "<group>"; };
 		B4C6046B277AC72500EA287E /* Structured.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Structured.swift; sourceTree = "<group>"; };
+		B4C6342B279A4D4D00375D69 /* MMLocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MMLocationManager.swift; sourceTree = "<group>"; };
+		B4C6342E279A4E0400375D69 /* MMLocationItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MMLocationItem.swift; sourceTree = "<group>"; };
 		B4C67652279565A70088D1A2 /* MMTextStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MMTextStorage.swift; sourceTree = "<group>"; };
 		B4C6AA0C261D9A9800D4B243 /* GestureTestVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GestureTestVC.swift; sourceTree = "<group>"; };
 		B4C6AA0D261D9A9800D4B243 /* GestureTestVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GestureTestVC.xib; sourceTree = "<group>"; };
@@ -486,6 +490,8 @@
 				B47F39E4260DB6AF007592A1 /* Test */,
 				B4063DAC260B637500F3135E /* FuncTestVC.swift */,
 				B4063DAD260B637500F3135E /* FuncTestVC.xib */,
+				B4C6342B279A4D4D00375D69 /* MMLocationManager.swift */,
+				B4C6342E279A4E0400375D69 /* MMLocationItem.swift */,
 			);
 			path = "Func测试";
 			sourceTree = "<group>";
@@ -1326,6 +1332,7 @@
 				B4C67653279565A70088D1A2 /* MMTextStorage.swift in Sources */,
 				B495035126E2463C00C10601 /* MMGraphicViewController.swift in Sources */,
 				B4A3625024889B26006696C3 /* MMDispatchTimer.swift in Sources */,
+				B4C6342F279A4E0400375D69 /* MMLocationItem.swift in Sources */,
 				B4B43474270170CC00F7FAD4 /* MMIpadController.swift in Sources */,
 				B4B69E75233E55950061AF93 /* BaseSort.swift in Sources */,
 				B4A9369B2689B6E9001E181B /* MMButton.swift in Sources */,
@@ -1385,6 +1392,7 @@
 				DF9227E722CB07A600ABB221 /* UIColor+MM_Extension.swift in Sources */,
 				B47F342126608DEC00F46C90 /* MMWebViewController.swift in Sources */,
 				B4B434772701ADA900F7FAD4 /* MMFuncTool.swift in Sources */,
+				B4C6342C279A4D4D00375D69 /* MMLocationManager.swift in Sources */,
 				B4C06FEE274251F800681C95 /* UIImageView+Extension.swift in Sources */,
 				B495034A26E1FF3800C10601 /* MMBaseNavigationController.swift in Sources */,
 			);
