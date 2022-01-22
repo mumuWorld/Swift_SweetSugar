@@ -16,11 +16,26 @@ enum kDateFormatterKey: String {
 }
 
 extension Date {
-    static let shareFormatter: DateFormatter = DateFormatter()
+    static let shareFormatter: DateFormatter = {
+        let item = DateFormatter()
+        item.locale = Locale.current
+        item.timeZone = TimeZone.current
+        return item
+    }()
     
+    static let mCalendar = Calendar(identifier: .gregorian)
+
     static func currentTimeStamp() -> Int {
         let time = Date().timeIntervalSince1970
         return Int(time)
+    }
+    
+    static func getDate(dateStr: String, format: kDateFormatterKey = kDateFormatterKey.Default) -> Date {
+        shareFormatter.dateFormat = format.rawValue
+        guard let date = shareFormatter.date(from: dateStr) else {
+            return Date()
+        }
+        return date
     }
     
     static func currentDateStr(formatter: kDateFormatterKey = kDateFormatterKey.Default) -> String {
@@ -46,19 +61,52 @@ extension Date {
         return result
     }
     
-    static func getDayMonthYear(dateStr: String, formate: YDTDateFormatterStr = .yyyyMMddHHmm) -> (day: Int, month: Int, year: Int) {
-        formatter.dateFormat = formate.rawValue
-        guard let date = formatter.date(from: dateStr) else {
+    static func getDayMonthYear(dateStr: String, formate: kDateFormatterKey = .Default) -> (day: Int, month: Int, year: Int) {
+        shareFormatter.dateFormat = formate.rawValue
+        guard let date = shareFormatter.date(from: dateStr) else {
             return (0,0,0)
         }
         return getDMY(with: date)
     }
     
     static func getDMY(with date: Date) -> (day: Int, month: Int, year: Int) {
-        let dataComponents = canlendar.dateComponents([.day , .month , .year], from: date)
+        let dataComponents = mCalendar.dateComponents([.day , .month , .year], from: date)
         let day = dataComponents.day
         let month = dataComponents.month
         let year = dataComponents.year
         return (day ?? 0, month ?? 0, year ?? 0)
+    }
+    
+    static func getComponent(dateStr: String, formate: kDateFormatterKey = .Default, components: Set<Calendar.Component>) -> DateComponents {
+        shareFormatter.dateFormat = formate.rawValue
+        guard let date = shareFormatter.date(from: dateStr) else {
+            return DateComponents()
+        }
+        let dataComponents = mCalendar.dateComponents(components, from: date)
+        return dataComponents
+    }
+}
+
+
+extension DateComponents {
+    var weekStr: String {
+        switch weekday {
+        case 1:
+            return "周日"
+        case 2:
+            return "周一"
+        case 3:
+            return "周二"
+        case 4:
+            return "周三"
+        case 5:
+            return "周四"
+        case 6:
+            return "周五"
+        case 7:
+            return "周六"
+        default:
+            return "周一"
+        }
     }
 }

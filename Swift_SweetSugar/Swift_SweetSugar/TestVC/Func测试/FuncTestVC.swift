@@ -162,6 +162,8 @@ class FuncTestVC: UIViewController {
             tool.rangeTest()
         case 34:
             tool.testAnaly()
+        case 35:
+            tool.dateTest()
         default:
             break
         }
