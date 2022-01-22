@@ -21,6 +21,7 @@
 		B4063DA6260B618A00F3135E /* ConstParams.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4063DA5260B618A00F3135E /* ConstParams.swift */; };
 		B4063DAE260B637500F3135E /* FuncTestVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4063DAC260B637500F3135E /* FuncTestVC.swift */; };
 		B4063DAF260B637500F3135E /* FuncTestVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = B4063DAD260B637500F3135E /* FuncTestVC.xib */; };
+		B407B59B279308C100398F92 /* MMPageControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = B407B599279308C100398F92 /* MMPageControl.swift */; };
 		B422B29025A3158800293646 /* MMFileManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B422B28F25A3158800293646 /* MMFileManager.swift */; };
 		B422B29725A3167200293646 /* MMFileTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B422B29625A3167200293646 /* MMFileTest.swift */; };
 		B422B2A525A3194500293646 /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B422B2A425A3194500293646 /* String+Extension.swift */; };
@@ -202,6 +203,7 @@
 		B4063DA5260B618A00F3135E /* ConstParams.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConstParams.swift; sourceTree = "<group>"; };
 		B4063DAC260B637500F3135E /* FuncTestVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FuncTestVC.swift; sourceTree = "<group>"; };
 		B4063DAD260B637500F3135E /* FuncTestVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FuncTestVC.xib; sourceTree = "<group>"; };
+		B407B599279308C100398F92 /* MMPageControl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MMPageControl.swift; sourceTree = "<group>"; };
 		B422B28F25A3158800293646 /* MMFileManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MMFileManager.swift; sourceTree = "<group>"; };
 		B422B29625A3167200293646 /* MMFileTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MMFileTest.swift; sourceTree = "<group>"; };
 		B422B2A425A3194500293646 /* String+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
@@ -659,6 +661,7 @@
 		B480D0C32615CEA300965530 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				B407B599279308C100398F92 /* MMPageControl.swift */,
 				B49C47822739296B0041F245 /* MMShadowButton.swift */,
 			);
 			path = View;
@@ -1225,6 +1228,7 @@
 				B4417A3322CE42AC00818FA0 /* StringSolution.swift in Sources */,
 				DF0D36E8235D705C006EE6D5 /* LeeCodeTrueSubject.swift in Sources */,
 				B4C4E3A22710671100387B97 /* MMTextView.swift in Sources */,
+				B407B59B279308C100398F92 /* MMPageControl.swift in Sources */,
 				B4A936962689ADD7001E181B /* MMControlView.swift in Sources */,
 				DF2ED5D8238546F7001617F8 /* Stack.swift in Sources */,
 				B480AD0E266882F600E53DED /* MMTextVC.swift in Sources */,
