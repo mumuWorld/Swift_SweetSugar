@@ -112,9 +112,12 @@ class MMFuncTool {
         //不变
         removeArr2.removeSubrange(1..<(removeArr2.count - 1))
         var removeArr3: [Int] = [0]
-        removeArr3.removeSubrange(1..<(removeArr3.count - 1))
+        //Thread 1: Fatal error: Range requires lowerBound <= upperBound
+//        removeArr3.removeSubrange(1..<(removeArr3.count - 1))
         
         var emptyArr: [Int] = []
+        //不会崩， item = nil
+        let item = emptyArr.last
         //不会crash
         emptyArr.removeAll()
         //会crash
@@ -189,8 +192,67 @@ extension MMFuncTool {
         v -= 10 - 1
         mm_printLog("")
         
-   
+        MMLocationManager.shared.startOnceLocation { type, item in
+            item?.reverseLocation(complete: { success, _item in
+                mm_printLog("")
+            })
+        }
+    }
+    
+    func secretTest() {
+        let text = "appid=1657835537language=zh-Hanslocation=WX4FBXXFKE4Ftimestamp=1642663075000unit=c"
+        let key = "M5B14dsPBVAjt0p5"
+        let r = MMSecret().hmac_sha1(key: key, text: text)
+        let r2 = MMSecret().hmac_sha1_2(key: key, text: text)
+        mm_printLog(r + r2)
+    }
+    
+    func testAnaly() {
+//        let path = Bundle.main.path(forResource: "AREACODE", ofType: "txt")!
+//        let str = try? String(contentsOfFile: path)
+//        let AREACODE = str?.components(separatedBy: "\n") ?? []
+        
+        let path_2 = Bundle.main.path(forResource: "allcity", ofType: "txt")!
+        let str_2 = try? String(contentsOfFile: path_2)
+        let allcity = str_2?.components(separatedBy: "\n") ?? []
+        
+        let result = allcity.map { item -> MMCity in
+            let arr = item.components(separatedBy: "\t")
+            return MMCity(arr: arr)
+        }
+        let data = try? JSONEncoder().encode(result)
+        let savePath = NSSearchPathForDirectoriesInDomains(.cachesDirectory, .userDomainMask, true).first!
+        let filePath = savePath.appendPathComponent(string: "cityList.data")
+        let url = URL(fileURLWithPath: filePath)
+//        try? data?.write(to: url, options: .atomic)
+        
+        //读取
+        guard let readData = try? Data(contentsOf: url, options: .alwaysMapped) else { return }
+        let modelArr = try? JSONDecoder().decode([MMCity].self, from: readData)
+        
+        mm_printLog(modelArr)
+    }
+}
 
+struct MMCity: Codable {
+    var cityArea: String = ""
+    var cityId: String = ""
+    var cityEn: String = ""
+    var cityCn: String = ""
+    var districtEn: String = ""
+    var districtCn: String = ""
+    var provEn: String = ""
+    var provCn: String = ""
+    
+    init(arr: [String]) {
+        cityArea = arr[0]
+        cityId = arr[1]
+        cityEn = arr[2]
+        cityCn = arr[3]
+        districtEn = arr[4]
+        districtCn = arr[5]
+        provEn = arr[6]
+        provCn = arr[7]
     }
 }
 

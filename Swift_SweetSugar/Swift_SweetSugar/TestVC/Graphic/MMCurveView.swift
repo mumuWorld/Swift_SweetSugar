@@ -106,7 +106,16 @@ class MMCurveView: UIView {
         drawPath(isHigh: false, per_w: per_w, per_h: per_h, path: lowPath, numbers: _lowNumbers, labels: _lowLabels)
         context.addPath(lowPath.cgPath)
         context.setStrokeColor(UIColor.blue.cgColor)
+        context.setShadow(offset: CGSize.zero, blur: 3, color: UIColor.blue.cgColor)
         context.strokePath()
+        
+        let shaper = CAShapeLayer()
+        shaper.path = UIBezierPath(rect: CGRect(x: 10, y: 20, width: 30, height: 40)).cgPath
+        shaper.shadowPath = shaper.path
+        shaper.shadowColor = UIColor.green.cgColor
+        shaper.shadowRadius = 4
+        shaper.shadowOpacity = 1
+        layer.addSublayer(shaper)
     }
     
     func drawPath(isHigh: Bool, per_w: CGFloat, per_h: CGFloat, path: UIBezierPath, numbers: [Int], labels: [UILabel]) {

@@ -237,6 +237,64 @@
                         <constraint firstAttribute="height" constant="44" id="NMT-Ie-69K"/>
                     </constraints>
                 </stackView>
+                <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="JAb-jy-yeI">
+                    <rect key="frame" x="6" y="261" width="372" height="44"/>
+                    <subviews>
+                        <button opaque="NO" tag="34" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xcW-Do-IB6">
+                            <rect key="frame" x="0.0" y="7" width="31" height="30"/>
+                            <color key="backgroundColor" red="0.2901960784" green="0.56470588239999997" blue="0.8862745098" alpha="1" colorSpace="calibratedRGB"/>
+                            <state key="normal" title="解析">
+                                <color key="titleColor" systemColor="systemRedColor"/>
+                            </state>
+                            <connections>
+                                <action selector="handleClick:" destination="-1" eventType="touchUpInside" id="PMD-vp-dSP"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" tag="29" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Rzc-YK-Gwe">
+                            <rect key="frame" x="39" y="7" width="58" height="30"/>
+                            <color key="backgroundColor" red="1" green="0.40000000000000002" blue="0.35686274509999999" alpha="1" colorSpace="calibratedRGB"/>
+                            <state key="normal" title="Protocol"/>
+                            <connections>
+                                <action selector="handleClick:" destination="-1" eventType="touchUpInside" id="oH8-wh-xMb"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" tag="30" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NGS-M4-ycl">
+                            <rect key="frame" x="105" y="7" width="31" height="30"/>
+                            <color key="backgroundColor" red="1" green="0.40000000000000002" blue="0.35686274509999999" alpha="1" colorSpace="calibratedRGB"/>
+                            <state key="normal" title="弹出"/>
+                            <connections>
+                                <action selector="handleClick:" destination="-1" eventType="touchUpInside" id="WG6-ci-MgC"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" tag="31" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hpT-XA-5tk">
+                            <rect key="frame" x="144" y="7" width="61" height="30"/>
+                            <color key="backgroundColor" red="1" green="0.40000000000000002" blue="0.35686274509999999" alpha="1" colorSpace="calibratedRGB"/>
+                            <state key="normal" title="JsonTest"/>
+                            <connections>
+                                <action selector="handleClick:" destination="-1" eventType="touchUpInside" id="0gB-VJ-zef"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" tag="32" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="exk-cw-byH">
+                            <rect key="frame" x="213" y="7" width="77" height="30"/>
+                            <color key="backgroundColor" red="1" green="0.40000000000000002" blue="0.35686274509999999" alpha="1" colorSpace="calibratedRGB"/>
+                            <state key="normal" title="结构化并发"/>
+                            <connections>
+                                <action selector="handleClick:" destination="-1" eventType="touchUpInside" id="RIZ-uo-AHL"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" tag="33" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vZr-JR-iXt">
+                            <rect key="frame" x="298" y="7" width="74" height="30"/>
+                            <color key="backgroundColor" red="1" green="0.40000000000000002" blue="0.35686274509999999" alpha="1" colorSpace="calibratedRGB"/>
+                            <state key="normal" title="Range测试"/>
+                            <connections>
+                                <action selector="handleClick:" destination="-1" eventType="touchUpInside" id="Q5Z-Rh-gbB"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="44" id="fP0-lK-wO5"/>
+                    </constraints>
+                </stackView>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -247,7 +305,9 @@
                 <constraint firstItem="yiv-9e-lLZ" firstAttribute="top" secondItem="1fS-P6-FT2" secondAttribute="bottom" constant="8" id="MOw-Wm-zvz"/>
                 <constraint firstItem="vyg-O4-ulE" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="9" id="aER-CS-LQa"/>
                 <constraint firstItem="yiv-9e-lLZ" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="8" id="cCO-51-MWd"/>
+                <constraint firstItem="JAb-jy-yeI" firstAttribute="top" secondItem="frV-13-JUL" secondAttribute="bottom" constant="8" id="ebU-nq-kxh"/>
                 <constraint firstItem="1fS-P6-FT2" firstAttribute="top" secondItem="vyg-O4-ulE" secondAttribute="bottom" constant="8" id="ncD-Yb-SkY"/>
+                <constraint firstItem="JAb-jy-yeI" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="6" id="szS-p0-5WN"/>
                 <constraint firstItem="vyg-O4-ulE" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="8" id="tmx-nh-Kun"/>
                 <constraint firstItem="frV-13-JUL" firstAttribute="top" secondItem="yiv-9e-lLZ" secondAttribute="bottom" constant="8" id="yNT-ol-Xoj"/>
             </constraints>

@@ -8,6 +8,7 @@
 
 import UIKit
 import BackgroundTasks
+//import FlipperKit
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -24,9 +25,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window?.rootViewController = navi
         window?.makeKeyAndVisible()
         mm_printLog("mumu")
+//        
+//        let client = FlipperClient.shared()
+//            let layoutDescriptorMapper = SKDescriptorMapper(defaults: ())
+//            FlipperKitLayoutComponentKitSupport.setUpWith(layoutDescriptorMapper)
+//            client?.add(FlipperKitLayoutPlugin(rootNode: application, with: layoutDescriptorMapper!))
+//            client?.start()
+        
         return true
     }
-
+    
+    func application(_ application: UIApplication, willFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
+        mm_printLog(launchOptions ?? [:])
+        return false
+    }
+    
     func applicationWillResignActive(_ application: UIApplication) {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
         // Use this method to pause ongoing tasks, disable timers, and invalidate graphics rendering callbacks. Games should use this method to pause the game.

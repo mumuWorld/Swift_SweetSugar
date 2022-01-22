@@ -17,20 +17,21 @@ class MMTextContainer: NSTextContainer {
     ///   - baseWritingDirection: <#baseWritingDirection description#>
     ///   - remainingRect: <#remainingRect description#>
     /// - Returns: <#description#>
-    override func lineFragmentRect(forProposedRect proposedRect: CGRect, at characterIndex: Int, writingDirection baseWritingDirection: NSWritingDirection, remaining remainingRect: UnsafeMutablePointer<CGRect>?) -> CGRect {
-            let size  = self.size
-
-            let rect = super.lineFragmentRect(forProposedRect: proposedRect, at: characterIndex, writingDirection: baseWritingDirection, remaining: remainingRect)
-
-            let radius = fmin(size.width, size.height)/2
-
-            let ypos = fabs((rect.origin.y + rect.size.height/2) - radius)
-
-            let width = (ypos < radius) ? 2 * sqrt(radius * radius - ypos * ypos) : 0.0
-
-          let finalRect = CGRect.init(x: rect.origin.x + radius - width/2.0, y: rect.origin.y, width: width, height: rect.size.height)
-
-            return finalRect
-
-        }
+//    override func lineFragmentRect(forProposedRect proposedRect: CGRect, at characterIndex: Int, writingDirection baseWritingDirection: NSWritingDirection, remaining remainingRect: UnsafeMutablePointer<CGRect>?) -> CGRect {
+//        return super.lineFragmentRect(forProposedRect: proposedRect, at: characterIndex, writingDirection: baseWritingDirection, remaining: remainingRect)
+//        let size  = self.size
+//
+//        let rect = super.lineFragmentRect(forProposedRect: proposedRect, at: characterIndex, writingDirection: baseWritingDirection, remaining: remainingRect)
+//
+//        let radius = fmin(size.width, size.height)/2
+//
+//        let ypos = fabs((rect.origin.y + rect.size.height/2) - radius)
+//
+//        let width = (ypos < radius) ? 2 * sqrt(radius * radius - ypos * ypos) : 0.0
+//
+//        let finalRect = CGRect.init(x: rect.origin.x + radius - width/2.0, y: rect.origin.y, width: width, height: rect.size.height)
+//
+//        return finalRect
+        
+//    }
 }

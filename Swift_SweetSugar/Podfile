@@ -1,16 +1,54 @@
 # Uncomment the next line to define a global platform for your project
 # platform :ios, '9.0'
 
+#flipperkit_version = '0.128.2'
+
+#use_frameworks!
+
 target 'Swift_SweetSugar' do
   # Comment the next line if you don't want to use dynamic frameworks
   use_frameworks!
   pod 'Kingfisher'
   pod 'HandyJSON'
-  pod 'YYText'
+  pod 'YYText' #:modular_headers => true
   pod 'SnapKit'
   pod 'lottie-ios', '~> 3.2.3'
   # Pods for Swift_SweetSugar
 
+  #调试
+#  pod 'FlipperKit', '~>' + flipperkit_version, :configuration => 'Debug'
+#  pod 'FlipperKit/FlipperKitLayoutComponentKitSupport', '~>' + flipperkit_version, :configuration => 'Debug'
+#  pod 'FlipperKit/SKIOSNetworkPlugin', '~>' + flipperkit_version, :configuration => 'Debug'
+#  pod 'FlipperKit/FlipperKitUserDefaultsPlugin', '~>' + flipperkit_version, :configuration => 'Debug'
+#
+#  pod 'Flipper-DoubleConversion', :configuration => 'Debug'
+#   pod 'Flipper-Folly', :configuration => 'Debug'
+#   pod 'Flipper-Glog', :configuration => 'Debug'
+#   pod 'Flipper-PeerTalk', :configuration => 'Debug'
+#   pod 'CocoaLibEvent', :configuration => 'Debug'
+#   pod 'boost-for-react-native', :configuration => 'Debug'
+#   pod 'OpenSSL-Universal', :configuration => 'Debug'
+#   pod 'CocoaAsyncSocket', :configuration => 'Debug'
+#
+#   pod 'ComponentKit', '~> 0.31', :configuration => 'Debug'
+#
+#    $static_framework = ['FlipperKit', 'Flipper', 'Flipper-Folly',
+#      'CocoaAsyncSocket', 'ComponentKit', 'Flipper-DoubleConversion',
+#      'Flipper-Glog', 'Flipper-PeerTalk', 'Flipper-RSocket', 'Yoga', 'YogaKit',
+#      'CocoaLibEvent', 'OpenSSL-Universal', 'boost-for-react-native']
+#
+#    pre_install do |installer|
+#      Pod::Installer::Xcode::TargetValidator.send(:define_method, :verify_no_static_framework_transitive_dependencies) {}
+#      installer.pod_targets.each do |pod|
+#          if $static_framework.include?(pod.name)
+#            def pod.build_type;
+#              Pod::BuildType.static_library
+#            end
+#          end
+#        end
+#    end
+  #调试 end
+  
   target 'Swift_SweetSugarTests' do
     inherit! :search_paths
     # Pods for testing
