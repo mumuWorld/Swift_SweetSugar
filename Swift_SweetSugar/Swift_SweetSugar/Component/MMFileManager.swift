@@ -120,6 +120,13 @@ class MMFileManager {
         return (exist, pointer.boolValue)
     }
     
+    class func fileExist(path: String) -> Bool {
+        if !judgePathIsRight(path: path) {
+            return false
+        }
+        return FileManager.default.fileExists(atPath: path)
+    }
+    
     
     /// 拷贝文件到路径
     class func copyFileFrom(path: String, toPath: String) {

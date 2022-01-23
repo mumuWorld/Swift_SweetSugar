@@ -216,26 +216,58 @@ extension MMFuncTool {
 //        let path = Bundle.main.path(forResource: "AREACODE", ofType: "txt")!
 //        let str = try? String(contentsOfFile: path)
 //        let AREACODE = str?.components(separatedBy: "\n") ?? []
-        
-        let path_2 = Bundle.main.path(forResource: "allcity", ofType: "txt")!
+
+        let path_2 = Bundle.main.path(forResource: "city", ofType: "txt")!
         let str_2 = try? String(contentsOfFile: path_2)
         let allcity = str_2?.components(separatedBy: "\n") ?? []
         
-        let result = allcity.map { item -> MMCity in
-            let arr = item.components(separatedBy: "\t")
-            return MMCity(arr: arr)
+        let result = allcity.map { item -> TQCityModel in
+            let arr = item.components(separatedBy: " ") //\t
+            return TQCityModel(arr: arr)
         }
-        let data = try? JSONEncoder().encode(result)
+        
+//        let data = try? JSONEncoder().encode(result)
         let savePath = NSSearchPathForDirectoriesInDomains(.cachesDirectory, .userDomainMask, true).first!
-        let filePath = savePath.appendPathComponent(string: "cityList.data")
+        let filePath = savePath.appendPathComponent(string: "cityList.plist")
         let url = URL(fileURLWithPath: filePath)
-//        try? data?.write(to: url, options: .atomic)
+//        do {
+//
+////            try data?.write(to: url, options: .atomic)
+//        } catch let error {
+//            mm_printLog(error)
+//        }
         
         //读取
-        guard let readData = try? Data(contentsOf: url, options: .alwaysMapped) else { return }
-        let modelArr = try? JSONDecoder().decode([MMCity].self, from: readData)
-        
-        mm_printLog(modelArr)
+//        guard let readData = try? Data(contentsOf: url, options: .alwaysMapped) else { return }
+//        let modelArr = try? JSONDecoder().decode([MMCity].self, from: readData)
+        mm_printLog(result)
+//        mm_printLog(modelArr)
+    }
+}
+
+var index: Int = 0
+struct TQCityModel: Codable {
+    var cityId: String = "北京市"
+    //东城区
+    var qu: String = "北京市"
+    //北京
+    var jianCheng: String = "北京"
+    var pinyin: String = "Beijing"
+    var pinyinLow: String = "beijing"
+    
+    init(arr: [String]) {
+        index += 1
+        guard arr.count > 3 else {
+            mm_printLog("当前->\(index)")
+            return
+        }
+        cityId = arr[0]
+        let guishu = arr[1].components(separatedBy: "/")
+        qu = guishu.last ?? ""
+        let chengshi = arr[2].components(separatedBy: "/")
+        jianCheng = chengshi.last ?? ""
+        pinyin = arr[3]
+        pinyinLow = pinyin.lowercased()
     }
 }
 

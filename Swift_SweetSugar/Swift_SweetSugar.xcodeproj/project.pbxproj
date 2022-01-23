@@ -121,6 +121,7 @@
 		B4C6AA0F261D9A9800D4B243 /* GestureTestVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = B4C6AA0D261D9A9800D4B243 /* GestureTestVC.xib */; };
 		B4C6AA18261D9CE000D4B243 /* MMTouchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4C6AA17261D9CE000D4B243 /* MMTouchView.swift */; };
 		B4D5E4D6279C2FB700B25A3D /* MMDateTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4D5E4D5279C2FB700B25A3D /* MMDateTest.swift */; };
+		B4D5E4E5279C626F00B25A3D /* city.txt in Resources */ = {isa = PBXBuildFile; fileRef = B4D5E4E3279C626F00B25A3D /* city.txt */; };
 		B4E3909C2796968A000670FC /* AREACODE.txt in Resources */ = {isa = PBXBuildFile; fileRef = B4E3909A2796968A000670FC /* AREACODE.txt */; };
 		B4E3909E27969964000670FC /* allcity.txt in Resources */ = {isa = PBXBuildFile; fileRef = B4E3909D27969964000670FC /* allcity.txt */; };
 		B4E390A52796B3EB000670FC /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B4E390A42796B3EB000670FC /* WidgetKit.framework */; };
@@ -333,6 +334,7 @@
 		B4C6AA17261D9CE000D4B243 /* MMTouchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MMTouchView.swift; sourceTree = "<group>"; };
 		B4CC274B261D8D9600472318 /* Kingfisher.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Kingfisher.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B4D5E4D5279C2FB700B25A3D /* MMDateTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MMDateTest.swift; sourceTree = "<group>"; };
+		B4D5E4E3279C626F00B25A3D /* city.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = city.txt; sourceTree = "<group>"; };
 		B4E3909A2796968A000670FC /* AREACODE.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = AREACODE.txt; sourceTree = "<group>"; };
 		B4E3909D27969964000670FC /* allcity.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = allcity.txt; sourceTree = "<group>"; };
 		B4E390A32796B3EB000670FC /* WordWidgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = WordWidgetExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -867,6 +869,7 @@
 			isa = PBXGroup;
 			children = (
 				B4E3909D27969964000670FC /* allcity.txt */,
+				B4D5E4E3279C626F00B25A3D /* city.txt */,
 				B4E3909A2796968A000670FC /* AREACODE.txt */,
 				B4C06FE827423CDA00681C95 /* anim_search_loop_light.json */,
 			);
@@ -1167,6 +1170,7 @@
 				B4063DAF260B637500F3135E /* FuncTestVC.xib in Resources */,
 				B425AC702252526200B02B77 /* Assets.xcassets in Resources */,
 				B4C06FE927423CDA00681C95 /* anim_search_loop_light.json in Resources */,
+				B4D5E4E5279C626F00B25A3D /* city.txt in Resources */,
 				B474765626948B2C006922D8 /* RPReplay.MP4 in Resources */,
 				B425AC6E2252526000B02B77 /* Main.storyboard in Resources */,
 				B4063D89260B530C00F3135E /* HomeListItemCell.xib in Resources */,
