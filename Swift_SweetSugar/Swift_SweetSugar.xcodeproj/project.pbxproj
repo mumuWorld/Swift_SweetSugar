@@ -120,6 +120,7 @@
 		B4C6AA0E261D9A9800D4B243 /* GestureTestVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4C6AA0C261D9A9800D4B243 /* GestureTestVC.swift */; };
 		B4C6AA0F261D9A9800D4B243 /* GestureTestVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = B4C6AA0D261D9A9800D4B243 /* GestureTestVC.xib */; };
 		B4C6AA18261D9CE000D4B243 /* MMTouchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4C6AA17261D9CE000D4B243 /* MMTouchView.swift */; };
+		B4D32E6B279EA17800C0EB64 /* MMAnimationLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4D32E6A279EA17800C0EB64 /* MMAnimationLabel.swift */; };
 		B4D5E4D6279C2FB700B25A3D /* MMDateTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4D5E4D5279C2FB700B25A3D /* MMDateTest.swift */; };
 		B4D5E4E5279C626F00B25A3D /* city.txt in Resources */ = {isa = PBXBuildFile; fileRef = B4D5E4E3279C626F00B25A3D /* city.txt */; };
 		B4E3909C2796968A000670FC /* AREACODE.txt in Resources */ = {isa = PBXBuildFile; fileRef = B4E3909A2796968A000670FC /* AREACODE.txt */; };
@@ -333,6 +334,7 @@
 		B4C6AA0D261D9A9800D4B243 /* GestureTestVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GestureTestVC.xib; sourceTree = "<group>"; };
 		B4C6AA17261D9CE000D4B243 /* MMTouchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MMTouchView.swift; sourceTree = "<group>"; };
 		B4CC274B261D8D9600472318 /* Kingfisher.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Kingfisher.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B4D32E6A279EA17800C0EB64 /* MMAnimationLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MMAnimationLabel.swift; sourceTree = "<group>"; };
 		B4D5E4D5279C2FB700B25A3D /* MMDateTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MMDateTest.swift; sourceTree = "<group>"; };
 		B4D5E4E3279C626F00B25A3D /* city.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = city.txt; sourceTree = "<group>"; };
 		B4E3909A2796968A000670FC /* AREACODE.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = AREACODE.txt; sourceTree = "<group>"; };
@@ -719,6 +721,7 @@
 			children = (
 				B407B599279308C100398F92 /* MMPageControl.swift */,
 				B49C47822739296B0041F245 /* MMShadowButton.swift */,
+				B4D32E6A279EA17800C0EB64 /* MMAnimationLabel.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1334,6 +1337,7 @@
 				B407B59B279308C100398F92 /* MMPageControl.swift in Sources */,
 				B4A936962689ADD7001E181B /* MMControlView.swift in Sources */,
 				DF2ED5D8238546F7001617F8 /* Stack.swift in Sources */,
+				B4D32E6B279EA17800C0EB64 /* MMAnimationLabel.swift in Sources */,
 				B480AD0E266882F600E53DED /* MMTextVC.swift in Sources */,
 				B43DF3BA278B17C3009F3BE9 /* MMCurveView.swift in Sources */,
 				B45763C7233A674E003AE3A5 /* TreeSolution.swift in Sources */,
