@@ -16,20 +16,21 @@ class MMAnimationLabel: UILabel {
     var oldCharacterTextLayers:[CATextLayer] = []
     var newCharacterTextLayers:[CATextLayer] = []
     
-    override var text:String!{
+    override var text:String! {
         get {
             return super.text
         }
         set {
-            super.text = text
-            let attributedText = NSMutableAttributedString(string: newValue)
-            let textRange = NSMakeRange(0,newValue.characters.count)
-            attributedText.setAttributes([NSForegroundColorAttributeName:self.textColor], range: textRange)
-            attributedText.setAttributes([NSFontAttributeName:self.font], range: textRange)
-            let paragraphyStyle = NSMutableParagraphStyle()
-            paragraphyStyle.alignment = self.textAlignment
-            attributedText.addAttributes([NSParagraphStyleAttributeName:paragraphyStyle], range: textRange)
-            self.attributedText = attributedText
+//            super.text = text
+//            super.text = newValue
+//            let attributedText = NSMutableAttributedString(string: newValue)
+//            let textRange = NSMakeRange(0,newValue.characters.count)
+//            attributedText.setAttributes([NSForegroundColorAttributeName:self.textColor], range: textRange)
+//            attributedText.setAttributes([NSFontAttributeName:self.font], range: textRange)
+//            let paragraphyStyle = NSMutableParagraphStyle()
+//            paragraphyStyle.alignment = self.textAlignment
+//            attributedText.addAttributes([NSParagraphStyleAttributeName:paragraphyStyle], range: textRange)
+//            self.attributedText = attributedText
         }
         
     }
@@ -42,10 +43,28 @@ class MMAnimationLabel: UILabel {
 //            cleanOutOldCharacterTextLayers()
             oldCharacterTextLayers = Array(newCharacterTextLayers)
             textStorage.setAttributedString(newValue)
-            self.startAnimation { () -> () in
-            }
-            self.endAnimation(nil)
+//            self.startAnimation { () -> () in
+//            }
+//            self.endAnimation(nil)
         }
+    }
+    
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        textKitObjectSetup()
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    func textKitObjectSetup() {
+        textStorage.addLayoutManager(textLayoutManager)
+        textLayoutManager.addTextContainer(textContainer)
+        textLayoutManager.delegate = self
+        textContainer.size = bounds.size
+        textContainer.maximumNumberOfLines = numberOfLines
+        textContainer.lineBreakMode = lineBreakMode
     }
 }
 
@@ -58,9 +77,18 @@ extension MMAnimationLabel: NSLayoutManagerDelegate {
     }
         
         
-    //MARK:CalculateTextLayer
+    //MARK:CalculateTextLayer。布局完成时调用
     func calculateTextLayers() {
-        newCharacterTextLayers.removeAll(keepCapacity:false)
-            let attributedText = textStorage.string
+        newCharacterTextLayers.removeAll(keepingCapacity: false)
+        let attributedText = textStorage.string
+        
+//        let wordRange = NSMakeRange(0, attributedText.characters.count)
+//        let attributedString = self.internalAttributedText();
+//        let layoutRect = textLayoutManager.usedRect(for:textContainer)
+//        var index = wordRange.location
+//        let totalLength = NSMaxRange(wordRange)
+//        while index < totalLength {
+//
+//        }
     }
 }
