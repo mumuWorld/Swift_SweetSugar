@@ -212,6 +212,14 @@ extension MMFuncTool {
         MMDateTest.dateTest()
     }
     
+    func voiceTest() {
+        MMLocalSpeech.shared.speech(text: "你好你好你好hello word， 温度133°, 适度哈哈哈") {
+            mm_printLog("1")
+        } completion: {
+            mm_printLog("2")
+        }
+    }
+    
     func testAnaly() {
 //        let path = Bundle.main.path(forResource: "AREACODE", ofType: "txt")!
 //        let str = try? String(contentsOfFile: path)

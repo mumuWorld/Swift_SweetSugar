@@ -123,6 +123,7 @@
 		B4D32E6B279EA17800C0EB64 /* MMAnimationLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4D32E6A279EA17800C0EB64 /* MMAnimationLabel.swift */; };
 		B4D5E4D6279C2FB700B25A3D /* MMDateTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4D5E4D5279C2FB700B25A3D /* MMDateTest.swift */; };
 		B4D5E4E5279C626F00B25A3D /* city.txt in Resources */ = {isa = PBXBuildFile; fileRef = B4D5E4E3279C626F00B25A3D /* city.txt */; };
+		B4DDA669279FE6A900DBDB56 /* MMLocalSpeech.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4DDA668279FE6A900DBDB56 /* MMLocalSpeech.swift */; };
 		B4E3909C2796968A000670FC /* AREACODE.txt in Resources */ = {isa = PBXBuildFile; fileRef = B4E3909A2796968A000670FC /* AREACODE.txt */; };
 		B4E3909E27969964000670FC /* allcity.txt in Resources */ = {isa = PBXBuildFile; fileRef = B4E3909D27969964000670FC /* allcity.txt */; };
 		B4E390A52796B3EB000670FC /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B4E390A42796B3EB000670FC /* WidgetKit.framework */; };
@@ -337,6 +338,7 @@
 		B4D32E6A279EA17800C0EB64 /* MMAnimationLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MMAnimationLabel.swift; sourceTree = "<group>"; };
 		B4D5E4D5279C2FB700B25A3D /* MMDateTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MMDateTest.swift; sourceTree = "<group>"; };
 		B4D5E4E3279C626F00B25A3D /* city.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = city.txt; sourceTree = "<group>"; };
+		B4DDA668279FE6A900DBDB56 /* MMLocalSpeech.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MMLocalSpeech.swift; sourceTree = "<group>"; };
 		B4E3909A2796968A000670FC /* AREACODE.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = AREACODE.txt; sourceTree = "<group>"; };
 		B4E3909D27969964000670FC /* allcity.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = allcity.txt; sourceTree = "<group>"; };
 		B4E390A32796B3EB000670FC /* WordWidgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = WordWidgetExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -495,6 +497,7 @@
 		B4063DAB260B633500F3135E /* Func测试 */ = {
 			isa = PBXGroup;
 			children = (
+				B4DDA666279FE69300DBDB56 /* Tool */,
 				B47F39E4260DB6AF007592A1 /* Test */,
 				B4063DAC260B637500F3135E /* FuncTestVC.swift */,
 				B4063DAD260B637500F3135E /* FuncTestVC.xib */,
@@ -914,6 +917,14 @@
 				B4A9369A2689B6E9001E181B /* MMButton.swift */,
 			);
 			path = TouchView;
+			sourceTree = "<group>";
+		};
+		B4DDA666279FE69300DBDB56 /* Tool */ = {
+			isa = PBXGroup;
+			children = (
+				B4DDA668279FE6A900DBDB56 /* MMLocalSpeech.swift */,
+			);
+			path = Tool;
 			sourceTree = "<group>";
 		};
 		B4E390A82796B3EB000670FC /* WordWidget */ = {
@@ -1403,6 +1414,7 @@
 				B422B29725A3167200293646 /* MMFileTest.swift in Sources */,
 				B47468F126FED2F300C79F2C /* MMGraphic2VC.swift in Sources */,
 				B4C6046C277AC72500EA287E /* Structured.swift in Sources */,
+				B4DDA669279FE6A900DBDB56 /* MMLocalSpeech.swift in Sources */,
 				B4063D6D260B4E2800F3135E /* HomeListItem.swift in Sources */,
 				B422B2A525A3194500293646 /* String+Extension.swift in Sources */,
 				DF9227E722CB07A600ABB221 /* UIColor+MM_Extension.swift in Sources */,
