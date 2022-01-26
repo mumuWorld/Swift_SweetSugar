@@ -120,6 +120,7 @@
 		B4C6AA0E261D9A9800D4B243 /* GestureTestVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4C6AA0C261D9A9800D4B243 /* GestureTestVC.swift */; };
 		B4C6AA0F261D9A9800D4B243 /* GestureTestVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = B4C6AA0D261D9A9800D4B243 /* GestureTestVC.xib */; };
 		B4C6AA18261D9CE000D4B243 /* MMTouchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4C6AA17261D9CE000D4B243 /* MMTouchView.swift */; };
+		B4CD02AC27A16C5900DC02FA /* MMGradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4CD02AB27A16C5900DC02FA /* MMGradientView.swift */; };
 		B4D32E6B279EA17800C0EB64 /* MMAnimationLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4D32E6A279EA17800C0EB64 /* MMAnimationLabel.swift */; };
 		B4D5E4D6279C2FB700B25A3D /* MMDateTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4D5E4D5279C2FB700B25A3D /* MMDateTest.swift */; };
 		B4D5E4E5279C626F00B25A3D /* city.txt in Resources */ = {isa = PBXBuildFile; fileRef = B4D5E4E3279C626F00B25A3D /* city.txt */; };
@@ -335,6 +336,7 @@
 		B4C6AA0D261D9A9800D4B243 /* GestureTestVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GestureTestVC.xib; sourceTree = "<group>"; };
 		B4C6AA17261D9CE000D4B243 /* MMTouchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MMTouchView.swift; sourceTree = "<group>"; };
 		B4CC274B261D8D9600472318 /* Kingfisher.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Kingfisher.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B4CD02AB27A16C5900DC02FA /* MMGradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MMGradientView.swift; sourceTree = "<group>"; };
 		B4D32E6A279EA17800C0EB64 /* MMAnimationLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MMAnimationLabel.swift; sourceTree = "<group>"; };
 		B4D5E4D5279C2FB700B25A3D /* MMDateTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MMDateTest.swift; sourceTree = "<group>"; };
 		B4D5E4E3279C626F00B25A3D /* city.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = city.txt; sourceTree = "<group>"; };
@@ -480,6 +482,7 @@
 				B4063D87260B530C00F3135E /* HomeListItemCell.xib */,
 				B49BAB7F2620223B0097DFC9 /* SingleViewCell.swift */,
 				B49BAB802620223B0097DFC9 /* SingleViewCell.xib */,
+				B4CD02AB27A16C5900DC02FA /* MMGradientView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1353,6 +1356,7 @@
 				B43DF3BA278B17C3009F3BE9 /* MMCurveView.swift in Sources */,
 				B45763C7233A674E003AE3A5 /* TreeSolution.swift in Sources */,
 				B4063D88260B530C00F3135E /* HomeListItemCell.swift in Sources */,
+				B4CD02AC27A16C5900DC02FA /* MMGradientView.swift in Sources */,
 				B4A7E0C0277303FE0091687C /* MMListUpdateViewController.swift in Sources */,
 				B49751C1269C1E08004445E4 /* MMPieChartView.swift in Sources */,
 				B4C67653279565A70088D1A2 /* MMTextStorage.swift in Sources */,
