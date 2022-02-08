@@ -10,19 +10,20 @@ import UIKit
 
 class CollectionViewController: UIViewController {
     
+    let itemW = ScreenWidth - 200
     lazy var collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
 //        layout.itemSize = CGSize(width: ScreenWidth + 40, height: 100)
-        layout.itemSize = CGSize(width: ScreenWidth, height: 100)
+        layout.itemSize = CGSize(width: itemW , height: 100)
 
         layout.scrollDirection = .horizontal
         layout.minimumInteritemSpacing = 0
         layout.minimumLineSpacing = 0
-        let cv = UICollectionView(frame: CGRect(x: -ScreenWidth, y: 100, width: ScreenWidth * 3, height: 100), collectionViewLayout: layout)
+        let cv = UICollectionView(frame: CGRect(x: 50, y: 100, width: itemW, height: 100), collectionViewLayout: layout)
 //        let cv = UICollectionView(frame: CGRect(x: 0, y: 100, width: ScreenWidth + 40, height: 100), collectionViewLayout: layout)
         
-//        cv.isPagingEnabled = true
-        cv.isPagingEnabled = false
+        cv.isPagingEnabled = true
+//        cv.isPagingEnabled = false
         cv.delegate = self
         cv.dataSource = self
         cv.mm_registerNibCell(classType: SingleViewCell.self)
@@ -44,8 +45,8 @@ class CollectionViewController: UIViewController {
         let cv = UICollectionView(frame: CGRect(x: -ScreenWidth, y: 250, width: ScreenWidth * 3, height: 100), collectionViewLayout: layout)
 //        let cv = UICollectionView(frame: CGRect(x: 0, y: 100, width: ScreenWidth + 40, height: 100), collectionViewLayout: layout)
         
-//        cv.isPagingEnabled = true
-        cv.isPagingEnabled = false
+        cv.isPagingEnabled = true
+//        cv.isPagingEnabled = false
         cv.delegate = self
         cv.dataSource = self
         cv.mm_registerNibCell(classType: SingleViewCell.self)
@@ -92,17 +93,21 @@ extension CollectionViewController: UICollectionViewDelegate, UICollectionViewDa
     func scrollViewWillBeginDecelerating(_ scrollView: UIScrollView) -> Void {
         mm_printLog("减速->")
 //        scrollView.setContentOffset(scrollView.contentOffset, animated: false)
-        handleScroll(scrollView)
+//        handleScroll(scrollView)
     }
     
     func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
         mm_printLog("停止拖动->\(decelerate)")
-        handleScroll(scrollView)
+//        handleScroll(scrollView)
     }
 
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
         mm_printLog("最终拖动")
-        handleScroll(scrollView)
+//        handleScroll(scrollView)
+    }
+    
+    func scrollViewDidEndScrollingAnimation(_ scrollView: UIScrollView) {
+        mm_printLog("最终Animation")
     }
     
     func handleScroll(_ scrollView: UIScrollView) -> Void {
