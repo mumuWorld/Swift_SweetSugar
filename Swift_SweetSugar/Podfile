@@ -1,13 +1,14 @@
 # Uncomment the next line to define a global platform for your project
-# platform :ios, '9.0'
+ platform :ios, '11.0'
 
 #flipperkit_version = '0.128.2'
 
-#use_frameworks!
+use_frameworks!
+workspace 'Swift_SweetSugar.xcworkspace'
 
 target 'Swift_SweetSugar' do
   # Comment the next line if you don't want to use dynamic frameworks
-  use_frameworks!
+#  use_frameworks!
   pod 'Kingfisher'
   pod 'HandyJSON'
   pod 'YYText' #:modular_headers => true
@@ -58,4 +59,13 @@ target 'Swift_SweetSugar' do
     # Pods for testing
   end
 
+end
+
+
+target 'SubProject_1' do
+  use_frameworks!
+
+  project 'SubProject_1/SubProject_1.xcodeproj'
+  
+  pod 'SnapKit', :modular_headers => true
 end
