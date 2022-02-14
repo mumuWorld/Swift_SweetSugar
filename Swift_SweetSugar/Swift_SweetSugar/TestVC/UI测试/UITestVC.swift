@@ -124,7 +124,7 @@ class UITestVC: UIViewController {
 //            let origin = self.shadowView.origin
 //            self.shadowView.origin = CGPoint(x: origin.x + self.shadowView.mm_width * 0.5, y: origin.y - self.shadowView.mm_height * 0.5)
 //        }
-        widthLabel.text = "大约两行高度的文字试一下"
+        widthLabel.text = "大约试一下"
 //        view.layer.addSublayer(avPlayerLayer)
 //        setupPip()
         
@@ -177,7 +177,8 @@ class UITestVC: UIViewController {
 //        playAnimation()
 //        windowTest()
 //        addActivity()
-        dismiss(animated: true)
+//        dismiss(animated: true)
+        labelTest()
     }
     
     func playAnimation() {
