@@ -56,6 +56,7 @@
 		B47F39E6260DB6CF007592A1 /* WrapperTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B47F39E5260DB6CF007592A1 /* WrapperTest.swift */; };
 		B480AD0E266882F600E53DED /* MMTextVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B480AD0C266882F600E53DED /* MMTextVC.swift */; };
 		B480AD0F266882F600E53DED /* MMTextVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = B480AD0D266882F600E53DED /* MMTextVC.xib */; };
+		B488804227B7AFFF004035C0 /* SubProject_1.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B4BE2D3D26171E9600E84967 /* SubProject_1.framework */; };
 		B48AEBC226F070BB000C513B /* MMDottedLine.swift in Sources */ = {isa = PBXBuildFile; fileRef = B48AEBC126F070BB000C513B /* MMDottedLine.swift */; };
 		B495034A26E1FF3800C10601 /* MMBaseNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B495034926E1FF3800C10601 /* MMBaseNavigationController.swift */; };
 		B495035126E2463C00C10601 /* MMGraphicViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B495034F26E2463C00C10601 /* MMGraphicViewController.swift */; };
@@ -392,6 +393,7 @@
 				B4A4510727674BB1005AC2E4 /* SwiftyJSON in Frameworks */,
 				B4BE2D4B26171F7300E84967 /* SubProject_1.framework in Frameworks */,
 				223F80719E86EDA5E99EFA9B /* Pods_Swift_SweetSugar.framework in Frameworks */,
+				B488804227B7AFFF004035C0 /* SubProject_1.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1660,7 +1662,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = C2ACA8F3D60150B1196BFC32 /* Pods-Swift_SweetSugar.debug.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = T6H68KJ4WD;
@@ -1693,7 +1695,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = E91559239FA7BD9C330F7798 /* Pods-Swift_SweetSugar.release.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = T6H68KJ4WD;
@@ -1720,7 +1722,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 673050F51396BFDC2DD7DD6F /* Pods-Swift_SweetSugarTests.debug.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = Swift_SweetSugarTests/Info.plist;
@@ -1741,7 +1743,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 5517FE394A1BE726129E9488 /* Pods-Swift_SweetSugarTests.release.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = Swift_SweetSugarTests/Info.plist;
@@ -1762,7 +1764,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 2028267AE1A8AD89F66A9103 /* Pods-Swift_SweetSugar-Swift_SweetSugarUITests.debug.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = Swift_SweetSugarUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1782,7 +1784,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = EF72E443349B2F9714AEBC68 /* Pods-Swift_SweetSugar-Swift_SweetSugarUITests.release.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = Swift_SweetSugarUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
