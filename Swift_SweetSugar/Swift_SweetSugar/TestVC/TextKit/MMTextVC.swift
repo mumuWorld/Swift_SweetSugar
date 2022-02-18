@@ -55,14 +55,13 @@ class MMTextVC: UIViewController {
         textView.text = text
         
 //        textView.layoutManager.addTextContainer(container)
-        
+         
         getText()
     }
 
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         view.endEditing(true)
         mm_printLog(layout)
-        NSTextAttachment
         mm_printLog(container)
     }
     

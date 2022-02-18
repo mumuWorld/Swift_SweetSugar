@@ -124,7 +124,11 @@ class UITestVC: UIViewController {
 //            let origin = self.shadowView.origin
 //            self.shadowView.origin = CGPoint(x: origin.x + self.shadowView.mm_width * 0.5, y: origin.y - self.shadowView.mm_height * 0.5)
 //        }
-        widthLabel.text = "大约试一下"
+        //也会进行放大。
+        let font = UIFont(name: "iconfont", size: 30)
+        widthLabel.font = font
+        widthLabel.text = "大 \u{e60b}"
+
 //        view.layer.addSublayer(avPlayerLayer)
 //        setupPip()
         
@@ -178,7 +182,7 @@ class UITestVC: UIViewController {
 //        windowTest()
 //        addActivity()
 //        dismiss(animated: true)
-        labelTest()
+//        labelTest()
     }
     
     func playAnimation() {

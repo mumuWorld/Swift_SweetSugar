@@ -139,6 +139,7 @@
 		B4E390AF2796B3ED000670FC /* WordWidget.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = B4E390AB2796B3EB000670FC /* WordWidget.intentdefinition */; };
 		B4E390B02796B3ED000670FC /* WordWidget.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = B4E390AB2796B3EB000670FC /* WordWidget.intentdefinition */; };
 		B4E390B32796B3ED000670FC /* WordWidgetExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = B4E390A32796B3EB000670FC /* WordWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		B4E70FDC27BF8E040020259A /* iconfont.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B4E70FDA27BF8E040020259A /* iconfont.ttf */; };
 		DF0D36E8235D705C006EE6D5 /* LeeCodeTrueSubject.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF0D36E7235D705C006EE6D5 /* LeeCodeTrueSubject.swift */; };
 		DF128F3D232F2C5A00491475 /* Date+MM_Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF128F3C232F2C5A00491475 /* Date+MM_Extension.swift */; };
 		DF128F3F232F2FF900491475 /* CommonModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF128F3E232F2FF900491475 /* CommonModel.swift */; };
@@ -359,6 +360,7 @@
 		B4E390AB2796B3EB000670FC /* WordWidget.intentdefinition */ = {isa = PBXFileReference; lastKnownFileType = file.intentdefinition; path = WordWidget.intentdefinition; sourceTree = "<group>"; };
 		B4E390AC2796B3ED000670FC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B4E390AE2796B3ED000670FC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B4E70FDA27BF8E040020259A /* iconfont.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = iconfont.ttf; sourceTree = "<group>"; };
 		B50AB3DD44E5A70683C35C88 /* Pods_Swift_SweetSugarTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Swift_SweetSugarTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C2ACA8F3D60150B1196BFC32 /* Pods-Swift_SweetSugar.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Swift_SweetSugar.debug.xcconfig"; path = "Target Support Files/Pods-Swift_SweetSugar/Pods-Swift_SweetSugar.debug.xcconfig"; sourceTree = "<group>"; };
 		DF0D36E7235D705C006EE6D5 /* LeeCodeTrueSubject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeeCodeTrueSubject.swift; sourceTree = "<group>"; };
@@ -898,6 +900,7 @@
 		B4C06FE627423CCC00681C95 /* resource */ = {
 			isa = PBXGroup;
 			children = (
+				B4E70FDA27BF8E040020259A /* iconfont.ttf */,
 				B4E3909D27969964000670FC /* allcity.txt */,
 				B4D5E4E3279C626F00B25A3D /* city.txt */,
 				B4E3909A2796968A000670FC /* AREACODE.txt */,
@@ -1194,6 +1197,7 @@
 				B49DC0E12681805A009DE0FB /* MMLayerAnimationVC.xib in Resources */,
 				B4A7E0C1277303FE0091687C /* MMListUpdateViewController.xib in Resources */,
 				B4A4510A27674FE3005AC2E4 /* result.json in Resources */,
+				B4E70FDC27BF8E040020259A /* iconfont.ttf in Resources */,
 				B425AC732252526200B02B77 /* LaunchScreen.storyboard in Resources */,
 				B4C194C22772C8670019553E /* MMSingleLabelTableCell.xib in Resources */,
 				B4063D67260B4D7100F3135E /* HomeListVC.xib in Resources */,

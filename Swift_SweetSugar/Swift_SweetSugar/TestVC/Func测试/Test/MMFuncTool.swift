@@ -158,7 +158,8 @@ class MMFuncTool {
     
     func jsonTest() {
         let path = Bundle.main.path(forResource: "result", ofType: "json")
-        
+//        let path = Bundle.main.path(forResource: "result", ofType: "json")
+        let url = URL(string: "null")
         do {
             let data = try Data(contentsOf: URL(fileURLWithPath: path!))
             let json = try JSON(data: data)
@@ -304,6 +305,10 @@ struct MMCity: Codable {
 struct Typo: Codable {
     public var word: String?
     public var trans: String?
+    
+    var textV: String?
+    //会失败
+//    var text_b: String = ""
 }
 
 extension MMFuncTool {
