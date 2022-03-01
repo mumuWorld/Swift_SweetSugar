@@ -73,17 +73,33 @@ class MMFuncTool {
     var dataArray: [String] = [String]()
 
     
-    let backQueue = DispatchQueue(label: "com.mumu.back")
-    
+    let backQueue = DispatchQueue(label: "com.mumu.back", attributes: .concurrent)
+    let backQueue2 = DispatchQueue(label: "com.mumu.back_2", attributes: .concurrent)
     func arrayTest() -> Void {
         //串行执行，但是不会执行100000次，
+//        DispatchQueue.global().async {
+//    //            DispatchQueue.global().async {
+//            for i in 0...100000 {
+//                self.backQueue.async {
+//                    self.dataArray.append(String(format: "%d", i))
+//                    mm_printLog(i)
+//                }
+//            }
+//        }
+//        backQueue.sync(flags: .barrier) {
+//            
+//        }
+//        DispatchQueue.global().async {
+//            
 //        for i in 0...100000 {
-//            backQueue.async {
-//                self.dataArray.append(String(format: "%d", i))
+////            DispatchQueue.global().async {
+//            self.backQueue2.async {
+//                let roundtripTimes = self.dataArray.filter { $0.count > 2 }
+////                self.dataArray.append(String(format: "2_%d", i))
 //                mm_printLog(i)
 //            }
 //        }
-        
+//        }
 //        backQueue.async {
 //            for i in 0...100000 {
 //            self.dataArray.append(String(format: "%d", i))
@@ -103,8 +119,34 @@ class MMFuncTool {
 //            mm_printLog("item->\(item)")
 //            return item < 4
 //        }.prefix(2).map({ $0 * 2 })
-        
-        
+        var toolStrArr: [String] = ["0","1","2","3","4"]
+
+        var toolArr: [Int] = [0,1,2,3,4,5]
+        var toolOptionStrArr: [String?] = ["0","1","str","3"]
+
+        //17 -> 2 + 0 + 1 + 2 + 3 + 4 + 5
+        let r1 = toolArr.reduce(2) { partialResult, item in
+            return partialResult + item
+        }
+        //result->01234
+        let r2 = toolStrArr.reduce("result->") { partialResult, item in
+            return partialResult + item
+        }
+        // r3 -> [[0], [1]]
+        let r3 = toolStrArr.map { item in
+            return [item]
+        }
+        //过滤数组元素 r4 -> [0, 2, 4]
+        let r4 = toolArr.filter { item in
+            return item % 2 == 0
+        }
+        //r5 = [Int], [0, 1, 2, 3,4, 5] 废弃
+        let r5 = toolArr.flatMap { item in
+            return [item]
+        }
+        let r6 = toolArr.compactMap { item in
+            
+        }
         var removeArr: [Int] = [0,1,2,3,4,5]
         //保留【1，5】
         removeArr.removeSubrange(1..<(removeArr.count - 1))
@@ -120,9 +162,29 @@ class MMFuncTool {
         let item = emptyArr.last
         //不会crash
         emptyArr.removeAll()
+        //不会crash
+        let filter = Array(emptyArr.prefix(6))
+        if let model: MMSimpleModel = nil {
+            mm_printLog("不会走")
+        }
         //会crash
 //        emptyArr.removeFirst()
         mm_printLog("")
+        let mutableArr: NSMutableArray = NSMutableArray()
+        mutableArr.add(NSNull())
+        mutableArr.add(NSString(string: "test"))
+        
+        var objArr: [NSString] = mutableArr as! [NSString]
+        
+        var jsonModel = MMJsonNode()
+        jsonModel.childs = mutableArr
+        if let arr = jsonModel.childs as? [MMJsonNode] {
+            mm_printLog("会走\(arr)")
+        }
+        if let model = objArr[hold: 0] {
+            mm_printLog("会走\(model.length)")
+//            , !model.isKind(of: NSNull.self)
+        }
         
         let array: [String] = []
         let index = (array.startIndex..<array.endIndex)

@@ -24,6 +24,20 @@ class GCDTest {
     }
     
     func test2() {
-        
+        let ser = DispatchQueue(label: "serial")
+        let con = DispatchQueue(label: "con", qos: .default, attributes: .concurrent, autoreleaseFrequency: .inherit, target: nil)
+        ser.async {
+            mm_printLog("1, \(Thread.current)")
+            con.sync {
+                mm_printLog("2, \(Thread.current)")
+            }
+        }
+        sleep(1)
+        ser.async {
+            mm_printLog("3, \(Thread.current)")
+            DispatchQueue.global().sync {
+                mm_printLog("4, \(Thread.current)")
+            }
+        }
     }
 }

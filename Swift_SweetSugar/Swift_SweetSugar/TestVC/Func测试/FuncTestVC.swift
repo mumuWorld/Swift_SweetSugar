@@ -392,8 +392,8 @@ extension FuncTestVC {
     func printTest() -> Void {
         let error = MMError.MMNormalError.unknowError(message: nil)
         // 1638244301.8361139  秒
-        let data = Date().timeIntervalSince1970
-
+        let data = Date().timeIntervalSince1970 * 1000
+        let strdata = String(format: "%i", data)
         let str = " hello test mornigi \n test hehl "
         let str_2 = "hello test mornigi \n test hehl \n"
         let str_3 = " hello test mornigi \n test hehl \n "

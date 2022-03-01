@@ -20,6 +20,8 @@ struct MMJsonNode {
     
     var child: [MMJsonNode]?
     
+    var childs: NSMutableArray?
+    
     var originalChild: [String: Any]?
     
     var key: String?

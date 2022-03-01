@@ -70,6 +70,7 @@ class MMTextVC: UIViewController {
             let path = Bundle.main.path(forResource: "textview", ofType: "json")!
             let url = URL(fileURLWithPath: path)
             let data = try Data(contentsOf: url, options: .alwaysMapped)
+            let model = try JSONDecoder().decode(MMTextJson.self, from: data)
             let str = String(data: data, encoding: .utf8)
             textView.text = str
         } catch let e {
@@ -77,6 +78,11 @@ class MMTextVC: UIViewController {
         }
     }
 
+}
+
+struct MMTextJson: Decodable {
+    var input: String = ""
+    var test: String?
 }
 
 extension MMTextVC: NSLayoutManagerDelegate {

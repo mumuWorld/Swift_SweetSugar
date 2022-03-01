@@ -125,6 +125,8 @@
 		B4C6AA0E261D9A9800D4B243 /* GestureTestVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4C6AA0C261D9A9800D4B243 /* GestureTestVC.swift */; };
 		B4C6AA0F261D9A9800D4B243 /* GestureTestVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = B4C6AA0D261D9A9800D4B243 /* GestureTestVC.xib */; };
 		B4C6AA18261D9CE000D4B243 /* MMTouchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4C6AA17261D9CE000D4B243 /* MMTouchView.swift */; };
+		B4C9397727C8C878005FA0EE /* Array+MM_Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4C9397627C8C878005FA0EE /* Array+MM_Extension.swift */; };
+		B4C9397B27C8D118005FA0EE /* MMCustomOCObj.m in Sources */ = {isa = PBXBuildFile; fileRef = B4C9397A27C8D118005FA0EE /* MMCustomOCObj.m */; };
 		B4CD02AC27A16C5900DC02FA /* MMGradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4CD02AB27A16C5900DC02FA /* MMGradientView.swift */; };
 		B4D32E6B279EA17800C0EB64 /* MMAnimationLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4D32E6A279EA17800C0EB64 /* MMAnimationLabel.swift */; };
 		B4D5E4D6279C2FB700B25A3D /* MMDateTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4D5E4D5279C2FB700B25A3D /* MMDateTest.swift */; };
@@ -345,6 +347,9 @@
 		B4C6AA0C261D9A9800D4B243 /* GestureTestVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GestureTestVC.swift; sourceTree = "<group>"; };
 		B4C6AA0D261D9A9800D4B243 /* GestureTestVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GestureTestVC.xib; sourceTree = "<group>"; };
 		B4C6AA17261D9CE000D4B243 /* MMTouchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MMTouchView.swift; sourceTree = "<group>"; };
+		B4C9397627C8C878005FA0EE /* Array+MM_Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+MM_Extension.swift"; sourceTree = "<group>"; };
+		B4C9397927C8D118005FA0EE /* MMCustomOCObj.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MMCustomOCObj.h; sourceTree = "<group>"; };
+		B4C9397A27C8D118005FA0EE /* MMCustomOCObj.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MMCustomOCObj.m; sourceTree = "<group>"; };
 		B4CC274B261D8D9600472318 /* Kingfisher.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Kingfisher.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B4CD02AB27A16C5900DC02FA /* MMGradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MMGradientView.swift; sourceTree = "<group>"; };
 		B4D32E6A279EA17800C0EB64 /* MMAnimationLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MMAnimationLabel.swift; sourceTree = "<group>"; };
@@ -618,6 +623,7 @@
 				B4B4346E2701701100F7FAD4 /* UIDevice+Extension.swift */,
 				B4AC6154273237A700B76990 /* Foundation+Extension.swift */,
 				B4C06FED274251F800681C95 /* UIImageView+Extension.swift */,
+				B4C9397627C8C878005FA0EE /* Array+MM_Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -951,6 +957,8 @@
 			isa = PBXGroup;
 			children = (
 				B4DDA668279FE6A900DBDB56 /* MMLocalSpeech.swift */,
+				B4C9397927C8D118005FA0EE /* MMCustomOCObj.h */,
+				B4C9397A27C8D118005FA0EE /* MMCustomOCObj.m */,
 			);
 			path = Tool;
 			sourceTree = "<group>";
@@ -1376,6 +1384,7 @@
 				DF0D36E8235D705C006EE6D5 /* LeeCodeTrueSubject.swift in Sources */,
 				B4C4E3A22710671100387B97 /* MMTextView.swift in Sources */,
 				B407B59B279308C100398F92 /* MMPageControl.swift in Sources */,
+				B4C9397727C8C878005FA0EE /* Array+MM_Extension.swift in Sources */,
 				B4A936962689ADD7001E181B /* MMControlView.swift in Sources */,
 				DF2ED5D8238546F7001617F8 /* Stack.swift in Sources */,
 				B4D32E6B279EA17800C0EB64 /* MMAnimationLabel.swift in Sources */,
@@ -1402,6 +1411,7 @@
 				B4063D9B260B60C100F3135E /* UITestVC.swift in Sources */,
 				DFF332AA2328C5DE0015295C /* Bundle+MM_extension.swift in Sources */,
 				B45853632386D95E005A4FFA /* MonitorViewController.swift in Sources */,
+				B4C9397B27C8D118005FA0EE /* MMCustomOCObj.m in Sources */,
 				DF2ED5DA23854856001617F8 /* Queue.swift in Sources */,
 				B422B29025A3158800293646 /* MMFileManager.swift in Sources */,
 				B49D61DE23390BA700ED9352 /* DispatchTime+MM_Extension.swift in Sources */,
