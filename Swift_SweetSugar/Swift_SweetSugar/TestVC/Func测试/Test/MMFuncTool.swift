@@ -9,9 +9,9 @@
 import Foundation
 import UIKit
 import SwiftyJSON
+import AVFoundation
 
-
-class MMFuncTool {
+class MMFuncTool: NSObject {
     func past() {
 //        UIPasteboard.general.string = "http://hellow world"
         let pasted = UIPasteboard.general
@@ -192,6 +192,12 @@ class MMFuncTool {
         mm_printLog("")
     }
     
+    func imgPress() {
+        let img = UIImage(named: "每日一句")
+        let data = img?.pngData()
+//        let data = img.
+    }
+    
     func deviceInfo() -> Void {
         let device = UIDevice.current
         let name = device.name
@@ -234,6 +240,62 @@ class MMFuncTool {
     
     func foo() {
         
+    }
+    var recording: Bool = false
+    var recorder: AVAudioRecorder?
+    func audioTest_37() {
+        if recording {
+            mm_printLog("test 结束->")
+            recording = false
+            recorder?.stop()
+            return
+        }
+        recording = true
+        mm_printLog("test 开始->")
+        do {
+            try AVAudioSession.sharedInstance().setCategory(AVAudioSession.Category.playAndRecord)
+            try AVAudioSession.sharedInstance().setActive(true)
+            var recordSettings:[String:Any] = [:]
+            recordSettings[AVSampleRateKey] = 16000.0
+            recordSettings[AVNumberOfChannelsKey] = 1
+            recordSettings[AVLinearPCMBitDepthKey] = 16
+            recordSettings[AVLinearPCMIsBigEndianKey] = false
+            recordSettings[AVLinearPCMIsFloatKey] = false
+            //配置的文件路径中的文件夹，必须存在
+            let path = NSSearchPathForDirectoriesInDomains(.cachesDirectory, .userDomainMask, true)[0].appendPathComponent(string: "test/test.wav")
+            
+            let url = URL(fileURLWithPath: path)
+            recorder = try AVAudioRecorder(url: url, settings: recordSettings)
+            recorder?.delegate = self
+            recorder?.isMeteringEnabled = true
+            recorder?.prepareToRecord()
+            recorder?.record()
+        } catch let e {
+            mm_printLog(e)
+        }
+        
+    }
+}
+
+extension MMFuncTool: AVAudioRecorderDelegate {
+    public func audioRecorderDidFinishRecording(_ recorder: AVAudioRecorder, successfully flag: Bool) {
+        mm_printLog("test->\(recorder)")
+//        let audioAsset = AVURLAsset(url: recorder.url)
+//        let audioDuration = audioAsset.duration
+//        lastRecordDurationInSeconds = CMTimeGetSeconds(audioDuration)
+    }
+    
+    func audioRecorderEncodeErrorDidOccur(_ recorder: AVAudioRecorder, error: Error?) {
+        mm_printLog("test-error->\(error)")
+    }
+        
+    //MARK: AvAudioPlayerDelegate
+    public func audioPlayerDidFinishPlaying(_ player: AVAudioPlayer, successfully flag: Bool) {
+        mm_printLog("test->\(recorder)")
+
+//        if !callOnFinishPlayBlock(flag) {
+//            stopAndCleanPlayerInternal()
+//        }
     }
 }
 

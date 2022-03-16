@@ -166,6 +166,8 @@ class FuncTestVC: UIViewController {
             tool.dateTest()
         case 36:
             tool.voiceTest()
+        case 37:
+            tool.audioTest_37()
         default:
             break
         }

@@ -127,6 +127,7 @@
 		B4C6AA18261D9CE000D4B243 /* MMTouchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4C6AA17261D9CE000D4B243 /* MMTouchView.swift */; };
 		B4C9397727C8C878005FA0EE /* Array+MM_Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4C9397627C8C878005FA0EE /* Array+MM_Extension.swift */; };
 		B4C9397B27C8D118005FA0EE /* MMCustomOCObj.m in Sources */ = {isa = PBXBuildFile; fileRef = B4C9397A27C8D118005FA0EE /* MMCustomOCObj.m */; };
+		B4C9EE3B27CF60F40047860B /* MMAudioTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4C9EE3A27CF60F40047860B /* MMAudioTool.swift */; };
 		B4CD02AC27A16C5900DC02FA /* MMGradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4CD02AB27A16C5900DC02FA /* MMGradientView.swift */; };
 		B4D32E6B279EA17800C0EB64 /* MMAnimationLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4D32E6A279EA17800C0EB64 /* MMAnimationLabel.swift */; };
 		B4D5E4D6279C2FB700B25A3D /* MMDateTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4D5E4D5279C2FB700B25A3D /* MMDateTest.swift */; };
@@ -304,7 +305,6 @@
 		B49D61DC23390BA700ED9352 /* DispatchTime+MM_Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "DispatchTime+MM_Extension.swift"; sourceTree = "<group>"; };
 		B49DC0DE2681805A009DE0FB /* MMLayerAnimationVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MMLayerAnimationVC.swift; sourceTree = "<group>"; };
 		B49DC0DF2681805A009DE0FB /* MMLayerAnimationVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MMLayerAnimationVC.xib; sourceTree = "<group>"; };
-		B49E854B26A12B9C006E49E2 /* com.mm.test.demo.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = com.mm.test.demo.plist; sourceTree = "<group>"; };
 		B4A17DDF2669D5EF0030E40D /* MMAuthorizationVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MMAuthorizationVC.swift; sourceTree = "<group>"; };
 		B4A17DE22669FA870030E40D /* MMTableViewVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MMTableViewVC.swift; sourceTree = "<group>"; };
 		B4A17DE32669FA870030E40D /* MMTableViewVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MMTableViewVC.xib; sourceTree = "<group>"; };
@@ -350,6 +350,7 @@
 		B4C9397627C8C878005FA0EE /* Array+MM_Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+MM_Extension.swift"; sourceTree = "<group>"; };
 		B4C9397927C8D118005FA0EE /* MMCustomOCObj.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MMCustomOCObj.h; sourceTree = "<group>"; };
 		B4C9397A27C8D118005FA0EE /* MMCustomOCObj.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MMCustomOCObj.m; sourceTree = "<group>"; };
+		B4C9EE3A27CF60F40047860B /* MMAudioTool.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MMAudioTool.swift; sourceTree = "<group>"; };
 		B4CC274B261D8D9600472318 /* Kingfisher.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Kingfisher.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B4CD02AB27A16C5900DC02FA /* MMGradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MMGradientView.swift; sourceTree = "<group>"; };
 		B4D32E6A279EA17800C0EB64 /* MMAnimationLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MMAnimationLabel.swift; sourceTree = "<group>"; };
@@ -485,7 +486,6 @@
 				B4063D85260B52EC00F3135E /* View */,
 				B4063D6C260B4E2800F3135E /* HomeListItem.swift */,
 				B4063D64260B4D7100F3135E /* HomeListVC.swift */,
-				B49E854B26A12B9C006E49E2 /* com.mm.test.demo.plist */,
 				B4063D65260B4D7100F3135E /* HomeListVC.xib */,
 				B4063D72260B4F1300F3135E /* home_list.plist */,
 			);
@@ -726,6 +726,7 @@
 				B4C6046B277AC72500EA287E /* Structured.swift */,
 				B47B6D0827993D18009D5810 /* MMSecret.swift */,
 				B4D5E4D5279C2FB700B25A3D /* MMDateTest.swift */,
+				B4C9EE3A27CF60F40047860B /* MMAudioTool.swift */,
 			);
 			path = Test;
 			sourceTree = "<group>";
@@ -1405,6 +1406,7 @@
 				B4A9369B2689B6E9001E181B /* MMButton.swift in Sources */,
 				B47F39E6260DB6CF007592A1 /* WrapperTest.swift in Sources */,
 				B4063DAE260B637500F3135E /* FuncTestVC.swift in Sources */,
+				B4C9EE3B27CF60F40047860B /* MMAudioTool.swift in Sources */,
 				B4A1808727B36112009E21D3 /* UITestVC+Test.swift in Sources */,
 				B4A936992689B129001E181B /* MMCustomView.swift in Sources */,
 				B4C194C12772C8670019553E /* MMSingleLabelTableCell.swift in Sources */,
