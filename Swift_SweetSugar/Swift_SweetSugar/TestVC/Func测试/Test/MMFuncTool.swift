@@ -345,6 +345,19 @@ extension MMFuncTool {
         }
     }
     
+    func emptyTest_38() {
+        var str: String?
+        if str?.isEmpty == true {   // nil == true
+            mm_printLog("empty_1")
+        }
+        str = "1"
+        if str?.isEmpty == true {
+            mm_printLog("empty_2")
+        }
+        
+        mm_printLog("end")
+    }
+    
     func testAnaly() {
 //        let path = Bundle.main.path(forResource: "AREACODE", ofType: "txt")!
 //        let str = try? String(contentsOfFile: path)

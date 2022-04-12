@@ -168,6 +168,8 @@ class FuncTestVC: UIViewController {
             tool.voiceTest()
         case 37:
             tool.audioTest_37()
+        case 38:
+            tool.emptyTest_38()
         default:
             break
         }
