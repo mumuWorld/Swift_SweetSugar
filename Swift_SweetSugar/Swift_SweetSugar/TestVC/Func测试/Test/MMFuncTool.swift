@@ -217,7 +217,14 @@ extension MMFuncTool {
             mm_printLog("1")
         } completion: {
             mm_printLog("2")
-        }
+        }       
+    }
+    
+    func test37() {
+        let def = UserDefaults.standard
+        let allLanguages = def.object(forKey: "AppleLanguages") as! [String]
+        //zh-Hans-US 中文，美国， en-US  英文，美国  中文中国 zh-Hans-CN  en-CN(英文中国)
+        mm_printLog(allLanguages)
     }
     
     func testAnaly() {

@@ -56,6 +56,7 @@
 		B480AD0E266882F600E53DED /* MMTextVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B480AD0C266882F600E53DED /* MMTextVC.swift */; };
 		B480AD0F266882F600E53DED /* MMTextVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = B480AD0D266882F600E53DED /* MMTextVC.xib */; };
 		B488804227B7AFFF004035C0 /* SubProject_1.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B4BE2D3D26171E9600E84967 /* SubProject_1.framework */; };
+		B48A979327EF6A5300FCD8B8 /* html in Resources */ = {isa = PBXBuildFile; fileRef = B48A979227EF6A5300FCD8B8 /* html */; };
 		B48AEBC226F070BB000C513B /* MMDottedLine.swift in Sources */ = {isa = PBXBuildFile; fileRef = B48AEBC126F070BB000C513B /* MMDottedLine.swift */; };
 		B495034A26E1FF3800C10601 /* MMBaseNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B495034926E1FF3800C10601 /* MMBaseNavigationController.swift */; };
 		B495035126E2463C00C10601 /* MMGraphicViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B495034F26E2463C00C10601 /* MMGraphicViewController.swift */; };
@@ -76,6 +77,7 @@
 		B49BAB8A262022730097DFC9 /* CollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B49BAB88262022730097DFC9 /* CollectionViewController.swift */; };
 		B49BAB8B262022730097DFC9 /* CollectionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B49BAB89262022730097DFC9 /* CollectionViewController.xib */; };
 		B49C47832739296B0041F245 /* MMShadowButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B49C47822739296B0041F245 /* MMShadowButton.swift */; };
+		B49CED6F27F93A0800E2B8DF /* MMDefine.swift in Sources */ = {isa = PBXBuildFile; fileRef = B49CED6E27F93A0800E2B8DF /* MMDefine.swift */; };
 		B49D61DD23390BA700ED9352 /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B49D61DB23390BA700ED9352 /* UIView+Extension.swift */; };
 		B49D61DE23390BA700ED9352 /* DispatchTime+MM_Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B49D61DC23390BA700ED9352 /* DispatchTime+MM_Extension.swift */; };
 		B49DC0E02681805A009DE0FB /* MMLayerAnimationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B49DC0DE2681805A009DE0FB /* MMLayerAnimationVC.swift */; };
@@ -271,6 +273,7 @@
 		B47F39E5260DB6CF007592A1 /* WrapperTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WrapperTest.swift; sourceTree = "<group>"; };
 		B480AD0C266882F600E53DED /* MMTextVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MMTextVC.swift; sourceTree = "<group>"; };
 		B480AD0D266882F600E53DED /* MMTextVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MMTextVC.xib; sourceTree = "<group>"; };
+		B48A979227EF6A5300FCD8B8 /* html */ = {isa = PBXFileReference; lastKnownFileType = folder; path = html; sourceTree = "<group>"; };
 		B48AEBC126F070BB000C513B /* MMDottedLine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MMDottedLine.swift; sourceTree = "<group>"; };
 		B495034926E1FF3800C10601 /* MMBaseNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MMBaseNavigationController.swift; sourceTree = "<group>"; };
 		B495034F26E2463C00C10601 /* MMGraphicViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MMGraphicViewController.swift; sourceTree = "<group>"; };
@@ -292,6 +295,7 @@
 		B49BAB88262022730097DFC9 /* CollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewController.swift; sourceTree = "<group>"; };
 		B49BAB89262022730097DFC9 /* CollectionViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CollectionViewController.xib; sourceTree = "<group>"; };
 		B49C47822739296B0041F245 /* MMShadowButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MMShadowButton.swift; sourceTree = "<group>"; };
+		B49CED6E27F93A0800E2B8DF /* MMDefine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MMDefine.swift; sourceTree = "<group>"; };
 		B49D61DB23390BA700ED9352 /* UIView+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
 		B49D61DC23390BA700ED9352 /* DispatchTime+MM_Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "DispatchTime+MM_Extension.swift"; sourceTree = "<group>"; };
 		B49DC0DE2681805A009DE0FB /* MMLayerAnimationVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MMLayerAnimationVC.swift; sourceTree = "<group>"; };
@@ -607,6 +611,7 @@
 				B4B4346E2701701100F7FAD4 /* UIDevice+Extension.swift */,
 				B4AC6154273237A700B76990 /* Foundation+Extension.swift */,
 				B4C06FED274251F800681C95 /* UIImageView+Extension.swift */,
+				B49CED6E27F93A0800E2B8DF /* MMDefine.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -693,6 +698,7 @@
 		B47F341D26608DC900F46C90 /* Webview */ = {
 			isa = PBXGroup;
 			children = (
+				B48A979227EF6A5300FCD8B8 /* html */,
 				B47F341F26608DEC00F46C90 /* MMWebViewController.swift */,
 				B47F342026608DEC00F46C90 /* MMWebViewController.xib */,
 			);
@@ -1186,6 +1192,7 @@
 				B4E3909C2796968A000670FC /* AREACODE.txt in Resources */,
 				B47468F226FED2F300C79F2C /* MMGraphic2VC.xib in Resources */,
 				B469D030269D9C57001D7234 /* MMEmitterVC.xib in Resources */,
+				B48A979327EF6A5300FCD8B8 /* html in Resources */,
 				B4063DAF260B637500F3135E /* FuncTestVC.xib in Resources */,
 				B425AC702252526200B02B77 /* Assets.xcassets in Resources */,
 				B4C06FE927423CDA00681C95 /* anim_search_loop_light.json in Resources */,
@@ -1358,6 +1365,7 @@
 				B43DF3BA278B17C3009F3BE9 /* MMCurveView.swift in Sources */,
 				B45763C7233A674E003AE3A5 /* TreeSolution.swift in Sources */,
 				B4063D88260B530C00F3135E /* HomeListItemCell.swift in Sources */,
+				B49CED6F27F93A0800E2B8DF /* MMDefine.swift in Sources */,
 				B4CD02AC27A16C5900DC02FA /* MMGradientView.swift in Sources */,
 				B4A7E0C0277303FE0091687C /* MMListUpdateViewController.swift in Sources */,
 				B49751C1269C1E08004445E4 /* MMPieChartView.swift in Sources */,

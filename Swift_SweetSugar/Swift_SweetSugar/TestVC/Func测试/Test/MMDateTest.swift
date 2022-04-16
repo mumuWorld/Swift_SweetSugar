@@ -29,4 +29,13 @@ class MMDateTest {
          */
         mm_printLog("")
     }
+    
+    func sum() {
+        var sum:Int = 0
+        sum += 12
+        sum += 111
+        sum += 190
+        sum += 63
+        
+    }
 }

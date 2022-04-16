@@ -11,6 +11,7 @@ import YYText
 import SnapKit
 import AVKit
 import Lottie
+import MessageUI
 
 func creat(_ block:(UIButton)->()) -> UIButton {
     let btn = UIButton()
@@ -177,7 +178,40 @@ class UITestVC: UIViewController {
 //        playAnimation()
 //        windowTest()
 //        addActivity()
-        dismiss(animated: true)
+        //        dismiss(animated: true)
+        
+        area()
+    }
+    
+    func area() {
+        let h = kBottomSafeHeight
+        mm_printLog(h)
+    }
+    
+    func email() {
+        if !MFMailComposeViewController.canSendMail() {
+            //不支持发送邮件
+            mm_printsLog("不支持？")
+            UIApplication.shared.open(URL(string: "mailto:123456789@qq.com")!, options: [:], completionHandler: nil)
+            return
+        } else {
+            //支持发送邮件
+        }
+        let mail = MFMailComposeViewController()
+        mail.navigationBar.tintColor = UIColor.blue //导航颜色
+        mail.setToRecipients(["123456789@qq.com"]) //设置收件地址
+        mail.setCcRecipients(["123456789@qq.com"]) //添加抄送
+        mail.setBccRecipients(["123456789@qq.com"]) //秘密抄送
+        mail.mailComposeDelegate = self //代理
+
+        mail.setSubject("邮件标题")
+        //发送文字
+        mail.setMessageBody("文字内容", isHTML: false) //邮件主体内容
+        //发送图片
+//        let imageData: NSData = UIImagePNGRepresentation(UIImage(named: "图片名字")!)! as NSData
+//        mail.addAttachmentData(imageData as Data, mimeType: "", fileName: "图片名字.png")
+
+        present(mail, animated: true, completion: nil)
     }
     
     func playAnimation() {
@@ -601,5 +635,11 @@ extension UITestVC {
         let image = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
         return image
+    }
+}
+
+extension UITestVC: MFMailComposeViewControllerDelegate {
+    func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
+        controller.dismiss(animated: true, completion: nil)
     }
 }
