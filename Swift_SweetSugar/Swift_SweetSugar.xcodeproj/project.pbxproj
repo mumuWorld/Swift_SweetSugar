@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		223F80719E86EDA5E99EFA9B /* Pods_Swift_SweetSugar.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 748C148B6DFFF2BD69E19139 /* Pods_Swift_SweetSugar.framework */; };
 		4EDB48E4FFF4B3DCF6951C75 /* Pods_Swift_SweetSugar_Swift_SweetSugarUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FE472623FF9612F2CF526DCF /* Pods_Swift_SweetSugar_Swift_SweetSugarUITests.framework */; };
+		65FB47D22807EB94003EC323 /* UIButton+PropertyExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65FB47CF2807EB94003EC323 /* UIButton+PropertyExtension.swift */; };
+		65FB47D32807EB94003EC323 /* UIButton+typeLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65FB47D12807EB94003EC323 /* UIButton+typeLayout.swift */; };
 		AC1EC0BBACA998F5DF57DC83 /* Pods_Swift_SweetSugarTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B50AB3DD44E5A70683C35C88 /* Pods_Swift_SweetSugarTests.framework */; };
 		B4063D66260B4D7100F3135E /* HomeListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4063D64260B4D7100F3135E /* HomeListVC.swift */; };
 		B4063D67260B4D7100F3135E /* HomeListVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = B4063D65260B4D7100F3135E /* HomeListVC.xib */; };
@@ -223,6 +225,8 @@
 /* Begin PBXFileReference section */
 		2028267AE1A8AD89F66A9103 /* Pods-Swift_SweetSugar-Swift_SweetSugarUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Swift_SweetSugar-Swift_SweetSugarUITests.debug.xcconfig"; path = "Target Support Files/Pods-Swift_SweetSugar-Swift_SweetSugarUITests/Pods-Swift_SweetSugar-Swift_SweetSugarUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		5517FE394A1BE726129E9488 /* Pods-Swift_SweetSugarTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Swift_SweetSugarTests.release.xcconfig"; path = "Target Support Files/Pods-Swift_SweetSugarTests/Pods-Swift_SweetSugarTests.release.xcconfig"; sourceTree = "<group>"; };
+		65FB47CF2807EB94003EC323 /* UIButton+PropertyExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIButton+PropertyExtension.swift"; sourceTree = "<group>"; };
+		65FB47D12807EB94003EC323 /* UIButton+typeLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIButton+typeLayout.swift"; sourceTree = "<group>"; };
 		673050F51396BFDC2DD7DD6F /* Pods-Swift_SweetSugarTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Swift_SweetSugarTests.debug.xcconfig"; path = "Target Support Files/Pods-Swift_SweetSugarTests/Pods-Swift_SweetSugarTests.debug.xcconfig"; sourceTree = "<group>"; };
 		748C148B6DFFF2BD69E19139 /* Pods_Swift_SweetSugar.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Swift_SweetSugar.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B4063D64260B4D7100F3135E /* HomeListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeListVC.swift; sourceTree = "<group>"; };
@@ -610,6 +614,8 @@
 		B425AC962252526800B02B77 /* Extension */ = {
 			isa = PBXGroup;
 			children = (
+				65FB47CF2807EB94003EC323 /* UIButton+PropertyExtension.swift */,
+				65FB47D12807EB94003EC323 /* UIButton+typeLayout.swift */,
 				B422B2A425A3194500293646 /* String+Extension.swift */,
 				B49D61DC23390BA700ED9352 /* DispatchTime+MM_Extension.swift */,
 				B49D61DB23390BA700ED9352 /* UIView+Extension.swift */,
@@ -1450,6 +1456,7 @@
 				B49D61DD23390BA700ED9352 /* UIView+Extension.swift in Sources */,
 				B4A17DE02669D5EF0030E40D /* MMAuthorizationVC.swift in Sources */,
 				B46FED52238C2FA30023F0FA /* GCDTest.swift in Sources */,
+				65FB47D22807EB94003EC323 /* UIButton+PropertyExtension.swift in Sources */,
 				B47B6D0927993D19009D5810 /* MMSecret.swift in Sources */,
 				B4B4346F2701701100F7FAD4 /* UIDevice+Extension.swift in Sources */,
 				B4C194C52772F0FB0019553E /* MMTableViewAdapt.swift in Sources */,
@@ -1465,6 +1472,7 @@
 				B422B2A525A3194500293646 /* String+Extension.swift in Sources */,
 				DF9227E722CB07A600ABB221 /* UIColor+MM_Extension.swift in Sources */,
 				B47F342126608DEC00F46C90 /* MMWebViewController.swift in Sources */,
+				65FB47D32807EB94003EC323 /* UIButton+typeLayout.swift in Sources */,
 				B4B434772701ADA900F7FAD4 /* MMFuncTool.swift in Sources */,
 				B4C6342C279A4D4D00375D69 /* MMLocationManager.swift in Sources */,
 				B4C06FEE274251F800681C95 /* UIImageView+Extension.swift in Sources */,
