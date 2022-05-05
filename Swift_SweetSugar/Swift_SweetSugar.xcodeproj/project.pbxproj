@@ -50,6 +50,7 @@
 		B47468F226FED2F300C79F2C /* MMGraphic2VC.xib in Resources */ = {isa = PBXBuildFile; fileRef = B47468F026FED2F300C79F2C /* MMGraphic2VC.xib */; };
 		B474765626948B2C006922D8 /* RPReplay.MP4 in Resources */ = {isa = PBXBuildFile; fileRef = B474765526948B2C006922D8 /* RPReplay.MP4 */; };
 		B47B6D0927993D19009D5810 /* MMSecret.swift in Sources */ = {isa = PBXBuildFile; fileRef = B47B6D0827993D18009D5810 /* MMSecret.swift */; };
+		B47BD09B27B28A5400DE1795 /* MMTextLayoutManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B47BD09A27B28A5400DE1795 /* MMTextLayoutManager.swift */; };
 		B47F342126608DEC00F46C90 /* MMWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B47F341F26608DEC00F46C90 /* MMWebViewController.swift */; };
 		B47F342226608DEC00F46C90 /* MMWebViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B47F342026608DEC00F46C90 /* MMWebViewController.xib */; };
 		B47F39E6260DB6CF007592A1 /* WrapperTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B47F39E5260DB6CF007592A1 /* WrapperTest.swift */; };
@@ -85,6 +86,9 @@
 		B4A17DE02669D5EF0030E40D /* MMAuthorizationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4A17DDF2669D5EF0030E40D /* MMAuthorizationVC.swift */; };
 		B4A17DE42669FA870030E40D /* MMTableViewVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4A17DE22669FA870030E40D /* MMTableViewVC.swift */; };
 		B4A17DE52669FA870030E40D /* MMTableViewVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = B4A17DE32669FA870030E40D /* MMTableViewVC.xib */; };
+		B4A1808727B36112009E21D3 /* UITestVC+Test.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4A1808627B36112009E21D3 /* UITestVC+Test.swift */; };
+		B4A1808C27B3E14E009E21D3 /* textview.json in Resources */ = {isa = PBXBuildFile; fileRef = B4A1808B27B3E14E009E21D3 /* textview.json */; };
+		B4A1808F27B3E9D9009E21D3 /* MMJsonNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4A1808E27B3E9D9009E21D3 /* MMJsonNode.swift */; };
 		B4A308E826CA781800500055 /* MMPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4A308E726CA781800500055 /* MMPoint.swift */; };
 		B4A3625024889B26006696C3 /* MMDispatchTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4A3624F24889B26006696C3 /* MMDispatchTimer.swift */; };
 		B4A4510727674BB1005AC2E4 /* SwiftyJSON in Frameworks */ = {isa = PBXBuildFile; productRef = B4A4510627674BB1005AC2E4 /* SwiftyJSON */; };
@@ -123,6 +127,9 @@
 		B4C6AA0E261D9A9800D4B243 /* GestureTestVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4C6AA0C261D9A9800D4B243 /* GestureTestVC.swift */; };
 		B4C6AA0F261D9A9800D4B243 /* GestureTestVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = B4C6AA0D261D9A9800D4B243 /* GestureTestVC.xib */; };
 		B4C6AA18261D9CE000D4B243 /* MMTouchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4C6AA17261D9CE000D4B243 /* MMTouchView.swift */; };
+		B4C9397727C8C878005FA0EE /* Array+MM_Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4C9397627C8C878005FA0EE /* Array+MM_Extension.swift */; };
+		B4C9397B27C8D118005FA0EE /* MMCustomOCObj.m in Sources */ = {isa = PBXBuildFile; fileRef = B4C9397A27C8D118005FA0EE /* MMCustomOCObj.m */; };
+		B4C9EE3B27CF60F40047860B /* MMAudioTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4C9EE3A27CF60F40047860B /* MMAudioTool.swift */; };
 		B4CD02AC27A16C5900DC02FA /* MMGradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4CD02AB27A16C5900DC02FA /* MMGradientView.swift */; };
 		B4D32E6B279EA17800C0EB64 /* MMAnimationLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4D32E6A279EA17800C0EB64 /* MMAnimationLabel.swift */; };
 		B4D5E4D6279C2FB700B25A3D /* MMDateTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4D5E4D5279C2FB700B25A3D /* MMDateTest.swift */; };
@@ -137,6 +144,7 @@
 		B4E390AF2796B3ED000670FC /* WordWidget.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = B4E390AB2796B3EB000670FC /* WordWidget.intentdefinition */; };
 		B4E390B02796B3ED000670FC /* WordWidget.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = B4E390AB2796B3EB000670FC /* WordWidget.intentdefinition */; };
 		B4E390B32796B3ED000670FC /* WordWidgetExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = B4E390A32796B3EB000670FC /* WordWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		B4E70FDC27BF8E040020259A /* iconfont.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B4E70FDA27BF8E040020259A /* iconfont.ttf */; };
 		DF0D36E8235D705C006EE6D5 /* LeeCodeTrueSubject.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF0D36E7235D705C006EE6D5 /* LeeCodeTrueSubject.swift */; };
 		DF128F3D232F2C5A00491475 /* Date+MM_Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF128F3C232F2C5A00491475 /* Date+MM_Extension.swift */; };
 		DF128F3F232F2FF900491475 /* CommonModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF128F3E232F2FF900491475 /* CommonModel.swift */; };
@@ -268,6 +276,7 @@
 		B47468F026FED2F300C79F2C /* MMGraphic2VC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MMGraphic2VC.xib; sourceTree = "<group>"; };
 		B474765526948B2C006922D8 /* RPReplay.MP4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = RPReplay.MP4; sourceTree = "<group>"; };
 		B47B6D0827993D18009D5810 /* MMSecret.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MMSecret.swift; sourceTree = "<group>"; };
+		B47BD09A27B28A5400DE1795 /* MMTextLayoutManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MMTextLayoutManager.swift; sourceTree = "<group>"; };
 		B47F341F26608DEC00F46C90 /* MMWebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MMWebViewController.swift; sourceTree = "<group>"; };
 		B47F342026608DEC00F46C90 /* MMWebViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MMWebViewController.xib; sourceTree = "<group>"; };
 		B47F39E5260DB6CF007592A1 /* WrapperTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WrapperTest.swift; sourceTree = "<group>"; };
@@ -300,10 +309,12 @@
 		B49D61DC23390BA700ED9352 /* DispatchTime+MM_Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "DispatchTime+MM_Extension.swift"; sourceTree = "<group>"; };
 		B49DC0DE2681805A009DE0FB /* MMLayerAnimationVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MMLayerAnimationVC.swift; sourceTree = "<group>"; };
 		B49DC0DF2681805A009DE0FB /* MMLayerAnimationVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MMLayerAnimationVC.xib; sourceTree = "<group>"; };
-		B49E854B26A12B9C006E49E2 /* com.mm.test.demo.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = com.mm.test.demo.plist; sourceTree = "<group>"; };
 		B4A17DDF2669D5EF0030E40D /* MMAuthorizationVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MMAuthorizationVC.swift; sourceTree = "<group>"; };
 		B4A17DE22669FA870030E40D /* MMTableViewVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MMTableViewVC.swift; sourceTree = "<group>"; };
 		B4A17DE32669FA870030E40D /* MMTableViewVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MMTableViewVC.xib; sourceTree = "<group>"; };
+		B4A1808627B36112009E21D3 /* UITestVC+Test.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITestVC+Test.swift"; sourceTree = "<group>"; };
+		B4A1808B27B3E14E009E21D3 /* textview.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = textview.json; sourceTree = "<group>"; };
+		B4A1808E27B3E9D9009E21D3 /* MMJsonNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MMJsonNode.swift; sourceTree = "<group>"; };
 		B4A308E726CA781800500055 /* MMPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MMPoint.swift; sourceTree = "<group>"; };
 		B4A3624F24889B26006696C3 /* MMDispatchTimer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MMDispatchTimer.swift; sourceTree = "<group>"; };
 		B4A4510827674C8B005AC2E4 /* result.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = result.json; sourceTree = "<group>"; };
@@ -340,6 +351,10 @@
 		B4C6AA0C261D9A9800D4B243 /* GestureTestVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GestureTestVC.swift; sourceTree = "<group>"; };
 		B4C6AA0D261D9A9800D4B243 /* GestureTestVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GestureTestVC.xib; sourceTree = "<group>"; };
 		B4C6AA17261D9CE000D4B243 /* MMTouchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MMTouchView.swift; sourceTree = "<group>"; };
+		B4C9397627C8C878005FA0EE /* Array+MM_Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+MM_Extension.swift"; sourceTree = "<group>"; };
+		B4C9397927C8D118005FA0EE /* MMCustomOCObj.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MMCustomOCObj.h; sourceTree = "<group>"; };
+		B4C9397A27C8D118005FA0EE /* MMCustomOCObj.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MMCustomOCObj.m; sourceTree = "<group>"; };
+		B4C9EE3A27CF60F40047860B /* MMAudioTool.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MMAudioTool.swift; sourceTree = "<group>"; };
 		B4CC274B261D8D9600472318 /* Kingfisher.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Kingfisher.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B4CD02AB27A16C5900DC02FA /* MMGradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MMGradientView.swift; sourceTree = "<group>"; };
 		B4D32E6A279EA17800C0EB64 /* MMAnimationLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MMAnimationLabel.swift; sourceTree = "<group>"; };
@@ -355,6 +370,7 @@
 		B4E390AB2796B3EB000670FC /* WordWidget.intentdefinition */ = {isa = PBXFileReference; lastKnownFileType = file.intentdefinition; path = WordWidget.intentdefinition; sourceTree = "<group>"; };
 		B4E390AC2796B3ED000670FC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B4E390AE2796B3ED000670FC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B4E70FDA27BF8E040020259A /* iconfont.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = iconfont.ttf; sourceTree = "<group>"; };
 		B50AB3DD44E5A70683C35C88 /* Pods_Swift_SweetSugarTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Swift_SweetSugarTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C2ACA8F3D60150B1196BFC32 /* Pods-Swift_SweetSugar.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Swift_SweetSugar.debug.xcconfig"; path = "Target Support Files/Pods-Swift_SweetSugar/Pods-Swift_SweetSugar.debug.xcconfig"; sourceTree = "<group>"; };
 		DF0D36E7235D705C006EE6D5 /* LeeCodeTrueSubject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeeCodeTrueSubject.swift; sourceTree = "<group>"; };
@@ -474,7 +490,6 @@
 				B4063D85260B52EC00F3135E /* View */,
 				B4063D6C260B4E2800F3135E /* HomeListItem.swift */,
 				B4063D64260B4D7100F3135E /* HomeListVC.swift */,
-				B49E854B26A12B9C006E49E2 /* com.mm.test.demo.plist */,
 				B4063D65260B4D7100F3135E /* HomeListVC.xib */,
 				B4063D72260B4F1300F3135E /* home_list.plist */,
 			);
@@ -499,6 +514,7 @@
 				B480D0C32615CEA300965530 /* View */,
 				B4063D99260B60C100F3135E /* UITestVC.swift */,
 				B4063D9A260B60C100F3135E /* UITestVC.xib */,
+				B4A1808627B36112009E21D3 /* UITestVC+Test.swift */,
 			);
 			path = "UI测试";
 			sourceTree = "<group>";
@@ -612,6 +628,7 @@
 				B4AC6154273237A700B76990 /* Foundation+Extension.swift */,
 				B4C06FED274251F800681C95 /* UIImageView+Extension.swift */,
 				B49CED6E27F93A0800E2B8DF /* MMDefine.swift */,
+				B4C9397627C8C878005FA0EE /* Array+MM_Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -715,6 +732,7 @@
 				B4C6046B277AC72500EA287E /* Structured.swift */,
 				B47B6D0827993D18009D5810 /* MMSecret.swift */,
 				B4D5E4D5279C2FB700B25A3D /* MMDateTest.swift */,
+				B4C9EE3A27CF60F40047860B /* MMAudioTool.swift */,
 			);
 			path = Test;
 			sourceTree = "<group>";
@@ -722,10 +740,12 @@
 		B480AD05266882C700E53DED /* TextKit */ = {
 			isa = PBXGroup;
 			children = (
+				B4A1808D27B3E9C6009E21D3 /* New Group */,
 				B480AD0C266882F600E53DED /* MMTextVC.swift */,
 				B480AD0D266882F600E53DED /* MMTextVC.xib */,
 				B4C51C1527918AE600F56FEC /* MMTextContainer.swift */,
 				B4C67652279565A70088D1A2 /* MMTextStorage.swift */,
+				B47BD09A27B28A5400DE1795 /* MMTextLayoutManager.swift */,
 			);
 			path = TextKit;
 			sourceTree = "<group>";
@@ -819,6 +839,14 @@
 			path = Tableview;
 			sourceTree = "<group>";
 		};
+		B4A1808D27B3E9C6009E21D3 /* New Group */ = {
+			isa = PBXGroup;
+			children = (
+				B4A1808E27B3E9D9009E21D3 /* MMJsonNode.swift */,
+			);
+			path = "New Group";
+			sourceTree = "<group>";
+		};
 		B4A3624E24889B26006696C3 /* Timer */ = {
 			isa = PBXGroup;
 			children = (
@@ -885,10 +913,12 @@
 		B4C06FE627423CCC00681C95 /* resource */ = {
 			isa = PBXGroup;
 			children = (
+				B4E70FDA27BF8E040020259A /* iconfont.ttf */,
 				B4E3909D27969964000670FC /* allcity.txt */,
 				B4D5E4E3279C626F00B25A3D /* city.txt */,
 				B4E3909A2796968A000670FC /* AREACODE.txt */,
 				B4C06FE827423CDA00681C95 /* anim_search_loop_light.json */,
+				B4A1808B27B3E14E009E21D3 /* textview.json */,
 			);
 			path = resource;
 			sourceTree = "<group>";
@@ -934,6 +964,8 @@
 			isa = PBXGroup;
 			children = (
 				B4DDA668279FE6A900DBDB56 /* MMLocalSpeech.swift */,
+				B4C9397927C8D118005FA0EE /* MMCustomOCObj.h */,
+				B4C9397A27C8D118005FA0EE /* MMCustomOCObj.m */,
 			);
 			path = Tool;
 			sourceTree = "<group>";
@@ -1180,6 +1212,7 @@
 				B49DC0E12681805A009DE0FB /* MMLayerAnimationVC.xib in Resources */,
 				B4A7E0C1277303FE0091687C /* MMListUpdateViewController.xib in Resources */,
 				B4A4510A27674FE3005AC2E4 /* result.json in Resources */,
+				B4E70FDC27BF8E040020259A /* iconfont.ttf in Resources */,
 				B425AC732252526200B02B77 /* LaunchScreen.storyboard in Resources */,
 				B4C194C22772C8670019553E /* MMSingleLabelTableCell.xib in Resources */,
 				B4063D67260B4D7100F3135E /* HomeListVC.xib in Resources */,
@@ -1187,6 +1220,7 @@
 				B4C6AA0F261D9A9800D4B243 /* GestureTestVC.xib in Resources */,
 				B495035226E2463C00C10601 /* MMGraphicViewController.xib in Resources */,
 				B4063D73260B4F1300F3135E /* home_list.plist in Resources */,
+				B4A1808C27B3E14E009E21D3 /* textview.json in Resources */,
 				B49BAB8B262022730097DFC9 /* CollectionViewController.xib in Resources */,
 				B4063D9C260B60C100F3135E /* UITestVC.xib in Resources */,
 				B4E3909C2796968A000670FC /* AREACODE.txt in Resources */,
@@ -1358,6 +1392,7 @@
 				DF0D36E8235D705C006EE6D5 /* LeeCodeTrueSubject.swift in Sources */,
 				B4C4E3A22710671100387B97 /* MMTextView.swift in Sources */,
 				B407B59B279308C100398F92 /* MMPageControl.swift in Sources */,
+				B4C9397727C8C878005FA0EE /* Array+MM_Extension.swift in Sources */,
 				B4A936962689ADD7001E181B /* MMControlView.swift in Sources */,
 				DF2ED5D8238546F7001617F8 /* Stack.swift in Sources */,
 				B4D32E6B279EA17800C0EB64 /* MMAnimationLabel.swift in Sources */,
@@ -1379,11 +1414,14 @@
 				B4A9369B2689B6E9001E181B /* MMButton.swift in Sources */,
 				B47F39E6260DB6CF007592A1 /* WrapperTest.swift in Sources */,
 				B4063DAE260B637500F3135E /* FuncTestVC.swift in Sources */,
+				B4C9EE3B27CF60F40047860B /* MMAudioTool.swift in Sources */,
+				B4A1808727B36112009E21D3 /* UITestVC+Test.swift in Sources */,
 				B4A936992689B129001E181B /* MMCustomView.swift in Sources */,
 				B4C194C12772C8670019553E /* MMSingleLabelTableCell.swift in Sources */,
 				B4063D9B260B60C100F3135E /* UITestVC.swift in Sources */,
 				DFF332AA2328C5DE0015295C /* Bundle+MM_extension.swift in Sources */,
 				B45853632386D95E005A4FFA /* MonitorViewController.swift in Sources */,
+				B4C9397B27C8D118005FA0EE /* MMCustomOCObj.m in Sources */,
 				DF2ED5DA23854856001617F8 /* Queue.swift in Sources */,
 				B422B29025A3158800293646 /* MMFileManager.swift in Sources */,
 				B49D61DE23390BA700ED9352 /* DispatchTime+MM_Extension.swift in Sources */,
@@ -1424,9 +1462,11 @@
 				B4B4346F2701701100F7FAD4 /* UIDevice+Extension.swift in Sources */,
 				B4C194C52772F0FB0019553E /* MMTableViewAdapt.swift in Sources */,
 				B4AC6155273237A700B76990 /* Foundation+Extension.swift in Sources */,
+				B47BD09B27B28A5400DE1795 /* MMTextLayoutManager.swift in Sources */,
 				B4063D93260B546500F3135E /* UITableViewCell+Extension.swift in Sources */,
 				B422B29725A3167200293646 /* MMFileTest.swift in Sources */,
 				B47468F126FED2F300C79F2C /* MMGraphic2VC.swift in Sources */,
+				B4A1808F27B3E9D9009E21D3 /* MMJsonNode.swift in Sources */,
 				B4C6046C277AC72500EA287E /* Structured.swift in Sources */,
 				B4DDA669279FE6A900DBDB56 /* MMLocalSpeech.swift in Sources */,
 				B4063D6D260B4E2800F3135E /* HomeListItem.swift in Sources */,

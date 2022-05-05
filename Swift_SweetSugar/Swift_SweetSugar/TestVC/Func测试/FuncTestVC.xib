@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -239,6 +239,7 @@
                 </stackView>
                 <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="JAb-jy-yeI">
                     <rect key="frame" x="6" y="261" width="314" height="44"/>
+                    <rect key="frame" x="6" y="261" width="331" height="44"/>
                     <subviews>
                         <button opaque="NO" tag="34" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xcW-Do-IB6">
                             <rect key="frame" x="0.0" y="7" width="31" height="30"/>
@@ -267,23 +268,38 @@
                             </connections>
                         </button>
                         <button opaque="NO" tag="37" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hpT-XA-5tk">
+<<<<<<< HEAD
                             <rect key="frame" x="117" y="7" width="30" height="30"/>
                             <color key="backgroundColor" red="1" green="0.40000000000000002" blue="0.35686274509999999" alpha="1" colorSpace="calibratedRGB"/>
                             <state key="normal" title="37"/>
+=======
+                            <rect key="frame" x="117" y="7" width="55" height="30"/>
+                            <color key="backgroundColor" red="1" green="0.40000000000000002" blue="0.35686274509999999" alpha="1" colorSpace="calibratedRGB"/>
+                            <state key="normal" title="37-录音"/>
+>>>>>>> 9049a3f301f9cedc418230521ca9f302edb29632
                             <connections>
                                 <action selector="handleClick:" destination="-1" eventType="touchUpInside" id="0gB-VJ-zef"/>
                             </connections>
                         </button>
+<<<<<<< HEAD
                         <button opaque="NO" tag="32" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="exk-cw-byH">
                             <rect key="frame" x="155" y="7" width="77" height="30"/>
+=======
+                        <button opaque="NO" tag="38" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="exk-cw-byH">
+                            <rect key="frame" x="180" y="7" width="69" height="30"/>
+>>>>>>> 9049a3f301f9cedc418230521ca9f302edb29632
                             <color key="backgroundColor" red="1" green="0.40000000000000002" blue="0.35686274509999999" alpha="1" colorSpace="calibratedRGB"/>
-                            <state key="normal" title="结构化并发"/>
+                            <state key="normal" title="38-emtpy"/>
                             <connections>
                                 <action selector="handleClick:" destination="-1" eventType="touchUpInside" id="RIZ-uo-AHL"/>
                             </connections>
                         </button>
                         <button opaque="NO" tag="33" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vZr-JR-iXt">
+<<<<<<< HEAD
                             <rect key="frame" x="240" y="7" width="74" height="30"/>
+=======
+                            <rect key="frame" x="257" y="7" width="74" height="30"/>
+>>>>>>> 9049a3f301f9cedc418230521ca9f302edb29632
                             <color key="backgroundColor" red="1" green="0.40000000000000002" blue="0.35686274509999999" alpha="1" colorSpace="calibratedRGB"/>
                             <state key="normal" title="Range测试"/>
                             <connections>

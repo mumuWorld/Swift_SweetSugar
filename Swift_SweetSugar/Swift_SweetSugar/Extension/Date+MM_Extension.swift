@@ -13,6 +13,7 @@ enum kDateFormatterKey: String {
     case ShortYMD = "yyyy-MM-dd"
     case ShortYMDHM = "yyyy-MM-dd HH:mm"
     case ShortMD = "MM-dd"
+    case yyyyMMdd
 }
 
 extension Date {
@@ -23,7 +24,12 @@ extension Date {
         return item
     }()
     
-    static let mCalendar = Calendar(identifier: .gregorian)
+    static let mCalendar: Calendar = {
+        var item = Calendar(identifier: .gregorian)
+        item.locale = Locale.current
+        item.timeZone = TimeZone.current
+        return item
+    }()
 
     static func currentTimeStamp() -> Int {
         let time = Date().timeIntervalSince1970
@@ -85,8 +91,57 @@ extension Date {
         let dataComponents = mCalendar.dateComponents(components, from: date)
         return dataComponents
     }
+    
+    static func getCurWeeksComponents() {
+        //判断当前weekday 是多少， 前后
+        let date = Date()
+        let dataComponents = mCalendar.dateComponents([.weekday], from: date)
+        let weekday = dataComponents.weekday ?? 1
+        let before = weekday - 1
+        let after = 7 - weekday
+        //1647496976
+        let share: [Int] = [1647187200000]
+        var arr: [Date] = []
+        arr.append(contentsOf: createDateArr(count: before, date: date, isAdd: false).reversed())
+        arr.append(date)
+        arr.append(contentsOf: createDateArr(count: after, date: date, isAdd: true))
+        let componts = arr.map({ mCalendar.dateComponents([.day , .month , .year], from: $0)})
+        mm_printLog(arr)
+    }
+    
+    static func createDateArr(count: Int, date: Date, isAdd: Bool) -> [Date] {
+        guard count > 0 else { return []}
+        let dayDistance: TimeInterval = 24 * 60 * 60
+        var arr: [Date] = []
+        for i in 1...count {
+            if isAdd {
+                let date = Date(timeInterval: dayDistance * Double(i), since: date)
+                arr.append(date)
+            } else {
+                let date = Date(timeInterval: -dayDistance * Double(i), since: date)
+                arr.append(date)
+            }
+        }
+        return arr
+    }
 }
 
+extension Date {
+    public func isSameDay(_ date: Date) -> Bool {
+        return Date.mCalendar.isSameDay(self, right: date)
+    }
+}
+
+extension Calendar {
+    public func isSameDay(_ left: Date, right: Date) -> Bool {
+        let leftDate = dateComponents([.year, .month, .day], from: left)
+        let rightDate = dateComponents([.year, .month, .day], from: right)
+        if leftDate == rightDate {
+            return true
+        }
+        return false
+    }
+}
 
 extension DateComponents {
     var weekStr: String {
@@ -108,5 +163,26 @@ extension DateComponents {
         default:
             return "周一"
         }
+    }
+    
+    var yd_year: Int {
+        if let y = year {
+            return y
+        }
+        return 2022
+    }
+    
+    var yd_month: Int {
+        if let v = month {
+            return v
+        }
+        return 1
+    }
+    
+    var yd_day: Int {
+        if let v = day {
+            return v
+        }
+        return 1
     }
 }

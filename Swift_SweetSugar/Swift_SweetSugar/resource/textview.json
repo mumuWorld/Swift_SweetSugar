@@ -1,0 +1,18 @@
+{
+    "input": "我是你唯一的朋友请联系我微信",
+    "meta": {
+        "input": "我是你唯一的朋友请联系我微信",
+        "guessLanguage": "zh-CHS",
+        "isHasSimpleDict": "0",
+        "le": "ja",
+        "lang": "jap",
+        "dicts": ["meta"]
+    },
+    "fanyi": {
+        "input": "我是你唯一的朋友请联系我微信",
+        "type": "zh-CHS2ja",
+        "tran": "私はあなたの唯一の友達です微信に連絡してください"
+    },
+    "le": "ja",
+    "lang": "jap"
+}

@@ -21,7 +21,7 @@ class CollectionViewController: UIViewController {
         layout.minimumLineSpacing = 0
         let cv = UICollectionView(frame: CGRect(x: 50, y: 100, width: itemW, height: 100), collectionViewLayout: layout)
 //        let cv = UICollectionView(frame: CGRect(x: 0, y: 100, width: ScreenWidth + 40, height: 100), collectionViewLayout: layout)
-        
+        cv.bounces = false
         cv.isPagingEnabled = true
 //        cv.isPagingEnabled = false
         cv.delegate = self
@@ -76,7 +76,7 @@ class CollectionViewController: UIViewController {
 
 extension CollectionViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 1000
+        return 3
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {

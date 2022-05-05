@@ -60,5 +60,9 @@
 	<array>
 		<string>com.mumu.func</string>
 	</array>
+	<key>UIAppFonts</key>
+	<array>
+		<string>iconfont.ttf</string>
+	</array>
 </dict>
 </plist>
