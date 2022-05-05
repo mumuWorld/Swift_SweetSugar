@@ -218,6 +218,15 @@ class UITestVC: UIViewController {
         present(mail, animated: true, completion: nil)
 //        dismiss(animated: true)
 //        labelTest()
+        showVC()
+    }
+    
+    func showVC() {
+        let vc = FuncTestVC()
+        //push
+//        show(vc, sender: self)
+        //present
+        showDetailViewController(vc, sender: self)
     }
     
     func playAnimation() {
