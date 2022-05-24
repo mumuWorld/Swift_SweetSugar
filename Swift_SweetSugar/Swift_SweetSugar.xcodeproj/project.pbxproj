@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 52;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -59,7 +59,6 @@
 		B480AD0E266882F600E53DED /* MMTextVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B480AD0C266882F600E53DED /* MMTextVC.swift */; };
 		B480AD0F266882F600E53DED /* MMTextVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = B480AD0D266882F600E53DED /* MMTextVC.xib */; };
 		B488804227B7AFFF004035C0 /* SubProject_1.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B4BE2D3D26171E9600E84967 /* SubProject_1.framework */; };
-		B48A979327EF6A5300FCD8B8 /* html in Resources */ = {isa = PBXBuildFile; fileRef = B48A979227EF6A5300FCD8B8 /* html */; };
 		B48AEBC226F070BB000C513B /* MMDottedLine.swift in Sources */ = {isa = PBXBuildFile; fileRef = B48AEBC126F070BB000C513B /* MMDottedLine.swift */; };
 		B495034A26E1FF3800C10601 /* MMBaseNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B495034926E1FF3800C10601 /* MMBaseNavigationController.swift */; };
 		B495035126E2463C00C10601 /* MMGraphicViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B495034F26E2463C00C10601 /* MMGraphicViewController.swift */; };
@@ -93,7 +92,6 @@
 		B4A1808F27B3E9D9009E21D3 /* MMJsonNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4A1808E27B3E9D9009E21D3 /* MMJsonNode.swift */; };
 		B4A308E826CA781800500055 /* MMPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4A308E726CA781800500055 /* MMPoint.swift */; };
 		B4A3625024889B26006696C3 /* MMDispatchTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4A3624F24889B26006696C3 /* MMDispatchTimer.swift */; };
-		B4A4510727674BB1005AC2E4 /* SwiftyJSON in Frameworks */ = {isa = PBXBuildFile; productRef = B4A4510627674BB1005AC2E4 /* SwiftyJSON */; };
 		B4A4510A27674FE3005AC2E4 /* result.json in Resources */ = {isa = PBXBuildFile; fileRef = B4A4510827674C8B005AC2E4 /* result.json */; };
 		B4A7E0C0277303FE0091687C /* MMListUpdateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4A7E0BE277303FE0091687C /* MMListUpdateViewController.swift */; };
 		B4A7E0C1277303FE0091687C /* MMListUpdateViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B4A7E0BF277303FE0091687C /* MMListUpdateViewController.xib */; };
@@ -286,7 +284,6 @@
 		B47F39E5260DB6CF007592A1 /* WrapperTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WrapperTest.swift; sourceTree = "<group>"; };
 		B480AD0C266882F600E53DED /* MMTextVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MMTextVC.swift; sourceTree = "<group>"; };
 		B480AD0D266882F600E53DED /* MMTextVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MMTextVC.xib; sourceTree = "<group>"; };
-		B48A979227EF6A5300FCD8B8 /* html */ = {isa = PBXFileReference; lastKnownFileType = folder; path = html; sourceTree = "<group>"; };
 		B48AEBC126F070BB000C513B /* MMDottedLine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MMDottedLine.swift; sourceTree = "<group>"; };
 		B495034926E1FF3800C10601 /* MMBaseNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MMBaseNavigationController.swift; sourceTree = "<group>"; };
 		B495034F26E2463C00C10601 /* MMGraphicViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MMGraphicViewController.swift; sourceTree = "<group>"; };
@@ -406,7 +403,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B4A4510727674BB1005AC2E4 /* SwiftyJSON in Frameworks */,
 				B4BE2D4B26171F7300E84967 /* SubProject_1.framework in Frameworks */,
 				223F80719E86EDA5E99EFA9B /* Pods_Swift_SweetSugar.framework in Frameworks */,
 				B488804227B7AFFF004035C0 /* SubProject_1.framework in Frameworks */,
@@ -721,7 +717,6 @@
 		B47F341D26608DC900F46C90 /* Webview */ = {
 			isa = PBXGroup;
 			children = (
-				B48A979227EF6A5300FCD8B8 /* html */,
 				B47F341F26608DEC00F46C90 /* MMWebViewController.swift */,
 				B47F342026608DEC00F46C90 /* MMWebViewController.xib */,
 			);
@@ -1036,7 +1031,6 @@
 			);
 			name = Swift_SweetSugar;
 			packageProductDependencies = (
-				B4A4510627674BB1005AC2E4 /* SwiftyJSON */,
 			);
 			productName = Swift_SweetSugar;
 			productReference = B425AC652252526000B02B77 /* Swift_SweetSugar.app */;
@@ -1173,7 +1167,6 @@
 			);
 			mainGroup = B425AC5C2252526000B02B77;
 			packageReferences = (
-				B4A4510527674BB1005AC2E4 /* XCRemoteSwiftPackageReference "SwiftyJSON" */,
 			);
 			productRefGroup = B425AC662252526000B02B77 /* Products */;
 			projectDirPath = "";
@@ -1232,7 +1225,6 @@
 				B4E3909C2796968A000670FC /* AREACODE.txt in Resources */,
 				B47468F226FED2F300C79F2C /* MMGraphic2VC.xib in Resources */,
 				B469D030269D9C57001D7234 /* MMEmitterVC.xib in Resources */,
-				B48A979327EF6A5300FCD8B8 /* html in Resources */,
 				B4063DAF260B637500F3135E /* FuncTestVC.xib in Resources */,
 				B425AC702252526200B02B77 /* Assets.xcassets in Resources */,
 				B4C06FE927423CDA00681C95 /* anim_search_loop_light.json in Resources */,
@@ -2045,25 +2037,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCRemoteSwiftPackageReference section */
-		B4A4510527674BB1005AC2E4 /* XCRemoteSwiftPackageReference "SwiftyJSON" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/SwiftyJSON/SwiftyJSON.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 4.0.0;
-			};
-		};
-/* End XCRemoteSwiftPackageReference section */
-
-/* Begin XCSwiftPackageProductDependency section */
-		B4A4510627674BB1005AC2E4 /* SwiftyJSON */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = B4A4510527674BB1005AC2E4 /* XCRemoteSwiftPackageReference "SwiftyJSON" */;
-			productName = SwiftyJSON;
-		};
-/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = B425AC5D2252526000B02B77 /* Project object */;
 }

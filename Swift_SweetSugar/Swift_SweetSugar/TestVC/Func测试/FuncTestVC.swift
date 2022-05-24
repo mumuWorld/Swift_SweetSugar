@@ -483,6 +483,10 @@ extension FuncTestVC {
         mm_printLog("1/2/3/4")
     }
     
+    func timeTest() {
+        
+    }
+    
     func urlTest() {
 //        let string = "https://baike.baidu.com/item/冒泡排序/4602306?fr=aladdin".addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? ""
 //        let string = "https%3A%2F%2Fbaike.baidu.com%2Fitem%2F%E5%86%92%E6%B3%A1%E6%8E%92%E5%BA%8F%2F4602306%3Ffr%3Daladdin"

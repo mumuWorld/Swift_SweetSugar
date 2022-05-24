@@ -1,7 +1,7 @@
 # Uncomment the next line to define a global platform for your project
  platform :ios, '11.0'
-source 'https://cdn.cocoapods.org/'
-
+#source 'https://cdn.cocoapods.org/'
+source 'https://github.com/CocoaPods/Specs.git'
 #flipperkit_version = '0.128.2'
 
 use_frameworks!
@@ -15,6 +15,7 @@ target 'Swift_SweetSugar' do
   pod 'YYText' #:modular_headers => true
   pod 'SnapKit'
   pod 'lottie-ios', '~> 3.2.3'
+  pod 'SwiftyJSON'
   # Pods for Swift_SweetSugar
 
   #调试
