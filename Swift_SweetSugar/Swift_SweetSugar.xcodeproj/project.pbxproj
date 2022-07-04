@@ -3,12 +3,20 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 52;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		223F80719E86EDA5E99EFA9B /* Pods_Swift_SweetSugar.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 748C148B6DFFF2BD69E19139 /* Pods_Swift_SweetSugar.framework */; };
 		4EDB48E4FFF4B3DCF6951C75 /* Pods_Swift_SweetSugar_Swift_SweetSugarUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FE472623FF9612F2CF526DCF /* Pods_Swift_SweetSugar_Swift_SweetSugarUITests.framework */; };
+		65D292332811506D00B31DFD /* ScrollTestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65D292312811506D00B31DFD /* ScrollTestViewController.swift */; };
+		65D292342811506D00B31DFD /* ScrollTestViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 65D292322811506D00B31DFD /* ScrollTestViewController.xib */; };
+		65D29237281154D800B31DFD /* LabelTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65D29235281154D800B31DFD /* LabelTableViewCell.swift */; };
+		65D29238281154D800B31DFD /* LabelTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 65D29236281154D800B31DFD /* LabelTableViewCell.xib */; };
+		65D2923A2811557400B31DFD /* CollectionContainerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65D292392811557400B31DFD /* CollectionContainerTableViewCell.swift */; };
+		65D2923D2811566600B31DFD /* TestCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65D2923B2811566600B31DFD /* TestCollectionViewCell.swift */; };
+		65D2923E2811566600B31DFD /* TestCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 65D2923C2811566600B31DFD /* TestCollectionViewCell.xib */; };
+		65D292402811583700B31DFD /* ScrollTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65D2923F2811583700B31DFD /* ScrollTableViewCell.swift */; };
 		65FB47D22807EB94003EC323 /* UIButton+PropertyExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65FB47CF2807EB94003EC323 /* UIButton+PropertyExtension.swift */; };
 		65FB47D32807EB94003EC323 /* UIButton+typeLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65FB47D12807EB94003EC323 /* UIButton+typeLayout.swift */; };
 		AC1EC0BBACA998F5DF57DC83 /* Pods_Swift_SweetSugarTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B50AB3DD44E5A70683C35C88 /* Pods_Swift_SweetSugarTests.framework */; };
@@ -91,7 +99,6 @@
 		B4A1808F27B3E9D9009E21D3 /* MMJsonNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4A1808E27B3E9D9009E21D3 /* MMJsonNode.swift */; };
 		B4A308E826CA781800500055 /* MMPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4A308E726CA781800500055 /* MMPoint.swift */; };
 		B4A3625024889B26006696C3 /* MMDispatchTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4A3624F24889B26006696C3 /* MMDispatchTimer.swift */; };
-		B4A4510727674BB1005AC2E4 /* SwiftyJSON in Frameworks */ = {isa = PBXBuildFile; productRef = B4A4510627674BB1005AC2E4 /* SwiftyJSON */; };
 		B4A4510A27674FE3005AC2E4 /* result.json in Resources */ = {isa = PBXBuildFile; fileRef = B4A4510827674C8B005AC2E4 /* result.json */; };
 		B4A7E0C0277303FE0091687C /* MMListUpdateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4A7E0BE277303FE0091687C /* MMListUpdateViewController.swift */; };
 		B4A7E0C1277303FE0091687C /* MMListUpdateViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B4A7E0BF277303FE0091687C /* MMListUpdateViewController.xib */; };
@@ -225,6 +232,14 @@
 /* Begin PBXFileReference section */
 		2028267AE1A8AD89F66A9103 /* Pods-Swift_SweetSugar-Swift_SweetSugarUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Swift_SweetSugar-Swift_SweetSugarUITests.debug.xcconfig"; path = "Target Support Files/Pods-Swift_SweetSugar-Swift_SweetSugarUITests/Pods-Swift_SweetSugar-Swift_SweetSugarUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		5517FE394A1BE726129E9488 /* Pods-Swift_SweetSugarTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Swift_SweetSugarTests.release.xcconfig"; path = "Target Support Files/Pods-Swift_SweetSugarTests/Pods-Swift_SweetSugarTests.release.xcconfig"; sourceTree = "<group>"; };
+		65D292312811506D00B31DFD /* ScrollTestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollTestViewController.swift; sourceTree = "<group>"; };
+		65D292322811506D00B31DFD /* ScrollTestViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ScrollTestViewController.xib; sourceTree = "<group>"; };
+		65D29235281154D800B31DFD /* LabelTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelTableViewCell.swift; sourceTree = "<group>"; };
+		65D29236281154D800B31DFD /* LabelTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LabelTableViewCell.xib; sourceTree = "<group>"; };
+		65D292392811557400B31DFD /* CollectionContainerTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionContainerTableViewCell.swift; sourceTree = "<group>"; };
+		65D2923B2811566600B31DFD /* TestCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestCollectionViewCell.swift; sourceTree = "<group>"; };
+		65D2923C2811566600B31DFD /* TestCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TestCollectionViewCell.xib; sourceTree = "<group>"; };
+		65D2923F2811583700B31DFD /* ScrollTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollTableViewCell.swift; sourceTree = "<group>"; };
 		65FB47CF2807EB94003EC323 /* UIButton+PropertyExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIButton+PropertyExtension.swift"; sourceTree = "<group>"; };
 		65FB47D12807EB94003EC323 /* UIButton+typeLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIButton+typeLayout.swift"; sourceTree = "<group>"; };
 		673050F51396BFDC2DD7DD6F /* Pods-Swift_SweetSugarTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Swift_SweetSugarTests.debug.xcconfig"; path = "Target Support Files/Pods-Swift_SweetSugarTests/Pods-Swift_SweetSugarTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -402,7 +417,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B4A4510727674BB1005AC2E4 /* SwiftyJSON in Frameworks */,
 				B4BE2D4B26171F7300E84967 /* SubProject_1.framework in Frameworks */,
 				223F80719E86EDA5E99EFA9B /* Pods_Swift_SweetSugar.framework in Frameworks */,
 				B488804227B7AFFF004035C0 /* SubProject_1.framework in Frameworks */,
@@ -457,6 +471,28 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		651C9A9F2862BED800713590 /* ToolVC */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ToolVC;
+			sourceTree = "<group>";
+		};
+		65D2922D2811503100B31DFD /* Scroll */ = {
+			isa = PBXGroup;
+			children = (
+				65D292312811506D00B31DFD /* ScrollTestViewController.swift */,
+				65D292322811506D00B31DFD /* ScrollTestViewController.xib */,
+				65D29235281154D800B31DFD /* LabelTableViewCell.swift */,
+				65D29236281154D800B31DFD /* LabelTableViewCell.xib */,
+				65D292392811557400B31DFD /* CollectionContainerTableViewCell.swift */,
+				65D2923B2811566600B31DFD /* TestCollectionViewCell.swift */,
+				65D2923C2811566600B31DFD /* TestCollectionViewCell.xib */,
+				65D2923F2811583700B31DFD /* ScrollTableViewCell.swift */,
+			);
+			path = Scroll;
+			sourceTree = "<group>";
+		};
 		A4A95448E64B4A94ABF19911 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -473,6 +509,7 @@
 		B4063D59260B49B800F3135E /* TestVC */ = {
 			isa = PBXGroup;
 			children = (
+				65D2922D2811503100B31DFD /* Scroll */,
 				B4B4347B2701CB8300F7FAD4 /* CoreText */,
 				B4B43471270170B300F7FAD4 /* iPad */,
 				B495034D26E2461600C10601 /* Graphic */,
@@ -572,6 +609,7 @@
 		B425AC672252526000B02B77 /* Swift_SweetSugar */ = {
 			isa = PBXGroup;
 			children = (
+				651C9A9F2862BED800713590 /* ToolVC */,
 				B4C06FE627423CCC00681C95 /* resource */,
 				B474765526948B2C006922D8 /* RPReplay.MP4 */,
 				B4063D59260B49B800F3135E /* TestVC */,
@@ -1030,7 +1068,6 @@
 			);
 			name = Swift_SweetSugar;
 			packageProductDependencies = (
-				B4A4510627674BB1005AC2E4 /* SwiftyJSON */,
 			);
 			productName = Swift_SweetSugar;
 			productReference = B425AC652252526000B02B77 /* Swift_SweetSugar.app */;
@@ -1167,7 +1204,6 @@
 			);
 			mainGroup = B425AC5C2252526000B02B77;
 			packageReferences = (
-				B4A4510527674BB1005AC2E4 /* XCRemoteSwiftPackageReference "SwiftyJSON" */,
 			);
 			productRefGroup = B425AC662252526000B02B77 /* Products */;
 			projectDirPath = "";
@@ -1214,6 +1250,7 @@
 				B4A4510A27674FE3005AC2E4 /* result.json in Resources */,
 				B4E70FDC27BF8E040020259A /* iconfont.ttf in Resources */,
 				B425AC732252526200B02B77 /* LaunchScreen.storyboard in Resources */,
+				65D29238281154D800B31DFD /* LabelTableViewCell.xib in Resources */,
 				B4C194C22772C8670019553E /* MMSingleLabelTableCell.xib in Resources */,
 				B4063D67260B4D7100F3135E /* HomeListVC.xib in Resources */,
 				B47F342226608DEC00F46C90 /* MMWebViewController.xib in Resources */,
@@ -1230,10 +1267,12 @@
 				B425AC702252526200B02B77 /* Assets.xcassets in Resources */,
 				B4C06FE927423CDA00681C95 /* anim_search_loop_light.json in Resources */,
 				B4D5E4E5279C626F00B25A3D /* city.txt in Resources */,
+				65D292342811506D00B31DFD /* ScrollTestViewController.xib in Resources */,
 				B474765626948B2C006922D8 /* RPReplay.MP4 in Resources */,
 				B425AC6E2252526000B02B77 /* Main.storyboard in Resources */,
 				B4063D89260B530C00F3135E /* HomeListItemCell.xib in Resources */,
 				B480AD0F266882F600E53DED /* MMTextVC.xib in Resources */,
+				65D2923E2811566600B31DFD /* TestCollectionViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1394,6 +1433,7 @@
 				B4C9397727C8C878005FA0EE /* Array+MM_Extension.swift in Sources */,
 				B4A936962689ADD7001E181B /* MMControlView.swift in Sources */,
 				DF2ED5D8238546F7001617F8 /* Stack.swift in Sources */,
+				65D292402811583700B31DFD /* ScrollTableViewCell.swift in Sources */,
 				B4D32E6B279EA17800C0EB64 /* MMAnimationLabel.swift in Sources */,
 				B480AD0E266882F600E53DED /* MMTextVC.swift in Sources */,
 				B43DF3BA278B17C3009F3BE9 /* MMCurveView.swift in Sources */,
@@ -1417,6 +1457,7 @@
 				B4A936992689B129001E181B /* MMCustomView.swift in Sources */,
 				B4C194C12772C8670019553E /* MMSingleLabelTableCell.swift in Sources */,
 				B4063D9B260B60C100F3135E /* UITestVC.swift in Sources */,
+				65D292332811506D00B31DFD /* ScrollTestViewController.swift in Sources */,
 				DFF332AA2328C5DE0015295C /* Bundle+MM_extension.swift in Sources */,
 				B45853632386D95E005A4FFA /* MonitorViewController.swift in Sources */,
 				B4C9397B27C8D118005FA0EE /* MMCustomOCObj.m in Sources */,
@@ -1429,10 +1470,12 @@
 				DF128F3F232F2FF900491475 /* CommonModel.swift in Sources */,
 				DF2ED5DC2386219A001617F8 /* QuickSort.swift in Sources */,
 				DF2ED5F52387C31F001617F8 /* Sort.swift in Sources */,
+				65D29237281154D800B31DFD /* LabelTableViewCell.swift in Sources */,
 				B4B69E78233E55D40061AF93 /* CreateTool.swift in Sources */,
 				B4E390B02796B3ED000670FC /* WordWidget.intentdefinition in Sources */,
 				B4A17DE42669FA870030E40D /* MMTableViewVC.swift in Sources */,
 				B425AC6B2252526000B02B77 /* ViewController.swift in Sources */,
+				65D2923A2811557400B31DFD /* CollectionContainerTableViewCell.swift in Sources */,
 				B4063D66260B4D7100F3135E /* HomeListVC.swift in Sources */,
 				B4A308E826CA781800500055 /* MMPoint.swift in Sources */,
 				B4C6AA0E261D9A9800D4B243 /* GestureTestVC.swift in Sources */,
@@ -1467,6 +1510,7 @@
 				B47468F126FED2F300C79F2C /* MMGraphic2VC.swift in Sources */,
 				B4A1808F27B3E9D9009E21D3 /* MMJsonNode.swift in Sources */,
 				B4C6046C277AC72500EA287E /* Structured.swift in Sources */,
+				65D2923D2811566600B31DFD /* TestCollectionViewCell.swift in Sources */,
 				B4DDA669279FE6A900DBDB56 /* MMLocalSpeech.swift in Sources */,
 				B4063D6D260B4E2800F3135E /* HomeListItem.swift in Sources */,
 				B422B2A525A3194500293646 /* String+Extension.swift in Sources */,
@@ -1617,7 +1661,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -1672,7 +1716,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -1902,7 +1946,7 @@
 				INFOPLIST_FILE = WordWidget/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = WordWidget;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "Copyright © 2022 Mumu. All rights reserved.";
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1932,7 +1976,7 @@
 				INFOPLIST_FILE = WordWidget/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = WordWidget;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "Copyright © 2022 Mumu. All rights reserved.";
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -2037,25 +2081,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCRemoteSwiftPackageReference section */
-		B4A4510527674BB1005AC2E4 /* XCRemoteSwiftPackageReference "SwiftyJSON" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/SwiftyJSON/SwiftyJSON.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 4.0.0;
-			};
-		};
-/* End XCRemoteSwiftPackageReference section */
-
-/* Begin XCSwiftPackageProductDependency section */
-		B4A4510627674BB1005AC2E4 /* SwiftyJSON */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = B4A4510527674BB1005AC2E4 /* XCRemoteSwiftPackageReference "SwiftyJSON" */;
-			productName = SwiftyJSON;
-		};
-/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = B425AC5D2252526000B02B77 /* Project object */;
 }

@@ -44,8 +44,16 @@ struct SimpleEntry: TimelineEntry {
 struct WordWidgetEntryView : View {
     var entry: Provider.Entry
 
+    @Environment(\.widgetFamily) var family
+    
     var body: some View {
-        Text(entry.date, style: .time)
+        
+        if #available(iOSApplicationExtension 16.0, *) {
+//            Text(entry.date, style: .time)
+//                .widgetAccentable()
+        } else {
+            Text(entry.date, style: .time)
+        }
     }
 }
 
@@ -54,11 +62,20 @@ struct WordWidget: Widget {
     let kind: String = "WordWidget"
 
     var body: some WidgetConfiguration {
-        IntentConfiguration(kind: kind, intent: ConfigurationIntent.self, provider: Provider()) { entry in
-            WordWidgetEntryView(entry: entry)
+        if #available(iOSApplicationExtension 16.0, *) {
+            return IntentConfiguration(kind: kind, intent: ConfigurationIntent.self, provider: Provider()) { entry in
+                WordWidgetEntryView(entry: entry)
+            }
+            .configurationDisplayName("My Widget")
+            .description("This is an example widget.")
+            .supportedFamilies([.accessoryInline, .accessoryCircular, .accessoryRectangular])
+        } else {
+            return IntentConfiguration(kind: kind, intent: ConfigurationIntent.self, provider: Provider()) { entry in
+                WordWidgetEntryView(entry: entry)
+            }
+            .configurationDisplayName("My Widget")
+            .description("This is an example widget.")
         }
-        .configurationDisplayName("My Widget")
-        .description("This is an example widget.")
     }
 }
 

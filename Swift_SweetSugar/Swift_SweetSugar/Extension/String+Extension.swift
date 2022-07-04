@@ -57,6 +57,16 @@ public extension String {
     
 }
 
+public extension String {
+    var isEnglistWord: Bool {
+        if isEmpty {
+            return false
+        }
+        let regx = try? NSRegularExpression(pattern: "[a-zA-z]", options: .caseInsensitive)
+        let match = regx?.numberOfMatches(in: self, options: .reportCompletion, range: mm_range()) ?? 0
+        return match == count
+    }
+}
 
 extension String {
     //将原始的url编码为合法的url

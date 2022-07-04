@@ -125,9 +125,9 @@ class UITestVC: UIViewController {
 //            self.shadowView.origin = CGPoint(x: origin.x + self.shadowView.mm_width * 0.5, y: origin.y - self.shadowView.mm_height * 0.5)
 //        }
         //也会进行放大。
-        let font = UIFont(name: "iconfont", size: 30)
-        widthLabel.font = font
-        widthLabel.text = "大 \u{e60b}"
+//        let font = UIFont(name: "iconfont", size: 30)
+//        widthLabel.font = font
+//        widthLabel.text = "大 \u{e60b}"
 
 //        view.layer.addSublayer(avPlayerLayer)
 //        setupPip()

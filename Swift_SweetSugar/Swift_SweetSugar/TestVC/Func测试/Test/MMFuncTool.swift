@@ -8,7 +8,7 @@
 
 import Foundation
 import UIKit
-import SwiftyJSON
+//import SwiftyJSON
 import AVFoundation
 
 class MMFuncTool: NSObject {
@@ -229,10 +229,10 @@ class MMFuncTool: NSObject {
 //        let path = Bundle.main.path(forResource: "result", ofType: "json")
         let url = URL(string: "null")
         do {
-            let data = try Data(contentsOf: URL(fileURLWithPath: path!))
-            let json = try JSON(data: data)
-            let typos = try JSONDecoder().decode([Typo].self, from: json["typos"]["typo"].rawData())
-            mm_printLog(typos)
+//            let data = try Data(contentsOf: URL(fileURLWithPath: path!))
+//            let json = try JSON(data: data)
+//            let typos = try JSONDecoder().decode([Typo].self, from: json["typos"]["typo"].rawData())
+//            mm_printLog(typos)
         } catch(let e) {
             mm_printLog(e)
         }
@@ -283,6 +283,7 @@ extension MMFuncTool: AVAudioRecorderDelegate {
 //        let audioAsset = AVURLAsset(url: recorder.url)
 //        let audioDuration = audioAsset.duration
 //        lastRecordDurationInSeconds = CMTimeGetSeconds(audioDuration)
+        UIImagePickerController.InfoKey.editedImage
     }
     
     func audioRecorderEncodeErrorDidOccur(_ recorder: AVAudioRecorder, error: Error?) {
@@ -347,16 +348,32 @@ extension MMFuncTool {
     
     func emptyTest_38() {
         var str: String?
-        if str?.isEmpty == true {   // nil == true
+        if str?.isEmpty == true {   // nil == true => false
             mm_printLog("empty_1")
         }
         str = "1"
-        if str?.isEmpty == true {
+        if str?.isEmpty == true {  // false
             mm_printLog("empty_2")
         }
         
         mm_printLog("end")
+        printTest()
     }
+    
+    func printTest() {
+        //10.2%
+        let str = String(format: "%.1f%%", 10.23)
+        //false
+        let isWord = "abc d".isEnglistWord
+        
+        mm_printLog(str)
+    }
+    
+    func fontTest() {
+        let familyNames = UIFont.familyNames
+        mm_printLog(familyNames)
+    }
+    
     
     func testAnaly() {
 //        let path = Bundle.main.path(forResource: "AREACODE", ofType: "txt")!
