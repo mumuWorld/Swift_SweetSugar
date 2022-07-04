@@ -42,10 +42,19 @@ class MMWebViewController: UIViewController {
         webview.snp.makeConstraints { (make) in
             make.edges.equalToSuperview()
         }
+
 //        url = "https://mr.baidu.com/r/naQBhqv9W8?f=cp&u=7d85acc17a4065ed"
 //        url = "http://www.globaltimes.cn"
-        url = "https://shared.youdao.com/dict/market/wordbook-fanyiguan-ydk/plan.html#/plan"
+        loadLocal()
     }
+    
+    func loadLocal() {
+        let path = Bundle.main.path(forResource: "html/14.Some unexpected hidden locations for cameras", ofType: "html")
+        let tUrl = URL(fileURLWithPath: path!)
+        let request = URLRequest(url: tUrl)
+        webview.load(request)
+    }
+    
     
     deinit {
         mm_printLog("MMWebViewController deinit")

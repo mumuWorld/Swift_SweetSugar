@@ -167,6 +167,7 @@ class FuncTestVC: UIViewController {
         case 36:
             tool.voiceTest()
         case 37:
+            tool.test37()
             tool.audioTest_37()
         case 38:
             tool.emptyTest_38()
@@ -480,6 +481,10 @@ extension FuncTestVC {
         let composeRange = str.rangeOfComposedCharacterSequence(at: str.index(str.startIndex, offsetBy: 5))
         let str_c = str[composeRange]
         mm_printLog("1/2/3/4")
+    }
+    
+    func timeTest() {
+        
     }
     
     func urlTest() {

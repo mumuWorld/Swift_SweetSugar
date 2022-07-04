@@ -87,6 +87,7 @@
 		B49BAB8A262022730097DFC9 /* CollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B49BAB88262022730097DFC9 /* CollectionViewController.swift */; };
 		B49BAB8B262022730097DFC9 /* CollectionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B49BAB89262022730097DFC9 /* CollectionViewController.xib */; };
 		B49C47832739296B0041F245 /* MMShadowButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B49C47822739296B0041F245 /* MMShadowButton.swift */; };
+		B49CED6F27F93A0800E2B8DF /* MMDefine.swift in Sources */ = {isa = PBXBuildFile; fileRef = B49CED6E27F93A0800E2B8DF /* MMDefine.swift */; };
 		B49D61DD23390BA700ED9352 /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B49D61DB23390BA700ED9352 /* UIView+Extension.swift */; };
 		B49D61DE23390BA700ED9352 /* DispatchTime+MM_Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B49D61DC23390BA700ED9352 /* DispatchTime+MM_Extension.swift */; };
 		B49DC0E02681805A009DE0FB /* MMLayerAnimationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B49DC0DE2681805A009DE0FB /* MMLayerAnimationVC.swift */; };
@@ -320,6 +321,7 @@
 		B49BAB88262022730097DFC9 /* CollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewController.swift; sourceTree = "<group>"; };
 		B49BAB89262022730097DFC9 /* CollectionViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CollectionViewController.xib; sourceTree = "<group>"; };
 		B49C47822739296B0041F245 /* MMShadowButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MMShadowButton.swift; sourceTree = "<group>"; };
+		B49CED6E27F93A0800E2B8DF /* MMDefine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MMDefine.swift; sourceTree = "<group>"; };
 		B49D61DB23390BA700ED9352 /* UIView+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
 		B49D61DC23390BA700ED9352 /* DispatchTime+MM_Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "DispatchTime+MM_Extension.swift"; sourceTree = "<group>"; };
 		B49DC0DE2681805A009DE0FB /* MMLayerAnimationVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MMLayerAnimationVC.swift; sourceTree = "<group>"; };
@@ -667,6 +669,7 @@
 				B4B4346E2701701100F7FAD4 /* UIDevice+Extension.swift */,
 				B4AC6154273237A700B76990 /* Foundation+Extension.swift */,
 				B4C06FED274251F800681C95 /* UIImageView+Extension.swift */,
+				B49CED6E27F93A0800E2B8DF /* MMDefine.swift */,
 				B4C9397627C8C878005FA0EE /* Array+MM_Extension.swift */,
 			);
 			path = Extension;
@@ -1439,6 +1442,7 @@
 				B43DF3BA278B17C3009F3BE9 /* MMCurveView.swift in Sources */,
 				B45763C7233A674E003AE3A5 /* TreeSolution.swift in Sources */,
 				B4063D88260B530C00F3135E /* HomeListItemCell.swift in Sources */,
+				B49CED6F27F93A0800E2B8DF /* MMDefine.swift in Sources */,
 				B4CD02AC27A16C5900DC02FA /* MMGradientView.swift in Sources */,
 				B4A7E0C0277303FE0091687C /* MMListUpdateViewController.swift in Sources */,
 				B49751C1269C1E08004445E4 /* MMPieChartView.swift in Sources */,

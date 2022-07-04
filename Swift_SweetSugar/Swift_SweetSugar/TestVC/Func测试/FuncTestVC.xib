@@ -238,6 +238,7 @@
                     </constraints>
                 </stackView>
                 <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="JAb-jy-yeI">
+                    <rect key="frame" x="6" y="261" width="314" height="44"/>
                     <rect key="frame" x="6" y="261" width="331" height="44"/>
                     <subviews>
                         <button opaque="NO" tag="34" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xcW-Do-IB6">

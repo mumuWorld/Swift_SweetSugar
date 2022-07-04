@@ -11,8 +11,44 @@ import UIKit
 class MMDateTest {
     class func dateTest() {
 //        Date.getCurWeeks()
-        test2()
-        create()
+//        test2()
+//        create()
+        createType()
+    }
+    
+    class func createType() {
+        //结束耗时 -> 0.00531"
+        CreateTool.timeRecord(title: "CACurrentMediaTime") {
+            var m: [Int: CFTimeInterval] = [:]
+            for i in 0...100000 {
+                m[i] = CACurrentMediaTime()
+            }
+            mm_printLog("test->\(m.count)")
+        }
+        CreateTool.timeRecord(title: "Date") {
+            var m: [Int: Date] = [:]
+            for i in 0...100000 {
+                m[i] = Date()
+            }
+            mm_printLog("test->\(m.count)")
+        }
+        CreateTool.timeRecord(title: "CFAbsoluteTime") {
+            var m: [Int: CFTimeInterval] = [:]
+            for i in 0...100000 {
+                m[i] = CFAbsoluteTime()
+            }
+            mm_printLog("test->\(m.count)")
+        }
+        /*
+         CACurrentMediaTime-计时开始 ->"
+         🔨[CreateTool timeRecord(title:call:)](28): 结束耗时 -> 0.05645"
+         "🔨[CreateTool timeRecord(title:call:)](25): Date-计时开始 ->"
+         "🔨[MMDateTest createType()](33): test->100001"
+         "🔨[CreateTool timeRecord(title:call:)](28): 结束耗时 -> 0.05237"
+         "🔨[CreateTool timeRecord(title:call:)](25): CFAbsoluteTime-计时开始 ->"
+         "🔨[MMDateTest createType()](40): test->100001"
+         "🔨[CreateTool timeRecord(title:call:)](28): 结束耗时 -> 0.05034"
+         */
     }
     
     class func create() {
@@ -58,5 +94,14 @@ class MMDateTest {
                   - Int : 2022
                 */
                mm_printLog("")
+    }
+    
+    func sum() {
+        var sum:Int = 0
+        sum += 12
+        sum += 111
+        sum += 190
+        sum += 63
+        
     }
 }
