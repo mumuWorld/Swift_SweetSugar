@@ -51,6 +51,7 @@ struct WordWidgetEntryView : View {
         if #available(iOSApplicationExtension 16.0, *) {
 //            Text(entry.date, style: .time)
 //                .widgetAccentable()
+            Text(entry.date, style: .time)
         } else {
             Text(entry.date, style: .time)
         }

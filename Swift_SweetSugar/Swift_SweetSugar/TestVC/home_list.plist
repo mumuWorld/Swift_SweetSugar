@@ -68,6 +68,14 @@
 	</dict>
 	<dict>
 		<key>desc</key>
+		<string>UIview</string>
+		<key>routerVC</key>
+		<string>MMUIKitAnimationVC</string>
+		<key>showName</key>
+		<string>UIKit动画</string>
+	</dict>
+	<dict>
+		<key>desc</key>
 		<string>CoreAnimation</string>
 		<key>routerVC</key>
 		<string>MMLayerAnimationVC</string>

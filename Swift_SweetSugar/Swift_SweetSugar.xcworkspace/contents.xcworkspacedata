@@ -5,12 +5,6 @@
       location = "group:Swift_SweetSugar.xcodeproj">
    </FileRef>
    <FileRef
-      location = "group:SubProject_2/SubProject_2.xcodeproj">
-   </FileRef>
-   <FileRef
       location = "group:Pods/Pods.xcodeproj">
-   </FileRef>
-   <FileRef
-      location = "group:SubProject_1/SubProject_1.xcodeproj">
    </FileRef>
 </Workspace>
