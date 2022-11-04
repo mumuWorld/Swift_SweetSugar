@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21225" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21207"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -20,7 +20,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="vyg-O4-ulE">
-                    <rect key="frame" x="8" y="53" width="390" height="44"/>
+                    <rect key="frame" x="8" y="57" width="390" height="44"/>
                     <subviews>
                         <button opaque="NO" tag="10" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Q7v-1Y-qLo">
                             <rect key="frame" x="0.0" y="7" width="72" height="30"/>
@@ -67,7 +67,7 @@
                     </constraints>
                 </stackView>
                 <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="1fS-P6-FT2">
-                    <rect key="frame" x="8" y="105" width="392" height="44"/>
+                    <rect key="frame" x="8" y="109" width="392" height="44"/>
                     <subviews>
                         <button opaque="NO" tag="15" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wdm-cd-3Lf">
                             <rect key="frame" x="0.0" y="7" width="63" height="30"/>
@@ -122,7 +122,7 @@
                     </constraints>
                 </stackView>
                 <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="yiv-9e-lLZ">
-                    <rect key="frame" x="8" y="157" width="395" height="44"/>
+                    <rect key="frame" x="8" y="161" width="395" height="44"/>
                     <subviews>
                         <button opaque="NO" tag="21" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TRx-DS-tiB">
                             <rect key="frame" x="0.0" y="7" width="72" height="30"/>
@@ -180,7 +180,7 @@
                     </constraints>
                 </stackView>
                 <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="frV-13-JUL">
-                    <rect key="frame" x="8" y="209" width="403" height="44"/>
+                    <rect key="frame" x="8" y="213" width="403" height="44"/>
                     <subviews>
                         <button opaque="NO" tag="28" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hCI-KF-va0">
                             <rect key="frame" x="0.0" y="7" width="62" height="30"/>
@@ -238,8 +238,7 @@
                     </constraints>
                 </stackView>
                 <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="JAb-jy-yeI">
-                    <rect key="frame" x="6" y="261" width="314" height="44"/>
-                    <rect key="frame" x="6" y="261" width="331" height="44"/>
+                    <rect key="frame" x="6" y="265" width="396" height="44"/>
                     <subviews>
                         <button opaque="NO" tag="34" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xcW-Do-IB6">
                             <rect key="frame" x="0.0" y="7" width="31" height="30"/>
@@ -283,12 +282,20 @@
                                 <action selector="handleClick:" destination="-1" eventType="touchUpInside" id="RIZ-uo-AHL"/>
                             </connections>
                         </button>
-                        <button opaque="NO" tag="33" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vZr-JR-iXt">
-                            <rect key="frame" x="257" y="7" width="74" height="30"/>
+                        <button opaque="NO" tag="39" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vZr-JR-iXt">
+                            <rect key="frame" x="257" y="7" width="53" height="30"/>
                             <color key="backgroundColor" red="1" green="0.40000000000000002" blue="0.35686274509999999" alpha="1" colorSpace="calibratedRGB"/>
-                            <state key="normal" title="Range测试"/>
+                            <state key="normal" title="net测试"/>
                             <connections>
                                 <action selector="handleClick:" destination="-1" eventType="touchUpInside" id="Q5Z-Rh-gbB"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" tag="40" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kl7-eL-Axi">
+                            <rect key="frame" x="318" y="7" width="78" height="30"/>
+                            <color key="backgroundColor" red="1" green="0.40000000000000002" blue="0.35686274509999999" alpha="1" colorSpace="calibratedRGB"/>
+                            <state key="normal" title="40_file测试"/>
+                            <connections>
+                                <action selector="handleClick:" destination="-1" eventType="touchUpInside" id="lxj-o0-2xx"/>
                             </connections>
                         </button>
                     </subviews>

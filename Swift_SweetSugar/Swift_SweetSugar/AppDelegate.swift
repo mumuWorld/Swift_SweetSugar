@@ -24,7 +24,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window = UIWindow(frame: UIScreen.main.bounds)
         window?.rootViewController = navi
         window?.makeKeyAndVisible()
-        mm_printLog("mumu")
+//        mm_printLog("mumu")
 //        
 //        let client = FlipperClient.shared()
 //            let layoutDescriptorMapper = SKDescriptorMapper(defaults: ())

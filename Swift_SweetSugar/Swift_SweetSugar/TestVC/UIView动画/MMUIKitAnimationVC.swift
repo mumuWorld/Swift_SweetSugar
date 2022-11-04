@@ -25,11 +25,11 @@ class MMUIKitAnimationVC: UIViewController {
 //        }
         var type : UIView.AnimationOptions?
         if sender.tag == 1 {
-            type = .transitionCrossDissolve
+            type = .transitionFlipFromBottom
         }
-        if let type {
+        if let _type = type {
             //transitionCurlUp 翻页 ，移除view2. 并且view2 == nil
-            UIView.transition(from: view2, to: view1, duration: 1, options: [.curveEaseIn, type])
+            UIView.transition(from: view2, to: view1, duration: 1, options: [.curveEaseIn, _type])
         } else {
             //transitionCurlUp 翻页 ，移除view2.  并且view2 == nil
             UIView.transition(from: view2, to: view1, duration: 1, options: [.curveEaseIn])

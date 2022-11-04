@@ -64,5 +64,9 @@
 	<array>
 		<string>iconfont.ttf</string>
 	</array>
+	<key>LSApplicationCategoryType</key>
+	<array>
+		<string></string>
+	</array>
 </dict>
 </plist>

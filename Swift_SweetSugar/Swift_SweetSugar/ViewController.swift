@@ -31,7 +31,7 @@ class ViewController: UIViewController {
         let result = consolution.rob(arr);
         mm_printsLog(result)
         
-        MMFileTest.create()
+        MMFileTest().readStr()
     }
     
     override func viewDidAppear(_ animated: Bool) {

@@ -57,7 +57,9 @@ class FuncTestVC: UIViewController {
         
         let index = Int(2.0 / 4.0)
         mm_printLog("")
-        
+//        relase 会打印
+//        print("relase打印")
+//        debugPrint("release_ debugPrint")
         decodeString()
       
         MMFuncTool().operationQueueTest()
@@ -165,12 +167,16 @@ class FuncTestVC: UIViewController {
         case 35:
             tool.dateTest()
         case 36:
-            tool.voiceTest()
+            tool.timer()
         case 37:
-            tool.test37()
-            tool.audioTest_37()
+            tool.urltest()
+//            tool.audioTest_37()
         case 38:
             tool.emptyTest_38()
+        case 39:
+            tool.netTest()
+        case 40:
+            MMFileTest().readStr()
         default:
             break
         }

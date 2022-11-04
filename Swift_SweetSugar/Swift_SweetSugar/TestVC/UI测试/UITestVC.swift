@@ -184,7 +184,8 @@ class UITestVC: UIViewController {
 //        addActivity()
         //        dismiss(animated: true)
         
-        area()
+//        area()
+        textViewTest()
     }
     
     func area() {
@@ -413,10 +414,10 @@ class UITestVC: UIViewController {
 //        textView.passwordRules = rules
 //        textView.smartDashesType = .no
         
-        let text = "bgText"
+        let text = "The appropriate bgText The appropriate word elu"
         let attr = NSMutableAttributedString(string: text)
         attr.addAttributes([.backgroundColor: UIColor.red,
-                            .foregroundColor: UIColor.green], range: NSRange(location: 0, length: 3))
+                            .foregroundColor: UIColor.green], range: NSRange(location: 4, length: 5))
         textView.attributedText = attr
     }
     
@@ -505,14 +506,15 @@ class UITestVC: UIViewController {
     var str = "Your project does not explicitly specify"
     @objc func handleClick(sender: UIButton) {
         
-        str += " a"
-        let attr = getInputAttr(input: str, font: UIFont.systemFont(ofSize: 20))
-        
-        let number = attr.numberOfLine(width: 150)
-        
-        mm_printLog("点击了->\(number)")
-        
-        textView.attributedText = attr
+//        str += " a"
+//        let attr = getInputAttr(input: str, font: UIFont.systemFont(ofSize: 20))
+//
+//        let number = attr.numberOfLine(width: 150)
+//
+//        mm_printLog("点击了->\(number)")
+//
+//        textView.attributedText = attr
+        textViewTest()
     }
     
     

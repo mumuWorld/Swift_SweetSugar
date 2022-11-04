@@ -29,6 +29,10 @@ class GestureTestVC: UIViewController {
         
         let tap_2 = UITapGestureRecognizer(target: self, action: #selector(handleTapGes(sender:)))
         view.addGestureRecognizer(tap_2)
+        
+        let pan = UIPanGestureRecognizer(target: self, action: #selector(handlePan(sender:)))
+        pan.delaysTouchesBegan = true
+        view.addGestureRecognizer(pan)
     }
     
     @objc func handleGes(sender: UILongPressGestureRecognizer) {
@@ -48,6 +52,10 @@ class GestureTestVC: UIViewController {
     
     @objc func handleControlClick(_ sender: MMControlView) {
         mm_printLog("handleClick->MMControlView")
+    }
+    
+    @objc func handlePan(sender: UIPanGestureRecognizer) {
+        mm_printLog("pan_state->\(sender.state)")
     }
 }
 

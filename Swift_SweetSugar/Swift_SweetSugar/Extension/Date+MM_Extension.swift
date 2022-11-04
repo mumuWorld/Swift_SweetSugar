@@ -13,6 +13,7 @@ enum kDateFormatterKey: String {
     case ShortYMD = "yyyy-MM-dd"
     case ShortYMDHM = "yyyy-MM-dd HH:mm"
     case ShortMD = "MM-dd"
+    case chineseMDHM = "M月dd日 HH:mm"
     case yyyyMMdd
 }
 

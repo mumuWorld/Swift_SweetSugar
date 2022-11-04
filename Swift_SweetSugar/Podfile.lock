@@ -4,6 +4,7 @@ PODS:
   - lottie-ios (3.2.3)
   - SnapKit (5.6.0)
   - SwiftyJSON (5.0.1)
+  - testDev (0.1.0)
   - YYText (1.0.7)
 
 DEPENDENCIES:
@@ -12,6 +13,7 @@ DEPENDENCIES:
   - lottie-ios (~> 3.2.3)
   - SnapKit
   - SwiftyJSON
+  - testDev (from `./testDev/`)
   - YYText
 
 SPEC REPOS:
@@ -23,14 +25,19 @@ SPEC REPOS:
     - SwiftyJSON
     - YYText
 
+EXTERNAL SOURCES:
+  testDev:
+    :path: "./testDev/"
+
 SPEC CHECKSUMS:
   HandyJSON: 9e4e236f5d2dbefad5155a77417bbea438201c03
   Kingfisher: 016c8b653a35add51dd34a3aba36b580041acc74
   lottie-ios: c058aeafa76daa4cf64d773554bccc8385d0150e
   SnapKit: e01d52ebb8ddbc333eefe2132acf85c8227d9c25
   SwiftyJSON: 2f33a42c6fbc52764d96f13368585094bfd8aa5e
+  testDev: da71aeb8c0c84c7a3d0ea402f629095018731b57
   YYText: 5c461d709e24d55a182d1441c41dc639a18a4849
 
-PODFILE CHECKSUM: 09f95a1045db9fd009ed04e5b5d4a24c3bb24ea0
+PODFILE CHECKSUM: e277a9e44733e20f6fbf4a8a653f114c36e6f67d
 
 COCOAPODS: 1.11.3

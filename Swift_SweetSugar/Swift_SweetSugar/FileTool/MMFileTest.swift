@@ -88,4 +88,15 @@ class MMFileTest {
         mm_printLog("test")
         throw MMError.normalError(error: MMError.MMNormalError.unknowError(message: "test"))
     }
+    
+    func readStr() {
+        let path = Bundle.main.path(forResource: "90879c75-da87-4b9d-9ab6-9654378198f6", ofType: "txt")
+        do {
+            let str = try String(contentsOfFile: path!)
+            mm_printLog("str->\(str)")
+        } catch let e {
+            mm_printLog(e)
+        }
+        
+    }
 }

@@ -8,10 +8,38 @@
 
 import Foundation
 import UIKit
-//import SwiftyJSON
+import SwiftyJSON
 import AVFoundation
 
 class MMFuncTool: NSObject {
+    
+    func urltest() -> Void {
+        let urlStr = "https://shared.youdao.com/dict/market/living-study-ranking-test/index.html#/?hide-toolbar=true"
+        let urlStr_2 = "https://shared.youdao.com/dict/market/training-camp-test/index.html/campDetails?campId=1665987172&noShare=true"
+        let urlStr_3 = "https://shared.youdao.com/dict/market/living-study-ranking-test?hide-toolbar=true/#/"
+        
+        let encode_url = urlStr.urlEncoded()
+        
+        let component = URLComponents(string: urlStr)
+        let component_2 = URLComponents(string: urlStr_2)
+        let component_3 = URLComponents(string: urlStr_3)
+
+        let component_4 = URLComponents(string: encode_url)
+
+        let charSet = CharacterSet.urlQueryAllowed
+        
+        let url = URL(string: urlStr)
+        mm_printLog("")
+    }
+    
+    func jsonTest() {
+        let str = "{\"msgID\":\"1478746890721\",\"title\":\"push_update\",\"type\":\"notice\",\"url\":\"yddict://youdao.com/guidingpage?liveRoomId=123122312\"}"
+        let json = JSON.init(parseJSON: str)
+        mm_printLog("test->")
+    }
+    
+    var timerStr: String?
+    
     func past() {
 //        UIPasteboard.general.string = "http://hellow world"
         let pasted = UIPasteboard.general
@@ -224,7 +252,7 @@ class MMFuncTool: NSObject {
         mm_printLog(identifier)
     }
     
-    func jsonTest() {
+    func jsonTest_1() {
         let path = Bundle.main.path(forResource: "result", ofType: "json")
 //        let path = Bundle.main.path(forResource: "result", ofType: "json")
         let url = URL(string: "null")
@@ -275,6 +303,9 @@ class MMFuncTool: NSObject {
         }
         
     }
+    deinit {
+        MMDispatchTimer.cancelTimer(timerName: self.timerStr)
+    }
 }
 
 extension MMFuncTool: AVAudioRecorderDelegate {
@@ -299,7 +330,11 @@ extension MMFuncTool: AVAudioRecorderDelegate {
 //        }
     }
 }
-
+extension MMFuncTool {
+    func netTest() {
+        NetTest().mulitRequest()
+    }
+}
 extension MMFuncTool {
     func rangeTest() {
         //直接crash： Thread 1: Fatal error: Range requires lowerBound <= upperBound
@@ -364,15 +399,24 @@ extension MMFuncTool {
         }
         
         mm_printLog("end")
-        printTest()
+        enumTEst()
     }
     
     func printTest() {
+        var typo = Typo.shared
+        typo.trans = "test"
+        mm_printLog(Typo.shared.trans)
+        var typo_2 = Typo.shared
         //10.2%
         let str = String(format: "%.1f%%", 10.23)
-        //false
-        let isWord = "abc d".isEnglistWord
         
+        let str2 = String(format: "%02d", 1)
+        
+        let str3 = String(format: "%04d", 1)
+        //false
+//        let isWord = "abc d".isEnglistWord
+        //无论什么情况都会crash
+//        fatalError("test")
         mm_printLog(str)
     }
     
@@ -412,9 +456,58 @@ extension MMFuncTool {
 //        let modelArr = try? JSONDecoder().decode([MMCity].self, from: readData)
         mm_printLog(result)
 //        mm_printLog(modelArr)
+        
+    }
+    
+    func timer() {
+//        var count = 0
+//        Timer.scheduledTimer(withTimeInterval: 0.1, repeats: true) { timer in
+//            mm_printLog("timer->")
+//            if count == 30 {
+//                timer.invalidate()
+//            }
+//            count += 1;
+//        }
+        timerStr = MMDispatchTimer.createTimer(startTime: 1, infiniteInterval: 2, isRepeat: true, async: true) {
+            mm_printLog("start->")
+        }
+    }
+    
+
+    func copyTest() {
+        var typo = Typo()
+        typo.trans = "typo1"
+        var typo2 = Typo()
+        typo2.trans = "typo2"
+        var typo3 = Typo()
+        typo3.trans = "typo3"
+        var list = [typo, typo2, typo3]
+        
+        list[1].trans = "typo2_change"
+        //typo2_change
+        var c_typo2 = list[1]
+        
+        mm_printLog("")
+    }
+    
+    func attrTest() {
+        let attr = NSMutableAttributedString.init(string: "")
+        let imgStr = NSAttributedString(string: "test")
+        //不会crash
+        attr.insert(imgStr, at: 0)
+        mm_printLog("")
+    }
+    
+    func enumTEst() {
+        let o = EnumTest(rawValue: 4)
+        mm_printLog("")
     }
 }
 
+enum EnumTest: Int {
+    case one = 0
+    case two = 1
+}
 var index: Int = 0
 struct TQCityModel: Codable {
     var cityId: String = "北京市"
@@ -468,6 +561,8 @@ struct Typo: Codable {
     public var trans: String?
     
     var textV: String?
+    
+    static var shared: Typo = Typo()
     //会失败
 //    var text_b: String = ""
 }

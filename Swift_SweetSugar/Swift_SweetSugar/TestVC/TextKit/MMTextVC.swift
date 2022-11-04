@@ -56,13 +56,33 @@ class MMTextVC: UIViewController {
         
 //        textView.layoutManager.addTextContainer(container)
          
-        getText()
+//        getText()
+        pasteControl()
     }
 
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         view.endEditing(true)
         mm_printLog(layout)
         mm_printLog(container)
+    }
+    
+    func pasteControl() {
+        if #available(iOS 16.0, *) {
+            let confi : UIPasteControl.Configuration = UIPasteControl.Configuration()
+            confi.cornerStyle = .capsule
+            confi.displayMode = .iconAndLabel
+            confi.baseForegroundColor = UIColor.blue
+            confi.baseBackgroundColor = UIColor.red
+            let control = UIPasteControl(configuration: confi)
+            
+            view.addSubview(control)
+            control.snp.makeConstraints { make in
+                make.leading.equalToSuperview().offset(10)
+                make.top.equalToSuperview().offset(200)
+            }
+        } else {
+            // Fallback on earlier versions
+        }
     }
     
     func getText() {

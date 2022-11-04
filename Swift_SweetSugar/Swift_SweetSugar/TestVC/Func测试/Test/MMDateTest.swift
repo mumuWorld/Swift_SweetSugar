@@ -11,9 +11,36 @@ import UIKit
 class MMDateTest {
     class func dateTest() {
 //        Date.getCurWeeks()
-//        test2()
+        test2()
 //        create()
         createType()
+        createType_2()
+//        hourTest()
+    }
+    
+    class func hourTest() {
+        //24点的写法是错的。所以没有24点
+        let date = Date.getDate(dateStr: "2022-01-02 00:00", format: kDateFormatterKey.ShortYMDHM)
+        var com = Date.mCalendar.dateComponents([.hour, .day], from: date)
+        //如果没值就2小时刷一次
+        var hour = com.hour ?? 22
+        //获得明天
+        let tommorrow = Calendar.current.date(byAdding: .hour, value: 24 - hour, to: date) ?? Date()
+        
+        com = Date.mCalendar.dateComponents([.hour, .day], from: tommorrow)
+
+        let day = com.day
+        hour = com.hour ?? 0
+        mm_printLog("test->\(hour), day-\(day)")
+    }
+    
+    class func createType_2() {
+//        493708.3429942501
+        let media = CACurrentMediaTime()
+        //682402463.341505,  从 Jan 1 2001 00:00:00 GMT.
+        let abso = CFAbsoluteTimeGetCurrent()
+        let date = Date().timeIntervalSince1970
+        mm_printsLog("me->\(media), abs->\(abso), date->\(date)")
     }
     
     class func createType() {
@@ -35,7 +62,7 @@ class MMDateTest {
         CreateTool.timeRecord(title: "CFAbsoluteTime") {
             var m: [Int: CFTimeInterval] = [:]
             for i in 0...100000 {
-                m[i] = CFAbsoluteTime()
+                m[i] = CFAbsoluteTimeGetCurrent()
             }
             mm_printLog("test->\(m.count)")
         }
@@ -72,16 +99,16 @@ class MMDateTest {
     
     class func test2() {
 //        let date = Date() "2022-01-23 00:00:00"
-        let date = Date.getDate(dateStr: "2022-1-1", format: .ShortYMD)
+        let date = Date.getDate(dateStr: "2022-11-1", format: .ShortYMD)
 //        "20220324"
-        let dateStr = Date.dateStr(timeStamp: Int(Date().timeIntervalSince1970), formatter: .yyyyMMdd)
-               let component = Date.mCalendar.dateComponents([.weekday , .weekdayOrdinal , .quarter, .weekOfMonth, .weekOfYear, .yearForWeekOfYear, .month], from: date)
-               //2022.01.22 星期六
-               let val_w = component.weekday // 7
-               let val_1 = component.weekdayOrdinal // 4
-               let val_2 = component.quarter // 0
-               
-               
+        let dateStr = Date.dateStr(timeStamp: Int(date.timeIntervalSince1970), formatter: .chineseMDHM)
+        let component = Date.mCalendar.dateComponents([.weekday , .weekdayOrdinal , .quarter, .weekOfMonth, .weekOfYear, .yearForWeekOfYear, .month], from: date)
+        //2022.01.22 星期六
+        let val_w = component.weekday // 7
+        let val_1 = component.weekdayOrdinal // 4
+        let val_2 = component.quarter // 0
+        
+        
                let month = DateFormatter().monthSymbols[(component.month ?? 1) - 1].substring(to: 3)
                /*
                 po component.weekOfMonth

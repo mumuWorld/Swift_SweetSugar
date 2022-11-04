@@ -1,13 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21225" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21207"/>
         <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="UIMenu" message="Requires Xcode 11 or later." minToolsVersion="11.0" requiredIntegratedClassName="UICommandDiff"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -33,7 +34,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="top" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="UTX-5i-QA6">
-                    <rect key="frame" x="8" y="52" width="398" height="142"/>
+                    <rect key="frame" x="8" y="56" width="398" height="142"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label_2" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="abS-bA-cir">
                             <rect key="frame" x="0.0" y="0.0" width="61" height="34"/>
@@ -60,7 +61,7 @@
                     </subviews>
                 </stackView>
                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="justified" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="OZe-ce-Eyp">
-                    <rect key="frame" x="50" y="351" width="150" height="200"/>
+                    <rect key="frame" x="50" y="355" width="150" height="200"/>
                     <color key="backgroundColor" red="0.2901960784" green="0.56470588239999997" blue="0.8862745098" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="200" id="0UK-JE-4eB"/>
@@ -72,7 +73,7 @@
                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                 </textView>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="13Z-oM-VZf">
-                    <rect key="frame" x="304" y="84" width="90" height="50"/>
+                    <rect key="frame" x="304" y="88" width="90" height="50"/>
                     <color key="backgroundColor" systemColor="systemIndigoColor"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="90" id="bUh-qb-R0V"/>
@@ -84,7 +85,7 @@
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 </imageView>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="phe-5K-alU">
-                    <rect key="frame" x="304" y="144" width="90" height="50"/>
+                    <rect key="frame" x="304" y="148" width="90" height="50"/>
                     <color key="backgroundColor" systemColor="systemOrangeColor"/>
                 </view>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Afa-KD-SDY">
@@ -101,7 +102,7 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ugm-HH-YRJ" customClass="MMPieChartView" customModule="Swift_SweetSugar" customModuleProvider="target">
-                    <rect key="frame" x="273" y="313" width="100" height="100"/>
+                    <rect key="frame" x="273" y="317" width="100" height="100"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="100" id="8Nm-nA-XD8"/>
@@ -116,7 +117,7 @@
                     </buttonConfiguration>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DeY-ja-ekh">
-                    <rect key="frame" x="300" y="546" width="98" height="24"/>
+                    <rect key="frame" x="300" y="550" width="98" height="24"/>
                     <color key="backgroundColor" red="0.2901960784" green="0.56470588239999997" blue="0.8862745098" alpha="0.84705882349999995" colorSpace="calibratedRGB"/>
                     <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="1" maxY="0.0"/>
                     <state key="normal" title="测试文字">
@@ -127,25 +128,66 @@
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gwf-3y-oOz" customClass="MMShadowButton" customModule="Swift_SweetSugar" customModuleProvider="target">
                     <rect key="frame" x="354" y="452" width="50" height="50"/>
-                    <color key="backgroundColor" red="1" green="0.40000000000000002" blue="0.35686274509999999" alpha="1" colorSpace="calibratedRGB"/>
+                    <color key="backgroundColor" red="0.62892597853535359" green="0.62892597853535359" blue="0.62892597853535359" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="50" id="YXY-v6-U3v"/>
                         <constraint firstAttribute="height" constant="50" id="vIC-eT-ihM"/>
                     </constraints>
                     <state key="normal" title="Button"/>
-                    <buttonConfiguration key="configuration" style="plain" title="Button"/>
+                    <buttonConfiguration key="configuration" style="plain" image="rotate.left" catalog="system" title="Button"/>
                 </button>
                 <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lll-pu-NQP" userLabel="shadowView">
                     <rect key="frame" x="8" y="252" width="100" height="50"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <color key="backgroundColor" systemColor="systemTealColor"/>
                 </view>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="icS-MH-7Gc">
+                    <rect key="frame" x="0.0" y="806" width="105.5" height="56"/>
+                    <state key="normal" title="Button"/>
+                    <buttonConfiguration key="configuration" style="plain" title="System_Plain" subtitle="test" titlePadding="10" titleAlignment="center">
+                        <fontDescription key="titleFontDescription" type="system" pointSize="13"/>
+                        <color key="baseForegroundColor" systemColor="systemRedColor"/>
+                    </buttonConfiguration>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RKj-w4-n5x">
+                    <rect key="frame" x="109" y="812" width="110" height="72"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <state key="normal" title="Button"/>
+                    <buttonConfiguration key="configuration" style="gray" image="btn_heart_selected" imagePlacement="top" title="System_Gray" subtitle="Subttile">
+                        <fontDescription key="titleFontDescription" type="system" pointSize="14"/>
+                    </buttonConfiguration>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" showsMenuAsPrimaryAction="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SOn-sp-Iiw">
+                    <rect key="frame" x="51" y="652" width="68" height="30"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <menu key="menu" title="up_title" id="6Fd-0M-U5G">
+                        <children>
+                            <command title="Item 1" id="mwp-0H-mwG"/>
+                            <command title="Item 2" id="kqQ-yv-sXM"/>
+                        </children>
+                    </menu>
+                    <state key="normal" title="Button up"/>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" showsMenuAsPrimaryAction="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" changesSelectionAsPrimaryAction="YES" translatesAutoresizingMaskIntoConstraints="NO" id="s9h-MY-mYS">
+                    <rect key="frame" x="62" y="717" width="41" height="30"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <menu key="menu" id="4TY-bd-PjC">
+                        <children>
+                            <command title="Item 1" id="FZH-sf-D9w"/>
+                            <command title="Item 2" id="p43-KV-WJf"/>
+                        </children>
+                    </menu>
+                    <state key="normal" title="Button down">
+                        <color key="titleColor" systemColor="systemMintColor"/>
+                    </state>
+                </button>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
                 <constraint firstItem="phe-5K-alU" firstAttribute="height" secondItem="13Z-oM-VZf" secondAttribute="height" id="1hg-xg-KfM"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="13Z-oM-VZf" secondAttribute="trailing" constant="20" id="2l6-Ue-gwh"/>
+                <constraint firstItem="icS-MH-7Gc" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="CfA-Tc-f64"/>
                 <constraint firstItem="phe-5K-alU" firstAttribute="width" secondItem="13Z-oM-VZf" secondAttribute="width" id="G3V-hh-3Hn"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="lqR-hW-LST" secondAttribute="trailing" constant="8" id="JpP-kb-i31"/>
                 <constraint firstItem="UTX-5i-QA6" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="8" id="KRh-fG-7GZ"/>
@@ -155,6 +197,7 @@
                 <constraint firstItem="OZe-ce-Eyp" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="50" id="WhG-xA-Mve"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="DeY-ja-ekh" secondAttribute="trailing" constant="16" id="ZSs-C2-C0O"/>
                 <constraint firstAttribute="trailing" secondItem="gwf-3y-oOz" secondAttribute="trailing" constant="10" id="emX-dV-sXI"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="icS-MH-7Gc" secondAttribute="bottom" id="fbq-ke-QlI"/>
                 <constraint firstItem="Ugm-HH-YRJ" firstAttribute="top" secondItem="phe-5K-alU" secondAttribute="bottom" constant="119" id="h7m-r8-JWa"/>
                 <constraint firstItem="lqR-hW-LST" firstAttribute="top" secondItem="phe-5K-alU" secondAttribute="bottom" constant="62" id="hwJ-8Y-fLP"/>
                 <constraint firstItem="13Z-oM-VZf" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="40" id="mCa-Hk-8do"/>
@@ -172,11 +215,12 @@
         <image name="btn_heart_selected" width="24" height="24"/>
         <image name="graphic" width="750" height="1334"/>
         <image name="ic_search" width="28" height="28"/>
+        <image name="rotate.left" catalog="system" width="115" height="128"/>
         <namedColor name="AccentColor">
             <color red="0.0" green="0.46000000000000002" blue="0.89000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <systemColor name="labelColor">
-            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -187,8 +231,14 @@
         <systemColor name="systemIndigoColor">
             <color red="0.34509803921568627" green="0.33725490196078434" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
+        <systemColor name="systemMintColor">
+            <color red="0.0" green="0.7803921568627451" blue="0.74509803921568629" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
         <systemColor name="systemOrangeColor">
             <color red="1" green="0.58431372549019611" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemRedColor">
+            <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemTealColor">
             <color red="0.18823529411764706" green="0.69019607843137254" blue="0.7803921568627451" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
