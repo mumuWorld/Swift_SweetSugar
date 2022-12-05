@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<head>
+    <meta name="format-detection" content="telephone=no"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0,user-scalable=no" />
+   <script>
+        var T1 = +new Date;
+        var _rlog = _rlog || [];
+        _rlog.push(['_setAccount', 'dictblog']);
+        _rlog.push(['_setAutoPageview', false]);
+        if (window.devicePixelRatio && devicePixelRatio >= 2) {
+            document.documentElement.className = 'hairlines';
+        }
+
+        (function (doc, win) {
+            var docEl = doc.documentElement,
+              resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+              rescale = function () {
+                  var clientWidth = docEl.clientWidth || window.innerWidth;
+                  var rem = ((clientWidth > 750 ? (750) : (clientWidth*2)) / 750 * 100); // 为了web端和wap看起来不一样,wap端的size*2倍
+                  if (!clientWidth) return;
+                  docEl.style.fontSize = rem + 'px';
+              };
+
+            if (!doc.addEventListener) return;
+            doc.addEventListener('DOMContentLoaded', rescale, false);
+            if (docEl.clientWidth > 750) return;
+            win.addEventListener(resizeEvt, rescale, false);
+        })(document, window);
+
+    </script>
+    <meta charset="utf-8">
+    <title>有道词典·看天下</title>
+    <link rel="stylesheet" type="text/css" href="index.css?_t=20200730150453"/>
+</head>
+<body>
+<div id="root" class="color-text-2 color-bg-2">
+<div id="doc">
+    <div id="hd">
+        <h1 id="heading"></h1>
+        <div class="summary"></div>
+    </div>
+    <div id="article"></div>
+    <div id="styleInfo"></div>
+    <div id="shareVotes"></div>
+    <div class="ad" id="yd_slot_id_1"></div>
+    <div id="relevant"></div>
+    <div id="ThisTagIsHotCommentsAndNativeBottomBannerADsMonitoryPoint"></div>
+    <div id="lunaCommentInit"></div>
+    <div id="footer"></div>
+</div>
+
+</div>
+
+<script src="libs.js?20200730150453"></script><script src="index.js?_t=20200730150453"></script><script src='https://shared.ydstatic.com/js/rlog/v1.js'></script>
+<!--<script src="https://shared-https.ydstatic.com/js/yadk/1.0.5.js"></script>-->
+<script src='https://shared.ydstatic.com/js/deeplinking/1.0.3.js'></script>
+<script src="https://shared.ydstatic.com/js/yadk/1.1.1.js"></script>
+</body>
+</html>

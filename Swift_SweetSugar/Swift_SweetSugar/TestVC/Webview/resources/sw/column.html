@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta name="format-detection" content="telephone=no"/>
+  <meta name="wap-font-scale" content="no">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0,user-scalable=no"/>
+  <script>
+    //rem布局
+    //  var clientWidth = document.documentElement.clientWidth || window.innerWidth;
+    //  var rem = ((clientWidth > 750 ? (750) : (clientWidth)) / 750 * 100);
+    //  document.querySelector('html').style.fontSize = rem + 'px';
+
+    var T1 = +new Date;// T1 进入页面时间
+    var _rlog = _rlog || [];
+    _rlog.push(['_setAccount', 'dictblog']);
+    _rlog.push(['_setAutoPageview', false]);
+    if (window.devicePixelRatio && devicePixelRatio >= 2) {
+      document.documentElement.className = 'hairlines';
+    }
+
+    (function (doc, win) {
+      var docEl = doc.documentElement,
+        resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+        rescale = function () {
+          var clientWidth = docEl.clientWidth || window.innerWidth;
+          var rem = ((clientWidth > 750 ? (750) : (clientWidth)) / 750 * 100);
+          if (!clientWidth) return;
+          docEl.style.fontSize = rem + 'px';
+        };
+
+      if (!doc.addEventListener) return;
+      doc.addEventListener('DOMContentLoaded', rescale, false);
+      if (docEl.clientWidth > 750) return;
+      win.addEventListener(resizeEvt, rescale, false);
+    })(document, window);
+
+  </script>
+  <meta charset="utf-8">
+  <title>有道词典·看天下</title>
+  <link rel="stylesheet" type="text/css" href="column.css?_t=20200730150453"/>
+</head>
+<body>
+<div id="root" class="color-text-2 color-bg-2">
+  <div id="styleDoc">
+    <div id="header"></div>
+    <div id="tab"></div>
+    <div class="main">
+      <div id="introduce" class="tabContainer">
+        <div id="author"></div>
+        <div id="detail"></div>
+        <div id="sample"></div>
+        <div id="recommend"></div>
+        <div id="simulateReview"></div>
+      </div>
+      <div id="list" class="tabContainer"></div>
+      <div id="review" class="tabContainer">
+        <script id="tab-Review" class="lunaReviewInit"></script>
+      </div>
+    </div>
+    <div id="footer"></div>
+  </div>
+</div>
+<script src="libs.js?20200730150453"></script><script src="column.js?_t=20200730150453"></script><script src='//shared.ydstatic.com/js/rlog/v1.js'></script>
+<script src='//shared.ydstatic.com/js/deeplinking/1.0.3.js'></script>
+</body>
+</html>

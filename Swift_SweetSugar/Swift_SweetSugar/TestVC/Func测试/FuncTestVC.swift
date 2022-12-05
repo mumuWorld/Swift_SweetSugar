@@ -169,10 +169,11 @@ class FuncTestVC: UIViewController {
         case 36:
             tool.timer()
         case 37:
-            tool.urltest()
+//            tool.urltest()
+            tool.deviceTest()
 //            tool.audioTest_37()
         case 38:
-            tool.emptyTest_38()
+            tool.numberFormatter()
         case 39:
             tool.netTest()
         case 40:
