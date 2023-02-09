@@ -37,7 +37,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func application(_ application: UIApplication, willFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
         mm_printLog(launchOptions ?? [:])
-        return false
+        return true
     }
     
     func applicationWillResignActive(_ application: UIApplication) {
@@ -76,6 +76,30 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         mm_printLog("mumu")
     }
 
+    func application(_ application: UIApplication, supportedInterfaceOrientationsFor window: UIWindow?) -> UIInterfaceOrientationMask {
+        guard window != nil else {
+            mm_printLog("applicaiton->2")
+            return .portrait
+        }
+        if let vc = UIViewController.currentViewController() {
+            mm_printLog("applicaiton->1—\(vc.supportedInterfaceOrientations)")
+            return vc.supportedInterfaceOrientations
+        } else {
+            mm_printLog("applicaiton->2")
+            return .portrait
+        }
+    }
+    
+    /// 禁用第三方键盘
+    /// - Parameters:
+    ///   - application:
+    ///   - extensionPointIdentifier:
+    /// - Returns:
+//    func application(_ application: UIApplication, shouldAllowExtensionPointIdentifier extensionPointIdentifier: UIApplication.ExtensionPointIdentifier) -> Bool {
+        //UIApplicationExtensionPointIdentifier(_rawValue: com.apple.keyboard-service
+//        mm_printLog("\(extensionPointIdentifier)")
+//        return true
+//    }
 }
 
 func mm_printLog<T>(_ message : T, file : String = #file, funcName : String = #function, lineNum : Int = #line) {

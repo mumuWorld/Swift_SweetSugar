@@ -127,7 +127,16 @@ class MMFuncTool: NSObject {
         blockDemoFunc { [weak self, weak vc] tool, vc in
             
         }
+        //会捕获
+        var testStr: String = ""
+        let testBlock: (String) -> Void = { str in
+            print(testStr + str)
+        }
+        testStr = "test"
+        testBlock("good")
+        ["test"].joined()
     }
+    
     func blockDemoFunc(b: ((_ tool: MMFuncTool,_ vc: FuncTestVC) -> Void)) {
     
     }
@@ -186,6 +195,8 @@ class MMFuncTool: NSObject {
         
         
         var toolStrArr: [String] = ["0","1","2","3","4"]
+        
+        let joinStr = toolStrArr.joined(separator: ",")
 
         var toolArr: [Int] = [0,1,2,3,4,5]
         var toolOptionStrArr: [String?] = ["0","1","str","3"]
@@ -257,6 +268,17 @@ class MMFuncTool: NSObject {
         let c1 = index.contains(0)
         mm_printLog("")
     }
+    
+    //结构体测试
+    func structTest() {
+        var arr:[MMSimpleModel] = []
+        var model_1 = MMSimpleModel()
+        arr.append(model_1)
+        model_1.name = "test"
+        mm_printLog(arr)
+    }
+    
+     
     
     func numberFormatter() {
         let nf = NumberFormatter()
@@ -413,6 +435,31 @@ extension MMFuncTool: AVAudioRecorderDelegate {
 extension MMFuncTool {
     func netTest() {
         NetTest().mulitRequest()
+        
+    }
+    
+    func crashTest() {
+//        let mainOp = OperationQueue.main
+//        mainOp.addOperation {
+//            mm_printLog(self)
+//        }
+        let err_1 = NSError(domain: "", code: -999)
+        let err_2 = NSError()
+        let obj = MMCustomOCObj()
+//        obj.receiveError(err_1)
+//        obj.receiveError(err_2)
+        sendError(error: err_2)
+    }
+    
+    func sendError(error: Error) {
+        
+        let str = String(reflecting: type(of: error))
+        var _ocError = error
+        if (error as? NSError)?.domain.isEmpty == true {
+            _ocError = NSError(domain: "didFailToRegisterForRemoteNotifications", code: -999) 
+        }
+//        let str = e.localizedDescription ?? ""
+        MMCustomOCObj().receiveError(_ocError)
     }
 }
 extension MMFuncTool {
@@ -539,8 +586,10 @@ extension MMFuncTool {
         
     }
     
+    
+    /// 进入后台不会暂停
     func timer() {
-//        var count = 0
+        var count = 0
 //        Timer.scheduledTimer(withTimeInterval: 0.1, repeats: true) { timer in
 //            mm_printLog("timer->")
 //            if count == 30 {
@@ -549,7 +598,8 @@ extension MMFuncTool {
 //            count += 1;
 //        }
         timerStr = MMDispatchTimer.createTimer(startTime: 1, infiniteInterval: 2, isRepeat: true, async: true) {
-            mm_printLog("start->")
+            count += 1
+            mm_printLog("start->\(count)")
         }
     }
     

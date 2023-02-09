@@ -11,11 +11,25 @@ import UIKit
 class MMDateTest {
     class func dateTest() {
 //        Date.getCurWeeks()
-        test2()
+//        test2()
 //        create()
-        createType()
-        createType_2()
+//        createType()
+//        createType_2()
 //        hourTest()
+        formatTest()
+    }
+    
+    class func formatTest() {
+        let formatter = DateFormatter()
+        formatter.dateStyle = .medium
+        formatter.timeStyle = .short
+//        formatter.locale = NSLocale.system
+        
+        let formatterStr = "yyyy-MM-dd hh:mm:ss"
+        let timeStr = "2023-02-01 00:00:00"
+        formatter.dateFormat = formatterStr
+        let date = formatter.date(from: timeStr)
+        mm_printLog("date-\(date)")
     }
     
     class func hourTest() {

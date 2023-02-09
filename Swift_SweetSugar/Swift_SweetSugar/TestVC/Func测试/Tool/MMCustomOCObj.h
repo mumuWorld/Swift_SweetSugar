@@ -12,6 +12,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface MMCustomOCObj : NSObject
 @property (nonatomic, strong) NSMutableArray *words;
+
+- (void)receiveError:(NSError *)error;
 @end
 
 NS_ASSUME_NONNULL_END

@@ -178,6 +178,12 @@ class FuncTestVC: UIViewController {
             tool.netTest()
         case 40:
             MMFileTest().readStr()
+        case 41:
+            MMFuncTool().crashTest()
+        case 42:
+            MMFuncTool().structTest()
+        case 43:
+            MMFuncTool().blockTest(vc: self)
         default:
             break
         }

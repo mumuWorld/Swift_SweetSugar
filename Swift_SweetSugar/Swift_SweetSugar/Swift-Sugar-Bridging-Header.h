@@ -10,5 +10,6 @@
 #define Swift_Sugar_Bridge_h
 
 #import "LXDAppFluecyMonitor.h"
+#import "MMCustomOCObj.h"
 
 #endif /* Swift_Sugar_Bridge_h */
