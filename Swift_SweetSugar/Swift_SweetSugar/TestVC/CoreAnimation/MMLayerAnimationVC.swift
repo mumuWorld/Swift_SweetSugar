@@ -18,18 +18,29 @@ class MMLayerAnimationVC: UIViewController {
     
     @IBOutlet weak var searchIconImgView: UIImageView!
     
+    lazy var entryView: YDDOCRKeyInfoEntryView = {
+        let item = YDDOCRKeyInfoEntryView()
+        return item
+    }()
     override func viewDidLoad() {
         super.viewDidLoad()
 //        self.navigationController?.interactivePopGestureRecognizer?.delegate
         // Do any additional setup after loading the view.
         animationImgView.backgroundColor = .blue
+        view.addSubview(entryView)
+        entryView.snp.makeConstraints { make in
+            make.trailing.equalToSuperview().offset(-20)
+            make.height.equalTo(40)
+            make.bottom.equalToSuperview().offset(-200)
+        }
     }
 
 
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
 //        test_transform_x()
 //        createMask()
-        groupTest()
+//        groupTest()
+        entryView.show()
     }
     
     func groupTest() {

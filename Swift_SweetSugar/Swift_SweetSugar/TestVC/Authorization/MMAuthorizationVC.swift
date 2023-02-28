@@ -25,6 +25,7 @@ class MMAuthorizationVC: UIViewController {
 
 extension MMAuthorizationVC {
     func requetPhoto() -> Void {
+        mm_printLog("当前状态-> \(PHPhotoLibrary.authorizationStatus().rawValue)")
         PHPhotoLibrary.requestAuthorization { status in
             mm_printLog("权限状态=\(status.rawValue)")
         }

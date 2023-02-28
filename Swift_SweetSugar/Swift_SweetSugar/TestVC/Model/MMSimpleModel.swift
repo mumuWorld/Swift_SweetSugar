@@ -11,4 +11,22 @@ import Foundation
 struct MMSimpleModel {
     var name: String?
     var target: AnyObject?
+    
+    static func post<P: Codable>(url: String, param: P? = nil) {
+        
+    }
+}
+
+//protocol MMSimpleProtocol {
+//    static func post<P: Codable>(url: String, param: P? = nil)
+//}
+
+class MMSimpleClass {
+    static func post<P: Codable>(url: String, param: P? = nil) {
+        
+    }
+}
+
+class MMSimpleChildClass: MMSimpleClass {
+    
 }

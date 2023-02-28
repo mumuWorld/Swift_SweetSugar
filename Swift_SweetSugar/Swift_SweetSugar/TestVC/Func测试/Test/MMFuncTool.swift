@@ -12,6 +12,61 @@ import SwiftyJSON
 import AVFoundation
 
 class MMFuncTool: NSObject {
+    
+    func urltest() -> Void {
+        let urlStr = "https://shared.youdao.com/dict/market/living-study-ranking-test/index.html#/?hide-toolbar=true"
+        let urlStr_2 = "https://shared.youdao.com/dict/market/training-camp-test/index.html/campDetails"
+        let urlStr_3 = "https://shared.youdao.com/dict/market/living-study-ranking-test?hide-toolbar=true/#/"
+        
+        let encode_url = urlStr.urlEncoded()
+        
+        let component = URLComponents(string: urlStr)
+        var component_2 = URLComponents(string: urlStr_2)
+        
+        component_2?.queryItems?.append(URLQueryItem(name: "name", value: "test"))
+        
+        let component_3 = URLComponents(string: urlStr_3)
+
+        let component_4 = URLComponents(string: encode_url)
+
+        let charSet = CharacterSet.urlQueryAllowed
+        
+        let url = URL(string: urlStr)
+        mm_printLog("test->1")
+        
+        let params: [String: String] = [
+            "goodInfo": "{dsdfsdf}",
+            "nickname": "{dsdfsdf}",
+            "avatar": "{dsdfsdf}",
+            "userId": "{dsdfsdf}",
+        ]
+        let paramsStr = params.map { key, value in
+            return "\(key)=\(value.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? "")"
+        }.joined(separator: "&")
+        
+        let urlStr_4 = "http://baidu.com?" + paramsStr
+        
+        let url_2 = URL(string: urlStr_4)
+        
+        let urlStr_5 = "https://shared.youdao.com/dict/market/shop-window-test/?noShare=true&full-screen=true&adjustSafeArea=true&hide-toolbar=true&hide-toolbar=true&postType=VIDEO&avatar=https%3A%2F%2Fydlunacommon-cdn.nosdn.127.net%2F9ea7678834227363caeb05dd1d9e99cc.png&nickname=urs%2A%2A%2A%2A%2A%2Acom&userId=urs-phoneyd.cda14678cacf43fea%40163.com&goodInfo=%7B%22id%22%3A3908%2C%22category%22%3A33%2C%22backupLandingPageUrl%22%3A%22https%3A%5C%2F%5C%2Fwww.baidu.com%5C%2F%22%2C%22schemaId%22%3A3%2C%22activeClosed%22%3Afalse%2C%22itemPrice%22%3A10000%2C%22promotionType%22%3A2%2C%22buttonText%22%3A%22%E8%B4%AD%E4%B9%B0%22%2C%22itemName%22%3A%22deeplink%E5%BC%95%E5%AF%BC%E6%96%87%E6%A1%88%22%2C%22source%22%3A0%2C%22switchType%22%3A2%2C%22componentId%22%3A%22dAYwySUtbY%22%2C%22promoteImageUrl%22%3A%22http%3A%5C%2F%5C%2Foimagec4.ydstatic.com%5C%2Fimage%3Fid%3D4030997507705062280%26product%3Dadpublish%26format%3DJPEG%22%2C%22strikeThroughPrice%22%3A10000%2C%22leadText%22%3A%22deeplink%E5%BC%95%E5%AF%BC%E6%96%87%E6%A1%88%22%2C%22markAsAd%22%3Atrue%2C%22name%22%3A%22deeplin%22%2C%22deepLink%22%3A%22bilibili%3A%5C%2F%5C%2Fsearch%5C%2F%25E8%2580%2583%25E7%25A0%2594%3Fh5awaken%3Db3Blbl9hcHBfZnJvbV90eXBlPWRlZXBsaW5rX21hcmtldGluZy1rYW95YW4mb3Blbl9hcHBfdXJsPXNlYXJjaC1rYW95YW4tMQ%3D%3D%22%7D#/more"
+        let url_3 = URL(string: urlStr_5)
+        let com = URLComponents(string: urlStr_5)
+        
+        let urlStr_6 = "https://shared.youdao.com/dict/market/living-study-ranking-test/?t=1668069073944&authorId=urs-phoneyd.688d91f7dca547289%40163.com&hide-toolbar=true&userId=course_test%40163.com&liveRoomId=34511893&authorName=%E4%BB%8A%E5%A4%A9%E4%B9%9F%E8%A6%81%E5%A5%BD%E5%A5%BD%E5%8A%AA%E5%8A%9B%E5%91%80&full-screen=true"
+        let url_4 = URL(string: urlStr_6)
+        mm_printLog("test->2")
+    }
+    
+    func jsonTest() {
+        let str = "{\"msgID\":\"1478746890721\",\"title\":\"push_update\",\"type\":\"notice\",\"url\":\"yddict://youdao.com/guidingpage?liveRoomId=123122312\"}"
+        let json = JSON.init(parseJSON: str)
+        
+        let str_2 = ""
+        mm_printLog("test->")
+    }
+    
+    var timerStr: String?
+    
     func past() {
 //        UIPasteboard.general.string = "http://hellow world"
         let pasted = UIPasteboard.general
@@ -68,6 +123,24 @@ class MMFuncTool: NSObject {
         }
     }
     
+    func blockTest(vc: FuncTestVC) {
+        blockDemoFunc { [weak self, weak vc] tool, vc in
+            
+        }
+        //会捕获
+        var testStr: String = ""
+        let testBlock: (String) -> Void = { str in
+            print(testStr + str)
+        }
+        testStr = "test"
+        testBlock("good")
+        ["test"].joined()
+    }
+    
+    func blockDemoFunc(b: ((_ tool: MMFuncTool,_ vc: FuncTestVC) -> Void)) {
+    
+    }
+    
     
 //    var dataArray: [Data] = [Data]()
     var dataArray: [String] = [String]()
@@ -119,7 +192,11 @@ class MMFuncTool: NSObject {
 //            mm_printLog("item->\(item)")
 //            return item < 4
 //        }.prefix(2).map({ $0 * 2 })
+        
+        
         var toolStrArr: [String] = ["0","1","2","3","4"]
+        //"0,1,2,3,4"
+        let joinStr = toolStrArr.joined(separator: ",")
 
         var toolArr: [Int] = [0,1,2,3,4,5]
         var toolOptionStrArr: [String?] = ["0","1","str","3"]
@@ -128,7 +205,7 @@ class MMFuncTool: NSObject {
         let r1 = toolArr.reduce(2) { partialResult, item in
             return partialResult + item
         }
-        //result->01234
+        //result->01234  累加
         let r2 = toolStrArr.reduce("result->") { partialResult, item in
             return partialResult + item
         }
@@ -192,6 +269,30 @@ class MMFuncTool: NSObject {
         mm_printLog("")
     }
     
+    //结构体测试
+    func structTest() {
+        var arr:[MMSimpleModel] = []
+        var model_1 = MMSimpleModel()
+        arr.append(model_1)
+        model_1.name = "test"
+        mm_printLog(arr)
+    }
+    
+     
+    
+    func numberFormatter() {
+        let nf = NumberFormatter()
+        nf.numberStyle = .decimal
+        nf.usesGroupingSeparator = false
+        nf.minimumFractionDigits = 0
+        nf.maximumFractionDigits = 1    //小数点后1位
+        nf.decimalSeparator = "."
+        nf.roundingMode = .down
+        
+        let res = nf.string(from: NSNumber(1234.02)) ?? ""
+        mm_printLog("res->\(res)")
+    }
+    
     func imgPress() {
         let img = UIImage(named: "每日一句")
         let data = img?.pngData()
@@ -224,19 +325,48 @@ class MMFuncTool: NSObject {
         mm_printLog(identifier)
     }
     
-    func jsonTest() {
-        let path = Bundle.main.path(forResource: "result", ofType: "json")
+    func jsonTest_1() {
+        let path = Bundle.main.path(forResource: "error_result.json", ofType: "")
 //        let path = Bundle.main.path(forResource: "result", ofType: "json")
-        let url = URL(string: "null")
+//        let url = URL(string: "null")
         do {
             let data = try Data(contentsOf: URL(fileURLWithPath: path!))
-            let json = try JSON(data: data)
-            let typos = try JSONDecoder().decode([Typo].self, from: json["typos"]["typo"].rawData())
+//            let json = try JSON(data: data)
+//            let typos = try JSONDecoder().decode([Typo].self, from: json["typos"]["typo"].rawData())
+            let typos = try JSONDecoder().decode(JPModel.self, from: data)
+
             mm_printLog(typos)
         } catch(let e) {
             mm_printLog(e)
         }
     }
+    
+    func deviceTest() {
+        let deviceId = genericeDeviceID()
+        let sec = genUUID()
+        mm_printLog(deviceId)
+    }
+    func genUUID() -> String {
+        let uuid = CFUUIDCreate(kCFAllocatorDefault)
+        let uuidString = CFUUIDCreateString(kCFAllocatorDefault, uuid) as String
+        return uuidString
+    }
+    
+    func genericeDeviceID() -> String {
+        var uuid: String? = nil
+        #if os(watchOS)
+        uuid = genUUID()
+        #else
+        if let deviceID = UIDevice.current.identifierForVendor?.uuidString {
+            uuid = deviceID
+        } else {
+            uuid = genUUID()
+        }
+        #endif
+        
+        return uuid!
+    }
+    
     
     func foo() {
         
@@ -275,6 +405,9 @@ class MMFuncTool: NSObject {
         }
         
     }
+    deinit {
+        MMDispatchTimer.cancelTimer(timerName: self.timerStr)
+    }
 }
 
 extension MMFuncTool: AVAudioRecorderDelegate {
@@ -283,6 +416,7 @@ extension MMFuncTool: AVAudioRecorderDelegate {
 //        let audioAsset = AVURLAsset(url: recorder.url)
 //        let audioDuration = audioAsset.duration
 //        lastRecordDurationInSeconds = CMTimeGetSeconds(audioDuration)
+        UIImagePickerController.InfoKey.editedImage
     }
     
     func audioRecorderEncodeErrorDidOccur(_ recorder: AVAudioRecorder, error: Error?) {
@@ -298,7 +432,36 @@ extension MMFuncTool: AVAudioRecorderDelegate {
 //        }
     }
 }
-
+extension MMFuncTool {
+    func netTest() {
+        NetTest().mulitRequest()
+        
+    }
+    
+    func crashTest() {
+//        let mainOp = OperationQueue.main
+//        mainOp.addOperation {
+//            mm_printLog(self)
+//        }
+        let err_1 = NSError(domain: "", code: -999)
+        let err_2 = NSError()
+        let obj = MMCustomOCObj()
+//        obj.receiveError(err_1)
+//        obj.receiveError(err_2)
+        sendError(error: err_2)
+    }
+    
+    func sendError(error: Error) {
+        
+        let str = String(reflecting: type(of: error))
+        var _ocError = error
+        if (error as? NSError)?.domain.isEmpty == true {
+            _ocError = NSError(domain: "didFailToRegisterForRemoteNotifications", code: -999) 
+        }
+//        let str = e.localizedDescription ?? ""
+        MMCustomOCObj().receiveError(_ocError)
+    }
+}
 extension MMFuncTool {
     func rangeTest() {
         //直接crash： Thread 1: Fatal error: Range requires lowerBound <= upperBound
@@ -342,8 +505,53 @@ extension MMFuncTool {
             mm_printLog("1")
         } completion: {
             mm_printLog("2")
-        }
+        }       
     }
+    
+    func test37() {
+        let def = UserDefaults.standard
+        let allLanguages = def.object(forKey: "AppleLanguages") as! [String]
+        //zh-Hans-US 中文，美国， en-US  英文，美国  中文中国 zh-Hans-CN  en-CN(英文中国)
+        mm_printLog(allLanguages)
+    }
+    
+    func emptyTest_38() {
+        var str: String?
+        if str?.isEmpty == true {   // nil == true => false
+            mm_printLog("empty_1")
+        }
+        str = "1"
+        if str?.isEmpty == true {  // false
+            mm_printLog("empty_2")
+        }
+        
+        mm_printLog("end")
+        enumTEst()
+    }
+    
+    func printTest() {
+        var typo = Typo.shared
+        typo.trans = "test"
+        mm_printLog(Typo.shared.trans)
+        var typo_2 = Typo.shared
+        //10.2%
+        let str = String(format: "%.1f%%", 10.23)
+        
+        let str2 = String(format: "%02d", 1)
+        
+        let str3 = String(format: "%04d", 1)
+        //false
+//        let isWord = "abc d".isEnglistWord
+        //无论什么情况都会crash
+//        fatalError("test")
+        mm_printLog(str)
+    }
+    
+    func fontTest() {
+        let familyNames = UIFont.familyNames
+        mm_printLog(familyNames)
+    }
+    
     
     func testAnaly() {
 //        let path = Bundle.main.path(forResource: "AREACODE", ofType: "txt")!
@@ -375,9 +583,61 @@ extension MMFuncTool {
 //        let modelArr = try? JSONDecoder().decode([MMCity].self, from: readData)
         mm_printLog(result)
 //        mm_printLog(modelArr)
+        
+    }
+    
+    
+    /// 进入后台不会暂停
+    func timer() {
+        var count = 0
+//        Timer.scheduledTimer(withTimeInterval: 0.1, repeats: true) { timer in
+//            mm_printLog("timer->")
+//            if count == 30 {
+//                timer.invalidate()
+//            }
+//            count += 1;
+//        }
+        timerStr = MMDispatchTimer.createTimer(startTime: 1, infiniteInterval: 2, isRepeat: true, async: true) {
+            count += 1
+            mm_printLog("start->\(count)")
+        }
+    }
+    
+
+    func copyTest() {
+        var typo = Typo()
+        typo.trans = "typo1"
+        var typo2 = Typo()
+        typo2.trans = "typo2"
+        var typo3 = Typo()
+        typo3.trans = "typo3"
+        var list = [typo, typo2, typo3]
+        
+        list[1].trans = "typo2_change"
+        //typo2_change
+        var c_typo2 = list[1]
+        
+        mm_printLog("")
+    }
+    
+    func attrTest() {
+        let attr = NSMutableAttributedString.init(string: "")
+        let imgStr = NSAttributedString(string: "test")
+        //不会crash
+        attr.insert(imgStr, at: 0)
+        mm_printLog("")
+    }
+    
+    func enumTEst() {
+        let o = EnumTest(rawValue: 4)
+        mm_printLog("")
     }
 }
 
+enum EnumTest: Int {
+    case one = 0
+    case two = 1
+}
 var index: Int = 0
 struct TQCityModel: Codable {
     var cityId: String = "北京市"
@@ -431,10 +691,19 @@ struct Typo: Codable {
     public var trans: String?
     
     var textV: String?
+    
+    static var shared: Typo = Typo()
     //会失败
 //    var text_b: String = ""
 }
 
+
+class JPModel: Codable {
+    var input: String?
+    var le: String?
+    var lang: String?
+    
+}
 extension MMFuncTool {
  
 }

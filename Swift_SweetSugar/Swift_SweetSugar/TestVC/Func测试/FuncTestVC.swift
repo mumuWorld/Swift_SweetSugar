@@ -57,7 +57,9 @@ class FuncTestVC: UIViewController {
         
         let index = Int(2.0 / 4.0)
         mm_printLog("")
-        
+//        relase 会打印
+//        print("relase打印")
+//        debugPrint("release_ debugPrint")
         decodeString()
       
         MMFuncTool().operationQueueTest()
@@ -146,6 +148,7 @@ class FuncTestVC: UIViewController {
             tool.testPrint3()
         case 30:
             let vc = UITestVC()
+            vc.modalPresentationStyle = .fullScreen
             present(vc, animated: true, completion: nil)
             DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 4) {
                 mm_printLog("self->\(self), \(vc.presentingViewController)")
@@ -165,28 +168,72 @@ class FuncTestVC: UIViewController {
         case 35:
             tool.dateTest()
         case 36:
-            tool.voiceTest()
+            tool.timer()
         case 37:
-            tool.audioTest_37()
+//            tool.urltest()
+            tool.deviceTest()
+//            tool.audioTest_37()
+        case 38:
+            tool.numberFormatter()
+        case 39:
+            tool.netTest()
+        case 40:
+            MMFileTest().readStr()
+        case 41:
+            MMFuncTool().crashTest()
+        case 42:
+            MMFuncTool().structTest()
+        case 43:
+            MMFuncTool().blockTest(vc: self)
+        case 44:
+            createTargetTimer()
+        case 45:
+            invalidateTimer()
         default:
             break
         }
 //        mm_printLog("->\(self.block) -> \(String(describing: testFunc))")
     }
-
+    
+    var timer: Timer?
+    
     func testFunc() -> Void {
-        
         mm_printLog("test")
 //        let test = ProjectOneTool()
 //        test.test()
     }
 
     deinit {
+//        invalidateTimer()
         mm_printLog("释放")
     }
 }
 
 extension FuncTestVC {
+    
+    func createTargetTimer() {
+        //不停止不会释放
+//        let _timer = Timer(timeInterval: 2, target: self, selector: #selector(handleTimer(sender:)), userInfo: nil, repeats: true)
+//        timer = _timer
+//        RunLoop.main.add(_timer, forMode: .common)
+        
+        //虽然没有持有vc， 但是持有了 block。 就算VC deinit， block还是会执行
+        let _timer = Timer(timeInterval: 2, repeats: true) { [weak self] t in
+            mm_printLog("test->\(t), \(String(describing: self))")
+        }
+        RunLoop.main.add(_timer, forMode: .common)
+        timer = _timer
+        timer?.fire()
+    }
+    
+    /// 只要停止了timer。就会释放
+    func invalidateTimer() {
+        timer?.invalidate()
+    }
+    
+    @objc func handleTimer(sender: Timer) {
+        mm_printLog("test->\(sender)")
+    }
     
     
     func decodeString() -> Void {
@@ -478,6 +525,10 @@ extension FuncTestVC {
         let composeRange = str.rangeOfComposedCharacterSequence(at: str.index(str.startIndex, offsetBy: 5))
         let str_c = str[composeRange]
         mm_printLog("1/2/3/4")
+    }
+    
+    func timeTest() {
+        
     }
     
     func urlTest() {

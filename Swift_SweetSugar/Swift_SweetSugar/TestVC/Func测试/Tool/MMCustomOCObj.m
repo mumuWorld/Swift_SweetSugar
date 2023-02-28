@@ -10,4 +10,8 @@
 
 @implementation MMCustomOCObj
 
+
+- (void)receiveError:(NSError *)error {
+    NSLog(@"error->%@",error);
+}
 @end

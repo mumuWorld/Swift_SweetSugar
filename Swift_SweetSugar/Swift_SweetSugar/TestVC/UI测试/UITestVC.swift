@@ -11,6 +11,7 @@ import YYText
 import SnapKit
 import AVKit
 import Lottie
+import MessageUI
 
 func creat(_ block:(UIButton)->()) -> UIButton {
     let btn = UIButton()
@@ -90,28 +91,53 @@ class UITestVC: UIViewController {
     }()
     
     var pictureVC: AVPictureInPictureController?
+    var _compareView: UIView?
+    // 高斯模糊
+    private lazy var blurEffectView: UIVisualEffectView = {
+        let blurEffect = UIBlurEffect(style: .systemThickMaterial)
+        let blurView = UIVisualEffectView(effect: blurEffect)
+        blurView.alpha = 1
+        return blurView
+    }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         textView.delegate = self
 //        shadowView.layer.cornerRadius = 24
       //        layer.shadowColor = UIColor(hex: 0x3C4D59, alpha: 0.9).cgColor
-        shadowView.layer.shadowColor = UIColor.black.cgColor
-        shadowView.layer.shadowOffset = CGSize(width: 0, height: 0)
-        shadowView.layer.shadowRadius = 3
-        shadowView.layer.shadowOpacity = 1
-        shadowView.frame = CGRect(x: 10, y: 150, width: 100, height: 50)
+//        shadowView.layer.shadowColor = UIColor.black.cgColor
+//        shadowView.layer.shadowOffset = CGSize(width: 0, height: 0)
+//        shadowView.layer.shadowRadius = 3
+//        shadowView.layer.shadowOpacity = 1
+
+        let baseFrame = CGRect(x: 10, y: 200, width: 200, height: 200)
+//        shadowView.frame = baseFrame
+    
+//        shadowView.layer.anchorPoint = CGPoint(x: 0.5, y: 1)
+
 //        shadowView.layer.maskedCorners = [.layerMaxXMaxYCorner, .layerMinXMinYCorner]
-        
+
         let shadowSub = UIView(frame: CGRect(x: 0, y: 10, width: 30, height: 30))
         shadowSub.backgroundColor = .red
         shadowView.addSubview(shadowSub)
         mm_printLog("center->\(shadowView.center),position->\(shadowView.layer.position),frame->\(shadowView.frame)")
         //位置比较
-        let compareView = UIView(frame: shadowView.frame)
-        compareView.backgroundColor = .red
+        let compareView = UIView(frame: baseFrame)
+        compareView.backgroundColor = .red.withAlphaComponent(0.7)
         view.insertSubview(compareView, belowSubview: shadowView)
-
+        compareView.snp.makeConstraints { make in
+            make.leading.equalToSuperview().offset(10)
+            make.top.equalToSuperview().offset(200)
+            make.width.height.equalTo(200)
+        }
+        _compareView = compareView
+        
+        shadowView.snp.makeConstraints { make in
+            make.leading.equalToSuperview().offset(10)
+            make.top.equalTo(_compareView!.snp.bottom).offset(20)
+            make.width.height.equalTo(200)
+        }
+        
         let line: MMDottedLine = MMDottedLine()
         line.mm_size = CGSize(width: 100, height: 10)
 //        line.test()
@@ -120,14 +146,10 @@ class UITestVC: UIViewController {
         
         view.addSubview(attrText)
 
-//        DispatchQueue.main.async {
-//            let origin = self.shadowView.origin
-//            self.shadowView.origin = CGPoint(x: origin.x + self.shadowView.mm_width * 0.5, y: origin.y - self.shadowView.mm_height * 0.5)
-//        }
         //也会进行放大。
-        let font = UIFont(name: "iconfont", size: 30)
-        widthLabel.font = font
-        widthLabel.text = "大 \u{e60b}"
+//        let font = UIFont(name: "iconfont", size: 30)
+//        widthLabel.font = font
+//        widthLabel.text = "大 \u{e60b}"
 
 //        view.layer.addSublayer(avPlayerLayer)
 //        setupPip()
@@ -161,7 +183,15 @@ class UITestVC: UIViewController {
             make.centerY.equalToSuperview()
             make.size.equalTo(CGSize(28, 28))
         }
+        
+        gradientLayer.addSubview(blurEffectView)
+        blurEffectView.snp.makeConstraints { make in
+            make.edges.equalToSuperview()
+            make.height.width.equalToSuperview()
+        }
     }
+    
+    @IBOutlet weak var graphicImageView: UIImageView!
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return .default
@@ -181,8 +211,140 @@ class UITestVC: UIViewController {
 //        playAnimation()
 //        windowTest()
 //        addActivity()
+        //        dismiss(animated: true)
+        
+//        area()
+//        textViewTest()
+//        let blurEffect = UIBlurEffect(style: .extraLight)
+//        blurEffectView.effect = blurEffect
+//
+//        let arr = [1, 2,3 ,4,5]
+//        for item in arr {
+//            mm_printLog(item)
+//        }
+//        arr.forEach({ String(format: "test->%d", $0) })
+//        numberOfLinesTest()
+//        anchorTest()
+//        layoutTest()
+        _compareView?.removeFromSuperview()
+    }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+//        if view.mm_width > view.mm_height {
+////            graphicImageView.layer.masksToBounds = true
+//            graphicImageView.layer.cornerRadius = 50
+//            scrollBgView.snp.updateConstraints { make in
+//                make.height.equalTo(500)
+//                make.trailing.equalToSuperview().offset(-400)
+//            }
+//        } else {
+//            graphicImageView.layer.cornerRadius = 0
+//            scrollBgView.snp.updateConstraints { make in
+//                make.height.equalTo(300)
+//                make.trailing.equalToSuperview()
+//            }
+//        }
+    }
+    
+    lazy var scrollBgView: UIView = {
+        let item = UIView()
+        self.view.addSubview(item)
+        return item
+    }()
+
+    
+    lazy var scrollView: UIScrollView = UIScrollView()
+    
+    func layoutTest() {
+        view.addSubview(scrollBgView)
+        scrollBgView.snp.makeConstraints { make in
+            make.top.equalToSuperview().offset(300)
+            make.leading.trailing.equalToSuperview()
+            make.height.equalTo(300)
+        }
+        scrollBgView.addSubview(scrollView)
+        scrollView.snp.makeConstraints { make in
+            make.edges.equalToSuperview()
+        }
+        
+        let bg = UIView()
+        bg.backgroundColor = UIColor.red.withAlphaComponent(0.6)
+        scrollView.addSubview(bg)
+        bg.snp.makeConstraints { make in
+            make.leading.top.equalToSuperview()
+            make.width.height.equalToSuperview()
+        }
+//        graphicImageView.backgroundColor = UIColor.init(white: 0.1, alpha: 0.001)
+//        graphicImageView.layer.cornerRadius = 50
+        bg.addSubview(graphicImageView)
+        graphicImageView.snp.makeConstraints { make in
+            make.edges.equalToSuperview()
+        }
+//        shadowView.snp.updateConstraints { make in
+//            make.height.equalTo(250)
+//        }
+//        UIView.animate(withDuration: 0.3) {
+//            self.view.layoutIfNeeded()
+//        }
+//        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 0.1) {
+//            self.layoutTest2()
+//        }
+    }
+    
+    override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
+        return .all
+    }
+    
+    func layoutTest2() {
+        shadowView.snp.updateConstraints { make in
+            make.height.equalTo(200)
+        }
+//        UIView.animate(withDuration: 0.3) {
+//            self.view.layoutIfNeeded()
+//        }
+    }
+    
+    func area() {
+        let h = kBottomSafeHeight
+        mm_printLog(h)
+    }
+    
+    func email() {
+        if !MFMailComposeViewController.canSendMail() {
+            //不支持发送邮件
+            mm_printsLog("不支持？")
+            UIApplication.shared.open(URL(string: "mailto:123456789@qq.com")!, options: [:], completionHandler: nil)
+            return
+        } else {
+            //支持发送邮件
+        }
+        let mail = MFMailComposeViewController()
+        mail.navigationBar.tintColor = UIColor.blue //导航颜色
+        mail.setToRecipients(["123456789@qq.com"]) //设置收件地址
+        mail.setCcRecipients(["123456789@qq.com"]) //添加抄送
+        mail.setBccRecipients(["123456789@qq.com"]) //秘密抄送
+        mail.mailComposeDelegate = self //代理
+
+        mail.setSubject("邮件标题")
+        //发送文字
+        mail.setMessageBody("文字内容", isHTML: false) //邮件主体内容
+        //发送图片
+//        let imageData: NSData = UIImagePNGRepresentation(UIImage(named: "图片名字")!)! as NSData
+//        mail.addAttachmentData(imageData as Data, mimeType: "", fileName: "图片名字.png")
+
+        present(mail, animated: true, completion: nil)
 //        dismiss(animated: true)
 //        labelTest()
+        showVC()
+    }
+    
+    func showVC() {
+        let vc = FuncTestVC()
+        //push
+//        show(vc, sender: self)
+        //present
+        showDetailViewController(vc, sender: self)
     }
     
     func playAnimation() {
@@ -265,18 +427,26 @@ class UITestVC: UIViewController {
         changeImageSizeBtn.imageView?.mm_size = CGSize(width: 50, height: 50)
     }
     
+    //锚点对动画的影响
     func anchorTest() {
+//        shadowView.layer.anchorPoint = CGPoint(x: 0.5, y: 1)
+//        let transFrom = CGAffineTransform(scaleX: 1.2, y: 1.2)
+//        UIView.animate(withDuration: 0.5) {
+//            self.shadowView.transform = transFrom
+//        }
+        shadowView.mm_y += 50
+        _compareView?.mm_y += 50
         /*
          [UITestVC viewDidLoad()](86): center->(60.0, 184.0),frame->(10.0, 159.0, 100.0, 50.0)
          [UITestVC anchorTest()](134): center->(60.0, 210.0),frame->(-40.0, 210.0, 100.0, 50.0)
          */
-        shadowView.layer.anchorPoint = CGPoint(x: 1, y: 0)
-        mm_printLog("center->\(shadowView.center),position->\(shadowView.layer.position),frame->\(shadowView.frame)")
-        let nowFrame = shadowView.frame
-        let x = nowFrame.minX  + 100 * 0.5
-        let y = nowFrame.minY - 50 * 0.5
-        shadowView.origin = CGPoint(x: x, y: y)
-        mm_printLog("center->\(shadowView.center),position->\(shadowView.layer.position),frame->\(shadowView.frame)")
+//        shadowView.layer.anchorPoint = CGPoint(x: 1, y: 0)
+//        mm_printLog("center->\(shadowView.center),position->\(shadowView.layer.position),frame->\(shadowView.frame)")
+//        let nowFrame = shadowView.frame
+//        let x = nowFrame.minX  + 100 * 0.5
+//        let y = nowFrame.minY - 50 * 0.5
+//        shadowView.origin = CGPoint(x: x, y: y)
+//        mm_printLog("center->\(shadowView.center),position->\(shadowView.layer.position),frame->\(shadowView.frame)")
 
     }
     
@@ -369,20 +539,27 @@ class UITestVC: UIViewController {
 //        textView.passwordRules = rules
 //        textView.smartDashesType = .no
         
-        let text = "bgText"
+        let text = "The appropriate bgText The appropriate word elu"
         let attr = NSMutableAttributedString(string: text)
         attr.addAttributes([.backgroundColor: UIColor.red,
-                            .foregroundColor: UIColor.green], range: NSRange(location: 0, length: 3))
+                            .foregroundColor: UIColor.green], range: NSRange(location: 4, length: 5))
         textView.attributedText = attr
     }
     
     /// 测试结果，会根据最大行数返回size，也会根据约束的宽度，计算合适的结果
     func numberOfLinesTest() {
+        //lineheight: 20: 23.8671875 21: 25.06
+        let font = UIFont.systemFont(ofSize: 21)
+        widthLabel.font = font
         widthLabel.numberOfLines = 2
         let size = widthLabel.intrinsicContentSize
         widthLabel.mm_size = size
+        mm_printLog("test->\(size)")
+        
+        return
+        mm_printLog("print_test")
     }
-    
+
     /// 结论：transform 会改变frame
     func transformTest() {
                 mm_printLog("mode=\(NSLineBreakMode(rawValue: model)!.rawValue)")
@@ -461,14 +638,15 @@ class UITestVC: UIViewController {
     var str = "Your project does not explicitly specify"
     @objc func handleClick(sender: UIButton) {
         
-        str += " a"
-        let attr = getInputAttr(input: str, font: UIFont.systemFont(ofSize: 20))
-        
-        let number = attr.numberOfLine(width: 150)
-        
-        mm_printLog("点击了->\(number)")
-        
-        textView.attributedText = attr
+//        str += " a"
+//        let attr = getInputAttr(input: str, font: UIFont.systemFont(ofSize: 20))
+//
+//        let number = attr.numberOfLine(width: 150)
+//
+//        mm_printLog("点击了->\(number)")
+//
+//        textView.attributedText = attr
+        textViewTest()
     }
     
     
@@ -606,5 +784,11 @@ extension UITestVC {
         let image = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
         return image
+    }
+}
+
+extension UITestVC: MFMailComposeViewControllerDelegate {
+    func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
+        controller.dismiss(animated: true, completion: nil)
     }
 }

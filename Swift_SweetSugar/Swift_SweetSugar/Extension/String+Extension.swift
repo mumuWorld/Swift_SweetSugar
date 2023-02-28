@@ -57,6 +57,16 @@ public extension String {
     
 }
 
+public extension String {
+    var isEnglistWord: Bool {
+        if isEmpty {
+            return false
+        }
+        let regx = try? NSRegularExpression(pattern: "[a-zA-z]", options: .caseInsensitive)
+        let match = regx?.numberOfMatches(in: self, options: .reportCompletion, range: mm_range()) ?? 0
+        return match == count
+    }
+}
 
 extension String {
     //将原始的url编码为合法的url
@@ -75,6 +85,13 @@ extension String {
 extension NSString {
     func mm_range() -> NSRange {
         return NSRange(location: 0, length: self.length);
+    }
+    
+    /// 匹配字符串 返回 NSRange
+    /// - Parameter str: 子串
+    /// - Returns: 默认返回 0-0
+    func yd_nsRangeOfString(str: String) -> NSRange {
+        return range(of: str)
     }
 }
 //不包含后几个字符串的方法

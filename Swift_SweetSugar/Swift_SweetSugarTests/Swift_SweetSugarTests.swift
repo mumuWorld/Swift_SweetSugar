@@ -33,7 +33,7 @@ class Swift_SweetSugarTests: XCTestCase {
     }
 
     func testGCD() {
-        
+        GCDTest().test1()
     }
     
     func gcdDo() {
