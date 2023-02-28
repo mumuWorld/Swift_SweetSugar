@@ -304,10 +304,10 @@
                     </constraints>
                 </stackView>
                 <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" alignment="center" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="IFQ-YM-444">
-                    <rect key="frame" x="5" y="317" width="365" height="44"/>
+                    <rect key="frame" x="5" y="317" width="404" height="44"/>
                     <subviews>
-                        <button opaque="NO" tag="41" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qaK-EU-ESP">
-                            <rect key="frame" x="0.0" y="7" width="61" height="30"/>
+                        <button opaque="NO" tag="41" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qaK-EU-ESP">
+                            <rect key="frame" x="0.0" y="7" width="37" height="30"/>
                             <color key="backgroundColor" red="0.2901960784" green="0.56470588239999997" blue="0.8862745098" alpha="1" colorSpace="calibratedRGB"/>
                             <state key="normal" title="41:Crash">
                                 <color key="titleColor" systemColor="systemRedColor"/>
@@ -316,34 +316,34 @@
                                 <action selector="handleClick:" destination="-1" eventType="touchUpInside" id="NCr-He-QYM"/>
                             </connections>
                         </button>
-                        <button opaque="NO" tag="42" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hqo-0Z-2Io">
-                            <rect key="frame" x="66" y="7" width="99" height="30"/>
+                        <button opaque="NO" tag="42" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hqo-0Z-2Io">
+                            <rect key="frame" x="42" y="7" width="99" height="30"/>
                             <color key="backgroundColor" red="1" green="0.40000000000000002" blue="0.35686274509999999" alpha="1" colorSpace="calibratedRGB"/>
                             <state key="normal" title="42:结构体测试"/>
                             <connections>
                                 <action selector="handleClick:" destination="-1" eventType="touchUpInside" id="eMM-ry-aps"/>
                             </connections>
                         </button>
-                        <button opaque="NO" tag="43" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lNZ-c8-MVp">
-                            <rect key="frame" x="170" y="7" width="61" height="30"/>
+                        <button opaque="NO" tag="43" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lNZ-c8-MVp">
+                            <rect key="frame" x="146" y="7" width="61" height="30"/>
                             <color key="backgroundColor" red="1" green="0.40000000000000002" blue="0.35686274509999999" alpha="1" colorSpace="calibratedRGB"/>
                             <state key="normal" title="43:Block"/>
                             <connections>
                                 <action selector="handleClick:" destination="-1" eventType="touchUpInside" id="0VJ-PH-lim"/>
                             </connections>
                         </button>
-                        <button opaque="NO" tag="37" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bvc-oG-kq4">
-                            <rect key="frame" x="236" y="7" width="55" height="30"/>
+                        <button opaque="NO" tag="44" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bvc-oG-kq4">
+                            <rect key="frame" x="212" y="7" width="89" height="30"/>
                             <color key="backgroundColor" red="1" green="0.40000000000000002" blue="0.35686274509999999" alpha="1" colorSpace="calibratedRGB"/>
-                            <state key="normal" title="37-录音"/>
+                            <state key="normal" title="44_timerFire"/>
                             <connections>
                                 <action selector="handleClick:" destination="-1" eventType="touchUpInside" id="KmF-Tj-5tC"/>
                             </connections>
                         </button>
-                        <button opaque="NO" tag="38" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Cdu-re-U3R">
-                            <rect key="frame" x="296" y="7" width="69" height="30"/>
+                        <button opaque="NO" tag="45" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Cdu-re-U3R">
+                            <rect key="frame" x="306" y="7" width="98" height="30"/>
                             <color key="backgroundColor" red="1" green="0.40000000000000002" blue="0.35686274509999999" alpha="1" colorSpace="calibratedRGB"/>
-                            <state key="normal" title="38-emtpy"/>
+                            <state key="normal" title="45_TimerStop"/>
                             <connections>
                                 <action selector="handleClick:" destination="-1" eventType="touchUpInside" id="HLw-7l-ACF"/>
                             </connections>

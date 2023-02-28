@@ -195,7 +195,7 @@ class MMFuncTool: NSObject {
         
         
         var toolStrArr: [String] = ["0","1","2","3","4"]
-        
+        //"0,1,2,3,4"
         let joinStr = toolStrArr.joined(separator: ",")
 
         var toolArr: [Int] = [0,1,2,3,4,5]

@@ -112,11 +112,7 @@ class UITestVC: UIViewController {
 
         let baseFrame = CGRect(x: 10, y: 200, width: 200, height: 200)
 //        shadowView.frame = baseFrame
-        shadowView.snp.makeConstraints { make in
-            make.leading.equalToSuperview().offset(10)
-            make.top.equalToSuperview().offset(200)
-            make.width.height.equalTo(200)
-        }
+    
 //        shadowView.layer.anchorPoint = CGPoint(x: 0.5, y: 1)
 
 //        shadowView.layer.maskedCorners = [.layerMaxXMaxYCorner, .layerMinXMinYCorner]
@@ -135,7 +131,13 @@ class UITestVC: UIViewController {
             make.width.height.equalTo(200)
         }
         _compareView = compareView
-
+        
+        shadowView.snp.makeConstraints { make in
+            make.leading.equalToSuperview().offset(10)
+            make.top.equalTo(_compareView!.snp.bottom).offset(20)
+            make.width.height.equalTo(200)
+        }
+        
         let line: MMDottedLine = MMDottedLine()
         line.mm_size = CGSize(width: 100, height: 10)
 //        line.test()
@@ -223,25 +225,26 @@ class UITestVC: UIViewController {
 //        arr.forEach({ String(format: "test->%d", $0) })
 //        numberOfLinesTest()
 //        anchorTest()
-        layoutTest()
+//        layoutTest()
+        _compareView?.removeFromSuperview()
     }
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-        if view.mm_width > view.mm_height {
-//            graphicImageView.layer.masksToBounds = true
-            graphicImageView.layer.cornerRadius = 50
-            scrollBgView.snp.updateConstraints { make in
-                make.height.equalTo(500)
-                make.trailing.equalToSuperview().offset(-400)
-            }
-        } else {
-            graphicImageView.layer.cornerRadius = 0
-            scrollBgView.snp.updateConstraints { make in
-                make.height.equalTo(300)
-                make.trailing.equalToSuperview()
-            }
-        }
+//        if view.mm_width > view.mm_height {
+////            graphicImageView.layer.masksToBounds = true
+//            graphicImageView.layer.cornerRadius = 50
+//            scrollBgView.snp.updateConstraints { make in
+//                make.height.equalTo(500)
+//                make.trailing.equalToSuperview().offset(-400)
+//            }
+//        } else {
+//            graphicImageView.layer.cornerRadius = 0
+//            scrollBgView.snp.updateConstraints { make in
+//                make.height.equalTo(300)
+//                make.trailing.equalToSuperview()
+//            }
+//        }
     }
     
     lazy var scrollBgView: UIView = {

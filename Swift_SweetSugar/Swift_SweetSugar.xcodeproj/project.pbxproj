@@ -30,6 +30,7 @@
 		65D2923D2811566600B31DFD /* TestCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65D2923B2811566600B31DFD /* TestCollectionViewCell.swift */; };
 		65D2923E2811566600B31DFD /* TestCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 65D2923C2811566600B31DFD /* TestCollectionViewCell.xib */; };
 		65D292402811583700B31DFD /* ScrollTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65D2923F2811583700B31DFD /* ScrollTableViewCell.swift */; };
+		65E188DD2995F1AE00B177C1 /* AnimationTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65E188DC2995F1AE00B177C1 /* AnimationTest.swift */; };
 		65FB47D22807EB94003EC323 /* UIButton+PropertyExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65FB47CF2807EB94003EC323 /* UIButton+PropertyExtension.swift */; };
 		65FB47D32807EB94003EC323 /* UIButton+typeLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65FB47D12807EB94003EC323 /* UIButton+typeLayout.swift */; };
 		AC1EC0BBACA998F5DF57DC83 /* Pods_Swift_SweetSugarTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B50AB3DD44E5A70683C35C88 /* Pods_Swift_SweetSugarTests.framework */; };
@@ -232,6 +233,7 @@
 		65D2923B2811566600B31DFD /* TestCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestCollectionViewCell.swift; sourceTree = "<group>"; };
 		65D2923C2811566600B31DFD /* TestCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TestCollectionViewCell.xib; sourceTree = "<group>"; };
 		65D2923F2811583700B31DFD /* ScrollTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollTableViewCell.swift; sourceTree = "<group>"; };
+		65E188DC2995F1AE00B177C1 /* AnimationTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimationTest.swift; sourceTree = "<group>"; };
 		65FB47CF2807EB94003EC323 /* UIButton+PropertyExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIButton+PropertyExtension.swift"; sourceTree = "<group>"; };
 		65FB47D12807EB94003EC323 /* UIButton+typeLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIButton+typeLayout.swift"; sourceTree = "<group>"; };
 		673050F51396BFDC2DD7DD6F /* Pods-Swift_SweetSugarTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Swift_SweetSugarTests.debug.xcconfig"; path = "Target Support Files/Pods-Swift_SweetSugarTests/Pods-Swift_SweetSugarTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -868,6 +870,7 @@
 			children = (
 				B49DC0DE2681805A009DE0FB /* MMLayerAnimationVC.swift */,
 				B49DC0DF2681805A009DE0FB /* MMLayerAnimationVC.xib */,
+				65E188DC2995F1AE00B177C1 /* AnimationTest.swift */,
 			);
 			path = CoreAnimation;
 			sourceTree = "<group>";
@@ -1446,6 +1449,7 @@
 				65D29237281154D800B31DFD /* LabelTableViewCell.swift in Sources */,
 				B4B69E78233E55D40061AF93 /* CreateTool.swift in Sources */,
 				B4E390B02796B3ED000670FC /* WordWidget.intentdefinition in Sources */,
+				65E188DD2995F1AE00B177C1 /* AnimationTest.swift in Sources */,
 				B4A17DE42669FA870030E40D /* MMTableViewVC.swift in Sources */,
 				651344EB28729889002FEF1B /* MMUIKitAnimationVC.swift in Sources */,
 				B425AC6B2252526000B02B77 /* ViewController.swift in Sources */,

@@ -24,12 +24,40 @@ class MMDateTest {
         formatter.dateStyle = .medium
         formatter.timeStyle = .short
 //        formatter.locale = NSLocale.system
-        
+        formatter.calendar = Calendar(identifier: .gregorian)
+        //用此formatter 1970-01-01 21:20:00 时间会有问题。
         let formatterStr = "yyyy-MM-dd hh:mm:ss"
-        let timeStr = "2023-02-01 00:00:00"
+        let timeStr = "1970-01-01 20:20:00"
         formatter.dateFormat = formatterStr
         let date = formatter.date(from: timeStr)
+        
+        let formatter_2 = DateFormatter()
+        formatter_2.calendar = Calendar(identifier: .gregorian)
+        //此格式 只能正确返回24小时制时间。
+        formatter_2.dateFormat = "yyyy-MM-dd HH:mm:ss"
+        let date_2 = formatter_2.date(from: timeStr)
+
         mm_printLog("date-\(date)")
+        debugPrint("debug_test")
+        print("test_print")
+        /*12小时制
+         timeStr = "1970-01-01 9:20:00"
+         date = "some : 1970-01-01 1:20:00 AM +0000"
+         data_2 = nil
+         
+         timeStr = "1970-01-01 20:20:00"
+         date = nil
+         data_2 = nil
+         
+         24小时制
+         timeStr = "1970-01-01 9:20:00"
+         date = "1970-01-01 01:20:00 +0000"
+         data_2 = "1970-01-01 01:20:00 +0000"
+         
+         timeStr = "1970-01-01 20:20:00"
+         date = nil
+         data_2 = 1970-01-01 12:20:00 +0000
+         */
     }
     
     class func hourTest() {
