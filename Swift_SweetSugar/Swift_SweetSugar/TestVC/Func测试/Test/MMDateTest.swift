@@ -21,8 +21,8 @@ class MMDateTest {
     
     class func formatTest() {
         let formatter = DateFormatter()
-        formatter.dateStyle = .medium
-        formatter.timeStyle = .short
+//        formatter.dateStyle = .medium
+//        formatter.timeStyle = .short
 //        formatter.locale = NSLocale.system
         formatter.calendar = Calendar(identifier: .gregorian)
         //用此formatter 1970-01-01 21:20:00 时间会有问题。
@@ -30,6 +30,9 @@ class MMDateTest {
         let timeStr = "1970-01-01 20:20:00"
         formatter.dateFormat = formatterStr
         let date = formatter.date(from: timeStr)
+        //"test->day: 1 hour: 20 minute: 20 isLeapMonth: false "
+        let components = formatter.calendar.dateComponents([.day,.hour,.minute], from: date ?? Date())
+        debugPrint("test->\(components)")
         
         let formatter_2 = DateFormatter()
         formatter_2.calendar = Calendar(identifier: .gregorian)
@@ -40,6 +43,18 @@ class MMDateTest {
         mm_printLog("date-\(date)")
         debugPrint("debug_test")
         print("test_print")
+        
+        let key = "test_key"
+        UserDefaults.standard.set("test", forKey: key)
+        //str = "test"
+        let str = UserDefaults.standard.string(forKey: key)
+        // int_v = 0
+        var int_v = UserDefaults.standard.integer(forKey: key)
+        UserDefaults.standard.set(10, forKey: key)
+        //int_v = 10
+        int_v = UserDefaults.standard.integer(forKey: key)
+        print("test_print")
+
         /*12小时制
          timeStr = "1970-01-01 9:20:00"
          date = "some : 1970-01-01 1:20:00 AM +0000"

@@ -353,6 +353,48 @@
                         <constraint firstAttribute="height" constant="44" id="gFS-Vv-pJN"/>
                     </constraints>
                 </stackView>
+                <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="E8i-0I-Tew">
+                    <rect key="frame" x="8" y="369" width="398" height="44"/>
+                    <subviews>
+                        <button opaque="NO" tag="46" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NXM-r5-db1">
+                            <rect key="frame" x="0.0" y="7" width="192" height="30"/>
+                            <color key="backgroundColor" red="0.2901960784" green="0.56470588239999997" blue="0.8862745098" alpha="1" colorSpace="calibratedRGB"/>
+                            <state key="normal" title="46:OCTest">
+                                <color key="titleColor" systemColor="systemRedColor"/>
+                            </state>
+                            <connections>
+                                <action selector="handleClick:" destination="-1" eventType="touchUpInside" id="p7L-t9-fiY"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" tag="47" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cot-Uc-173">
+                            <rect key="frame" x="197" y="7" width="41" height="30"/>
+                            <color key="backgroundColor" red="1" green="0.40000000000000002" blue="0.35686274509999999" alpha="1" colorSpace="calibratedRGB"/>
+                            <state key="normal" title="47:NL"/>
+                            <connections>
+                                <action selector="handleClick:" destination="-1" eventType="touchUpInside" id="tq9-Ct-WRn"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" tag="43" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sBG-Nr-k77">
+                            <rect key="frame" x="243" y="7" width="61" height="30"/>
+                            <color key="backgroundColor" red="1" green="0.40000000000000002" blue="0.35686274509999999" alpha="1" colorSpace="calibratedRGB"/>
+                            <state key="normal" title="43:Block"/>
+                            <connections>
+                                <action selector="handleClick:" destination="-1" eventType="touchUpInside" id="K5S-Qo-vBj"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" tag="44" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nlu-le-Ay0">
+                            <rect key="frame" x="309" y="7" width="89" height="30"/>
+                            <color key="backgroundColor" red="1" green="0.40000000000000002" blue="0.35686274509999999" alpha="1" colorSpace="calibratedRGB"/>
+                            <state key="normal" title="44_timerFire"/>
+                            <connections>
+                                <action selector="handleClick:" destination="-1" eventType="touchUpInside" id="Hmg-NQ-3ND"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="44" id="jTe-KB-uqh"/>
+                    </constraints>
+                </stackView>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -361,6 +403,7 @@
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="vyg-O4-ulE" secondAttribute="trailing" constant="8" id="Kl8-bD-IG2"/>
                 <constraint firstItem="frV-13-JUL" firstAttribute="leading" secondItem="yiv-9e-lLZ" secondAttribute="leading" id="LoS-by-bne"/>
                 <constraint firstItem="yiv-9e-lLZ" firstAttribute="top" secondItem="1fS-P6-FT2" secondAttribute="bottom" constant="8" id="MOw-Wm-zvz"/>
+                <constraint firstAttribute="trailing" secondItem="E8i-0I-Tew" secondAttribute="trailing" constant="8" id="R4C-qo-3ia"/>
                 <constraint firstItem="IFQ-YM-444" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="5" id="a9n-PF-Qy3"/>
                 <constraint firstItem="vyg-O4-ulE" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="9" id="aER-CS-LQa"/>
                 <constraint firstItem="yiv-9e-lLZ" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="8" id="cCO-51-MWd"/>
@@ -370,6 +413,8 @@
                 <constraint firstItem="JAb-jy-yeI" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="6" id="szS-p0-5WN"/>
                 <constraint firstItem="vyg-O4-ulE" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="8" id="tmx-nh-Kun"/>
                 <constraint firstItem="IFQ-YM-444" firstAttribute="top" secondItem="JAb-jy-yeI" secondAttribute="bottom" constant="8" id="unK-cF-Ikw"/>
+                <constraint firstItem="E8i-0I-Tew" firstAttribute="top" secondItem="IFQ-YM-444" secondAttribute="bottom" constant="8" id="vGn-Vm-WN4"/>
+                <constraint firstItem="E8i-0I-Tew" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="8" id="xyX-uB-Yls"/>
                 <constraint firstItem="frV-13-JUL" firstAttribute="top" secondItem="yiv-9e-lLZ" secondAttribute="bottom" constant="8" id="yNT-ol-Xoj"/>
             </constraints>
             <point key="canvasLocation" x="-146.37681159420291" y="29.464285714285712"/>

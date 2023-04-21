@@ -8,26 +8,20 @@
 
 import UIKit
 
-class MMGradientView: UIView {
-
-    lazy var graintLayer: CAGradientLayer = CAGradientLayer()
+public class MMGradientView: UIView {
     
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-        layer.addSublayer(graintLayer)
+    public override class var layerClass: AnyClass {
+        return CAGradientLayer.self
     }
     
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-
+    var _colors: [UIColor] = []
     
-    override func layoutSubviews() {
-        super.layoutSubviews()
-        graintLayer.frame = CGRect(origin: .zero, size: mm_size)
-    }
+    var _adaptDark: Bool = false
     
-    func update(colors: [UIColor], start: CGPoint = CGPoint(x: 0.5, y: 0), end: CGPoint = CGPoint(x: 0.5, y: 1), locations: [CGFloat]? = nil) {
+    public func update(colors: [UIColor], start: CGPoint = CGPoint(x: 0.5, y: 0), end: CGPoint = CGPoint(x: 0.5, y: 1), locations: [CGFloat]? = nil, adaptDark: Bool = false) {
+        _colors = colors
+        _adaptDark = adaptDark
+        guard let graintLayer = self.layer as? CAGradientLayer  else { return }
         graintLayer.colors = colors.map({ (color) -> CGColor in
             return color.cgColor
         }) as [Any]
@@ -35,6 +29,17 @@ class MMGradientView: UIView {
         graintLayer.endPoint = end
         if let loc = locations as [NSNumber]? {
             graintLayer.locations = loc
+        }
+    }
+    
+    public override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+        super.traitCollectionDidChange(previousTraitCollection)
+        guard _adaptDark else { return }
+        if #available(iOS 13.0, *), previousTraitCollection?.userInterfaceStyle != traitCollection.userInterfaceStyle {
+            guard let graintLayer = self.layer as? CAGradientLayer  else { return }
+            graintLayer.colors = _colors.map({ (color) -> CGColor in
+                return color.cgColor
+            }) as [Any]
         }
     }
 }

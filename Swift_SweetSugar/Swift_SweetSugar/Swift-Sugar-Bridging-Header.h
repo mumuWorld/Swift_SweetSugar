@@ -11,5 +11,6 @@
 
 #import "LXDAppFluecyMonitor.h"
 #import "MMCustomOCObj.h"
+#import "MMHookTextView.h"
 
 #endif /* Swift_Sugar_Bridge_h */

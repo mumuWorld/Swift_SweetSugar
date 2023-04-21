@@ -5,7 +5,6 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
         <capability name="Image references" minToolsVersion="12.0"/>
-        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="UIMenu" message="Requires Xcode 11 or later." minToolsVersion="11.0" requiredIntegratedClassName="UICommandDiff"/>
@@ -20,6 +19,7 @@
                 <outlet property="pieChartView" destination="Ugm-HH-YRJ" id="KWG-Mj-sLu"/>
                 <outlet property="shadowBtn" destination="gwf-3y-oOz" id="aQO-fv-1Ut"/>
                 <outlet property="shadowView" destination="lll-pu-NQP" id="OvH-uM-JIs"/>
+                <outlet property="stackView" destination="UTX-5i-QA6" id="iGH-EX-nZh"/>
                 <outlet property="testButton" destination="DeY-ja-ekh" id="KIr-Jm-SI0"/>
                 <outlet property="textView" destination="OZe-ce-Eyp" id="gqR-jf-6LI"/>
                 <outlet property="textView_h" destination="0UK-JE-4eB" id="dS8-Eh-6fs"/>
@@ -33,35 +33,14 @@
             <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="top" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="UTX-5i-QA6">
-                    <rect key="frame" x="8" y="56" width="398" height="142"/>
-                    <subviews>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label_2" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="abS-bA-cir">
-                            <rect key="frame" x="0.0" y="0.0" width="61" height="34"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                            <nil key="textColor"/>
-                            <nil key="highlightedColor"/>
-                        </label>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fZt-vZ-IMv">
-                            <rect key="frame" x="0.0" y="54" width="61" height="34"/>
-                            <color key="backgroundColor" name="AccentColor"/>
-                            <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                            <state key="normal" title="Button1">
-                                <color key="titleColor" systemColor="systemOrangeColor"/>
-                            </state>
-                        </button>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="r9B-Q8-wEa">
-                            <rect key="frame" x="0.0" y="108" width="64" height="34"/>
-                            <color key="backgroundColor" systemColor="systemGreenColor"/>
-                            <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                            <state key="normal" title="Button2">
-                                <color key="titleColor" systemColor="systemOrangeColor"/>
-                            </state>
-                        </button>
-                    </subviews>
+                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" alignment="top" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="UTX-5i-QA6">
+                    <rect key="frame" x="8" y="56" width="398" height="150"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="150" id="hWe-U9-NnS"/>
+                    </constraints>
                 </stackView>
                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="justified" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="OZe-ce-Eyp">
-                    <rect key="frame" x="50" y="355" width="150" height="200"/>
+                    <rect key="frame" x="50" y="363" width="150" height="200"/>
                     <color key="backgroundColor" red="0.2901960784" green="0.56470588239999997" blue="0.8862745098" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="200" id="0UK-JE-4eB"/>
@@ -164,7 +143,7 @@
                     </state>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hH4-TS-KMA">
-                    <rect key="frame" x="254" y="318" width="131" height="60"/>
+                    <rect key="frame" x="254" y="326" width="131" height="60"/>
                     <inset key="titleEdgeInsets" minX="4" minY="0.0" maxX="-4" maxY="0.0"/>
                     <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                     <state key="normal" title="test_title" image="agree_icon_select.png">
@@ -172,7 +151,7 @@
                     </state>
                 </button>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="测试label宽度高" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bwn-ME-WrY">
-                    <rect key="frame" x="294" y="228" width="100" height="20.5"/>
+                    <rect key="frame" x="294" y="236" width="100" height="20.5"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="100" id="hss-l9-Hwl"/>
                     </constraints>
@@ -225,17 +204,11 @@
         <image name="btn_heart_selected" width="24" height="24"/>
         <image name="graphic" width="750" height="1334"/>
         <image name="rotate.left" catalog="system" width="115" height="128"/>
-        <namedColor name="AccentColor">
-            <color red="0.0" green="0.46000000000000002" blue="0.89000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
         <systemColor name="labelColor">
             <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
-        <systemColor name="systemGreenColor">
-            <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemIndigoColor">
             <color red="0.34509803921568627" green="0.33725490196078434" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

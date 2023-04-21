@@ -15,6 +15,23 @@ class MMTextView: UITextView {
             mm_printLog("赋值->")
         }
     }
+    
+//    @objc func _wantsForwardingFromResponder(_ arg1: UIResponder, toNextResponder  arg2: UIResponder, withEvent arg3: UIEvent) -> Bool {
+//        let classStr = String(describing: arg2.self)
+//        if classStr == "_UIRemoteInputViewController" {
+//            return true
+//        }
+//        return super.perform(#selector(_wantsForwardingFromResponder(arg1, toNextResponder: arg2, withEvent: arg3)))
+//    }
+    
+//    - (BOOL)_wantsForwardingFromResponder:(UIResponder *)arg1 toNextResponder:(UIResponder *)arg2 withEvent:(UIEvent *)arg3 {
+//        NSString* responderClassName = NSStringFromClass([arg2 class]);
+//        if ([responderClassName isEqualToString:@"_UIRemoteInputViewController"]) {
+//            if (_objc_rootIsDeallocating(arg2)) {
+//                NSLog(@"BingGo a deallocating object ...");
+//                return true;
+//            }
+//        }
 
 //    override func canPerformAction(_ action: Selector, withSender sender: Any?) -> Bool {
 //        mm_printLog("test->\(action), sender=\(sender)")

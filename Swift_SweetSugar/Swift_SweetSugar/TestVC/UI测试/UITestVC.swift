@@ -100,6 +100,12 @@ class UITestVC: UIViewController {
         return blurView
     }()
     
+    @IBOutlet weak var stackView: UIStackView!
+    
+    @IBOutlet weak var label2: UILabel!
+    
+    @IBOutlet weak var button1: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         textView.delegate = self
@@ -112,14 +118,11 @@ class UITestVC: UIViewController {
 
         let baseFrame = CGRect(x: 10, y: 200, width: 200, height: 200)
 //        shadowView.frame = baseFrame
-    
-//        shadowView.layer.anchorPoint = CGPoint(x: 0.5, y: 1)
-
 //        shadowView.layer.maskedCorners = [.layerMaxXMaxYCorner, .layerMinXMinYCorner]
 
-        let shadowSub = UIView(frame: CGRect(x: 0, y: 10, width: 30, height: 30))
-        shadowSub.backgroundColor = .red
-        shadowView.addSubview(shadowSub)
+//        let shadowSub = UIView(frame: CGRect(x: 0, y: 10, width: 50, height: 50))
+//        shadowSub.backgroundColor = .red
+//        shadowView.addSubview(shadowSub)
         mm_printLog("center->\(shadowView.center),position->\(shadowView.layer.position),frame->\(shadowView.frame)")
         //位置比较
         let compareView = UIView(frame: baseFrame)
@@ -132,11 +135,11 @@ class UITestVC: UIViewController {
         }
         _compareView = compareView
         
-        shadowView.snp.makeConstraints { make in
-            make.leading.equalToSuperview().offset(10)
-            make.top.equalTo(_compareView!.snp.bottom).offset(20)
-            make.width.height.equalTo(200)
-        }
+//        shadowView.snp.makeConstraints { make in
+//            make.leading.equalToSuperview().offset(10)
+//            make.top.equalTo(_compareView!.snp.bottom).offset(20)
+//            make.width.height.equalTo(200)
+//        }
         
         let line: MMDottedLine = MMDottedLine()
         line.mm_size = CGSize(width: 100, height: 10)
@@ -197,6 +200,11 @@ class UITestVC: UIViewController {
         return .default
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        mm_printLog("111")
+    }
+    
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         mm_printLog("111")
@@ -226,9 +234,96 @@ class UITestVC: UIViewController {
 //        numberOfLinesTest()
 //        anchorTest()
 //        layoutTest()
-        _compareView?.removeFromSuperview()
+//        _compareView?.removeFromSuperview()
+//        graTest()
+//        snapshotTest()
+//        gradientTest()
+//        gradientTest()
+        stackViewTest()
     }
     
+    /// stackView 间距测试: 可以自定义某个 子视图之后的间距
+    func stackViewTest() {
+        //有效， 但是当 distribute 为 EqualSpacing 时 无效
+//        stackView.setCustomSpacing(0, after: label2)
+        let v = UIView(frame: CGRect(x: 0, y: 0, width: 50, height: 50))
+        v.backgroundColor = .red
+        stackView.insertArrangedSubview(v, at: 0)
+    }
+    
+    /// 截图测试
+    func snapshotTest() {
+        let v = UIView(frame: CGRect(x: 0, y: 0, width: 100, height: 100))
+        v.backgroundColor = .green
+        view.addSubview(v)
+        
+        let size = CGSize(300, 300)
+        let rect = CGRect(x: 0, y: 0, width: 300, height: 300)
+        let renderer = UIGraphicsImageRenderer(size: CGSize(300, 300))
+        let renderImg = renderer.image { context in
+            v.drawHierarchy(in: rect, afterScreenUpdates: true)
+        }
+        self.graphicImageView.image = renderImg
+//
+//        DispatchQueue.main.async {
+//            UIGraphicsBeginImageContextWithOptions(CGSize(300, 300), false, UIScreen.main.scale)
+//            guard let context = UIGraphicsGetCurrentContext() else { return }
+//            self.stackView.draw(CGRect(x: 0, y: 0, width: 100, height: 100))
+//            let img = UIGraphicsGetImageFromCurrentImageContext()
+//            self.graphicImageView.image = img
+//            UIGraphicsEndImageContext()
+//        }
+//
+        return
+    }
+    
+    func gradientTest() {
+//        let layer0 = CAGradientLayer()
+//        layer0.colors = [
+//          UIColor(red: 0.078, green: 0.055, blue: 0.18, alpha: 1).cgColor,
+//          UIColor(red: 0.145, green: 0.035, blue: 0.133, alpha: 1).cgColor
+//        ]
+//        layer0.locations = [0, 1]
+//        layer0.startPoint = CGPoint(x: 0.25, y: 0.5)
+//        layer0.endPoint = CGPoint(x: 0.75, y: 0.5)
+//        layer0.transform = CATransform3DMakeAffineTransform(CGAffineTransform(a: 0, b: 1, c: -1, d: 0, tx: 1, ty: 0))
+//        layer0.bounds = view.bounds.insetBy(dx: -0.5*view.bounds.size.width, dy: -0.5*view.bounds.size.height)
+//        layer0.position = view.center
+//        view.layer.addSublayer(layer0)
+        
+//        let layer0 = CAGradientLayer()
+//        layer0.colors = [
+//          UIColor(red: 1, green: 0.917, blue: 0.962, alpha: 1).cgColor,
+//          UIColor(red: 0.796, green: 0.762, blue: 1, alpha: 1).cgColor
+//        ]
+//        layer0.locations = [0, 1]
+//        layer0.startPoint = CGPoint(x: 0.25, y: 0.5)
+//        layer0.endPoint = CGPoint(x: 0.75, y: 0.5)
+//        layer0.transform = CATransform3DMakeAffineTransform(CGAffineTransform(a: -0.73, b: -0.05, c: -0.77, d: -1.37, tx: 1.4, ty: 0.77))
+        
+        let v = MMGradientView()
+        view.addSubview(v)
+        v.snp.makeConstraints { make in
+            make.leading.trailing.bottom.equalToSuperview()
+            make.height.equalTo(200)
+        }
+//        v.frame = CGRect(x: 100, y: 200, width: 300, height: 300)
+        v.update(colors: [UIColor(red: 0.212, green: 0.224, blue: 0.255, alpha: 0),
+                          UIColor(red: 0.212, green: 0.224, blue: 0.255, alpha: 0.7),
+                          UIColor(red: 0.212, green: 0.224, blue: 0.255, alpha: 1)], start: CGPoint(x: 0.5, y: 0), end: CGPoint(x: 0.5, y: 1), locations: [0, 0.3, 0.63, 1])
+    }
+    
+    override func touchesCancelled(_ touches: Set<UITouch>, with event: UIEvent?) {
+        mm_printLog("test->cancel")
+    }
+    
+    override func pressesBegan(_ presses: Set<UIPress>, with event: UIPressesEvent?) {
+        mm_printLog("test->press")
+    }
+    
+    override func motionBegan(_ motion: UIEvent.EventSubtype, with event: UIEvent?) {
+        mm_printLog("test->motion")
+    }
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
 //        if view.mm_width > view.mm_height {
@@ -281,9 +376,6 @@ class UITestVC: UIViewController {
         graphicImageView.snp.makeConstraints { make in
             make.edges.equalToSuperview()
         }
-//        shadowView.snp.updateConstraints { make in
-//            make.height.equalTo(250)
-//        }
 //        UIView.animate(withDuration: 0.3) {
 //            self.view.layoutIfNeeded()
 //        }
@@ -562,10 +654,25 @@ class UITestVC: UIViewController {
 
     /// 结论：transform 会改变frame
     func transformTest() {
-                mm_printLog("mode=\(NSLineBreakMode(rawValue: model)!.rawValue)")
-//                mm_printLog("\(textView)")
-                textView.transform = CGAffineTransform(scaleX: 1, y: 1.2)
-//                mm_printLog("\(textView)")
+        let greenView = UIView(frame: CGRect(x: 100, y: 100, width: 100, height: 100))
+        greenView.backgroundColor = UIColor.green
+        view.insertSubview(greenView, belowSubview: shadowView)
+        shadowView.frame = CGRect(x: 100, y: 100, width: 100, height: 100)
+//                mm_printLog("mode=\(NSLineBreakMode(rawValue: model)!.rawValue)")
+        //frame = (50 50; 200 200); transform = [2, 0, 0, 2, 0, 0];
+        shadowView.transform = CGAffineTransform(scaleX: 2, y: 2)
+        mm_printLog("\(shadowView)")
+//        //改变transfrom之后再改变frame, 他的transform不影响之后frame的变化
+//        // frame = (100 100; 50 50); transform = [2, 0, 0, 2, 0, 0];
+        shadowView.frame = CGRect(x: 100, y: 100, width: 100, height: 100)
+        mm_printLog("\(shadowView)")
+        // rame = (150 150; 100 100); anchorPoint = (0, 0);   position = (150, 150)
+//        shadowView.layer.anchorPoint = CGPoint(x: 0, y: 0)
+        shadowView.transform = CGAffineTransform(scaleX: 2, y: 2)
+
+        mm_printLog("\(shadowView)")
+
+        
     }
     
     func setupAttr() -> Void {

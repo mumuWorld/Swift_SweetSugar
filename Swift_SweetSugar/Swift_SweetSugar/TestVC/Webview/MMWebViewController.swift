@@ -9,6 +9,7 @@
 import UIKit
 import WebKit
 import testDev
+import Photos
 
 class MMWebViewController: UIViewController {
 
@@ -20,6 +21,7 @@ class MMWebViewController: UIViewController {
         let item = WKWebView(frame: .zero, configuration: configure)
         item.uiDelegate = self
         item.navigationDelegate = self
+        item.backgroundColor = .lightGray
 //        item.observe(\.themeColor) { item, _ in
 //
 //        }
@@ -51,6 +53,9 @@ class MMWebViewController: UIViewController {
         return item
     }()
     
+    private var scrollViewOffsetObserver: NSKeyValueObservation?
+    private var scrollViewCotnentSizeObserver: NSKeyValueObservation?
+
     override func viewDidLoad() {
         super.viewDidLoad()
         view.addSubview(webview)
@@ -58,11 +63,13 @@ class MMWebViewController: UIViewController {
 //        view.insertSubview(panGestureView, belowSubview: webview)
 //        panGestureView.addSubview(webview)
         webview.snp.makeConstraints { (make) in
-            make.edges.equalToSuperview()
+            make.top.equalToSuperview().offset(100)
+            make.bottom.equalToSuperview().offset(-200)
+            make.leading.trailing.equalToSuperview()
         }
-        let pan = UIPanGestureRecognizer(target: self, action: #selector(handlePanGes(sender:)))
-        pan.delegate = self
-        webview.scrollView.addGestureRecognizer(pan)
+//        let pan = UIPanGestureRecognizer(target: self, action: #selector(handlePanGes(sender:)))
+//        pan.delegate = self
+//        webview.scrollView.addGestureRecognizer(pan)
 //        panGestureView.snp.makeConstraints { make in
 //            make.edges.equalToSuperview()
 //        }
@@ -75,31 +82,201 @@ class MMWebViewController: UIViewController {
 //        webview.scrollView.panGestureRecognizer.require(toFail: pan)
 //        panGestureView.gestureRecognizers?.forEach({ $0.cancelsTouchesInView = false })
 //        view.addSubview(panGestureView)
-
+            
+        scrollViewOffsetObserver = webview.scrollView.observe(\.contentOffset, options: [.new], changeHandler: { [weak self] scrollView, change in
+            guard let newOffset = change.newValue else { return }
+            // 在这里处理scrollView的contentOffset的变化
+//            mm_printLog("offset->\(newOffset)")
+        })
         
+        scrollViewCotnentSizeObserver = webview.scrollView.observe(\.contentSize, options: [.new, .old], changeHandler: { [weak self] scrollView, change in
+            guard let newOffset = change.newValue, let old = change.oldValue else { return }
+            // 在这里处理scrollView的contentOffset的变化
+            mm_printLog("size->\(newOffset),\(old)")
+        })
     }
-    
     
     
     func loadLocal() {
 //        let path = Bundle.main.path(forResource: "html/14.Some unexpected hidden locations for cameras", ofType: "html")
 //        let path = Bundle.main.path(forResource: "百度一下，你就知道", ofType: "html")
 //        let path = Bundle.main.path(forResource: "sw", ofType: "")?.appendPathComponent(string: "index.html")
-        let url = URL(string: "https://shared.youdao.com/dict/market/shop-window-test/#/more?from=searchIcon&hide-toolbar=true&full-screen=true")
+//        let url = URL(string: "https://shared.youdao.com/dict/market/shop-window-test/#/more?from=searchIcon&hide-toolbar=true&full-screen=true")
+//        let urlStr_7 = "https://www.baidu.com/s?ie=UTF-8&wd="
+//        let urlStr_7 = "https://h5.youdao.com/preview/1025?_t=1681289492028&title="
+//        var url = urlStr_7 + ".urlEncoded()
+        let url = "https://www.baidu.com/s?ie=UTF-8&wd="
+        let content = """
+        一二三四五六七八九十一二三四五六七八九十一二三四五六七八九十一二三四五六七八九十一二三四五六七八九十一二三四五六七八九十一二三四五六七八九十一二三四五六七八九十一二三
+"""
+        let title = "测试时代大厦"
+//        let url = "https://www.jianshu.com/p/3acc4fbf84a6"
+//        let url = "https://h5.youdao.com/preview/1025?_t=1681819816789&title=\(title)&content=\(content)&autoScale=true".addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!
+        let url_7 = URL(string: url)
+        mm_printLog("test->2, \(url.count)")
 //        url?.pathExtension
         //资源放在第三方库总
-        let path = LocalWebPath().getPath()
-        let tUrl = URL(fileURLWithPath: path)
-        let request = URLRequest(url: tUrl)
+//        let path = LocalWebPath().getPath()
+//        let tUrl = URL(fileURLWithPath: path)
+        let request = URLRequest(url: url_7!)
         webview.load(request)
     }
     
     
     deinit {
         mm_printLog("MMWebViewController deinit")
+        scrollViewOffsetObserver?.invalidate()
+        scrollViewCotnentSizeObserver?.invalidate()
+    }
+    
+    @IBAction func snapshot(_ sender: Any) {
+//        saveImg()
+        //wkwebview 官方截图
+        sysSnapshot()
+//        scrollHeight()
+//        takeSnapshotOfWKWebView()
+//        testPDF()
     }
     
     var isScrolling: Bool = false
+}
+
+extension WKWebView {
+    
+    func takeSnapshot(longImageWidth: CGFloat, completion: @escaping (UIImage?) -> Void) {
+           // 获取页面高度
+        evaluateJavaScript("document.body.scrollHeight") { [weak self] result, error in
+               guard let self = self, let contentHeight = result as? CGFloat else {
+                   completion(nil)
+                   return
+               }
+
+               // 计算截图总页数
+               let pageCount = Int(ceil(contentHeight / longImageWidth))
+
+               // 设置长图的实际高度
+               let longImageHeight = contentHeight + CGFloat(pageCount - 1) * longImageWidth
+
+               // 创建需要截取的矩形区域
+               let rect = CGRect(x: 0, y: 0, width: self.frame.size.width, height: longImageHeight)
+//            let rect = CGRect(x: 0, y: 0, width: self.scrollView.contentSize.width, height: self.webview.scrollView.contentSize.height)
+            print("test->\(rect)")
+               // 创建长图的上下文
+               UIGraphicsBeginImageContextWithOptions(rect.size, false, 0)
+
+               // 绘制长图
+            self.scrollView.setContentOffset(CGPoint.zero, animated: false)
+               for i in 0..<pageCount {
+                   let yOffset = CGFloat(i) * longImageWidth
+                   self.scrollView.setContentOffset(CGPoint(x: 0, y: yOffset), animated: false)
+                   self.drawHierarchy(in: CGRect(x: 0, y: yOffset, width: rect.width, height: longImageWidth), afterScreenUpdates: true)
+               }
+
+               let image = UIGraphicsGetImageFromCurrentImageContext()
+
+               // 结束绘制
+               UIGraphicsEndImageContext()
+
+               completion(image)
+           }
+       }
+
+}
+extension MMWebViewController {
+    
+    func testPDF() {
+        webview.takeScreenshotOfFullContent { [weak self] (image) in
+            // 处理image
+            self?.saveImg(img: image)
+        }
+    }
+    
+    //https://juejin.cn/post/6844903680055967757
+    private func takeSnapshotOfWKWebView() {
+        self.webview.scrollView.takeScreenshotOfFullContent { [weak self] (image) in
+            // 处理image
+            self?.saveImg(img: image)
+        }
+    }
+    func scrollHeight() {
+        webview.takeSnapshot(longImageWidth: webview.mm_height) { [weak self] img in
+            self?.saveImg(img: img)
+        }
+    }
+}
+extension MMWebViewController {
+    func saveImg(img: UIImage?) {
+        guard let img else { return }
+        PHPhotoLibrary.shared().performChanges({
+            PHAssetChangeRequest.creationRequestForAsset(from: img)
+        }) { (isSuccess, error) in
+            DispatchQueue.main.async {
+                if let error {
+                    mm_printLog(error)
+//                                Toast.init(text: "保存图片失败").show()
+                } else {
+                    mm_printLog("保存图片成功")
+                }
+            }
+        }
+    }
+    func sysSnapshot() {
+        let configure = WKSnapshotConfiguration()
+        configure.rect = CGRect(x: 0, y: 0, width: self.webview.scrollView.contentSize.width, height: self.webview.scrollView.contentSize.height)
+        print("test->\(configure.rect)")
+        webview.takeSnapshot(with: configure) { [weak self] img, error in
+            if let error {
+                print("test->\(error)")
+            }
+            self?.saveImg(img: img)
+        }
+    }
+}
+extension MMWebViewController {
+    func saveImg() {
+        captureWebView { image in
+            if let shareImage = image {
+                PHPhotoLibrary.shared().performChanges({
+                    PHAssetChangeRequest.creationRequestForAsset(from: shareImage)
+                }) { (isSuccess, error) in
+                    DispatchQueue.main.async {
+                        if let error {
+                            mm_printLog(error)
+    //                                Toast.init(text: "保存图片失败").show()
+                        } else {
+                            mm_printLog("保存图片成功")
+                        }
+                    }
+                }
+            }
+        }
+    }
+    
+    func captureWebView(completion: @escaping (UIImage?) -> Void) {
+        //解决wkWebview截图是黑色问题
+        self.startCaptureWebview { [weak self] _ in
+            guard let self = self else {return}
+            self.startCaptureWebview(completion: { (image) in
+                completion(image)
+            })
+        }
+    }
+    
+    func startCaptureWebview(completion: @escaping (UIImage?) -> Void) {
+        webview.scrollView.setContentOffset(CGPoint.zero, animated: false)
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
+            let rect = CGRect(x: 0, y: 0, width: self.webview.scrollView.contentSize.width, height: self.webview.scrollView.contentSize.height)
+            print("test->\(rect)")
+            //保证分享的图片是750 * 1334
+            UIGraphicsBeginImageContextWithOptions(rect.size, true, UIScreen.main.scale)
+            self.webview.drawHierarchy(in: rect, afterScreenUpdates: true)
+            let image = UIGraphicsGetImageFromCurrentImageContext()
+            UIGraphicsEndImageContext()
+            
+            completion(image)
+        }
+    }
 }
 
 extension MMWebViewController {
@@ -144,7 +321,7 @@ extension MMWebViewController: WKUIDelegate {
 extension MMWebViewController: WKNavigationDelegate {
     func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
         mm_printLog("加载完成")
-        let jsUrl = URL(string: "https://c.youdao.com/fanyiguan/webTrans/index.js")
+//        let jsUrl = URL(string: "https://c.youdao.com/fanyiguan/webTrans/index.js")
 //        let str = try? String(contentsOf: jsUrl!, encoding: .utf8)
 //        webView.evaluateJavaScript(str!, completionHandler: nil)
 //        webView.evaluateJavaScript("document.documentElement.outerHTML") { str, error in
@@ -174,5 +351,85 @@ class MMTouchsView: UIView {
     
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
         mm_printLog("Ended")
+    }
+}
+//extension WKWebView {
+//    func screenCapture() -> UIImage {
+//        var capturedView : UIView? = self.snapshotView(afterScreenUpdates: false)
+//        var image : UIImage? = nil;
+//
+//        if (capturedView != nil) {
+//            let size = self.scrollView.contentSize;
+//            UIGraphicsBeginImageContextWithOptions(size, true, 0);
+//            let rect = CGRectMake(self.bounds.origin.x, self.bounds.origin.y, size.width, size.height)
+//            capturedView?.drawHierarchy(in: rect, afterScreenUpdates: true);
+//            image = UIGraphicsGetImageFromCurrentImageContext();
+//            UIGraphicsEndImageContext();
+//        }
+//        return image!;
+//    }
+//
+//    func screenCapture(size: CGSize) -> UIImage? {
+//        var capturedView : UIView? = self.snapshotView(afterScreenUpdates: false)
+//        var image : UIImage? = nil;
+//
+//        if (capturedView != nil) {
+//            UIGraphicsBeginImageContextWithOptions(size, true, 0);
+//            guard let ctx = UIGraphicsGetCurrentContext() else { return nil };
+//            let scale : CGFloat! = size.width / capturedView!.layer.bounds.size.width;
+//            let transform = CGAffineTransformMakeScale(scale, scale);
+//            ctx.concatenate(transform);
+//            capturedView?.drawHierarchy(in: self.bounds, afterScreenUpdates: true);
+//            image = UIGraphicsGetImageFromCurrentImageContext();
+//            UIGraphicsEndImageContext();
+//        }
+//        return image;
+//    }
+//}
+
+extension UIScrollView {
+    public func takeScreenshotOfFullContent(_ completion: @escaping ((UIImage?) -> Void)) {
+        // 分页绘制内容到ImageContext
+        let originalOffset = self.contentOffset
+
+        // 当contentSize.height<bounds.height时，保证至少有1页的内容绘制
+        var pageNum = 1
+        if self.contentSize.height > self.bounds.height {
+            pageNum = Int(floorf(Float(self.contentSize.height / self.bounds.height)))
+        }
+
+        let backgroundColor = self.backgroundColor ?? UIColor.white
+
+        UIGraphicsBeginImageContextWithOptions(self.contentSize, true, 0)
+
+        guard let context = UIGraphicsGetCurrentContext() else {
+            completion(nil)
+            return
+        }
+        context.setFillColor(backgroundColor.cgColor)
+        context.setStrokeColor(backgroundColor.cgColor)
+
+        self.drawScreenshotOfPageContent(0, maxIndex: pageNum) {
+            let image = UIGraphicsGetImageFromCurrentImageContext()
+            UIGraphicsEndImageContext()
+            self.contentOffset = originalOffset
+            completion(image)
+        }
+    }
+
+    fileprivate func drawScreenshotOfPageContent(_ index: Int, maxIndex: Int, completion: @escaping () -> Void) {
+
+        self.setContentOffset(CGPoint(x: 0, y: CGFloat(index) * self.frame.size.height), animated: false)
+        let pageFrame = CGRect(x: 0, y: CGFloat(index) * self.frame.size.height, width: self.bounds.size.width, height: self.bounds.size.height)
+
+        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 0.3) {
+            self.drawHierarchy(in: pageFrame, afterScreenUpdates: true)
+
+            if index < maxIndex {
+                self.drawScreenshotOfPageContent(index + 1, maxIndex: maxIndex, completion: completion)
+            }else{
+                completion()
+            }
+        }
     }
 }
