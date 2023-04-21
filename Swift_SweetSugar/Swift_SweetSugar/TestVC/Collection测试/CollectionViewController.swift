@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SnapKit
 
 class CollectionViewController: UIViewController {
     
@@ -54,12 +55,45 @@ class CollectionViewController: UIViewController {
         return cv
     }()
     
+    lazy var flowLayout: UICollectionViewFlowLayout = {
+        let item = UICollectionViewFlowLayout()
+        item.minimumLineSpacing = 12
+        item.minimumInteritemSpacing = 1
+        item.estimatedItemSize = CGSize(140, 30)
+        item.itemSize = UICollectionViewFlowLayout.automaticSize
+        item.scrollDirection = .horizontal
+        return item
+    }()
+    
+    lazy var collectionView_3: UICollectionView = {
+        let item = UICollectionView(frame: .zero, collectionViewLayout: flowLayout)
+        item.showsHorizontalScrollIndicator = false
+        item.showsVerticalScrollIndicator = false
+        item.dataSource = self
+        item.contentInset = UIEdgeInsets(top: 0, left: 8, bottom: 0, right: 8)
+        item.delegate = self
+//        item.contentInsetAdjustmentBehavior = .never
+        item.backgroundColor = .lightGray
+        item.mm_registerNibCell(classType: MMSingleLabelCollectionViewCell.self)
+        return item
+    }()
+
+    
     var curOffset: CGPoint = .zero
     
     override func viewDidLoad() {
         super.viewDidLoad()
         view.addSubview(collectionView)
         view.addSubview(collectionView_2)
+        
+        view.addSubview(collectionView_3)
+        collectionView_3.snp.makeConstraints { make in
+            make.leading.trailing.equalToSuperview()
+            make.top.equalToSuperview().offset(400)
+            make.height.equalTo(40)
+        }
+//        flowLayout.itemSize = CGSize(150, 30)
+//        collectionView_3.invalidateIntrinsicContentSize()
         // Do any additional setup after loading the view.
     }
 
@@ -74,12 +108,23 @@ class CollectionViewController: UIViewController {
     }
 }
 
+//extension CollectionViewController: UICollectionViewDelegateFlowLayout {
+//
+//}
 extension CollectionViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        if collectionView == collectionView_3 {
+            return 1
+        }
         return 3
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        if collectionView == collectionView_3 {
+            let cell = collectionView.mm_dequeueReusableCell(classType: MMSingleLabelCollectionViewCell.self, indexPath: indexPath)
+            cell.textLabel.text = "水电费水电费水电费手动阀打撒"
+            return cell
+        }
         let cell = collectionView.mm_dequeueReusableCell(classType: SingleViewCell.self, indexPath: indexPath)
         cell.index = indexPath.row
         mm_printLog("加载了->\(indexPath.row)")

@@ -22,7 +22,7 @@ class MMTextVC: UIViewController {
     var mmLayout: MMTextLayoutManager = MMTextLayoutManager()
 
 
-    lazy var textView: MMTextView = {
+    lazy var textView: MMHookTextView = {
 //        container.size = CGSize(width: 100,height: 200)
         mmLayout.addTextContainer(container)
 
@@ -30,7 +30,7 @@ class MMTextVC: UIViewController {
 
 //        container.exclusionPaths = [UIBezierPath(roundedRect: CGRect(x: 10, y: 50, width: 100, height: 100), cornerRadius: 50)]
 //        let item = UITextView(frame: CGRect(x: 10, y: 300, width: 300, height: 200), textContainer: container)
-        let item = MMTextView(frame: .zero)
+        let item = MMHookTextView(frame: .zero)
         item.font = UIFont.systemFont(ofSize: 30)
         item.textColor = UIColor.red.withAlphaComponent(0.5)
         item.tintColor = UIColor.green
@@ -117,10 +117,10 @@ class MMTextVC: UIViewController {
     }
 
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-//        view.endEditing(true)
+        view.endEditing(true)
 //        mm_printLog(layout)
 //        mm_printLog(container)
-        addFloatInput()
+//        addFloatInput()
     }
     
     func addFloatInput() {
@@ -132,32 +132,6 @@ class MMTextVC: UIViewController {
         floatInput.textView.becomeFirstResponder()
     }
     
-//    override func buildMenu(with builder: UIMenuBuilder) {
-//
-//    }
-    override func canPerformAction(_ action: Selector, withSender sender: Any?) -> Bool {
-        let str = NSStringFromSelector(action)
-//        let str_ = NSStringFromSelector(#selector(copy()))
-        mm_printLog(action)
-//        if action == #selector(handleMyCopy(sender:)) {
-//            return true
-//        } else if action == #selector(handleTest(sender:)) {
-//            return true
-//        }
-        if str == "paste:" {
-            return true
-        } else if str == "copy:" {
-            return false
-        }
-//        if action == #selector(NSObject.copy) {
-//            return false
-//        }
-        return false
-    }
-    
-    override func copy(_ sender: Any?) {
-        mm_printLog("")
-    }
     
     func customMenu() {
             
@@ -225,6 +199,17 @@ struct MMTextJson: Decodable {
 }
 
 extension MMTextVC: UITextViewDelegate {
+    
+    func textViewDidEndEditing(_ textView: UITextView) {
+        mm_printLog("test->DidEnd")
+        textView.endEditing(true)
+    }
+    
+    func textViewShouldBeginEditing(_ textView: UITextView) -> Bool {
+        mm_printLog("test->shouldBegin")
+        return true
+    }
+    
     /// 文字改变
     func textViewDidChange(_ textView: UITextView) {
         guard !textView.text.isEmpty else { return }

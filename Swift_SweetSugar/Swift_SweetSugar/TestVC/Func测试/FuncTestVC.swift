@@ -29,6 +29,10 @@ class FuncTestVC: UIViewController {
         return item
     }()
     
+    @objc func test(p1:String, p2:String) {
+        mm_printLog("p1-p2")
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "123456"
@@ -84,22 +88,23 @@ class FuncTestVC: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-//        mm_printLog("")
+        mm_printLog("")
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-//        mm_printLog("")
+        mm_printLog("")
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-//        mm_printLog("")
+        mm_printLog("")
     }
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
-//        mm_printLog("")
+        mm_printLog("")
     }
+    //MARK: - 都在这里
 
     @IBAction func handleClick(_ sender: UIButton) {
         switch sender.tag {
@@ -148,7 +153,7 @@ class FuncTestVC: UIViewController {
             tool.testPrint3()
         case 30:
             let vc = UITestVC()
-            vc.modalPresentationStyle = .fullScreen
+            vc.modalPresentationStyle = .overFullScreen
             present(vc, animated: true, completion: nil)
             DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 4) {
                 mm_printLog("self->\(self), \(vc.presentingViewController)")
@@ -189,6 +194,22 @@ class FuncTestVC: UIViewController {
             createTargetTimer()
         case 45:
             invalidateTimer()
+        case 46:
+//            do {
+//                try AVAudioSession.sharedInstance().setActive(true, options: [])
+//            } catch let e {
+//                mm_printLog(e)
+//            }
+            let request = URLRequest(url: URL(string: "http://baidu.com")!)
+            URLSession.shared.dataTask(with: request) { data, respon, error in
+                mm_printLog(self)
+                DispatchQueue.main.async {
+//                    mm_printLog(self)
+                }
+            }.resume()
+//            tool.test46()
+        case 47:
+            tool.nlTest()
         default:
             break
         }
@@ -295,6 +316,20 @@ extension FuncTestVC {
         let e6 = str!.isEmpty
         // true,false,Optional(false),false,Optional(true),true
         mm_printLog("\(e1),\(e2),\(e3),\(e4),\(e5),\(e6)")
+        
+        var str2: String?
+        if str2?.isEmpty == true {   // nil == true => false
+            mm_printLog("empty_1")
+        }
+        if str2?.isEmpty == false {   // nil == false => false
+            mm_printLog("empty_2")
+        }
+        str2 = "1"
+        if str2?.isEmpty == true {  // false
+            mm_printLog("empty_2")
+        }
+        
+        mm_printLog("end")
     }
     
     /// 添加 非 synchronize  第一次没有plist时可能耗时在此 0.007 0.001
@@ -534,6 +569,24 @@ extension FuncTestVC {
     func urlTest() {
 //        let string = "https://baike.baidu.com/item/冒泡排序/4602306?fr=aladdin".addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? ""
 //        let string = "https%3A%2F%2Fbaike.baidu.com%2Fitem%2F%E5%86%92%E6%B3%A1%E6%8E%92%E5%BA%8F%2F4602306%3Ffr%3Daladdin"
+        let urlStr_7 = """
+        https://h5.youdao.com/preview/1025?_t=1681289492028&title=一二三四五六七八九十一二三四五六七八九十一二三四五六七八九十一二三四五六七八九十一二三四五六七八九十一二三四五六七八九十一二三四五六七八九十一二三四五六七八九十一二三四五六七八九十一二三四五六七八九十一二三四五六七八九十一二三四五六七八九十一二三四五六七八九十一二三四五六七八九十一二三四五六七八九十一二三四五六七八九十一二三四五六七八九十一二三四五六七八九十一二三四五六七八九十一二三四五六七八九十六七八九十一二三四五六七八九十一二三四五六七八九十一二三四五六七八九十一二三四五六七八九十一二三四五六七八九十一二三四五六七八九十一二三四五六七八九十一二三四五六七八九十一二三四
+                        一二三四九十一二三四五六七八九十一二三四五六七八九十一二三四五六七八九十一二三四五六七八九十一二三四五六七八九十一二三四五六七八九十一二三四五六七八九十一二三四
+                        一二三四一二三四九十一二三四五六七八九十一二三四五六七八九十一二三四五六七八九十一二三四五六七八九十一二三四五六七八九十一二三四五六七八九十一二三四五六七八九十一二三四
+                        一二三四一二三四一二三四九十一二三四五六七八九十一二三四五六七八九十一二三四五六七八九十一二三四五六七八九十一二三四五六七八九十一二三四五六七八九十一二三四五六七八九十一二三四
+                        一二三四一二三四一二三四九十一二三四五六七八九十一二三四五六七八九十一二三四五六七八九十一二三四五六七八九十一二三四五六七八九十一二三四五六七八九十一二三四五六七八九十一二三四
+                        一二三四一二三四一二三四九十一二三四五六七八九十一二三四五六七八九十一二三四五六七八九十一二三四五六七八九十一二三四五六七八九十一二三四五六七八九十一二三四五六七八九十一二三四
+                        一二三四一二三四五六七八九十一二三四五六七八九十一二三四五六七八九十一二三四五六七八九十一二三四五六七八九十一二三四五六七八九十一二三四五六七八九十一二三四五六七八九十一二三四五六七八九十一二三四五六七八九十一二三四五六七八九十一二三四五六七八九十一二三四五六七八九十一二三四五六七八九十一二三四五六七八九十一二三四五六七八九十一二三四五六七八九十一二三四五六七八九十一二三四五六七八九十一二三四五六七八九十六七八九十一二三四五六七八九十一二三四五六七八九十一二三四五六七八九十一二三四五六七八九十一二三四五六七八九十一二三四五六七八九十一二三四五六七八九十一二三四五六七八九十一二三四
+                一二三四九十一二三四五六七八九十一二三四五六七八九十一二三四五六七八九十一二三四五六七八九十一二三四五六七八九十一二三四五六七八九十一二三四五六七八九十一二三四
+                一二三四一二三四九十一二三四五六七八九十一二三四五六七八九十一二三四五六七八九十一二三四五六七八九十一二三四五六七八九十一二三四五六七八九十一二三四五六七八九十一二三四
+                一二三四一二三四一二三四九十一二三四五六七八九十一二三四五六七八九十一二三四五六七八九十一二三四五六七八九十一二三四五六七八九十一二三四五六七八九十一二三四五六七八九十一二三四
+                一二三四一二三四一二三四九十一二三四五六七八九十一二三四五六七八九十一二三四五六七八九十一二三四五六七八九十一二三四五六七八九十一二三四五六七八九十一二三四五六七八九十一二三四
+                一二三四一二三四一二三四九十一二三四五六七八九十一二三四五六七八九十一二三四五六七八九十一二三四五六七八九十一二三四五六七八九十一二三四五六七八九十一二三四五六七八九十一二三四
+                一二三四
+        """
+        let urlAdapt_7 = urlStr_7.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? ""
+        let url_7 = URL(string: urlAdapt_7)
+        mm_printLog("test->2")
         
         let string = """
         %0A%0A%0AHOME%0A%0A%0ACHINA%0A%0A%0ASOURCE%0A%0A%0AOPINION%0A%0A%0AHU%20SAYS%0A%0A%0AIN-DEPTH%0A%0A%0AWORLD%0A%0A%0ALIFE%0A%0A%0ASPORT%0A%0A%0AVIDEO%0A%0A%0APHOTO%0A%0A%0AINFOGRAPHIC%0A%0A%0ACHINA%0A%0A%0APolitics%0A%0A%0ASociety%0A%0A%0ADiplomacy%0A%0A%0AMilitary%0A%0A%0AScience%0A%0A%0AOdd%0A%0A%0AChina%20Graphic%0A%0A%0ASOURCE%0A%0A%0AGT%20Voice%0A%0A%0AInsight%0A%0A%0AEconomy%0A%0A%0AComments%0A%0A%0ACompany%0A%0A%0AB&R%20Initiative%0A%0A%0ABiz%20Graphic%0A%0A%0AOPINION%0A%0A%0AEditorial%0A%0A%0AObserver%0A%0A%0AAsian%20Review%0A%0A%0ATop%20Talk%0A%0A%0AViewpoint%0A%0A%0AColumnists%0A%0A%0ACartoon%0A%0A%0AHU%20SAYS%0A%0A%0AHu%20Says%0A%0A%0AIN-DEPTH%0A%0A%0AIn-Depth%0A%0A%0AWORLD%0A%0A%0AEye%20on%20World%0A%0A%0AAmerica%0A%0A%0AAsia-Pacific%0A%0A%0AEurope%0A%0A%0AAfrica%0A%0A%0AMid-East%0A%0A%0ACross-borders%0A%0A%0ALIFE%0A%0A%0ACulture%0A%0A%0AEntertainment%0A%0A%0ATravel%0A%0A%0ALearning%20Chinese%0A%0A%0ASPORT%0A%0A%0ASport%0A%0A%0AVIDEO%0A%0A%0AGot-to-watch%0A%0A%0APHOTO%0A%0A%0AGallery%0A%0A%0AChina%0A%0A%0AWorld%0A%0A%0ABiz%0A%0A%0ASport%0A%0A%0AINFOGRAPHIC%0A%0A%0AJimmy%20Lai%20gets%2014%20more%20months%20for%20illegal%20assembly,%20a%20further%20signal%20...%0A%0A%0AHong%20Kong%20media%20tycoon%20Jimmy%20Lai%20Chee-ying%20was%20sentenced%2014%20months%20in%20prison%20on%20Friday%20alongside%20nine%20others,%20including%20several%20...%0A%0A%0ABiden%20team%20resorts%20to%20confrontation%20to%20'cover%20declining%20confidence,%20failed%20governance'%0A%0A%0AOn%20surface,%20the%20Biden%20administration%20stresses%20%22competition%22,%20instead%20of%20confrontation%20pursued%20by%20its%20predecessors,%20but%20the%20US%20is%20actually%20becoming%20...%0A%0A%0AYouth%20appreciate%20CPC%20history%20%E2%80%93%20in%20innovative%20ways%20%E2%80%93%20and%20strengthen%20faith%20...%0A%0A%0ACollege%20graduate%20Zhou%20Ying,%2022,%20had%20never%20thought%20she%20would%20one%20day%20become%20addicted%20to%20learning%20about%20the%20history%20of%20...%0A%0A%0AHong%20Kong%20finalizes%20local%20amendments%20for%20election%20overhaul%20%20%20%20%20%20%20%20With%20the%20Legislative%20Council%20(LegCo)%20completing%20a%20review%20of%20a%20number%20of%20amendments%20on%20Thursday%20as%20part%20of%20the%20improvement%20...%0A%0A%0ACHINA%0A%0A%0APolitics%0A%0A%0ASociety%0A%0A%0ADiplomacy%0A%0A%0AMilitary%0A%0A%0AScience%0A%0A%0AOdd%0A%0A%0AChina%20Graphic%0A%0A%0ASOURCE%0A%0A%0AGT%20Voice%0A%0A%0AInsight%0A%0A%0AEconomy%0A%0A%0AComments%0A%0A%0ACompany%0A%0A%0AB&R%20Initiative%0A%0A%0ABiz%20Graphic%0A%0A%0AOPINION%0A%0A%0AEditorial%0A%0A%0AObserver%0A%0A%0AAsian%20Review%0A%0A%0ATop%20Talk%0A%0A%0AViewpoint%0A%0A%0AColumnists%0A%0A%0ACartoon%0A%0A%0AWORLD%0A%0A%0AEye%20on%20World%0A%0A%0AAmerica%0A%0A%0AAsia-Pacific%0A%0A%0AEurope%0A%0A%0AAfrica%0A%0A%0AMid-East%0A%0A%0ACross-borders%0A%0A%0ALIFE%0A%0A%0ACulture%0A%0A%0AEntertainment%0A%0A%0ATravel%0A%0A%0ALearning%20Chinese%0A%0A%0AVISUAL%20NEWS%0A%0A%0AHU%20SAYS%0A%0A%0AVideo%0A%0A%0AGraphics%0A%0A%0AGallery%0A%0A%0ASpecials%0A%0A%0AMISCELLANEOUS%0A%0A%0AIn-Depth%0A%0A%0ASport%0A%0A%0ALINKS%0A%0A%0AQiushi%20Journal%0A%0A%0APeople's%20Daily%0A%0A%0APeople's%20Daily%20APP%0A%0A%0A%E7%8E%AF%E7%90%83%E7%BD%91%0A%0A%0AEcns.cn

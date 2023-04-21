@@ -17,7 +17,8 @@ target 'Swift_SweetSugar' do
   pod 'lottie-ios', '~> 3.2.3'
   pod 'SwiftyJSON'
   pod 'testDev', :path => './testDev/'
-
+  
+  pod 'MLeaksFinder', :configurations => ['Debug']
   # Pods for Swift_SweetSugar
 
   #调试

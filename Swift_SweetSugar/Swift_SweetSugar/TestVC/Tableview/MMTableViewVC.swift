@@ -18,13 +18,20 @@ protocol MMCellItemProtocol {
     var data: Any? { get set }
     
     func clickHandle() -> Void
+    
+    func clickHandle(indexPath: IndexPath) -> Void
+
 }
 
 struct MMCellItem: MMCellItemProtocol {
+    func clickHandle(indexPath: IndexPath) {
+        
+    }
+    
 
     var _data: Any?
     
-    var click: (() -> Void)?
+    var click: ((MMCellItemProtocol) -> Void)?
 }
 
 extension MMCellItem {
@@ -38,7 +45,7 @@ extension MMCellItem {
     }
     
     func clickHandle() {
-        click?()
+        click?(self)
     }
 }
 
@@ -60,10 +67,14 @@ class MMTableViewVC: UIViewController {
 
         tableview.mm_registerNibCell(classType: MMSingleLabelTableCell.self)
         dataArray = [
-            MMCellItem(_data: "局部刷新测试", click: { [unowned self] in
+            MMCellItem(_data: "局部刷新测试", click: { [unowned self] _ in
                 let vc = MMListUpdateViewController()
                 self.navigationController?.pushViewController(vc, animated: true)
-            })
+            }),
+            MMCellItem(_data: "动态高度测试", click: { [unowned self] _ in
+                let vc = MMListAutoHeightViewController()
+                self.navigationController?.pushViewController(vc, animated: true)
+            }),
         ]
     }
 

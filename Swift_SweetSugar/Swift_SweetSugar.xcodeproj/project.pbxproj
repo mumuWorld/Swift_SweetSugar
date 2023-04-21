@@ -20,8 +20,14 @@
 		6550B9EF292728F30093B437 /* 百度一下，你就知道_files in Resources */ = {isa = PBXBuildFile; fileRef = 6550B9ED292728F30093B437 /* 百度一下，你就知道_files */; };
 		6550B9F0292728F30093B437 /* 百度一下，你就知道.html in Resources */ = {isa = PBXBuildFile; fileRef = 6550B9EE292728F30093B437 /* 百度一下，你就知道.html */; };
 		6550B9F2292729940093B437 /* sw in Resources */ = {isa = PBXBuildFile; fileRef = 6550B9F1292729940093B437 /* sw */; };
+		6599CE4229EEAB34005DD9B5 /* MMSingleLabelCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6599CE4029EEAB34005DD9B5 /* MMSingleLabelCollectionViewCell.swift */; };
+		6599CE4329EEAB34005DD9B5 /* MMSingleLabelCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6599CE4129EEAB34005DD9B5 /* MMSingleLabelCollectionViewCell.xib */; };
 		65ADB9EC28768FEA004F6624 /* NetTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65ADB9EB28768FEA004F6624 /* NetTest.swift */; };
 		65BF26BA2876FE09007434E5 /* MMAnyTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65BF26B92876FE09007434E5 /* MMAnyTest.swift */; };
+		65C3C4E029E9452A00FFA11C /* MMListAutoHeightViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65C3C4DE29E9452A00FFA11C /* MMListAutoHeightViewController.swift */; };
+		65C3C4E129E9452A00FFA11C /* MMListAutoHeightViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 65C3C4DF29E9452A00FFA11C /* MMListAutoHeightViewController.xib */; };
+		65C3C4E429E945BB00FFA11C /* MMAutoLabelTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65C3C4E329E945BB00FFA11C /* MMAutoLabelTableViewCell.swift */; };
+		65CB983A29C179A400893157 /* MMTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65CB983929C179A400893157 /* MMTool.swift */; };
 		65D292332811506D00B31DFD /* ScrollTestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65D292312811506D00B31DFD /* ScrollTestViewController.swift */; };
 		65D292342811506D00B31DFD /* ScrollTestViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 65D292322811506D00B31DFD /* ScrollTestViewController.xib */; };
 		65D29237281154D800B31DFD /* LabelTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65D29235281154D800B31DFD /* LabelTableViewCell.swift */; };
@@ -30,7 +36,11 @@
 		65D2923D2811566600B31DFD /* TestCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65D2923B2811566600B31DFD /* TestCollectionViewCell.swift */; };
 		65D2923E2811566600B31DFD /* TestCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 65D2923C2811566600B31DFD /* TestCollectionViewCell.xib */; };
 		65D292402811583700B31DFD /* ScrollTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65D2923F2811583700B31DFD /* ScrollTableViewCell.swift */; };
+		65D7C87A29AEFC1F00E7CA51 /* MMHookTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 65D7C87929AEFC1F00E7CA51 /* MMHookTextView.m */; };
+		65D7C87D29AEFD0700E7CA51 /* ObjcUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 65D7C87C29AEFD0700E7CA51 /* ObjcUtil.m */; };
 		65E188DD2995F1AE00B177C1 /* AnimationTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65E188DC2995F1AE00B177C1 /* AnimationTest.swift */; };
+		65E920C629F1152F000672C8 /* WebViewPrintPageRenderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65E920C529F1152F000672C8 /* WebViewPrintPageRenderer.swift */; };
+		65E920CA29F230B3000672C8 /* snapshot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65E920C929F230B3000672C8 /* snapshot.swift */; };
 		65FB47D22807EB94003EC323 /* UIButton+PropertyExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65FB47CF2807EB94003EC323 /* UIButton+PropertyExtension.swift */; };
 		65FB47D32807EB94003EC323 /* UIButton+typeLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65FB47D12807EB94003EC323 /* UIButton+typeLayout.swift */; };
 		AC1EC0BBACA998F5DF57DC83 /* Pods_Swift_SweetSugarTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B50AB3DD44E5A70683C35C88 /* Pods_Swift_SweetSugarTests.framework */; };
@@ -223,8 +233,14 @@
 		6550B9ED292728F30093B437 /* 百度一下，你就知道_files */ = {isa = PBXFileReference; lastKnownFileType = folder; path = "百度一下，你就知道_files"; sourceTree = "<group>"; };
 		6550B9EE292728F30093B437 /* 百度一下，你就知道.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = "百度一下，你就知道.html"; sourceTree = "<group>"; };
 		6550B9F1292729940093B437 /* sw */ = {isa = PBXFileReference; lastKnownFileType = folder; path = sw; sourceTree = "<group>"; };
+		6599CE4029EEAB34005DD9B5 /* MMSingleLabelCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MMSingleLabelCollectionViewCell.swift; sourceTree = "<group>"; };
+		6599CE4129EEAB34005DD9B5 /* MMSingleLabelCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MMSingleLabelCollectionViewCell.xib; sourceTree = "<group>"; };
 		65ADB9EB28768FEA004F6624 /* NetTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetTest.swift; sourceTree = "<group>"; };
 		65BF26B92876FE09007434E5 /* MMAnyTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MMAnyTest.swift; sourceTree = "<group>"; };
+		65C3C4DE29E9452A00FFA11C /* MMListAutoHeightViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MMListAutoHeightViewController.swift; sourceTree = "<group>"; };
+		65C3C4DF29E9452A00FFA11C /* MMListAutoHeightViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MMListAutoHeightViewController.xib; sourceTree = "<group>"; };
+		65C3C4E329E945BB00FFA11C /* MMAutoLabelTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MMAutoLabelTableViewCell.swift; sourceTree = "<group>"; };
+		65CB983929C179A400893157 /* MMTool.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MMTool.swift; sourceTree = "<group>"; };
 		65D292312811506D00B31DFD /* ScrollTestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollTestViewController.swift; sourceTree = "<group>"; };
 		65D292322811506D00B31DFD /* ScrollTestViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ScrollTestViewController.xib; sourceTree = "<group>"; };
 		65D29235281154D800B31DFD /* LabelTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelTableViewCell.swift; sourceTree = "<group>"; };
@@ -233,7 +249,13 @@
 		65D2923B2811566600B31DFD /* TestCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestCollectionViewCell.swift; sourceTree = "<group>"; };
 		65D2923C2811566600B31DFD /* TestCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TestCollectionViewCell.xib; sourceTree = "<group>"; };
 		65D2923F2811583700B31DFD /* ScrollTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollTableViewCell.swift; sourceTree = "<group>"; };
+		65D7C87829AEFC1F00E7CA51 /* MMHookTextView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MMHookTextView.h; sourceTree = "<group>"; };
+		65D7C87929AEFC1F00E7CA51 /* MMHookTextView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MMHookTextView.m; sourceTree = "<group>"; };
+		65D7C87B29AEFD0700E7CA51 /* ObjcUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ObjcUtil.h; sourceTree = "<group>"; };
+		65D7C87C29AEFD0700E7CA51 /* ObjcUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ObjcUtil.m; sourceTree = "<group>"; };
 		65E188DC2995F1AE00B177C1 /* AnimationTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimationTest.swift; sourceTree = "<group>"; };
+		65E920C529F1152F000672C8 /* WebViewPrintPageRenderer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewPrintPageRenderer.swift; sourceTree = "<group>"; };
+		65E920C929F230B3000672C8 /* snapshot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = snapshot.swift; sourceTree = "<group>"; };
 		65FB47CF2807EB94003EC323 /* UIButton+PropertyExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIButton+PropertyExtension.swift"; sourceTree = "<group>"; };
 		65FB47D12807EB94003EC323 /* UIButton+typeLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIButton+typeLayout.swift"; sourceTree = "<group>"; };
 		673050F51396BFDC2DD7DD6F /* Pods-Swift_SweetSugarTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Swift_SweetSugarTests.debug.xcconfig"; path = "Target Support Files/Pods-Swift_SweetSugarTests/Pods-Swift_SweetSugarTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -487,6 +509,23 @@
 			path = resources;
 			sourceTree = "<group>";
 		};
+		6599CE3F29EEAB1E005DD9B5 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				6599CE4029EEAB34005DD9B5 /* MMSingleLabelCollectionViewCell.swift */,
+				6599CE4129EEAB34005DD9B5 /* MMSingleLabelCollectionViewCell.xib */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		65C3C4E229E945A400FFA11C /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				65C3C4E329E945BB00FFA11C /* MMAutoLabelTableViewCell.swift */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
 		65D2922D2811503100B31DFD /* Scroll */ = {
 			isa = PBXGroup;
 			children = (
@@ -500,6 +539,15 @@
 				65D2923F2811583700B31DFD /* ScrollTableViewCell.swift */,
 			);
 			path = Scroll;
+			sourceTree = "<group>";
+		};
+		65E920C429F11518000672C8 /* snapshot */ = {
+			isa = PBXGroup;
+			children = (
+				65E920C529F1152F000672C8 /* WebViewPrintPageRenderer.swift */,
+				65E920C929F230B3000672C8 /* snapshot.swift */,
+			);
+			path = snapshot;
 			sourceTree = "<group>";
 		};
 		A4A95448E64B4A94ABF19911 /* Frameworks */ = {
@@ -766,6 +814,7 @@
 		B47F341D26608DC900F46C90 /* Webview */ = {
 			isa = PBXGroup;
 			children = (
+				65E920C429F11518000672C8 /* snapshot */,
 				6550B961292728D10093B437 /* resources */,
 				B47F341F26608DEC00F46C90 /* MMWebViewController.swift */,
 				B47F342026608DEC00F46C90 /* MMWebViewController.xib */,
@@ -858,6 +907,7 @@
 		B49BAB872620225B0097DFC9 /* Collection测试 */ = {
 			isa = PBXGroup;
 			children = (
+				6599CE3F29EEAB1E005DD9B5 /* Cell */,
 				B49BAB88262022730097DFC9 /* CollectionViewController.swift */,
 				B49BAB89262022730097DFC9 /* CollectionViewController.xib */,
 				B4B6FDAE26CE6D6400C57423 /* MMStackCollectionViewLayout.swift */,
@@ -926,8 +976,11 @@
 		B4A7E0BC277303DC0091687C /* List */ = {
 			isa = PBXGroup;
 			children = (
+				65C3C4E229E945A400FFA11C /* Cell */,
 				B4A7E0BE277303FE0091687C /* MMListUpdateViewController.swift */,
 				B4A7E0BF277303FE0091687C /* MMListUpdateViewController.xib */,
+				65C3C4DE29E9452A00FFA11C /* MMListAutoHeightViewController.swift */,
+				65C3C4DF29E9452A00FFA11C /* MMListAutoHeightViewController.xib */,
 			);
 			path = List;
 			sourceTree = "<group>";
@@ -944,9 +997,13 @@
 		B4B4347B2701CB8300F7FAD4 /* CoreText */ = {
 			isa = PBXGroup;
 			children = (
+				65D7C87B29AEFD0700E7CA51 /* ObjcUtil.h */,
+				65D7C87C29AEFD0700E7CA51 /* ObjcUtil.m */,
 				B4B4347D2701CB9C00F7FAD4 /* MMCoreTextVC.swift */,
 				B4B4347E2701CB9C00F7FAD4 /* MMCoreTextVC.xib */,
 				B4C4E3A12710671100387B97 /* MMTextView.swift */,
+				65D7C87829AEFC1F00E7CA51 /* MMHookTextView.h */,
+				65D7C87929AEFC1F00E7CA51 /* MMHookTextView.m */,
 			);
 			path = CoreText;
 			sourceTree = "<group>";
@@ -1015,6 +1072,7 @@
 				B4DDA668279FE6A900DBDB56 /* MMLocalSpeech.swift */,
 				B4C9397927C8D118005FA0EE /* MMCustomOCObj.h */,
 				B4C9397A27C8D118005FA0EE /* MMCustomOCObj.m */,
+				65CB983929C179A400893157 /* MMTool.swift */,
 			);
 			path = Tool;
 			sourceTree = "<group>";
@@ -1230,6 +1288,7 @@
 				B495035226E2463C00C10601 /* MMGraphicViewController.xib in Resources */,
 				B4063D73260B4F1300F3135E /* home_list.plist in Resources */,
 				B4A1808C27B3E14E009E21D3 /* textview.json in Resources */,
+				65C3C4E129E9452A00FFA11C /* MMListAutoHeightViewController.xib in Resources */,
 				B49BAB8B262022730097DFC9 /* CollectionViewController.xib in Resources */,
 				6500D347292CD7C7000B3535 /* error_result.json in Resources */,
 				652432B228D4766000FE591E /* 90879c75-da87-4b9d-9ab6-9654378198f6.txt in Resources */,
@@ -1249,6 +1308,7 @@
 				B474765626948B2C006922D8 /* RPReplay.MP4 in Resources */,
 				B425AC6E2252526000B02B77 /* Main.storyboard in Resources */,
 				B4063D89260B530C00F3135E /* HomeListItemCell.xib in Resources */,
+				6599CE4329EEAB34005DD9B5 /* MMSingleLabelCollectionViewCell.xib in Resources */,
 				B480AD0F266882F600E53DED /* MMTextVC.xib in Resources */,
 				65D2923E2811566600B31DFD /* TestCollectionViewCell.xib in Resources */,
 			);
@@ -1424,6 +1484,7 @@
 				B4B69E75233E55950061AF93 /* BaseSort.swift in Sources */,
 				B4A9369B2689B6E9001E181B /* MMButton.swift in Sources */,
 				B47F39E6260DB6CF007592A1 /* WrapperTest.swift in Sources */,
+				65C3C4E429E945BB00FFA11C /* MMAutoLabelTableViewCell.swift in Sources */,
 				B4063DAE260B637500F3135E /* FuncTestVC.swift in Sources */,
 				B4C9EE3B27CF60F40047860B /* MMAudioTool.swift in Sources */,
 				B4A1808727B36112009E21D3 /* UITestVC+Test.swift in Sources */,
@@ -1446,6 +1507,7 @@
 				DF128F3F232F2FF900491475 /* CommonModel.swift in Sources */,
 				DF2ED5DC2386219A001617F8 /* QuickSort.swift in Sources */,
 				DF2ED5F52387C31F001617F8 /* Sort.swift in Sources */,
+				65E920CA29F230B3000672C8 /* snapshot.swift in Sources */,
 				65D29237281154D800B31DFD /* LabelTableViewCell.swift in Sources */,
 				B4B69E78233E55D40061AF93 /* CreateTool.swift in Sources */,
 				B4E390B02796B3ED000670FC /* WordWidget.intentdefinition in Sources */,
@@ -1472,17 +1534,21 @@
 				B4B6FDAF26CE6D6400C57423 /* MMStackCollectionViewLayout.swift in Sources */,
 				B45853592386D899005A4FFA /* LXDAppFluecyMonitor.m in Sources */,
 				B4063DA6260B618A00F3135E /* ConstParams.swift in Sources */,
+				65D7C87D29AEFD0700E7CA51 /* ObjcUtil.m in Sources */,
+				6599CE4229EEAB34005DD9B5 /* MMSingleLabelCollectionViewCell.swift in Sources */,
 				B425AC982252529A00B02B77 /* UIKit+Extension.swift in Sources */,
 				B425AC692252526000B02B77 /* AppDelegate.swift in Sources */,
 				B49D61DD23390BA700ED9352 /* UIView+Extension.swift in Sources */,
 				B4A17DE02669D5EF0030E40D /* MMAuthorizationVC.swift in Sources */,
 				B46FED52238C2FA30023F0FA /* GCDTest.swift in Sources */,
+				65C3C4E029E9452A00FFA11C /* MMListAutoHeightViewController.swift in Sources */,
 				65FB47D22807EB94003EC323 /* UIButton+PropertyExtension.swift in Sources */,
 				B47B6D0927993D19009D5810 /* MMSecret.swift in Sources */,
 				B4B4346F2701701100F7FAD4 /* UIDevice+Extension.swift in Sources */,
 				B4C194C52772F0FB0019553E /* MMTableViewAdapt.swift in Sources */,
 				B4AC6155273237A700B76990 /* Foundation+Extension.swift in Sources */,
 				B47BD09B27B28A5400DE1795 /* MMTextLayoutManager.swift in Sources */,
+				65D7C87A29AEFC1F00E7CA51 /* MMHookTextView.m in Sources */,
 				B4063D93260B546500F3135E /* UITableViewCell+Extension.swift in Sources */,
 				B422B29725A3167200293646 /* MMFileTest.swift in Sources */,
 				B47468F126FED2F300C79F2C /* MMGraphic2VC.swift in Sources */,
@@ -1494,12 +1560,14 @@
 				651F696128F3CCDA00BE565A /* MMBubbleLayoutFragment.swift in Sources */,
 				B422B2A525A3194500293646 /* String+Extension.swift in Sources */,
 				DF9227E722CB07A600ABB221 /* UIColor+MM_Extension.swift in Sources */,
+				65CB983A29C179A400893157 /* MMTool.swift in Sources */,
 				B47F342126608DEC00F46C90 /* MMWebViewController.swift in Sources */,
 				65FB47D32807EB94003EC323 /* UIButton+typeLayout.swift in Sources */,
 				B4B434772701ADA900F7FAD4 /* MMFuncTool.swift in Sources */,
 				B4C6342C279A4D4D00375D69 /* MMLocationManager.swift in Sources */,
 				B4C06FEE274251F800681C95 /* UIImageView+Extension.swift in Sources */,
 				B495034A26E1FF3800C10601 /* MMBaseNavigationController.swift in Sources */,
+				65E920C629F1152F000672C8 /* WebViewPrintPageRenderer.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
