@@ -34,8 +34,8 @@ class MMAutoLabelTableViewCell: UITableViewCell {
         return label
     }()
     
-    var bottomLabel: UILabel = {
-        let label = UILabel()
+    var bottomLabel: MMLabel = {
+        let label = MMLabel()
         label.numberOfLines = 0
         label.lineBreakMode = .byWordWrapping
         label.font = UIFont.systemFont(ofSize: 14)
@@ -56,10 +56,12 @@ class MMAutoLabelTableViewCell: UITableViewCell {
                     make.height.equalTo(1)
                     make.leading.trailing.equalToSuperview()
                 }
-                bottomLabel.snp.makeConstraints { make in
+                bottomLabel.snp.remakeConstraints { make in
                     make.top.equalTo(lineView).offset(20)
                     make.leading.trailing.bottom.equalToSuperview().inset(20)
                 }
+                bottomLabel.setContentHuggingPriority(UILayoutPriority(rawValue: 255), for: .vertical)
+                bottomLabel.setContentCompressionResistancePriority(UILayoutPriority(rawValue: 777), for: .vertical)
             } else {
                 attrText.snp.remakeConstraints { make in
                     make.edges.equalToSuperview().inset(20)
@@ -86,9 +88,27 @@ class MMAutoLabelTableViewCell: UITableViewCell {
         attrText.text = "Users/yangjie01/Library/Developer/CoreSimulator/Devices/BE5C30E7-9629-4D3B-AE9C-A55F9110CE6B/data/Containers/Data/Application/58871640-9906-4E70-AC67-75867743C968/Library/CachesUsers/yangjie01/Library/Developer/CoreSimulator/Devices/BE5C30E7-9629-4D3B-AE9C-A55F9110CE6B/data/Containers/Data/Application/58871640-9906-4E70-AC67-75867743C968/Library/Caches"
         
         bottomLabel.text = "Swift_SweetSugar(89511) MallocStackLogging: could not tag MSL-related memory as no_footprint, so those pages will be included in process footprint Swift_SweetSugar(89511) MallocStackLogging: could not tag MSL-related memory as no_footprint, so those pages will be included in process footprint Swift_SweetSugar(89511) MallocStackLogging: could not tag MSL-related memory as no_footprint, so those pages will be included in process footprint "
+        
+        attrText.textLongPressAction = { [weak self] (view, attr, range, rect) in
+            guard let self = self else { return }
+            mm_printLog("view->\(view), \(attr)")
+            let menu = UIMenuController.shared
+            let item = UIMenuItem(title: "拷贝", action: #selector(handleCopy))
+            menu.menuItems = [item]
+            if #available(iOS 13.0, *) {
+                menu.showMenu(from: self.attrText, rect: self.attrText.bounds)
+            } else {
+                menu.setTargetRect(self.attrText.bounds, in: self.attrText)
+                menu.setMenuVisible(true, animated: true)
+            }
+            mm_printLog("")
+        }
     }
     
-    
+    @objc func handleCopy() {
+//        mm_printLog("copy: \(sender)")
+
+    }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")

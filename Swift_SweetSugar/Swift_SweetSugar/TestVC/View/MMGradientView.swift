@@ -43,3 +43,69 @@ public class MMGradientView: UIView {
         }
     }
 }
+
+
+/// 简单的渐变View，只能设置自己的渐变色
+open class SampleGradientView: UIView {
+    
+    open var colors = [UIColor(red: 34 / 255.0, green: 38 / 255.0, blue: 56 / 255.0, alpha: 0.15), UIColor(red: 34 / 255.0, green: 38 / 255.0, blue: 56 / 255.0, alpha: 0)] {
+        didSet {
+            remakeGradient()
+        }
+    }
+    open var locations: [CGFloat] = [0, 1] {
+        didSet {
+            remakeGradient()
+        }
+    }
+    open var gradient: CGGradient! {
+        didSet {
+            setNeedsDisplay()
+        }
+    }
+    /// 遮罩角度(0 ~ 360)
+    open var degree: Int = 0
+    
+    
+    override public init(frame: CGRect) {
+        super.init(frame: frame)
+        isOpaque = false
+        remakeGradient()
+    }
+    
+    convenience public init() {
+        self.init(frame: .zero)
+    }
+    
+    required public init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    private func remakeGradient() {
+        let cfColors = colors.map({ (color) -> CGColor in
+            return color.cgColor
+        }) as CFArray
+        let colorSpace = CGColorSpaceCreateDeviceRGB()
+        gradient = CGGradient(colorsSpace: colorSpace, colors: cfColors , locations: locations)
+    }
+    
+    open override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+        if #available(iOS 13.0, *) {
+            if previousTraitCollection?.hasDifferentColorAppearance(comparedTo: self.traitCollection) == true {
+                remakeGradient()
+                setNeedsDisplay()
+            }
+        }
+    }
+    
+    
+    override open func draw(_ rect: CGRect) {
+        super.draw(rect)
+        guard let context = UIGraphicsGetCurrentContext() else { return }
+        if degree == 90 {
+            context.drawLinearGradient(gradient, start: CGPoint(x: 0.0, y: 0.5), end: CGPoint(x: rect.width, y: 0.5), options: [])
+        } else {
+            context.drawLinearGradient(gradient, start: CGPoint(x: 0.5, y: 0), end: CGPoint(x: 0.5, y: rect.height), options: [])
+        }
+    }
+}

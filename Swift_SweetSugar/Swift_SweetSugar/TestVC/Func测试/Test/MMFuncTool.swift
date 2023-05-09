@@ -85,7 +85,8 @@ class MMFuncTool: NSObject {
     }
     
     var timerStr: String?
-    
+    var timer: Timer?
+
     func past() {
 //        UIPasteboard.general.string = "http://hellow world"
         let pasted = UIPasteboard.general
@@ -501,8 +502,41 @@ After apologising, Mr Musk said that Mr Thorleifsson was considering coming back
         }
         
     }
+    
+    var observation: NSKeyValueObservation?
+    var stateObservation: NSKeyValueObservation?
+
+    @objc dynamic var state: PlayState = .play
+    // 2. 使用`@objc dynamic`修饰符定义属性。
+//    @objc dynamic var myEnum: MyClass.MyEnum = .first
+    
+    private var myObject: MyClass = MyClass()
+
+    func kvoTest_48() {
+        stateObservation = observe(\.state, options: [.old, .new]) { object, change in
+            //            print("play state changed from: \(change.oldValue!), updated to: \(change.newValue!)")
+//            print("change: ", change.oldValue, change.newValue)
+            mm_printLog("test->\(change.oldValue), \(change.newValue)")
+        }
+        // 3. 在需要监听属性的类中，使用KVO来监听属性的更改。
+        observation = self.myObject.observe(\.myEnumNumber, options: [.new]) { (object, change) in
+            guard let newValue = change.newValue else { return }
+            print("Enum value changed to: \(newValue)")
+        }
+        
+        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1) {
+            self.state = .pause
+            self.myObject.myEnum = .second
+            self.myObject.myEnum = .third
+        }
+    }
+    
     deinit {
         MMDispatchTimer.cancelTimer(timerName: self.timerStr)
+        timer?.invalidate()
+        timer = nil
+        observation?.invalidate()
+        stateObservation?.invalidate()
     }
 }
 
@@ -626,7 +660,7 @@ extension MMFuncTool {
         mm_printLog("end")
         
     }
-    
+
     func printTest() {
         var typo = Typo.shared
         typo.trans = "test"
@@ -686,19 +720,32 @@ extension MMFuncTool {
     
     
     /// 进入后台不会暂停
-    func timer() {
+    func timerTest36() {
         var count = 0
-//        Timer.scheduledTimer(withTimeInterval: 0.1, repeats: true) { timer in
-//            mm_printLog("timer->")
-//            if count == 30 {
-//                timer.invalidate()
-//            }
-//            count += 1;
+        //进入后台不会暂停
+//        timerStr = MMDispatchTimer.createTimer(startTime: 1, infiniteInterval: 2, isRepeat: true, async: true) {
+//            count += 1
+//            mm_printLog("start->\(count)")
 //        }
-        timerStr = MMDispatchTimer.createTimer(startTime: 1, infiniteInterval: 2, isRepeat: true, async: true) {
-            count += 1
-            mm_printLog("start->\(count)")
+        
+        //需要手动将timer放到 runloop中
+//        timer = Timer(fire: Date(timeIntervalSince1970: Date().timeIntervalSince1970 + 2), interval: 2, repeats: true, block: { _ in
+////            guard let self = self else { return }
+//            count += 1
+//            mm_printLog("start->\(count)")
+//        })
+        //进后台会暂停，回到前台会连续执行两次。
+        mm_printLog("timer->\(Date().timeIntervalSince1970), \(count)")
+        timer = Timer.scheduledTimer(withTimeInterval: 2, repeats: true) { timer in
+            if count == 30 {
+                timer.invalidate()
+            }
+            count += 1;
+            mm_printLog("timer->\(Date().timeIntervalSince1970), \(count)")
         }
+//        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 2) {
+//            self.timer?.fire()
+//        }
     }
     
 

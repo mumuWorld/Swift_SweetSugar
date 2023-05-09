@@ -51,6 +51,10 @@ open class YDCustomButton: UIButton {
         //约束子控件的宽高
         updateContentView()
     }
+    
+    open override var intrinsicContentSize: CGSize {
+        fitSizeContent()
+    }
 }
 
 // MARK: - Public

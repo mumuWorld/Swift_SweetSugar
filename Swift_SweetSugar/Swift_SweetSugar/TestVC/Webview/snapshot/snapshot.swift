@@ -9,11 +9,108 @@
 import Foundation
 import WebKit
 
+var imgArr: [UIImage] = []
+
+//https://blog.csdn.net/qq_38863196/article/details/126361878
 extension WKWebView {
-    func snapshot2(complete:((UIImage) -> Void)?) {
-        
+    func snapshot2(complete:@escaping ((UIImage?) -> Void)) {
+        scrollView.setContentOffset(.zero, animated: false)
+        createSnapshot(offsetY: 0, remainingOffset: scrollView.contentSize.height, completion: complete)
+    }
+    
+    func createSnapshot(offsetY: CGFloat, remainingOffset: CGFloat, completion: @escaping ((UIImage?) -> Void)) {
+        if remainingOffset > 0 {
+            scrollView.setContentOffset(CGPoint(x: 0, y: offsetY), animated: false)
+            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 0.1) {
+                UIGraphicsBeginImageContextWithOptions(self.frame.size, true, UIScreen.main.scale)
+                guard let context = UIGraphicsGetCurrentContext() else { return }
+                self.layer.render(in: context)
+                let img = UIGraphicsGetImageFromCurrentImageContext()
+                UIGraphicsEndImageContext()
+                imgArr.append(img!)
+                let newOffsetY = offsetY + self.frame.size.height
+                let newReoffsetY = remainingOffset - self.frame.size.height
+                self.createSnapshot(offsetY: newOffsetY, remainingOffset: newReoffsetY, completion: completion)
+            }
+        } else {
+            let containerView = UIView(frame: CGRect(origin: .zero, size: scrollView.contentSize))
+            var originYOfImgView: CGFloat = 0
+            for i in imgArr {
+                let imgV = UIImageView(image: i)
+                imgV.frame = CGRect(x: 0, y: originYOfImgView, width: frame.width, height: frame.height)
+                originYOfImgView += frame.height
+                containerView.addSubview(imgV)
+            }
+            superview?.addSubview(containerView)
+            
+            let img = containerView.snapshopImg()
+            containerView.removeFromSuperview()
+            completion(img)
+            imgArr.removeAll()
+        }
     }
 }
+
+extension UIView {
+    func snapshopImg() -> UIImage? {
+        UIGraphicsBeginImageContextWithOptions(self.frame.size, true, UIScreen.main.scale)
+        guard let context = UIGraphicsGetCurrentContext() else { return nil }
+        self.layer.render(in: context)
+        let img = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        return img
+    }
+}
+
+
+extension UIScrollView {
+    public func takeScreenshotOfFullContent(_ completion: @escaping ((UIImage?) -> Void)) {
+        // 分页绘制内容到ImageContext
+        let originalOffset = self.contentOffset
+
+        // 当contentSize.height<bounds.height时，保证至少有1页的内容绘制
+        var pageNum = 1
+        if self.contentSize.height > self.bounds.height {
+            pageNum = Int(floorf(Float(self.contentSize.height / self.bounds.height)))
+        }
+
+        let backgroundColor = self.backgroundColor ?? UIColor.white
+
+        UIGraphicsBeginImageContextWithOptions(self.contentSize, true, 0)
+
+        guard let context = UIGraphicsGetCurrentContext() else {
+            completion(nil)
+            return
+        }
+        context.setFillColor(backgroundColor.cgColor)
+        context.setStrokeColor(backgroundColor.cgColor)
+
+        self.drawScreenshotOfPageContent(0, maxIndex: pageNum) {
+            let image = UIGraphicsGetImageFromCurrentImageContext()
+            UIGraphicsEndImageContext()
+            self.contentOffset = originalOffset
+            completion(image)
+        }
+    }
+
+    fileprivate func drawScreenshotOfPageContent(_ index: Int, maxIndex: Int, completion: @escaping () -> Void) {
+
+        self.setContentOffset(CGPoint(x: 0, y: CGFloat(index) * self.frame.size.height), animated: false)
+        let pageFrame = CGRect(x: 0, y: CGFloat(index) * self.frame.size.height, width: self.bounds.size.width, height: self.bounds.size.height)
+
+        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 0.3) {
+            self.drawHierarchy(in: pageFrame, afterScreenUpdates: true)
+
+            if index < maxIndex {
+                self.drawScreenshotOfPageContent(index + 1, maxIndex: maxIndex, completion: completion)
+            }else{
+                completion()
+            }
+        }
+    }
+}
+
+
 /// 对WKWebView进行长截图（没有规避H5悬浮栏）
 /// @param webView 需要进行截图的webView
 /// @param completionHandler 截图完成回调
