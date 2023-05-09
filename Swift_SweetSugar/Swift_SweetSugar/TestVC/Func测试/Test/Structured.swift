@@ -9,6 +9,46 @@
 import Foundation
 import Kingfisher
 
+@objc public enum PlayState: Int, CustomStringConvertible {
+    case stop,
+    play,
+    pause
+
+    public var description: String {
+        switch self {
+        case .stop:
+            return "PlayState.stop"
+        case .pause:
+            return "PlayState.pause"
+        case .play:
+            return "PlayState.play"
+        }
+    }
+}
+
+class MyClass: NSObject {
+    
+    @objc enum MyEnum: Int {
+        case first
+        case second
+        case third
+    }
+    
+    // 使用 @objc dynamic 修饰符定义一个用 NSNumber 包装的枚举属性。
+    @objc dynamic private(set) var myEnumNumber: NSNumber = NSNumber(value: MyEnum.first.rawValue)
+    
+    // 为了方便，创建一个计算属性来获取和设置枚举值。
+    var myEnum: MyEnum {
+        get {
+            MyEnum(rawValue: myEnumNumber.intValue)!
+        }
+        set {
+            myEnumNumber = NSNumber(value: newValue.rawValue)
+        }
+    }
+    
+}
+
 struct TaskGroupSample {
     @available(iOS 15.0.0, *)
     private func work(_ value: Int) async -> Int {

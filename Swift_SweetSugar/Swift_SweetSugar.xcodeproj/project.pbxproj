@@ -16,6 +16,8 @@
 		652432B228D4766000FE591E /* 90879c75-da87-4b9d-9ab6-9654378198f6.txt in Resources */ = {isa = PBXBuildFile; fileRef = 652432B128D4766000FE591E /* 90879c75-da87-4b9d-9ab6-9654378198f6.txt */; };
 		6528B2B0296BCCD400481F7D /* MMFloatTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6528B2AF296BCCD400481F7D /* MMFloatTextView.swift */; };
 		652D4D6E2963FC9900CC4EA3 /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 652D4D6D2963FC9900CC4EA3 /* UIViewController+Extension.swift */; };
+		652DA2922A08ADDE00434352 /* MMLanguageTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 652DA2912A08ADDE00434352 /* MMLanguageTest.swift */; };
+		652DA2952A090A2800434352 /* UITestVC+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 652DA2942A090A2800434352 /* UITestVC+Extension.swift */; };
 		654DEFC728780831009F6757 /* Data+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 654DEFC628780831009F6757 /* Data+Extension.swift */; };
 		6550B9EF292728F30093B437 /* 百度一下，你就知道_files in Resources */ = {isa = PBXBuildFile; fileRef = 6550B9ED292728F30093B437 /* 百度一下，你就知道_files */; };
 		6550B9F0292728F30093B437 /* 百度一下，你就知道.html in Resources */ = {isa = PBXBuildFile; fileRef = 6550B9EE292728F30093B437 /* 百度一下，你就知道.html */; };
@@ -41,6 +43,8 @@
 		65E188DD2995F1AE00B177C1 /* AnimationTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65E188DC2995F1AE00B177C1 /* AnimationTest.swift */; };
 		65E920C629F1152F000672C8 /* WebViewPrintPageRenderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65E920C529F1152F000672C8 /* WebViewPrintPageRenderer.swift */; };
 		65E920CA29F230B3000672C8 /* snapshot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65E920C929F230B3000672C8 /* snapshot.swift */; };
+		65F5FAA629F50EE4005E41CE /* MMLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65F5FAA529F50EE4005E41CE /* MMLabel.swift */; };
+		65F5FAA829F55230005E41CE /* ClickableLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65F5FAA729F55230005E41CE /* ClickableLabel.swift */; };
 		65FB47D22807EB94003EC323 /* UIButton+PropertyExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65FB47CF2807EB94003EC323 /* UIButton+PropertyExtension.swift */; };
 		65FB47D32807EB94003EC323 /* UIButton+typeLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65FB47D12807EB94003EC323 /* UIButton+typeLayout.swift */; };
 		AC1EC0BBACA998F5DF57DC83 /* Pods_Swift_SweetSugarTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B50AB3DD44E5A70683C35C88 /* Pods_Swift_SweetSugarTests.framework */; };
@@ -84,7 +88,7 @@
 		B47468F226FED2F300C79F2C /* MMGraphic2VC.xib in Resources */ = {isa = PBXBuildFile; fileRef = B47468F026FED2F300C79F2C /* MMGraphic2VC.xib */; };
 		B474765626948B2C006922D8 /* RPReplay.MP4 in Resources */ = {isa = PBXBuildFile; fileRef = B474765526948B2C006922D8 /* RPReplay.MP4 */; };
 		B47B6D0927993D19009D5810 /* MMSecret.swift in Sources */ = {isa = PBXBuildFile; fileRef = B47B6D0827993D18009D5810 /* MMSecret.swift */; };
-		B47BD09B27B28A5400DE1795 /* MMTextLayoutManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B47BD09A27B28A5400DE1795 /* MMTextLayoutManager.swift */; };
+		B47BD09B27B28A5400DE1795 /* MMLayoutManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B47BD09A27B28A5400DE1795 /* MMLayoutManager.swift */; };
 		B47F342126608DEC00F46C90 /* MMWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B47F341F26608DEC00F46C90 /* MMWebViewController.swift */; };
 		B47F342226608DEC00F46C90 /* MMWebViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B47F342026608DEC00F46C90 /* MMWebViewController.xib */; };
 		B47F39E6260DB6CF007592A1 /* WrapperTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B47F39E5260DB6CF007592A1 /* WrapperTest.swift */; };
@@ -229,6 +233,8 @@
 		652432B128D4766000FE591E /* 90879c75-da87-4b9d-9ab6-9654378198f6.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "90879c75-da87-4b9d-9ab6-9654378198f6.txt"; sourceTree = "<group>"; };
 		6528B2AF296BCCD400481F7D /* MMFloatTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MMFloatTextView.swift; sourceTree = "<group>"; };
 		652D4D6D2963FC9900CC4EA3 /* UIViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
+		652DA2912A08ADDE00434352 /* MMLanguageTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MMLanguageTest.swift; sourceTree = "<group>"; };
+		652DA2942A090A2800434352 /* UITestVC+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITestVC+Extension.swift"; sourceTree = "<group>"; };
 		654DEFC628780831009F6757 /* Data+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Data+Extension.swift"; sourceTree = "<group>"; };
 		6550B9ED292728F30093B437 /* 百度一下，你就知道_files */ = {isa = PBXFileReference; lastKnownFileType = folder; path = "百度一下，你就知道_files"; sourceTree = "<group>"; };
 		6550B9EE292728F30093B437 /* 百度一下，你就知道.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = "百度一下，你就知道.html"; sourceTree = "<group>"; };
@@ -256,6 +262,8 @@
 		65E188DC2995F1AE00B177C1 /* AnimationTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimationTest.swift; sourceTree = "<group>"; };
 		65E920C529F1152F000672C8 /* WebViewPrintPageRenderer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewPrintPageRenderer.swift; sourceTree = "<group>"; };
 		65E920C929F230B3000672C8 /* snapshot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = snapshot.swift; sourceTree = "<group>"; };
+		65F5FAA529F50EE4005E41CE /* MMLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MMLabel.swift; sourceTree = "<group>"; };
+		65F5FAA729F55230005E41CE /* ClickableLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClickableLabel.swift; sourceTree = "<group>"; };
 		65FB47CF2807EB94003EC323 /* UIButton+PropertyExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIButton+PropertyExtension.swift"; sourceTree = "<group>"; };
 		65FB47D12807EB94003EC323 /* UIButton+typeLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIButton+typeLayout.swift"; sourceTree = "<group>"; };
 		673050F51396BFDC2DD7DD6F /* Pods-Swift_SweetSugarTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Swift_SweetSugarTests.debug.xcconfig"; path = "Target Support Files/Pods-Swift_SweetSugarTests/Pods-Swift_SweetSugarTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -309,7 +317,7 @@
 		B47468F026FED2F300C79F2C /* MMGraphic2VC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MMGraphic2VC.xib; sourceTree = "<group>"; };
 		B474765526948B2C006922D8 /* RPReplay.MP4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = RPReplay.MP4; sourceTree = "<group>"; };
 		B47B6D0827993D18009D5810 /* MMSecret.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MMSecret.swift; sourceTree = "<group>"; };
-		B47BD09A27B28A5400DE1795 /* MMTextLayoutManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MMTextLayoutManager.swift; sourceTree = "<group>"; };
+		B47BD09A27B28A5400DE1795 /* MMLayoutManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MMLayoutManager.swift; sourceTree = "<group>"; };
 		B47F341F26608DEC00F46C90 /* MMWebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MMWebViewController.swift; sourceTree = "<group>"; };
 		B47F342026608DEC00F46C90 /* MMWebViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MMWebViewController.xib; sourceTree = "<group>"; };
 		B47F39E5260DB6CF007592A1 /* WrapperTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WrapperTest.swift; sourceTree = "<group>"; };
@@ -522,6 +530,8 @@
 			isa = PBXGroup;
 			children = (
 				65C3C4E329E945BB00FFA11C /* MMAutoLabelTableViewCell.swift */,
+				65F5FAA529F50EE4005E41CE /* MMLabel.swift */,
+				65F5FAA729F55230005E41CE /* ClickableLabel.swift */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -548,6 +558,15 @@
 				65E920C929F230B3000672C8 /* snapshot.swift */,
 			);
 			path = snapshot;
+			sourceTree = "<group>";
+		};
+		65F5FAAF29F7C6EE005E41CE /* Tk1 */ = {
+			isa = PBXGroup;
+			children = (
+				B4C51C1527918AE600F56FEC /* MMTextContainer.swift */,
+				B47BD09A27B28A5400DE1795 /* MMLayoutManager.swift */,
+			);
+			path = Tk1;
 			sourceTree = "<group>";
 		};
 		A4A95448E64B4A94ABF19911 /* Frameworks */ = {
@@ -610,6 +629,7 @@
 				B4063D99260B60C100F3135E /* UITestVC.swift */,
 				B4063D9A260B60C100F3135E /* UITestVC.xib */,
 				B4A1808627B36112009E21D3 /* UITestVC+Test.swift */,
+				652DA2942A090A2800434352 /* UITestVC+Extension.swift */,
 			);
 			path = "UI测试";
 			sourceTree = "<group>";
@@ -843,13 +863,12 @@
 		B480AD05266882C700E53DED /* TextKit */ = {
 			isa = PBXGroup;
 			children = (
+				65F5FAAF29F7C6EE005E41CE /* Tk1 */,
 				651F695F28F3CCB900BE565A /* TK2 */,
 				B4A1808D27B3E9C6009E21D3 /* New Group */,
 				B480AD0C266882F600E53DED /* MMTextVC.swift */,
 				B480AD0D266882F600E53DED /* MMTextVC.xib */,
-				B4C51C1527918AE600F56FEC /* MMTextContainer.swift */,
 				B4C67652279565A70088D1A2 /* MMTextStorage.swift */,
-				B47BD09A27B28A5400DE1795 /* MMTextLayoutManager.swift */,
 				6528B2AF296BCCD400481F7D /* MMFloatTextView.swift */,
 			);
 			path = TextKit;
@@ -1069,6 +1088,7 @@
 		B4DDA666279FE69300DBDB56 /* Tool */ = {
 			isa = PBXGroup;
 			children = (
+				652DA2912A08ADDE00434352 /* MMLanguageTest.swift */,
 				B4DDA668279FE6A900DBDB56 /* MMLocalSpeech.swift */,
 				B4C9397927C8D118005FA0EE /* MMCustomOCObj.h */,
 				B4C9397A27C8D118005FA0EE /* MMCustomOCObj.m */,
@@ -1471,6 +1491,7 @@
 				B4063D88260B530C00F3135E /* HomeListItemCell.swift in Sources */,
 				B49CED6F27F93A0800E2B8DF /* MMDefine.swift in Sources */,
 				B4CD02AC27A16C5900DC02FA /* MMGradientView.swift in Sources */,
+				65F5FAA629F50EE4005E41CE /* MMLabel.swift in Sources */,
 				652D4D6E2963FC9900CC4EA3 /* UIViewController+Extension.swift in Sources */,
 				B4A7E0C0277303FE0091687C /* MMListUpdateViewController.swift in Sources */,
 				B49751C1269C1E08004445E4 /* MMPieChartView.swift in Sources */,
@@ -1503,6 +1524,7 @@
 				B49C47832739296B0041F245 /* MMShadowButton.swift in Sources */,
 				B49BAB8A262022730097DFC9 /* CollectionViewController.swift in Sources */,
 				654DEFC728780831009F6757 /* Data+Extension.swift in Sources */,
+				652DA2952A090A2800434352 /* UITestVC+Extension.swift in Sources */,
 				B4AC61532732374200B76990 /* YDCustomButton.swift in Sources */,
 				DF128F3F232F2FF900491475 /* CommonModel.swift in Sources */,
 				DF2ED5DC2386219A001617F8 /* QuickSort.swift in Sources */,
@@ -1511,8 +1533,10 @@
 				65D29237281154D800B31DFD /* LabelTableViewCell.swift in Sources */,
 				B4B69E78233E55D40061AF93 /* CreateTool.swift in Sources */,
 				B4E390B02796B3ED000670FC /* WordWidget.intentdefinition in Sources */,
+				652DA2922A08ADDE00434352 /* MMLanguageTest.swift in Sources */,
 				65E188DD2995F1AE00B177C1 /* AnimationTest.swift in Sources */,
 				B4A17DE42669FA870030E40D /* MMTableViewVC.swift in Sources */,
+				65F5FAA829F55230005E41CE /* ClickableLabel.swift in Sources */,
 				651344EB28729889002FEF1B /* MMUIKitAnimationVC.swift in Sources */,
 				B425AC6B2252526000B02B77 /* ViewController.swift in Sources */,
 				65D2923A2811557400B31DFD /* CollectionContainerTableViewCell.swift in Sources */,
@@ -1547,7 +1571,7 @@
 				B4B4346F2701701100F7FAD4 /* UIDevice+Extension.swift in Sources */,
 				B4C194C52772F0FB0019553E /* MMTableViewAdapt.swift in Sources */,
 				B4AC6155273237A700B76990 /* Foundation+Extension.swift in Sources */,
-				B47BD09B27B28A5400DE1795 /* MMTextLayoutManager.swift in Sources */,
+				B47BD09B27B28A5400DE1795 /* MMLayoutManager.swift in Sources */,
 				65D7C87A29AEFC1F00E7CA51 /* MMHookTextView.m in Sources */,
 				B4063D93260B546500F3135E /* UITableViewCell+Extension.swift in Sources */,
 				B422B29725A3167200293646 /* MMFileTest.swift in Sources */,

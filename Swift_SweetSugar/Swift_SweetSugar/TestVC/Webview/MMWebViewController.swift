@@ -14,11 +14,14 @@ import Photos
 class MMWebViewController: UIViewController {
 
     lazy var webview: WKWebView = {
-        let configure = WKWebViewConfiguration()
-        let userContent = WKUserContentController()
-//        userContent.add(self, name: "translate")
-        configure.userContentController = userContent
-        let item = WKWebView(frame: .zero, configuration: configure)
+        //这样能确保复制到cookie
+        let script = WKUserScript(source: "document.cookie = 'test=1'", injectionTime: .atDocumentStart, forMainFrameOnly: false)
+        let userContentController = WKUserContentController()
+        userContentController.addUserScript(script)
+        let configuration = WKWebViewConfiguration()
+        configuration.userContentController = userContentController
+        
+        let item = WKWebView(frame: .zero, configuration: configuration)
         item.uiDelegate = self
         item.navigationDelegate = self
         item.backgroundColor = .lightGray
@@ -94,6 +97,8 @@ class MMWebViewController: UIViewController {
             // 在这里处理scrollView的contentOffset的变化
             mm_printLog("size->\(newOffset),\(old)")
         })
+        
+        
     }
     
     
@@ -132,10 +137,21 @@ class MMWebViewController: UIViewController {
     @IBAction func snapshot(_ sender: Any) {
 //        saveImg()
         //wkwebview 官方截图
-        sysSnapshot()
+//        sysSnapshot()
 //        scrollHeight()
 //        takeSnapshotOfWKWebView()
 //        testPDF()
+        test2()
+    }
+    
+    @IBAction func handleCookie(_ sender: Any) {
+        //真的能获取到cookie
+//        "BDORZ=AE84CDB3A529C0F8A2B9DCDD1D18B695; SE_LAUNCH=5%3A28059007; ZFY=2FlPTFGKyJR:A68lPI:B48KtaeiF3L99qV5fQ8HThNiAE:C; BDSVRBFE=Go; Hm_lpvt_12423ecbc0e2ca965d84259063d35238=1683540426; Hm_lvt_12423ecbc0e2ca965d84259063d35238=1682217685,1683540426; __bsi=10868730033506942869_00_27_N_R_4_0303_c02f_Y; plus_cv=1::m:f3ed604d; plus_lsv=3965f6be7add0277; cookietest=1; BA_HECTOR=85i58l0ha58g8424ak80ah181i5hiea1m; test=1; PSINO=1; BAIDUID=849AED936BD76AB5CB37DAB7A7771E7C:FG=1"
+        webview.evaluateJavaScript("document.cookie") { (result, error) in
+            if let cookies = result as? String {
+                mm_printLog(cookies)
+            }
+        }
     }
     
     var isScrolling: Bool = false
@@ -183,7 +199,15 @@ extension WKWebView {
 
 }
 extension MMWebViewController {
+    /// 完全可用， 会有滚动动画: 利用滚动截图
+    func test2() {
+        webview.snapshot2 { [weak self] image in
+            // 处理image
+            self?.saveImg(img: image)
+        }
+    }
     
+    /// 可用，但是目前高度不一致。会留有空白部分
     func testPDF() {
         webview.takeScreenshotOfFullContent { [weak self] (image) in
             // 处理image
@@ -386,50 +410,3 @@ class MMTouchsView: UIView {
 //        return image;
 //    }
 //}
-
-extension UIScrollView {
-    public func takeScreenshotOfFullContent(_ completion: @escaping ((UIImage?) -> Void)) {
-        // 分页绘制内容到ImageContext
-        let originalOffset = self.contentOffset
-
-        // 当contentSize.height<bounds.height时，保证至少有1页的内容绘制
-        var pageNum = 1
-        if self.contentSize.height > self.bounds.height {
-            pageNum = Int(floorf(Float(self.contentSize.height / self.bounds.height)))
-        }
-
-        let backgroundColor = self.backgroundColor ?? UIColor.white
-
-        UIGraphicsBeginImageContextWithOptions(self.contentSize, true, 0)
-
-        guard let context = UIGraphicsGetCurrentContext() else {
-            completion(nil)
-            return
-        }
-        context.setFillColor(backgroundColor.cgColor)
-        context.setStrokeColor(backgroundColor.cgColor)
-
-        self.drawScreenshotOfPageContent(0, maxIndex: pageNum) {
-            let image = UIGraphicsGetImageFromCurrentImageContext()
-            UIGraphicsEndImageContext()
-            self.contentOffset = originalOffset
-            completion(image)
-        }
-    }
-
-    fileprivate func drawScreenshotOfPageContent(_ index: Int, maxIndex: Int, completion: @escaping () -> Void) {
-
-        self.setContentOffset(CGPoint(x: 0, y: CGFloat(index) * self.frame.size.height), animated: false)
-        let pageFrame = CGRect(x: 0, y: CGFloat(index) * self.frame.size.height, width: self.bounds.size.width, height: self.bounds.size.height)
-
-        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 0.3) {
-            self.drawHierarchy(in: pageFrame, afterScreenUpdates: true)
-
-            if index < maxIndex {
-                self.drawScreenshotOfPageContent(index + 1, maxIndex: maxIndex, completion: completion)
-            }else{
-                completion()
-            }
-        }
-    }
-}

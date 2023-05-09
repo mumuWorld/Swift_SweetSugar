@@ -8,6 +8,7 @@
 
 import UIKit
 import SnapKit
+import YYText
 
 class MMTextVC: UIViewController {
     @IBOutlet weak var xibTextView: UITextView!
@@ -15,26 +16,27 @@ class MMTextVC: UIViewController {
     var storage: NSTextStorage = NSTextStorage()
     
 //    var container: MMTextContainer = MMTextContainer(size: CGSize(300, 200))
-    var container: NSTextContainer = NSTextContainer()
-    
+//    var container: NSTextContainer = NSTextContainer()
+        var mmContainer: NSTextContainer = MMTextContainer()
+
     var layout: NSLayoutManager = NSLayoutManager()
     
-    var mmLayout: MMTextLayoutManager = MMTextLayoutManager()
+    var mmLayoutManager: MMLayoutManager = MMLayoutManager()
 
 
-    lazy var textView: MMHookTextView = {
+    lazy var textView: UITextView = {
 //        container.size = CGSize(width: 100,height: 200)
-        mmLayout.addTextContainer(container)
+        mmLayoutManager.addTextContainer(mmContainer)
 
-        storage.addLayoutManager(mmLayout)
+        storage.addLayoutManager(mmLayoutManager)
 
 //        container.exclusionPaths = [UIBezierPath(roundedRect: CGRect(x: 10, y: 50, width: 100, height: 100), cornerRadius: 50)]
-//        let item = UITextView(frame: CGRect(x: 10, y: 300, width: 300, height: 200), textContainer: container)
-        let item = MMHookTextView(frame: .zero)
-        item.font = UIFont.systemFont(ofSize: 30)
+        let item = UITextView(frame: CGRect(x: 10, y: 300, width: 300, height: 200), textContainer: mmContainer)
+//        let item = MMHookTextView(frame: .zero)
+        item.font = UIFont.systemFont(ofSize: 20)
         item.textColor = UIColor.red.withAlphaComponent(0.5)
         item.tintColor = UIColor.green
-        item.isScrollEnabled = false
+        item.isScrollEnabled = true
         item.returnKeyType = .search
         item.isEditable = true
         item.keyboardDismissMode = .onDrag
@@ -56,37 +58,60 @@ class MMTextVC: UIViewController {
         let item = MMFloatTextView()
         return item
     }()
+    
+    lazy var yyTextView: YYTextView = {
+        let item = YYTextView()
+        item.isSelectable = true
+        item.placeholderText = "我是YYText"
+        return item
+    }()
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        layout.delegate = self
-        view.addSubview(textView)
-        view.addSubview(textField)
-        let text = """
-        In a storyboard-based application, you will often want to do a little preparation before navigation
-        override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-            // Get the new view controller using segue.destination.
-            // Pass the selected object to the new view controller.
-        }
-        """
-//        textView.textContainer.exclusionPaths = [UIBezierPath(roundedRect: CGRect(x: 10, y: 50, width: 100, height: 100), cornerRadius: 50)]
-//        storage.replaceCharacters(in: NSRange(location: 0, length: 0), with: text)
-        
-//        textView.text = text
-        
-//        textView.layoutManager.addTextContainer(container)
-//        textView.snp.makeConstraints { make in
-//            make.leading.equalToSuperview().offset(20)
-//            make.top.equalToSuperview().offset(230)
-//            make.width.equalTo(300)
-//            make.height.equalTo(100)
-//        }
-        textView.frame = CGRect(x: 20, y: 230, width: 300, height: 100)
-        textField.frame = CGRect(x: 20, y: 340, width: 300, height: 30)
+        addUITextView()
+//        addYYTextView()
 //        getText()
 //        pasteControl()
 //        customMenu()
 //        addObserve()
+    }
+    
+    func addYYTextView() {
+        view.addSubview(yyTextView)
+        yyTextView.snp.makeConstraints { make in
+            make.leading.equalToSuperview().offset(20)
+            make.top.equalToSuperview().offset(230)
+            make.width.equalTo(300)
+            make.height.equalTo(100)
+        }
+    }
+    
+    func addUITextView() {
+        //        layout.delegate = self
+                view.addSubview(textView)
+        //        view.addSubview(textField)
+                let text = """
+                我在好几篇小说中都提到过一座废弃的古园，实际就是地坛1。许多年前旅游业还没有开展，园子荒芜冷落得如同一片野地，很少被人记起。
+                地坛离我家很近。或者说我家离地坛很近。总之，只好认为这是缘分。地坛在我出生前四百多年就座落在那儿了，而自从我的祖母年轻时带着我父亲来到北京，就一直住在离它不远的地方一五十多年间搬过几次家，可搬来搬去总是在它周围，而且是越搬离它越近了。我常觉得这中间有着宿命的味道：仿佛这古园就是为了等我，而历尽沧桑在那儿等待了四百多年。
+                它等待我出生，然后又等待我活到最狂妄的年龄上忽地残废了双腿。四百多年里，它一面剥蚀了古殿檐头浮夸的琉璃，淡褪了门壁上炫耀的朱红，坍圮2了一段段高墙又散落了玉砌雕栏，祭坛四周的老柏树愈见苍幽，到处的野草荒藤也都茂盛得自在坦荡。这时候想必我是该来了。十五年前的一个下午，我摇着轮椅进入园中，它为一个失魂落魄的人把一切都准备好了。那时，太阳循着亘古3不变的路途正越来越大，也越红。在满园弥漫的沉静光芒中，一个人更容易看到时间，并看见自己的身影。
+                自从那个下午我无意中进了这园子，就再没长久地离开过它。我一下子就理解了它的意图。正如我在一篇小说中所说的：“在人口密聚的城市里，有这样一个宁静的去处，像是上帝的苦心安排。”
+                两条腿残废后的最初几年，我找不到工作，找不到去路，忽然间几乎什么都找不到了，我就摇了轮椅总是到它那儿去，仅为着那儿是可以逃避一个世界的另一个世界。我在那篇小说中写道：“没处可去我便一天到晚耗在这园子里。跟上班下班一样，别人去上班我就摇了轮椅到这儿来。园子无人看管，上下班时间有些抄近路的人们从园中穿过，园子里活跃一阵，过后便沉寂下来。”“园墙在金晃晃的空气中斜切下一溜荫凉，我把轮椅开进去，把椅背放倒，坐着或是躺着，看书或者想事，撅一杈树枝左右拍打，驱赶那些和我一样不明白为什么要来这世上的小昆虫。”“蜂儿如一朵小雾稳稳地停在半空；蚂蚁摇头晃脑捋着触须，猛然间想透了什么，转身疾行而去；瓢虫爬得不耐烦了，累了祈祷一回便支开翅膀，忽悠一下升空了；树干上留着一只蝉蜕，寂寞如一间空屋；露水在草叶上滚动、聚集，压弯了草叶轰然坠地摔开万道金光。”“满园子都是草木竞相生长弄出的响动，窸窸窣窣窸窸窣窣片刻不息。”这都是真实的记录，园子荒芜但并不衰败。
+                除去几座殿堂我无法进去，除去那座祭坛我不能上去而只能从各个角度张望它，地坛的每一棵树下我都去过，差不多它的每一米草地上都有过我的车轮印。无论是什么季节，什么天气，什么时间，我都在这园子里呆过。有时候呆一会儿就回家，有时候就呆到满地上都亮起月光。记不清都是在它的哪些角落里了。我一连几小时专心致志地想关于死的事，也以同样的耐心和方式想过我为什么要出生。这样想了好几年，最后事情终于弄明白了：一个人，出生了，这就不再是一个可以辩论的问题，而只是上帝交给他的一个事实；上帝在交给我们这件事实的时候，已经顺便保证了它的结果，所以死是一件不必急于求成的事，死是一个必然会降临的节日。这样想过之后我安心多了，眼前的一切不再那么可怕。比如你起早熬夜准备考试的时候，忽然想起有一个长长的假期在前面等待你，你会不会觉得轻松一点？并且庆幸并且感激这样的安排？
+                }
+                """
+        //        textView.textContainer.exclusionPaths = [UIBezierPath(roundedRect: CGRect(x: 10, y: 50, width: 100, height: 100), cornerRadius: 50)]
+        //        storage.replaceCharacters(in: NSRange(location: 0, length: 0), with: text)
+                
+                textView.text = text
+                
+        //        textView.layoutManager.addTextContainer(container)
+                textView.snp.makeConstraints { make in
+                    make.leading.trailing.equalToSuperview().inset(20)
+                    make.top.equalToSuperview().offset(kNaviBarHeight + 20)
+                    make.height.equalTo(300)
+                }
+        //        textView.frame = CGRect(x: 20, y: 230, width: 300, height: 100)
+        //        textField.frame = CGRect(x: 20, y: 340, width: 300, height: 30)
     }
     
     func addObserve() {

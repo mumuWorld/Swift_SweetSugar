@@ -173,7 +173,7 @@ class FuncTestVC: UIViewController {
         case 35:
             tool.dateTest()
         case 36:
-            tool.timer()
+            tool.timerTest36()
         case 37:
 //            tool.urltest()
             tool.deviceTest()
@@ -210,6 +210,10 @@ class FuncTestVC: UIViewController {
 //            tool.test46()
         case 47:
             tool.nlTest()
+        case 48:
+            tool.kvoTest_48()
+        case 49:
+            MMLanguageTest().test()
         default:
             break
         }
@@ -217,6 +221,8 @@ class FuncTestVC: UIViewController {
     }
     
     var timer: Timer?
+    
+   
     
     func testFunc() -> Void {
         mm_printLog("test")

@@ -238,8 +238,9 @@ class UITestVC: UIViewController {
 //        graTest()
 //        snapshotTest()
 //        gradientTest()
-//        gradientTest()
-        stackViewTest()
+//        stackViewTest()
+        //transform 测试 CGAffineTransform
+        transformTest()
     }
     
     /// stackView 间距测试: 可以自定义某个 子视图之后的间距
@@ -300,17 +301,43 @@ class UITestVC: UIViewController {
 //        layer0.startPoint = CGPoint(x: 0.25, y: 0.5)
 //        layer0.endPoint = CGPoint(x: 0.75, y: 0.5)
 //        layer0.transform = CATransform3DMakeAffineTransform(CGAffineTransform(a: -0.73, b: -0.05, c: -0.77, d: -1.37, tx: 1.4, ty: 0.77))
-        
-        let v = MMGradientView()
-        view.addSubview(v)
-        v.snp.makeConstraints { make in
-            make.leading.trailing.bottom.equalToSuperview()
-            make.height.equalTo(200)
+        let time = NSDate()
+//        // 性能比较 使用layer 内存低，速度快。
+        for _ in 0...100 {
+            let v = MMGradientView()
+            view.addSubview(v)
+            v.snp.makeConstraints { make in
+                make.leading.trailing.bottom.equalToSuperview()
+                make.height.equalTo(200)
+            }
+            //        v.frame = CGRect(x: 100, y: 200, width: 300, height: 300)
+            v.update(colors: [UIColor.red,
+                              UIColor.yellow,
+                              UIColor.blue], start: CGPoint(x: 0.5, y: 0), end: CGPoint(x: 0.5, y: 1), locations: [0, 0.99,  1])
+
         }
-//        v.frame = CGRect(x: 100, y: 200, width: 300, height: 300)
-        v.update(colors: [UIColor(red: 0.212, green: 0.224, blue: 0.255, alpha: 0),
-                          UIColor(red: 0.212, green: 0.224, blue: 0.255, alpha: 0.7),
-                          UIColor(red: 0.212, green: 0.224, blue: 0.255, alpha: 1)], start: CGPoint(x: 0.5, y: 0), end: CGPoint(x: 0.5, y: 1), locations: [0, 0.3, 0.63, 1])
+        //"🔨[UITestVC gradientTest()](317): test->耗时:0.016939163208007812"
+//        "🔨[UITestVC gradientTest()](318): test->耗时:0.058474063873291016"  真机 内存 23.2M - 22 = 1M
+        mm_printLog("test->耗时:\(NSDate().timeIntervalSince1970 - time.timeIntervalSince1970)")
+        
+//        for _ in 0...100 {
+//            let v = SampleGradientView()
+//            view.addSubview(v)
+//            v.snp.makeConstraints { make in
+//                make.leading.trailing.equalToSuperview()
+//                make.bottom.equalToSuperview().offset(-200)
+//                make.height.equalTo(200)
+//            }
+//            v.colors = [UIColor(red: 0.212, green: 0.224, blue: 0.255, alpha: 0),
+//                        UIColor(red: 0.212, green: 0.224, blue: 0.255, alpha: 0.7),
+//                        UIColor(red: 0.212, green: 0.224, blue: 0.255, alpha: 1)]
+//            v.locations =  [0, 0.3, 0.63, 1]
+//
+//        }
+//        //test->耗时:0.019596099853515625"
+//        //"🔨[UITestVC gradientTest()](336): test->耗时:0.06610107421875" 真机  0.1   286 - 22M = 264M
+//        mm_printLog("test->耗时:\(NSDate().timeIntervalSince1970 - time.timeIntervalSince1970)")
+
     }
     
     override func touchesCancelled(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -652,28 +679,6 @@ class UITestVC: UIViewController {
         mm_printLog("print_test")
     }
 
-    /// 结论：transform 会改变frame
-    func transformTest() {
-        let greenView = UIView(frame: CGRect(x: 100, y: 100, width: 100, height: 100))
-        greenView.backgroundColor = UIColor.green
-        view.insertSubview(greenView, belowSubview: shadowView)
-        shadowView.frame = CGRect(x: 100, y: 100, width: 100, height: 100)
-//                mm_printLog("mode=\(NSLineBreakMode(rawValue: model)!.rawValue)")
-        //frame = (50 50; 200 200); transform = [2, 0, 0, 2, 0, 0];
-        shadowView.transform = CGAffineTransform(scaleX: 2, y: 2)
-        mm_printLog("\(shadowView)")
-//        //改变transfrom之后再改变frame, 他的transform不影响之后frame的变化
-//        // frame = (100 100; 50 50); transform = [2, 0, 0, 2, 0, 0];
-        shadowView.frame = CGRect(x: 100, y: 100, width: 100, height: 100)
-        mm_printLog("\(shadowView)")
-        // rame = (150 150; 100 100); anchorPoint = (0, 0);   position = (150, 150)
-//        shadowView.layer.anchorPoint = CGPoint(x: 0, y: 0)
-        shadowView.transform = CGAffineTransform(scaleX: 2, y: 2)
-
-        mm_printLog("\(shadowView)")
-
-        
-    }
     
     func setupAttr() -> Void {
         let str = "Your project does not explicitly specify the CocoaPodsmassdfssdfter specs repo. Since CDN is now used as the default, you may safely remove it from your repos directory via `pod repo remove master`. To suppress this warning please add `warn_for_unused_master_specs_repo => false` to your Podfile"
@@ -788,7 +793,6 @@ extension UITestVC {
                 
             }
         }
-       
 
 //        UIView.animate(withDuration: 1) {
 //            self.testButton.imageView?.transform = imgTransform

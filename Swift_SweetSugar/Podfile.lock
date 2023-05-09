@@ -2,6 +2,9 @@ PODS:
   - FBRetainCycleDetector (0.1.4)
   - HandyJSON (5.0.2)
   - Kingfisher (6.3.1)
+  - LookinServer (1.1.5):
+    - LookinServer/Core (= 1.1.5)
+  - LookinServer/Core (1.1.5)
   - lottie-ios (3.2.3)
   - MLeaksFinder (1.0.0):
     - FBRetainCycleDetector
@@ -14,6 +17,7 @@ DEPENDENCIES:
   - "FBRetainCycleDetector (from `git@gitlab.corp.youdao.com:lunafork/FBRetainCycleDetector.git`, branch `feature/yd_dev`)"
   - HandyJSON
   - Kingfisher
+  - LookinServer
   - lottie-ios (~> 3.2.3)
   - MLeaksFinder
   - SnapKit
@@ -25,6 +29,7 @@ SPEC REPOS:
   https://github.com/CocoaPods/Specs.git:
     - HandyJSON
     - Kingfisher
+    - LookinServer
     - lottie-ios
     - MLeaksFinder
     - SnapKit
@@ -47,6 +52,7 @@ SPEC CHECKSUMS:
   FBRetainCycleDetector: 46daef95c2dfa9be34b53087edf6a8f34e4c749c
   HandyJSON: 9e4e236f5d2dbefad5155a77417bbea438201c03
   Kingfisher: 016c8b653a35add51dd34a3aba36b580041acc74
+  LookinServer: 2893f2bae53cbf3fd49bbe1a8ea1745582ef1317
   lottie-ios: c058aeafa76daa4cf64d773554bccc8385d0150e
   MLeaksFinder: 8c435bd2f6d070af18cff082b503b21adc130fc0
   SnapKit: e01d52ebb8ddbc333eefe2132acf85c8227d9c25
@@ -54,6 +60,6 @@ SPEC CHECKSUMS:
   testDev: d83d71c6ee7f5eba365d7a30d06ecbc52580e01c
   YYText: 5c461d709e24d55a182d1441c41dc639a18a4849
 
-PODFILE CHECKSUM: f13820578cfd432ea9955a9e9c7cecb7e5f4ede5
+PODFILE CHECKSUM: e673e4721797468fde7e261634d6a068e66d26d0
 
 COCOAPODS: 1.11.3
