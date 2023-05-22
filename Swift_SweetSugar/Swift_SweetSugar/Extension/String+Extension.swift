@@ -10,6 +10,28 @@ import Foundation
 import CommonCrypto
 import CoreGraphics
 import UIKit
+import CryptoKit
+
+extension String {
+    
+    /// iOS13以后
+    var md5_new: String {
+        let inputData = Data(self.utf8)
+        let hashed = Insecure.MD5.hash(data: inputData)
+        return hashed.map { String(format: "%02hhx", $0) }.joined()
+    }
+    
+    /// iOS13以前
+    var md5_old: String {
+            let data = Data(self.utf8)
+            var digest = [UInt8](repeating: 0, count: Int(CC_MD5_DIGEST_LENGTH))
+            data.withUnsafeBytes {
+                _ = CC_MD5($0.baseAddress, CC_LONG(data.count), &digest)
+            }
+            return digest.map { String(format: "%02x", $0) }.joined()
+        }
+
+}
 
 // MARK: - 字符串截取
 public extension String {

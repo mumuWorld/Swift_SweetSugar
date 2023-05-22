@@ -28,5 +28,15 @@ class MMCustomView: UIView {
         }
     }
     
-
+    /// 移除window时也会调用
+    /// - Parameter newWindow: 
+    override func willMove(toWindow newWindow: UIWindow?) {
+        super.willMove(toWindow: newWindow)
+        mm_printLog("\(String(describing: newWindow))")
+    }
+    
+    override func didMoveToWindow() {
+        super.didMoveToWindow()
+        mm_printLog("\(String(describing: self.window))")
+    }
 }

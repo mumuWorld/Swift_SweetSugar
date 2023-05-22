@@ -44,17 +44,59 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
         // Use this method to pause ongoing tasks, disable timers, and invalidate graphics rendering callbacks. Games should use this method to pause the game.
         mm_printLog("mumu")
+        
+        // 必须主线程
+        UIApplication.shared.beginReceivingRemoteControlEvents()
+        self.becomeFirstResponder()
+        
     }
 
+    var backgroundUpdateTaskID: UIBackgroundTaskIdentifier?
+    
+    var player: MMAudioTool = MMAudioTool()
+    
     func applicationDidEnterBackground(_ application: UIApplication) {
         // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
         // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
-        mm_printLog("mumu")
+        mm_printLog("mumu: \(application.backgroundTimeRemaining)")
+//        backgroundUpdateTaskID = application.beginBackgroundTask(expirationHandler: { [weak self] in
+//            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 10) {
+//                guard let self = self, let taskID = self.backgroundUpdateTaskID else { return }
+//                application.endBackgroundTask(taskID)
+//                self.backgroundUpdateTaskID = .invalid
+//            }
+//        })
+//        player.play(urlStr: "https://ydlunacommon-cdn.nosdn.127.net/b2e09863e147dacef4d2dacf2188775b.mp3")
+//        backgroundUpdateTaskID = UIApplication.shared.beginBackgroundTask { [weak self] in
+//                            mm_printLog("测试1")
+//            guard let self = self else { return }
+//            mm_printLog("测试2")
+//            DispatchQueue.global(qos: .background).async {
+//                mm_printLog("测试3")
+//                // 延长后台任务的时间
+//                while true {
+//                    mm_printLog("测试4")
+//                    if UIApplication.shared.backgroundTimeRemaining <= 30 {
+//                        break
+//                    }
+//                    Thread.sleep(forTimeInterval: 1.0)
+//                }
+//                mm_printLog("测试5")
+//                guard let backgroundUpdateTaskID = self.backgroundUpdateTaskID else { return }
+//                mm_printLog("测试6")
+//                // 结束后台任务
+//                UIApplication.shared.endBackgroundTask(backgroundUpdateTaskID)
+//            }
+//        }
     }
 
     func applicationWillEnterForeground(_ application: UIApplication) {
         // Called as part of the transition from the background to the active state; here you can undo many of the changes made on entering the background.
-        mm_printLog("mumu")
+        UIApplication.shared.endReceivingRemoteControlEvents()
+        guard let backgroundUpdateTaskID = self.backgroundUpdateTaskID else { return }
+        // 结束后台任务
+        UIApplication.shared.endBackgroundTask(backgroundUpdateTaskID)
+        mm_printLog("mumu->回到前台结束任务")
     }
 
     func applicationDidBecomeActive(_ application: UIApplication) {

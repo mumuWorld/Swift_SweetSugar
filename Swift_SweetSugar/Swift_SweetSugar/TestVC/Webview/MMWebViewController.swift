@@ -110,7 +110,8 @@ class MMWebViewController: UIViewController {
 //        let urlStr_7 = "https://www.baidu.com/s?ie=UTF-8&wd="
 //        let urlStr_7 = "https://h5.youdao.com/preview/1025?_t=1681289492028&title="
 //        var url = urlStr_7 + ".urlEncoded()
-        let url = "https://www.baidu.com/s?ie=UTF-8&wd="
+//        let url = "https://www.baidu.com/s?ie=UTF-8&wd="
+        let url = "https://github.com/SwiftOldDriver/iOS-Weekly/releases.atom"
         let content = """
         一二三四五六七八九十一二三四五六七八九十一二三四五六七八九十一二三四五六七八九十一二三四五六七八九十一二三四五六七八九十一二三四五六七八九十一二三四五六七八九十一二三
 """
@@ -343,6 +344,11 @@ extension MMWebViewController: WKUIDelegate {
 }
 
 extension MMWebViewController: WKNavigationDelegate {
+    
+    func webView(_ webView: WKWebView, decidePolicyFor navigationResponse: WKNavigationResponse, decisionHandler: @escaping (WKNavigationResponsePolicy) -> Void) {
+        decisionHandler(.allow)
+    }
+    
     func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
         mm_printLog("加载完成")
 //        let jsUrl = URL(string: "https://c.youdao.com/fanyiguan/webTrans/index.js")
