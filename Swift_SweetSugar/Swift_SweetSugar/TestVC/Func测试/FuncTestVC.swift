@@ -24,6 +24,11 @@ class FuncTestVC: UIViewController {
     
     var model: MMSimpleModel?
     
+    lazy var mmView: MMCustomView = {
+        let item = MMCustomView()
+        return item
+    }()
+    
     lazy var removeItem: UIView? = {
         let item = UIView()
         return item
@@ -88,12 +93,18 @@ class FuncTestVC: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        mm_printLog("")
+        if let present = UIViewController.currentViewController() {
+            // <Swift_SweetSugar.HomeListVC: 0x13f008e00>
+            mm_printLog("test->\(present)")
+        }
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        mm_printLog("")
+        if let present = UIViewController.currentViewController() {
+            // <Swift_SweetSugar.HomeListVC: 0x13f008e00>
+            mm_printLog("test->\(present)")
+        }
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -102,7 +113,10 @@ class FuncTestVC: UIViewController {
     }
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
-        mm_printLog("")
+        if let present = UIViewController.currentViewController() {
+            // <Swift_SweetSugar.HomeListVC: 0x13f008e00>
+            mm_printLog("test->\(present)")
+        }
     }
     //MARK: - 都在这里
 
@@ -152,11 +166,15 @@ class FuncTestVC: UIViewController {
             tool.testPrint2()
             tool.testPrint3()
         case 30:
-            let vc = UITestVC()
-            vc.modalPresentationStyle = .overFullScreen
-            present(vc, animated: true, completion: nil)
-            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 4) {
-                mm_printLog("self->\(self), \(vc.presentingViewController)")
+            mmView.frame = CGRect(x: 0, y: 0, width: 100, height: 100)
+            view.addSubview(mmView)
+            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 2) {
+                let vc = UITestVC()
+                vc.modalPresentationStyle = .fullScreen
+                self.navigationController?.present(vc, animated: true, completion: nil)
+                DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 2) {
+                    vc.dismiss(animated: true)
+                }
             }
         case 31:
             tool.jsonTest()
@@ -176,8 +194,8 @@ class FuncTestVC: UIViewController {
             tool.timerTest36()
         case 37:
 //            tool.urltest()
-            tool.deviceTest()
-//            tool.audioTest_37()
+//            tool.deviceTest()
+            tool.audioTest_37_2()
         case 38:
             tool.numberFormatter()
         case 39:
@@ -214,6 +232,8 @@ class FuncTestVC: UIViewController {
             tool.kvoTest_48()
         case 49:
             MMLanguageTest().test()
+        case 50:
+            tool.stringTest_50()
         default:
             break
         }

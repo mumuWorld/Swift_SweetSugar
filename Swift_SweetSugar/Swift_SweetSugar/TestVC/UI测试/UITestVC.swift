@@ -153,9 +153,6 @@ class UITestVC: UIViewController {
 //        let font = UIFont(name: "iconfont", size: 30)
 //        widthLabel.font = font
 //        widthLabel.text = "大 \u{e60b}"
-
-//        view.layer.addSublayer(avPlayerLayer)
-//        setupPip()
         
         pieChartView.colors = [.red,.blue,.green, .yellow]
         pieChartView.drawWidth = 20
@@ -199,15 +196,36 @@ class UITestVC: UIViewController {
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return .default
     }
-    
+
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        mm_printLog("111")
+        if let present = UIViewController.currentViewController() {
+            // <Swift_SweetSugar.UITestVC: 0x13f008e00>
+            mm_printLog("test->\(present)")
+        }
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        if let present = UIViewController.currentViewController() {
+            //HomeListVC
+            mm_printLog("test->\(present)")
+        }
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        mm_printLog("111")
+        if let present = UIViewController.currentViewController() {
+            //UITestVC
+            mm_printLog("test->\(present)")
+        }
+    }
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        if let present = UIViewController.currentViewController() {
+            //HomeListVC
+            mm_printLog("test->\(present)")
+        }
     }
     
     var show = false
@@ -217,7 +235,7 @@ class UITestVC: UIViewController {
 //        handleClick(sender: bar)
 //        shadowTest()
 //        playAnimation()
-//        windowTest()
+        windowTest()
 //        addActivity()
         //        dismiss(animated: true)
         
@@ -240,7 +258,8 @@ class UITestVC: UIViewController {
 //        gradientTest()
 //        stackViewTest()
         //transform 测试 CGAffineTransform
-        transformTest()
+//        transformTest()
+//        playerTest()
     }
     
     /// stackView 间距测试: 可以自定义某个 子视图之后的间距
@@ -498,6 +517,7 @@ class UITestVC: UIViewController {
         newWindow = newW
         DispatchQueue.main.asyncAfter(deadline:  DispatchTime.now() + 2) {
             newW.isHidden = true
+            self.newWindow = nil
         }
     }
     
@@ -639,6 +659,8 @@ class UITestVC: UIViewController {
             } catch let e {
                 mm_printLog(e)
             }
+        } else {
+            avPlayer.play()
         }
     }
     
@@ -761,6 +783,14 @@ class UITestVC: UIViewController {
         textViewTest()
     }
     
+    /// 视频播放器测试
+    func playerTest() {
+        guard avPlayerLayer.superlayer == nil else { return }
+        view.layer.addSublayer(avPlayerLayer)
+//        avPlayer.play()
+        // 开启画中画
+        setupPip()
+    }
     
 }
 extension UITestVC {

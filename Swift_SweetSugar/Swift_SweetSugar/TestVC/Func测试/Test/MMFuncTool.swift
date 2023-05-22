@@ -14,6 +14,11 @@ import NaturalLanguage
 
 class MMFuncTool: NSObject {
     
+    lazy var player: MMAudioTool = {
+        let item = MMAudioTool()
+        return item
+    }()
+    
     func urltest() -> Void {
 //        let urlStr = "https://shared.youdao.com/dict/market/living-study-ranking-test/index.html#/?hide-toolbar=true"
 //        let urlStr_2 = "https://shared.youdao.com/dict/market/training-camp-test/index.html/campDetails"
@@ -471,6 +476,8 @@ After apologising, Mr Musk said that Mr Thorleifsson was considering coming back
     var recording: Bool = false
     var recorder: AVAudioRecorder?
     func audioTest_37() {
+//        NotificationCenter.default.addObserver(self, selector: #selector(handleNotify(sender:)), name: AVAudioSession.routeChangeNotification, object: nil)
+
         if recording {
             mm_printLog("test 结束->")
             recording = false
@@ -501,6 +508,10 @@ After apologising, Mr Musk said that Mr Thorleifsson was considering coming back
             mm_printLog(e)
         }
         
+    }
+    
+    @objc func handleNotify(sender: AnyObject) {
+        mm_printLog("test 开始->3333")
     }
     
     var observation: NSKeyValueObservation?
@@ -590,6 +601,15 @@ extension MMFuncTool {
         }
 //        let str = e.localizedDescription ?? ""
         MMCustomOCObj().receiveError(_ocError)
+    }
+    
+    func stringTest_50() {
+        let str = "test str"
+        let md5_1 = str.MD5String
+        let md5_2 = str.md5_old
+        let md5_3 = str.md5_new
+        // c6a8c84908efe116df536993e4543fe4 结果一致
+        mm_printLog("test->")
     }
 }
 extension MMFuncTool {
@@ -723,10 +743,10 @@ extension MMFuncTool {
     func timerTest36() {
         var count = 0
         //进入后台不会暂停
-//        timerStr = MMDispatchTimer.createTimer(startTime: 1, infiniteInterval: 2, isRepeat: true, async: true) {
-//            count += 1
-//            mm_printLog("start->\(count)")
-//        }
+        timerStr = MMDispatchTimer.createTimer(startTime: 1, infiniteInterval: 2, isRepeat: true, async: true) {
+            count += 1
+            mm_printLog("start->\(count)")
+        }
         
         //需要手动将timer放到 runloop中
 //        timer = Timer(fire: Date(timeIntervalSince1970: Date().timeIntervalSince1970 + 2), interval: 2, repeats: true, block: { _ in
@@ -735,16 +755,33 @@ extension MMFuncTool {
 //            mm_printLog("start->\(count)")
 //        })
         //进后台会暂停，回到前台会连续执行两次。
-        mm_printLog("timer->\(Date().timeIntervalSince1970), \(count)")
+//        mm_printLog("timer->\(Date().timeIntervalSince1970), \(count)")
+        var timerCount = 0
         timer = Timer.scheduledTimer(withTimeInterval: 2, repeats: true) { timer in
-            if count == 30 {
-                timer.invalidate()
-            }
-            count += 1;
-            mm_printLog("timer->\(Date().timeIntervalSince1970), \(count)")
+//            if count == 30 {
+//                timer.invalidate()
+//            }
+            timerCount += 1;
+            mm_printLog("timer->\(Date().timeIntervalSince1970), \(timerCount)")
         }
 //        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 2) {
 //            self.timer?.fire()
+//        }
+        
+    
+    }
+    
+    func audioTest_37_2() {
+        mm_printLog("点击->")
+        DispatchQueue.global(qos: .background).asyncAfter(deadline: DispatchTime.now() + 1) {
+            mm_printLog("后台->")
+            self.player.play(urlStr: "https://ydlunacommon-cdn.nosdn.127.net/b2e09863e147dacef4d2dacf2188775b.mp3")
+            
+        }
+//        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 2) {
+            mm_printLog("后台->")
+//            self.player.play(urlStr: "https://ydlunacommon-cdn.nosdn.127.net/b2e09863e147dacef4d2dacf2188775b.mp3")
+//
 //        }
     }
     
