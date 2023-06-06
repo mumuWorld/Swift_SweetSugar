@@ -18,6 +18,13 @@ public class MMGradientView: UIView {
     
     var _adaptDark: Bool = false
     
+    public override func layoutSubviews() {
+        super.layoutSubviews()
+        subviews.forEach { item in
+            item.frame = self.bounds
+        }
+    }
+    
     public func update(colors: [UIColor], start: CGPoint = CGPoint(x: 0.5, y: 0), end: CGPoint = CGPoint(x: 0.5, y: 1), locations: [CGFloat]? = nil, adaptDark: Bool = false) {
         _colors = colors
         _adaptDark = adaptDark

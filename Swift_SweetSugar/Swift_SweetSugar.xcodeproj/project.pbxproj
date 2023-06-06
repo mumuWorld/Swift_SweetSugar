@@ -18,6 +18,7 @@
 		652D4D6E2963FC9900CC4EA3 /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 652D4D6D2963FC9900CC4EA3 /* UIViewController+Extension.swift */; };
 		652DA2922A08ADDE00434352 /* MMLanguageTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 652DA2912A08ADDE00434352 /* MMLanguageTest.swift */; };
 		652DA2952A090A2800434352 /* UITestVC+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 652DA2942A090A2800434352 /* UITestVC+Extension.swift */; };
+		653A49782A2F2CCD003DC1BE /* MMGradientLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 653A49772A2F2CCD003DC1BE /* MMGradientLabel.swift */; };
 		654DEFC728780831009F6757 /* Data+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 654DEFC628780831009F6757 /* Data+Extension.swift */; };
 		6550B9EF292728F30093B437 /* 百度一下，你就知道_files in Resources */ = {isa = PBXBuildFile; fileRef = 6550B9ED292728F30093B437 /* 百度一下，你就知道_files */; };
 		6550B9F0292728F30093B437 /* 百度一下，你就知道.html in Resources */ = {isa = PBXBuildFile; fileRef = 6550B9EE292728F30093B437 /* 百度一下，你就知道.html */; };
@@ -235,6 +236,7 @@
 		652D4D6D2963FC9900CC4EA3 /* UIViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
 		652DA2912A08ADDE00434352 /* MMLanguageTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MMLanguageTest.swift; sourceTree = "<group>"; };
 		652DA2942A090A2800434352 /* UITestVC+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITestVC+Extension.swift"; sourceTree = "<group>"; };
+		653A49772A2F2CCD003DC1BE /* MMGradientLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MMGradientLabel.swift; sourceTree = "<group>"; };
 		654DEFC628780831009F6757 /* Data+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Data+Extension.swift"; sourceTree = "<group>"; };
 		6550B9ED292728F30093B437 /* 百度一下，你就知道_files */ = {isa = PBXFileReference; lastKnownFileType = folder; path = "百度一下，你就知道_files"; sourceTree = "<group>"; };
 		6550B9EE292728F30093B437 /* 百度一下，你就知道.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = "百度一下，你就知道.html"; sourceTree = "<group>"; };
@@ -618,6 +620,7 @@
 				B49BAB7F2620223B0097DFC9 /* SingleViewCell.swift */,
 				B49BAB802620223B0097DFC9 /* SingleViewCell.xib */,
 				B4CD02AB27A16C5900DC02FA /* MMGradientView.swift */,
+				653A49772A2F2CCD003DC1BE /* MMGradientLabel.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1473,6 +1476,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				653A49782A2F2CCD003DC1BE /* MMGradientLabel.swift in Sources */,
 				B49BAB812620223B0097DFC9 /* SingleViewCell.swift in Sources */,
 				B469D02F269D9C57001D7234 /* MMEmitterVC.swift in Sources */,
 				B459B5EF22CCF0A700DEEA87 /* Solution.swift in Sources */,

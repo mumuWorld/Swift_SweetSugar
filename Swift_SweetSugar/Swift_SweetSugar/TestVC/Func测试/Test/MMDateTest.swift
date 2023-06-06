@@ -27,6 +27,8 @@ class MMDateTest {
         formatter.calendar = Calendar(identifier: .gregorian)
         //用此formatter 1970-01-01 21:20:00 时间会有问题。
         let formatterStr = "yyyy-MM-dd hh:mm:ss"
+        let formatterStr_2 = "yyyy-MM-dd HH:mm:ss"
+
         let timeStr = "1970-01-01 20:20:00"
         formatter.dateFormat = formatterStr
         let date = formatter.date(from: timeStr)
@@ -37,7 +39,7 @@ class MMDateTest {
         let formatter_2 = DateFormatter()
         formatter_2.calendar = Calendar(identifier: .gregorian)
         //此格式 只能正确返回24小时制时间。
-        formatter_2.dateFormat = "yyyy-MM-dd HH:mm:ss"
+        formatter_2.dateFormat = formatterStr_2
         let date_2 = formatter_2.date(from: timeStr)
 
         mm_printLog("date-\(date)")
@@ -55,6 +57,13 @@ class MMDateTest {
         int_v = UserDefaults.standard.integer(forKey: key)
         print("test_print")
 
+        // 此格式不准确
+        let formatter_new = DateFormatter()
+        formatter_new.locale = Locale(identifier: "en_US_POSIX")
+        formatter_new.dateFormat = formatterStr_2
+        let date_new = formatter_new.date(from: timeStr)
+        mm_printLog("date3-\(date_new)")
+        
         /*12小时制
          timeStr = "1970-01-01 9:20:00"
          date = "some : 1970-01-01 1:20:00 AM +0000"
