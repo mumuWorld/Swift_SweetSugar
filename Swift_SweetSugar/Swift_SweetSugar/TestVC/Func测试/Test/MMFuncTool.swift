@@ -12,6 +12,12 @@ import SwiftyJSON
 import AVFoundation
 import NaturalLanguage
 
+enum MMTest {
+    case one
+    case two
+    case three
+}
+
 class MMFuncTool: NSObject {
     
     lazy var player: MMAudioTool = {
@@ -19,6 +25,8 @@ class MMFuncTool: NSObject {
         return item
     }()
     
+    private var observer: NSObjectProtocol?
+
     func urltest() -> Void {
 //        let urlStr = "https://shared.youdao.com/dict/market/living-study-ranking-test/index.html#/?hide-toolbar=true"
 //        let urlStr_2 = "https://shared.youdao.com/dict/market/training-camp-test/index.html/campDetails"
@@ -516,6 +524,7 @@ After apologising, Mr Musk said that Mr Thorleifsson was considering coming back
     
     var observation: NSKeyValueObservation?
     var stateObservation: NSKeyValueObservation?
+    var vcObservation: NSKeyValueObservation?
 
     @objc dynamic var state: PlayState = .play
     // 2. 使用`@objc dynamic`修饰符定义属性。
@@ -523,10 +532,8 @@ After apologising, Mr Musk said that Mr Thorleifsson was considering coming back
     
     private var myObject: MyClass = MyClass()
 
-    func kvoTest_48() {
+    func kvoTest_48(vc: FuncTestVC) {
         stateObservation = observe(\.state, options: [.old, .new]) { object, change in
-            //            print("play state changed from: \(change.oldValue!), updated to: \(change.newValue!)")
-//            print("change: ", change.oldValue, change.newValue)
             mm_printLog("test->\(change.oldValue), \(change.newValue)")
         }
         // 3. 在需要监听属性的类中，使用KVO来监听属性的更改。
@@ -535,7 +542,19 @@ After apologising, Mr Musk said that Mr Thorleifsson was considering coming back
             print("Enum value changed to: \(newValue)")
         }
         
+        vcObservation = vc.observe(\.obStr, options: [.new]) { obVC, change in
+            guard let newValue = change.newValue else { return }
+            print("Enum value changed to: \(newValue)")
+        }
+        
         DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1) {
+            self.state = .pause
+            self.myObject.myEnum = .second
+            self.myObject.myEnum = .third
+        }
+        
+        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 10) { [weak self] in
+            guard let self = self else { return }
             self.state = .pause
             self.myObject.myEnum = .second
             self.myObject.myEnum = .third
@@ -548,6 +567,7 @@ After apologising, Mr Musk said that Mr Thorleifsson was considering coming back
         timer = nil
         observation?.invalidate()
         stateObservation?.invalidate()
+        mm_printLog("释放")
     }
 }
 
@@ -609,7 +629,12 @@ extension MMFuncTool {
         let md5_2 = str.md5_old
         let md5_3 = str.md5_new
         // c6a8c84908efe116df536993e4543fe4 结果一致
+        
+        let multiplier = 3
+        let message = "(multiplier) times 2.5 is (Double(multiplier) * 2.5)"
+        
         mm_printLog("test->")
+
     }
 }
 extension MMFuncTool {
@@ -739,14 +764,14 @@ extension MMFuncTool {
     }
     
     
-    /// 进入后台不会暂停
+    /// 进入后台暂停
     func timerTest36() {
         var count = 0
-        //进入后台不会暂停
-        timerStr = MMDispatchTimer.createTimer(startTime: 1, infiniteInterval: 2, isRepeat: true, async: true) {
-            count += 1
-            mm_printLog("start->\(count)")
-        }
+        //锁屏、进后台会暂停
+//        timerStr = MMDispatchTimer.createTimer(startTime: 1, infiniteInterval: 2, isRepeat: true, async: true) {
+//            count += 1
+//            mm_printLog("DpatchTimer->\(count)")
+//        }
         
         //需要手动将timer放到 runloop中
 //        timer = Timer(fire: Date(timeIntervalSince1970: Date().timeIntervalSince1970 + 2), interval: 2, repeats: true, block: { _ in
@@ -768,15 +793,19 @@ extension MMFuncTool {
 //            self.timer?.fire()
 //        }
         
-    
+        
+        mm_printLog("timer->end")
     }
     
     func audioTest_37_2() {
+        observer = NotificationCenter.default.addObserver(forName: UIApplication.didEnterBackgroundNotification, object: nil, queue: nil) { _ in
+            mm_printLog("test->收到通知")
+        }
         mm_printLog("点击->")
         DispatchQueue.global(qos: .background).asyncAfter(deadline: DispatchTime.now() + 1) {
             mm_printLog("后台->")
             self.player.play(urlStr: "https://ydlunacommon-cdn.nosdn.127.net/b2e09863e147dacef4d2dacf2188775b.mp3")
-            
+
         }
 //        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 2) {
             mm_printLog("后台->")

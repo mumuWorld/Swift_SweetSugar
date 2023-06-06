@@ -31,7 +31,7 @@ extension UITestVC {
     }
     
     func transformTest1() {
-        // transfrom scale回影响到 frame.origin
+        // transfrom scale回影响到 frame.origin， 和 size
         shadowView.transform = CGAffineTransform(scaleX: 2, y: 2)
         // frame = (50 50; 200 200); transform = [2, 0, 0, 2, 0, 0];  bounds  (0.0, 0.0, 100.0, 100.0)
         mm_printLog("\(String(describing: shadowView)), bounds: \(shadowView.bounds)")

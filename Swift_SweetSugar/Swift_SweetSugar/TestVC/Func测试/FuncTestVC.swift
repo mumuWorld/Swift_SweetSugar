@@ -24,6 +24,8 @@ class FuncTestVC: UIViewController {
     
     var model: MMSimpleModel?
     
+    @objc dynamic var obStr: String = ""
+    
     lazy var mmView: MMCustomView = {
         let item = MMCustomView()
         return item
@@ -229,7 +231,10 @@ class FuncTestVC: UIViewController {
         case 47:
             tool.nlTest()
         case 48:
-            tool.kvoTest_48()
+            MMFuncTool().kvoTest_48(vc: self)
+            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 3) {
+                self.obStr = "test"
+            }
         case 49:
             MMLanguageTest().test()
         case 50:

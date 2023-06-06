@@ -230,12 +230,15 @@ class UITestVC: UIViewController {
     
     var show = false
     var model = 200
+    
+    //MARK: - 从这里开始测试
+
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
 //        animationButton()
 //        handleClick(sender: bar)
 //        shadowTest()
 //        playAnimation()
-        windowTest()
+//        windowTest()
 //        addActivity()
         //        dismiss(animated: true)
         
@@ -260,15 +263,24 @@ class UITestVC: UIViewController {
         //transform 测试 CGAffineTransform
 //        transformTest()
 //        playerTest()
+        gradientLabelTest()
     }
     
     /// stackView 间距测试: 可以自定义某个 子视图之后的间距
     func stackViewTest() {
         //有效， 但是当 distribute 为 EqualSpacing 时 无效
 //        stackView.setCustomSpacing(0, after: label2)
+        stackView.alignment = .center
+        stackView.distribution = .fill
+        
         let v = UIView(frame: CGRect(x: 0, y: 0, width: 50, height: 50))
         v.backgroundColor = .red
         stackView.insertArrangedSubview(v, at: 0)
+        
+//        mm_printLog("test->\(stackView.arrangedSubviews)")
+//        // 此方法也可以移除
+//        stackView.arrangedSubviews.forEach({ $0.removeFromSuperview() })
+//        mm_printLog("test->\(stackView.arrangedSubviews)")
     }
     
     /// 截图测试
