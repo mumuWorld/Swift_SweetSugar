@@ -30,8 +30,6 @@ class ViewController: UIViewController {
         var consolution: LeetCodeTureSubject = LeetCodeTureSubject()
         let result = consolution.rob(arr);
         mm_printsLog(result)
-        
-        MMFileTest().readStr()
     }
     
     override func viewDidAppear(_ animated: Bool) {

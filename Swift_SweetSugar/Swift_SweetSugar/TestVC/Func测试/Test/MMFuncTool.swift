@@ -28,18 +28,18 @@ class MMFuncTool: NSObject {
     private var observer: NSObjectProtocol?
 
     func urltest() -> Void {
-//        let urlStr = "https://shared.youdao.com/dict/market/living-study-ranking-test/index.html#/?hide-toolbar=true"
+        let urlStr = "https://shared.youdao.com/dict/market/living-study-ranking-test/index.html#/?hide-toolbar=true"
 //        let urlStr_2 = "https://shared.youdao.com/dict/market/training-camp-test/index.html/campDetails"
-//        let urlStr_3 = "https://shared.youdao.com/dict/market/living-study-ranking-test?hide-toolbar=true/#/"
+        let urlStr_3 = "https://shared.youdao.com/dict/market/living-study-ranking-test?hide-toolbar=true/#/"
 //        
 //        let encode_url = urlStr.urlEncoded()
 //        
-//        let component = URLComponents(string: urlStr)
+        let component = URLComponents(string: urlStr)
 //        var component_2 = URLComponents(string: urlStr_2)
 //        
 //        component_2?.queryItems?.append(URLQueryItem(name: "name", value: "test"))
 //        
-//        let component_3 = URLComponents(string: urlStr_3)
+        let component_3 = URLComponents(string: urlStr_3)
 //
 //        let component_4 = URLComponents(string: encode_url)
 //
@@ -61,7 +61,8 @@ class MMFuncTool: NSObject {
 //        let urlStr_4 = "http://baidu.com?" + paramsStr
 //        
 //        let url_2 = URL(string: urlStr_4)
-//        
+//
+        mm_printLog("tset->")
 //        let urlStr_5 = "https://shared.youdao.com/dict/market/shop-window-test/?noShare=true&full-screen=true&adjustSafeArea=true&hide-toolbar=true&hide-toolbar=true&postType=VIDEO&avatar=https%3A%2F%2Fydlunacommon-cdn.nosdn.127.net%2F9ea7678834227363caeb05dd1d9e99cc.png&nickname=urs%2A%2A%2A%2A%2A%2Acom&userId=urs-phoneyd.cda14678cacf43fea%40163.com&goodInfo=%7B%22id%22%3A3908%2C%22category%22%3A33%2C%22backupLandingPageUrl%22%3A%22https%3A%5C%2F%5C%2Fwww.baidu.com%5C%2F%22%2C%22schemaId%22%3A3%2C%22activeClosed%22%3Afalse%2C%22itemPrice%22%3A10000%2C%22promotionType%22%3A2%2C%22buttonText%22%3A%22%E8%B4%AD%E4%B9%B0%22%2C%22itemName%22%3A%22deeplink%E5%BC%95%E5%AF%BC%E6%96%87%E6%A1%88%22%2C%22source%22%3A0%2C%22switchType%22%3A2%2C%22componentId%22%3A%22dAYwySUtbY%22%2C%22promoteImageUrl%22%3A%22http%3A%5C%2F%5C%2Foimagec4.ydstatic.com%5C%2Fimage%3Fid%3D4030997507705062280%26product%3Dadpublish%26format%3DJPEG%22%2C%22strikeThroughPrice%22%3A10000%2C%22leadText%22%3A%22deeplink%E5%BC%95%E5%AF%BC%E6%96%87%E6%A1%88%22%2C%22markAsAd%22%3Atrue%2C%22name%22%3A%22deeplin%22%2C%22deepLink%22%3A%22bilibili%3A%5C%2F%5C%2Fsearch%5C%2F%25E8%2580%2583%25E7%25A0%2594%3Fh5awaken%3Db3Blbl9hcHBfZnJvbV90eXBlPWRlZXBsaW5rX21hcmtldGluZy1rYW95YW4mb3Blbl9hcHBfdXJsPXNlYXJjaC1rYW95YW4tMQ%3D%3D%22%7D#/more"
 //        let url_3 = URL(string: urlStr_5)
 //        let com = URLComponents(string: urlStr_5)
@@ -88,8 +89,9 @@ class MMFuncTool: NSObject {
         let url_7 = URL(string: urlAdapt_7)
         mm_printLog("test->2")
     }
+
     
-    func jsonTest() {
+    func jsonTest_31() {
         let str = "{\"msgID\":\"1478746890721\",\"title\":\"push_update\",\"type\":\"notice\",\"url\":\"yddict://youdao.com/guidingpage?liveRoomId=123122312\"}"
         let json = JSON.init(parseJSON: str)
         
@@ -100,7 +102,7 @@ class MMFuncTool: NSObject {
     var timerStr: String?
     var timer: Timer?
 
-    func past() {
+    func PasteboardTest_26() {
 //        UIPasteboard.general.string = "http://hellow world"
         let pasted = UIPasteboard.general
         if #available(iOS 14.0, *) {
@@ -256,7 +258,7 @@ After apologising, Mr Musk said that Mr Thorleifsson was considering coming back
     
     let backQueue = DispatchQueue(label: "com.mumu.back", attributes: .concurrent)
     let backQueue2 = DispatchQueue(label: "com.mumu.back_2", attributes: .concurrent)
-    func arrayTest() -> Void {
+    func arrayTest_27() -> Void {
         //串行执行，但是不会执行100000次，
 //        DispatchQueue.global().async {
 //    //            DispatchQueue.global().async {
@@ -378,16 +380,6 @@ After apologising, Mr Musk said that Mr Thorleifsson was considering coming back
         let c1 = index.contains(0)
         mm_printLog("")
     }
-    
-    //结构体测试
-    func structTest() {
-        var arr:[MMSimpleModel] = []
-        var model_1 = MMSimpleModel()
-        arr.append(model_1)
-        model_1.name = "test"
-        mm_printLog(arr)
-    }
-    
      
     
     func numberFormatter() {
@@ -518,10 +510,6 @@ After apologising, Mr Musk said that Mr Thorleifsson was considering coming back
         
     }
     
-    @objc func handleNotify(sender: AnyObject) {
-        mm_printLog("test 开始->3333")
-    }
-    
     var observation: NSKeyValueObservation?
     var stateObservation: NSKeyValueObservation?
     var vcObservation: NSKeyValueObservation?
@@ -571,6 +559,11 @@ After apologising, Mr Musk said that Mr Thorleifsson was considering coming back
     }
 }
 
+extension MMFuncTool {
+    
+
+}
+
 extension MMFuncTool: AVAudioRecorderDelegate {
     public func audioRecorderDidFinishRecording(_ recorder: AVAudioRecorder, successfully flag: Bool) {
         mm_printLog("test->\(recorder)")
@@ -593,13 +586,13 @@ extension MMFuncTool: AVAudioRecorderDelegate {
 //        }
     }
 }
+
 extension MMFuncTool {
-    func netTest() {
+    func netTest_39() {
         NetTest().mulitRequest()
-        
     }
     
-    func crashTest() {
+    func crashTest_41() {
 //        let mainOp = OperationQueue.main
 //        mainOp.addOperation {
 //            mm_printLog(self)
@@ -609,10 +602,10 @@ extension MMFuncTool {
         let obj = MMCustomOCObj()
 //        obj.receiveError(err_1)
 //        obj.receiveError(err_2)
-        sendError(error: err_2)
+        _sendError(error: err_2)
     }
     
-    func sendError(error: Error) {
+    func _sendError(error: Error) {
         
         let str = String(reflecting: type(of: error))
         var _ocError = error
@@ -621,6 +614,16 @@ extension MMFuncTool {
         }
 //        let str = e.localizedDescription ?? ""
         MMCustomOCObj().receiveError(_ocError)
+    }
+    
+    
+    //结构体测试
+    func structTest_42() {
+        var arr:[MMSimpleModel] = []
+        var model_1 = MMSimpleModel()
+        arr.append(model_1)
+        model_1.name = "test"
+        mm_printLog(arr)
     }
     
     func stringTest_50() {
@@ -634,8 +637,74 @@ extension MMFuncTool {
         let message = "(multiplier) times 2.5 is (Double(multiplier) * 2.5)"
         
         mm_printLog("test->")
-
+        stringTest_50_2()
     }
+    
+    
+    func stringTest_50_2() -> Void {
+//        let price = 2
+//           let number = 3
+//           let message = """
+//                          If one cookie costs \(price) dollars, \
+//                          \(number) cookies cost \(price * number) dollars.
+//                        """
+//
+//        let message_2 = """
+//                if test \n
+//            hello \n
+//            world
+//            """
+//        mm_printLog(message)
+//        mm_printLog(message_2)
+        let a: String = "汉"
+        let b: String = "斐"
+        let e: String = "🌹"
+        let c: String = "a"
+
+        let char_a = (a as NSString).character(at: 0)
+        let char_b =  (b as NSString).character(at: 0)
+        
+        let a_ns = (a as NSString)
+        let c_ns = (c as NSString)
+        let e_ns = (e as NSString)
+        
+        let code = a.utf16
+        mm_printLog(char_a)
+        
+        let flowers = "Flowers 💐"
+         for v in flowers.utf8 {
+             mm_printLog(v)
+           }
+        mm_printLog("-----------")
+        for v in flowers.utf16 {
+            mm_printLog(v)
+          }
+    }
+    
+    /// 录屏
+    func recordScreenTest_51() {
+        let replayTool: MMReplayTool = MMReplayTool.shared
+        if replayTool.isRecord {
+            replayTool.stopRecording()
+        } else {
+            replayTool.startRecording()
+        }
+    }
+    
+    /// 系统通知周期
+    func sysNotifyTest_52() {
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(handleSysNotify(sender:)), name: UIApplication.didEnterBackgroundNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(handleSysNotify(sender:)), name: UIApplication.willResignActiveNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(handleSysNotify(sender:)), name: UIApplication.willEnterForegroundNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(handleSysNotify(sender:)), name: UIApplication.didBecomeActiveNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(handleSysNotify(sender:)), name: UIApplication.willTerminateNotification, object: nil)
+    }
+    
+    @objc func handleSysNotify(sender: Notification) {
+        mm_printLog("test->\(sender.name)")
+    }
+    
 }
 extension MMFuncTool {
     func rangeTest() {

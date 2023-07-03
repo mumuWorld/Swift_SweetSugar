@@ -9,6 +9,8 @@
 import UIKit
 
 class MMTextView: UITextView {
+    
+    var isAutoLayoutHeight: Bool = true
 
     var attributeString: NSAttributedString? {
         didSet {
@@ -16,7 +18,43 @@ class MMTextView: UITextView {
         }
     }
     
-//    @objc func _wantsForwardingFromResponder(_ arg1: UIResponder, toNextResponder  arg2: UIResponder, withEvent arg3: UIEvent) -> Bool {
+    private var _delegate: UITextViewDelegate?
+    override var delegate: UITextViewDelegate? {
+        set {
+            _delegate = newValue
+        }
+        get {
+            return super.delegate
+        }
+    }
+    
+    override open var contentSize: CGSize {
+        didSet {
+            if abs(contentSize.height - oldValue.height) > 1.0 {
+                self.setNeedsLayout()
+                if isAutoLayoutHeight {
+                    invalidateIntrinsicContentSize()
+                }
+            }
+        }
+    }
+    
+    open override var intrinsicContentSize: CGSize {
+        if isAutoLayoutHeight {
+            return contentSize
+        }
+        return super.intrinsicContentSize
+    }
+    
+    override init(frame: CGRect, textContainer: NSTextContainer?) {
+        super.init(frame: frame, textContainer: textContainer)
+        delegate = self
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    //    @objc func _wantsForwardingFromResponder(_ arg1: UIResponder, toNextResponder  arg2: UIResponder, withEvent arg3: UIEvent) -> Bool {
 //        let classStr = String(describing: arg2.self)
 //        if classStr == "_UIRemoteInputViewController" {
 //            return true
@@ -93,14 +131,20 @@ class MMTextView: UITextView {
 //    }
 }
 
-extension MMTextView {
-    @objc func handleMyCopy(sender: AnyObject) {
-        mm_printLog("test->\(sender)")
-        
-    }
-    
-    @objc func handleTest(sender: AnyObject) {
-        mm_printLog("test->\(sender)")
-        
+extension MMTextView: UITextViewDelegate {
+    func textViewDidChange(_ textView: UITextView) {
+        print("test->textView: selectedRange: \(textView.selectedRange), markedTextRange: \(textView.markedTextRange), selectedTextRange: \(textView.selectedTextRange)")
     }
 }
+
+//extension MMTextView {
+//    @objc func handleMyCopy(sender: AnyObject) {
+//        mm_printLog("test->\(sender)")
+//
+//    }
+//
+//    @objc func handleTest(sender: AnyObject) {
+//        mm_printLog("test->\(sender)")
+//
+//    }
+//}
