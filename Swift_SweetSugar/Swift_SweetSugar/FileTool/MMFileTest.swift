@@ -89,7 +89,7 @@ class MMFileTest {
         throw MMError.normalError(error: MMError.MMNormalError.unknowError(message: "test"))
     }
     
-    func readStr() {
+    func readStr_40() {
         let path = Bundle.main.path(forResource: "90879c75-da87-4b9d-9ab6-9654378198f6", ofType: "txt")
         do {
             let str = try String(contentsOfFile: path!)

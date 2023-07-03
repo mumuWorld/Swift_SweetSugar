@@ -106,8 +106,18 @@ class UITestVC: UIViewController {
     
     @IBOutlet weak var button1: UIButton!
     
+    override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
+        super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
+        print("test-> isViewLoaded1: \(isViewLoaded)")
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        print("test-> isViewLoaded2: \(isViewLoaded)")
         textView.delegate = self
 //        shadowView.layer.cornerRadius = 24
       //        layer.shadowColor = UIColor(hex: 0x3C4D59, alpha: 0.9).cgColor
@@ -189,6 +199,7 @@ class UITestVC: UIViewController {
             make.edges.equalToSuperview()
             make.height.width.equalToSuperview()
         }
+        print("test-> isViewLoaded3: \(isViewLoaded)")
     }
     
     @IBOutlet weak var graphicImageView: UIImageView!
@@ -203,6 +214,7 @@ class UITestVC: UIViewController {
             // <Swift_SweetSugar.UITestVC: 0x13f008e00>
             mm_printLog("test->\(present)")
         }
+        print("test-> isViewLoaded4: \(isViewLoaded)")
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -226,6 +238,11 @@ class UITestVC: UIViewController {
             //HomeListVC
             mm_printLog("test->\(present)")
         }
+    }
+    
+    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+        super.viewWillTransition(to: size, with: coordinator)
+        print("test-> isViewLoaded5: \(isViewLoaded)")
     }
     
     var show = false
