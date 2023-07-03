@@ -133,7 +133,7 @@ class FuncTestVC: UIViewController {
         case 12:
             cancelBlock()
         case 13:
-            strTest()
+            tool.stringTest_50()
         case 14:
             testNumber()
         case 15:
@@ -159,9 +159,9 @@ class FuncTestVC: UIViewController {
         case 25:
             decodeString()
         case 26:
-            MMFuncTool().past()
+            MMFuncTool().PasteboardTest_26()
         case 27:
-            tool.arrayTest()
+            tool.arrayTest_27()
         case 28:
             tool.deviceInfo()
         case 29:
@@ -179,7 +179,7 @@ class FuncTestVC: UIViewController {
                 }
             }
         case 31:
-            tool.jsonTest()
+            tool.jsonTest_31()
         case 32:
             if #available(iOS 15.0.0, *) {
                 TaskGroupSampleTool().test2()
@@ -195,19 +195,19 @@ class FuncTestVC: UIViewController {
         case 36:
             tool.timerTest36()
         case 37:
-//            tool.urltest()
+            tool.urltest()
 //            tool.deviceTest()
-            tool.audioTest_37_2()
+//            tool.audioTest_37_2()
         case 38:
             tool.numberFormatter()
         case 39:
-            tool.netTest()
+            tool.netTest_39()
         case 40:
-            MMFileTest().readStr()
+            MMFileTest().readStr_40()
         case 41:
-            MMFuncTool().crashTest()
+            MMFuncTool().crashTest_41()
         case 42:
-            MMFuncTool().structTest()
+            MMFuncTool().structTest_42()
         case 43:
             MMFuncTool().blockTest(vc: self)
         case 44:
@@ -239,6 +239,10 @@ class FuncTestVC: UIViewController {
             MMLanguageTest().test()
         case 50:
             tool.stringTest_50()
+        case 51:
+            tool.recordScreenTest_51()
+        case 52:
+            tool.sysNotifyTest_52()
         default:
             break
         }
@@ -359,7 +363,7 @@ extension FuncTestVC {
         if str2?.isEmpty == true {  // false
             mm_printLog("empty_2")
         }
-        
+
         mm_printLog("end")
     }
     
@@ -412,6 +416,7 @@ extension FuncTestVC {
 //        mm_printLog("UserDefaults3->\(CACurrentMediaTime() - start_t)")
         
     }
+    
     //已经运行的block 无法取消
     func cancelBlock() -> Void {
         let operationQ = OperationQueue()
@@ -433,46 +438,7 @@ extension FuncTestVC {
         }
                 
     }
-    
-    func strTest() -> Void {
-//        let price = 2
-//           let number = 3
-//           let message = """
-//                          If one cookie costs \(price) dollars, \
-//                          \(number) cookies cost \(price * number) dollars.
-//                        """
-//
-//        let message_2 = """
-//                if test \n
-//            hello \n
-//            world
-//            """
-//        mm_printLog(message)
-//        mm_printLog(message_2)
-        let a: String = "汉"
-        let b: String = "斐"
-        let e: String = "🌹"
-        let c: String = "a"
 
-        let char_a = (a as NSString).character(at: 0)
-        let char_b =  (b as NSString).character(at: 0)
-        
-        let a_ns = (a as NSString)
-        let c_ns = (c as NSString)
-        let e_ns = (e as NSString)
-        
-        let code = a.utf16
-        mm_printLog(char_a)
-        
-        let flowers = "Flowers 💐"
-         for v in flowers.utf8 {
-             mm_printLog(v)
-           }
-        mm_printLog("-----------")
-        for v in flowers.utf16 {
-            mm_printLog(v)
-          }
-    }
     
     func testNumber() {
         //0.900000002  0.5
