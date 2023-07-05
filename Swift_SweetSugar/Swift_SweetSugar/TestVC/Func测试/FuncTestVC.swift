@@ -10,6 +10,7 @@ import UIKit
 import AVFAudio
 import CoreSpotlight
 import CoreServices
+import Network
 //import SubProject_1
 
 typealias emptyBlock = () -> ()
@@ -242,6 +243,7 @@ class FuncTestVC: UIViewController {
         case 51:
             tool.recordScreenTest_51()
         case 52:
+            let test = try? NWListener.init(using: .udp, on: 10121)
             tool.sysNotifyTest_52()
         default:
             break
