@@ -12,6 +12,7 @@ class MMSingleLabelCollectionViewCell: UICollectionViewCell {
 
     @IBOutlet weak var textLabel: UILabel!
     
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

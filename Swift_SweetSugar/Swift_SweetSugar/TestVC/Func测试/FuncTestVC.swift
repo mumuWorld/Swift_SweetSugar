@@ -37,10 +37,6 @@ class FuncTestVC: UIViewController {
         return item
     }()
     
-    @objc func test(p1:String, p2:String) {
-        mm_printLog("p1-p2")
-    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "123456"
@@ -96,14 +92,22 @@ class FuncTestVC: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        guard MMMainManager.shared.isPrintLifeLog else { return }
         if let present = UIViewController.currentViewController() {
             // <Swift_SweetSugar.HomeListVC: 0x13f008e00>
             mm_printLog("test->\(present)")
         }
     }
     
+//    override func viewIsAppearing(_ animated: Bool) {
+//        super.viewIsAppearing(animated)
+//        guard MMMainManager.shared.isPrintLifeLog else { return }
+//        mm_printLog("test->appearing")
+//    }
+    
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
+        guard MMMainManager.shared.isPrintLifeLog else { return }
         if let present = UIViewController.currentViewController() {
             // <Swift_SweetSugar.HomeListVC: 0x13f008e00>
             mm_printLog("test->\(present)")
@@ -112,10 +116,12 @@ class FuncTestVC: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+        guard MMMainManager.shared.isPrintLifeLog else { return }
         mm_printLog("")
     }
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
+        guard MMMainManager.shared.isPrintLifeLog else { return }
         if let present = UIViewController.currentViewController() {
             // <Swift_SweetSugar.HomeListVC: 0x13f008e00>
             mm_printLog("test->\(present)")
@@ -196,7 +202,8 @@ class FuncTestVC: UIViewController {
         case 36:
             tool.timerTest36()
         case 37:
-            tool.urltest()
+//            tool.urltest()
+            tool.userDefaultTest37()
 //            tool.deviceTest()
 //            tool.audioTest_37_2()
         case 38:
@@ -230,7 +237,7 @@ class FuncTestVC: UIViewController {
             }.resume()
 //            tool.test46()
         case 47:
-            tool.nlTest()
+            tool.nlTest_47()
         case 48:
             MMFuncTool().kvoTest_48(vc: self)
             DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 3) {
@@ -245,6 +252,10 @@ class FuncTestVC: UIViewController {
         case 52:
             let test = try? NWListener.init(using: .udp, on: 10121)
             tool.sysNotifyTest_52()
+        case 53:
+            MMTaskTest.shared.test()
+        case 54:
+            MMNetworkTest.shared.test()
         default:
             break
         }
@@ -262,7 +273,7 @@ class FuncTestVC: UIViewController {
     }
 
     deinit {
-//        invalidateTimer()
+        invalidateTimer()
         mm_printLog("释放")
     }
 }
@@ -276,12 +287,20 @@ extension FuncTestVC {
 //        RunLoop.main.add(_timer, forMode: .common)
         
         //虽然没有持有vc， 但是持有了 block。 就算VC deinit， block还是会执行
-        let _timer = Timer(timeInterval: 2, repeats: true) { [weak self] t in
-            mm_printLog("test->\(t), \(String(describing: self))")
+//        let _timer = Timer(timeInterval: 2, repeats: true) { [weak self] t in
+//            mm_printLog("test->\(t), \(String(describing: self))")
+//        }
+//        RunLoop.main.add(_timer, forMode: .common)
+//        timer = _timer
+//        timer?.fire()
+        
+        var count = 0
+        let _timer = Timer(fire: Date().addingTimeInterval(2), interval: 4, repeats: true) { _ in
+            print("test->count: \(count)")
+            count += 1
         }
-        RunLoop.main.add(_timer, forMode: .common)
         timer = _timer
-        timer?.fire()
+        RunLoop.main.add(_timer, forMode: .common)
     }
     
     /// 只要停止了timer。就会释放

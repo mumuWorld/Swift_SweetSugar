@@ -45,25 +45,30 @@ class MMDateTest {
         mm_printLog("date-\(date)")
         debugPrint("debug_test")
         print("test_print")
-        
-        let key = "test_key"
-        UserDefaults.standard.set("test", forKey: key)
-        //str = "test"
-        let str = UserDefaults.standard.string(forKey: key)
-        // int_v = 0
-        var int_v = UserDefaults.standard.integer(forKey: key)
-        UserDefaults.standard.set(10, forKey: key)
-        //int_v = 10
-        int_v = UserDefaults.standard.integer(forKey: key)
-        print("test_print")
 
         // 此格式不准确
         let formatter_new = DateFormatter()
         formatter_new.locale = Locale(identifier: "en_US_POSIX")
         formatter_new.dateFormat = formatterStr_2
         let date_new = formatter_new.date(from: timeStr)
+        // date3-Optional(1970-01-01 12:20:00 +0000)
         mm_printLog("date3-\(date_new)")
         
+        let formatter_new_2 = DateFormatter()
+        formatter_new_2.locale = Locale(identifier: "en_US_POSIX")
+        formatter_new_2.dateFormat = formatterStr
+        let date_new_2 = formatter_new_2.date(from: timeStr)
+        // date4-nil
+        mm_printLog("date4-\(date_new_2)")
+        
+        // 2023-07-12 13:31:27 将此北京时间转换为 12小时格式的 dateString 用上面的formatter没问题。 H大写
+//        (lldb) po formatter_new.string(from: Date().addingTimeInterval(7200))
+//        "2023-07-12 13:31:27"
+//        (lldb) po formatter_new_2.string(from: Date().addingTimeInterval(7200))
+//        "2023-07-12 01:31:50"
+        
+        mm_printLog("date -- end")
+
         /*12小时制
          timeStr = "1970-01-01 9:20:00"
          date = "some : 1970-01-01 1:20:00 AM +0000"

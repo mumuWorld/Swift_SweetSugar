@@ -47,16 +47,18 @@ struct WordWidgetEntryView : View {
     @Environment(\.widgetFamily) var family
     
     var body: some View {
-        
-        if #available(iOSApplicationExtension 16.0, *) {
-//            Text(entry.date, style: .time)
-//                .widgetAccentable()
-            Text(entry.date, style: .time)
-        } else {
-            Text(entry.date, style: .time)
-        }
+        ZStack {
+            if #available(iOSApplicationExtension 16.0, *) {
+    //            Text(entry.date, style: .time)
+    //                .widgetAccentable()
+                Text(entry.date, style: .time)
+            } else {
+                Text(entry.date, style: .time)
+            }
+        }.widgetBackground()
     }
 }
+
 
 @main
 struct WordWidget: Widget {
@@ -84,5 +86,20 @@ struct WordWidget_Previews: PreviewProvider {
     static var previews: some View {
         WordWidgetEntryView(entry: SimpleEntry(date: Date(), configuration: ConfigurationIntent()))
             .previewContext(WidgetPreviewContext(family: .systemSmall))
+    }
+}
+
+
+extension View {
+     func widgetBackground() -> some View {
+         if #available(iOS 17.0, *) {
+             return containerBackground(for: .widget) {
+                 Color.clear
+             }
+         } else {
+             return background {
+                 Color.clear
+             }
+         }
     }
 }

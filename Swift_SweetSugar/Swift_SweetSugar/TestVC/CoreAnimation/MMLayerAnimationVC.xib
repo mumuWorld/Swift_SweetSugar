@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19115.3" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="22152" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <accessibilityOverrides isEnabled="YES" dynamicTypePreference="2"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19107.5"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22127"/>
         <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -26,7 +26,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uyQ-4R-AML">
-                    <rect key="frame" x="10" y="54" width="100" height="50"/>
+                    <rect key="frame" x="10" y="58" width="100" height="50"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sQb-fj-gTx">
                             <rect key="frame" x="10" y="10" width="42" height="21"/>
@@ -44,7 +44,7 @@
                     </constraints>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NXJ-I5-PHw">
-                    <rect key="frame" x="10" y="304" width="394" height="30"/>
+                    <rect key="frame" x="10" y="308" width="394" height="30"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="X7F-3O-bFW">
                             <rect key="frame" x="20" y="0.0" width="354" height="30"/>
@@ -67,16 +67,17 @@
                         <constraint firstAttribute="bottom" secondItem="sy1-oR-8ou" secondAttribute="bottom" id="uvo-Ap-ULR"/>
                     </constraints>
                 </view>
-                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="0In-Vg-ODz">
-                    <rect key="frame" x="10" y="532" width="200" height="200"/>
+                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="0In-Vg-ODz">
+                    <rect key="frame" x="10" y="348" width="300" height="400"/>
+                    <color key="backgroundColor" systemColor="systemBrownColor"/>
                     <constraints>
-                        <constraint firstAttribute="width" constant="200" id="0sA-1W-svq"/>
-                        <constraint firstAttribute="height" constant="200" id="sQo-7L-a0e"/>
+                        <constraint firstAttribute="width" constant="300" id="0sA-1W-svq"/>
+                        <constraint firstAttribute="height" constant="400" id="sQo-7L-a0e"/>
                     </constraints>
-                    <imageReference key="image" image="ic_search"/>
+                    <imageReference key="image" image="test"/>
                 </imageView>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="V4R-Lg-slC">
-                    <rect key="frame" x="10" y="114" width="100" height="53"/>
+                    <rect key="frame" x="10" y="118" width="100" height="53"/>
                     <color key="backgroundColor" systemColor="systemBlueColor"/>
                 </view>
             </subviews>
@@ -85,7 +86,7 @@
             <constraints>
                 <constraint firstItem="V4R-Lg-slC" firstAttribute="top" secondItem="uyQ-4R-AML" secondAttribute="bottom" constant="10" id="0ux-65-IhA"/>
                 <constraint firstItem="V4R-Lg-slC" firstAttribute="height" secondItem="uyQ-4R-AML" secondAttribute="height" multiplier="1.06" id="RmU-h3-0Rp"/>
-                <constraint firstItem="0In-Vg-ODz" firstAttribute="top" secondItem="NXJ-I5-PHw" secondAttribute="bottom" constant="198" id="WrK-1d-EYV"/>
+                <constraint firstItem="0In-Vg-ODz" firstAttribute="top" secondItem="NXJ-I5-PHw" secondAttribute="bottom" constant="10" id="WrK-1d-EYV"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="NXJ-I5-PHw" secondAttribute="trailing" constant="10" id="XM3-P1-aTP"/>
                 <constraint firstItem="V4R-Lg-slC" firstAttribute="width" secondItem="uyQ-4R-AML" secondAttribute="width" id="dVL-w3-xhn"/>
                 <constraint firstItem="uyQ-4R-AML" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="10" id="htN-yp-vWI"/>
@@ -99,18 +100,21 @@
         </view>
     </objects>
     <resources>
-        <image name="ic_search" width="28" height="28"/>
+        <image name="test" width="1020" height="1360"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
         <systemColor name="systemBlueColor">
-            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemBrownColor">
+            <color red="0.63529411759999999" green="0.51764705879999995" blue="0.36862745099999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemGreenColor">
-            <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="tertiaryLabelColor">
-            <color red="0.23529411764705882" green="0.23529411764705882" blue="0.2627450980392157" alpha="0.29999999999999999" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.23529411759999999" green="0.23529411759999999" blue="0.26274509800000001" alpha="0.29803921570000003" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

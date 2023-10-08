@@ -26,3 +26,13 @@ public extension Array {
         return true
     }
 }
+
+
+extension Sequence where Element: Hashable {
+    // 测试，
+    var frequencies: [Element:Int] {
+        let frequencyPairs = self.map { ($0, 1) }
+        // 会将元祖数组中的相同key的value进行相加
+        return Dictionary(frequencyPairs, uniquingKeysWith: +)
+    }
+}

@@ -20,7 +20,7 @@ class Swift_SweetSugarTests: XCTestCase {
     }
 
     func testExample() {
-        GCDTest().test2()
+        GCDTest().test3()
         // This is an example of a functional test case.
         // Use XCTAssert and related functions to verify your tests produce the correct results.
     }
@@ -33,10 +33,19 @@ class Swift_SweetSugarTests: XCTestCase {
     }
 
     func testGCD() {
-        GCDTest().test1()
+//        GCDTest().test1()
+        GCDTest().AllTestEntry()
     }
     
     func gcdDo() {
         
+    }
+    
+    func testSyntax() {
+        print("test->strat")
+        MMSyntaxTool().sayYes()
+        print("test->end---------------")
+//        BaseSynatx().test()
+        BaseSynatx().blockTest()
     }
 }

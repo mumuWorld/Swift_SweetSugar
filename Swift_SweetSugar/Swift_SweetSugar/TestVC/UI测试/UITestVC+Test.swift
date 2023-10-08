@@ -7,8 +7,76 @@
 //
 
 import UIKit
+import Kingfisher
 
 extension UITestVC {
+    
+    func customDrawTest() {
+        customDrawView?.removeFromSuperview()
+        
+        let _customDrawView = MMHighlightView()
+//        _customDrawView.backgroundColor = UIColor.black.withAlphaComponent(0.3)
+        // 不设置背景色，会在draw中默认为黑色背景
+        _customDrawView.backgroundColor = .clear
+        view.addSubview(_customDrawView)
+        _customDrawView.snp.makeConstraints { make in
+            make.top.equalToSuperview().offset(100)
+            make.leading.trailing.equalToSuperview().inset(40)
+            make.height.equalTo(200)
+        }
+        customDrawView = _customDrawView
+    }
+    
+    func netImageTest() {
+        guard let url = URL(string: "https://ydlunacommon-cdn.nosdn.127.net/8f904fdab0f5b3d49b1d180b0e712d49.png") else { return }
+//        guard let url = URL(string: "https://ydlunacommon-cdn.nosdn.127.net/2b2fdeb4cc1356c822faa7621de10c2a.gif") else { return }
+        netImageView.kf.setImage(with: url)
+//        view.addSubview(netAniImageView)
+//        netAniImageView.snp.makeConstraints { make in
+//            make.edges.equalTo(netImageView)
+//        }
+//        netAniImageView.kf.setImage(with: url)
+        DispatchQueue.global(qos: .utility).async {
+            guard !ImageCache.default.isCached(forKey: url.absoluteString) else { return }
+//            var info = KingfisherOptionsInfo()
+//            info.dic
+            KingfisherManager.shared.retrieveImage(with: url) { result in
+                if case .success(let image) = result {
+                    print("Downloaded Image: \(image)")
+                } else {
+                    print("Download failed")
+                }
+                switch result {
+                case .success(let res):
+                    mm_printLog(res.image)
+                case .failure(let error):
+                    mm_printLog(error)
+                }
+                mm_printLog("test-> \(ImageCache.default.isCached(forKey: url.absoluteString))")
+                //                mm_printLog("test-> \(ImageCache.default.isCached(forKey: url.absoluteString.MD5String))")
+                DispatchQueue.global().asyncAfter(deadline: DispatchTime.now() + 2) {
+                    mm_printLog("test-> \(ImageCache.default.isCached(forKey: url.absoluteString))")
+                }
+            }
+//            ImageDownloader.default.downloadImage(with: url, options: [.targetCache(.default)]) { result in
+//                mm_printLog("下载->完成")
+//                switch result {
+//                case .success(let res):
+//                    mm_printLog(res.image)
+//                case .failure(let error):
+//                    mm_printLog(error)
+//                }
+//                ImageCache.default.cache
+//                mm_printLog("test-> \(ImageCache.default.isCached(forKey: url.absoluteString))")
+////                mm_printLog("test-> \(ImageCache.default.isCached(forKey: url.absoluteString.MD5String))")
+//                DispatchQueue.global().asyncAfter(deadline: DispatchTime.now() + 2) {
+//                    mm_printLog("test-> \(ImageCache.default.isCached(forKey: url.absoluteString))")
+//                }
+//            }
+            mm_printLog("下载->")
+        }
+    }
+    
     func labelTest() {
         let pg = NSMutableParagraphStyle()
         pg.lineBreakMode = .byTruncatingTail
@@ -54,22 +122,6 @@ extension UITestVC {
                                      UIColor.mm_colorFromHex(color_vaule: 0x78a0e5)], start: CGPoint(x: 0, y: 0.5), end: CGPoint(x: 1, y: 0.5), locations: [0, 0.5,  1])
         gradientView.layer.mask = label.layer
         label.frame = gradientView.bounds
-        
-        
-//        let gradientLayer = CAGradientLayer()
-//        gradientLayer.frame = CGRect(x: 0, y: 50, width: 300, height: 300)
-//        gradientLayer.colors = [
-//            UIColor.mm_colorFromHex(color_vaule: 0x7d42d4).cgColor,
-//            UIColor.mm_colorFromHex(color_vaule: 0x534dd1).cgColor,
-//            UIColor.mm_colorFromHex(color_vaule: 0x78a0e5).cgColor,
-//        ]
-//        gradientLayer.startPoint =  CGPoint(x: 0, y: 0.5)
-//        gradientLayer.endPoint = CGPoint(x: 1, y: 0.5)
-//        gradientLayer.locations = [0, 0.5, 1]
-//        view.layer.addSublayer(gradientLayer)
-//
-//        gradientLayer.mask = label.layer
-//        label.frame = gradientLayer.bounds
     }
     
     func gradientLabelTest3() {

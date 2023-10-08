@@ -95,6 +95,11 @@ class MMFuncTool: NSObject {
         let str = "{\"msgID\":\"1478746890721\",\"title\":\"push_update\",\"type\":\"notice\",\"url\":\"yddict://youdao.com/guidingpage?liveRoomId=123122312\"}"
         let json = JSON.init(parseJSON: str)
         
+        let arrJson = JSON.init([])
+        if arrJson.type == .array {
+            let item = arrJson[0]
+            mm_printLog("test->1")
+        }
         let str_2 = ""
         mm_printLog("test->")
     }
@@ -177,7 +182,7 @@ class MMFuncTool: NSObject {
     }
     
     /// 自然语言测试 Natural Language
-    func nlTest() {
+    func nlTest_47() {
         //韩 英 中
 //        let text = "안녕하세요 hello world 你好"
         //英 日 日 日
@@ -224,6 +229,43 @@ After apologising, Mr Musk said that Mr Thorleifsson was considering coming back
         //paragraph 检测到语种 语言结果:[\"zh-Hans\": \"Chinese, Simplified\", \"en\": \"English\"], 文本长度:569, 检测耗时:0.020205974578857422 循环检测次数: 10"
         mm_printLog("检测到语种 语言结果:\(langMap), 文本长度:\(text.count), 检测耗时:\(Date().timeIntervalSince1970 - date) 循环检测次数: \(count)")
         nlTest2(text: text)
+        
+        let recognizer = NLLanguageRecognizer()
+        recognizer.processString(text)
+        if let language = recognizer.dominantLanguage {
+            print("test->\(language.rawValue)")  // en
+        } else {
+            print("Language not recognized")
+        }
+        
+        // Generate up to two language hypotheses. 生成最多两种语言假设
+        let hypotheses = recognizer.languageHypotheses(withMaximum: 2)
+        print(hypotheses)   // [__C.NLLanguage(_rawValue: de): 0.43922990560531616, __C.NLLanguage(_rawValue: en): 0.5024932026863098]
+        
+        recognizer.reset()
+        // Specify constraints for language identification. 为语言识别指定约束。
+        recognizer.languageConstraints = [.french, .english, .german,
+                                          .italian, .spanish, .portuguese, .simplifiedChinese]
+        // 限制语言的概率
+        recognizer.languageHints = [.french: 0.5,
+                                    .simplifiedChinese: 0.9,
+                                    .english: 0.9,
+                                    .german: 0.8,
+                                    .italian: 0.6,
+                                    .spanish: 0.3,
+                                    .portuguese: 0.2]
+        
+        let constrainedHypotheses = recognizer.languageHypotheses(withMaximum: 2)
+        print(constrainedHypotheses)
+        
+        // Reset the recognizer to its initial state.  重置（如果需要继续识别的话）
+        // Process additional strings for language identification.
+        recognizer.processString("重置（如果需要继续识别的话）")
+//        recognizer.processString(text)
+        // Generate up to two language hypotheses. 生成最多两种语言假设
+        let hypotheses_2 = recognizer.languageHypotheses(withMaximum: 2)
+        print("test->hoy: \(hypotheses_2)")   // [__C.NLLanguage(_rawValue: es): 0.9999449253082275, __C.NLLanguage(_rawValue: pt): 2.7900192435481586e-05]
+        
     }
     
     func nlTest2(text: String) {
@@ -379,6 +421,16 @@ After apologising, Mr Musk said that Mr Thorleifsson was considering coming back
         let index = (array.startIndex..<array.endIndex)
         let c1 = index.contains(0)
         mm_printLog("")
+        
+        let range = 0..<10
+        let create_1 = Array(0..<10)
+        mm_printLog(create_1)
+    }
+    
+    func dictTest() {
+        let frequencies = "hello".frequencies // ["o": 1, "h": 1, "e": 1, "l": 2]
+        frequencies.filter { $0.value > 1 } // ["l": 2]
+        "".index(after: "".startIndex)
     }
      
     
@@ -513,21 +565,25 @@ After apologising, Mr Musk said that Mr Thorleifsson was considering coming back
     var observation: NSKeyValueObservation?
     var stateObservation: NSKeyValueObservation?
     var vcObservation: NSKeyValueObservation?
+    var claObservation: NSKeyValueObservation?
 
     @objc dynamic var state: PlayState = .play
     // 2. 使用`@objc dynamic`修饰符定义属性。
 //    @objc dynamic var myEnum: MyClass.MyEnum = .first
     
     private var myObject: MyClass = MyClass()
+    
+    /// 必须使用 @objc dynamic
+    @objc dynamic private var myObject_2: MyClass = MyClass()
 
     func kvoTest_48(vc: FuncTestVC) {
         stateObservation = observe(\.state, options: [.old, .new]) { object, change in
             mm_printLog("test->\(change.oldValue), \(change.newValue)")
         }
-        // 3. 在需要监听属性的类中，使用KVO来监听属性的更改。
+        // 监听有效 3. 在需要监听属性的类中，使用KVO来监听属性的更改。
         observation = self.myObject.observe(\.myEnumNumber, options: [.new]) { (object, change) in
             guard let newValue = change.newValue else { return }
-            print("Enum value changed to: \(newValue)")
+            print("observation value changed to: \(newValue)")
         }
         
         vcObservation = vc.observe(\.obStr, options: [.new]) { obVC, change in
@@ -535,18 +591,32 @@ After apologising, Mr Musk said that Mr Thorleifsson was considering coming back
             print("Enum value changed to: \(newValue)")
         }
         
+        // 监听有效
+        claObservation = observe(\.myObject_2, options: [.old, .new], changeHandler: { object, change in
+            guard let newValue = change.newValue else { return }
+            print("claObservation value changed to: \(newValue)")
+        })
+        
         DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1) {
+            print("test->变更: myObject")
             self.state = .pause
             self.myObject.myEnum = .second
             self.myObject.myEnum = .third
+            print("test->变更: myObject end")
         }
         
-        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 10) { [weak self] in
-            guard let self = self else { return }
-            self.state = .pause
-            self.myObject.myEnum = .second
-            self.myObject.myEnum = .third
+        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 2) {
+            print("test->变更:myObject_2")
+            self.myObject_2 = MyClass()
+            print("test->变更:myObject_2  end")
         }
+        
+//        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 10) { [weak self] in
+//            guard let self = self else { return }
+//            self.state = .pause
+//            self.myObject.myEnum = .second
+//            self.myObject.myEnum = .third
+//        }
     }
     
     deinit {
@@ -555,6 +625,7 @@ After apologising, Mr Musk said that Mr Thorleifsson was considering coming back
         timer = nil
         observation?.invalidate()
         stateObservation?.invalidate()
+        claObservation?.invalidate()
         mm_printLog("释放")
     }
 }
@@ -761,11 +832,31 @@ extension MMFuncTool {
         }       
     }
     
-    func test37() {
+    func userDefaultTest37() {
         let def = UserDefaults.standard
         let allLanguages = def.object(forKey: "AppleLanguages") as! [String]
         //zh-Hans-US 中文，美国， en-US  英文，美国  中文中国 zh-Hans-CN  en-CN(英文中国)
         mm_printLog(allLanguages)
+        
+        
+        let key = "test_key"
+        UserDefaults.standard.set("test", forKey: key)
+        //str = "test"
+        let str = UserDefaults.standard.string(forKey: key)
+        // int_v = 0
+        var int_v = UserDefaults.standard.integer(forKey: key)
+        UserDefaults.standard.set(10, forKey: key)
+        //int_v = 10
+        int_v = UserDefaults.standard.integer(forKey: key)
+        print("test_print")
+        
+        var cacheDict: [String: Any] = [:]
+        cacheDict["id"] = "123456"
+        cacheDict["date"] = NSDate()
+        UserDefaults.standard.setValue(cacheDict, forKey: "cacheDictKey")
+        
+        let dict = UserDefaults.standard.dictionary(forKey: "cacheDictKey")
+        mm_printLog("test->\(dict)")
     }
 
     func test46() {
@@ -800,6 +891,13 @@ extension MMFuncTool {
     
     
     func testAnaly() {
+        
+        var testCacheArr: [[TestWordModel]] = []
+        var testTmpArr: [TestWordModel] = []
+//        var sIndex
+        for i in 0...10 {
+            
+        }
 //        let path = Bundle.main.path(forResource: "AREACODE", ofType: "txt")!
 //        let str = try? String(contentsOfFile: path)
 //        let AREACODE = str?.components(separatedBy: "\n") ?? []
@@ -827,6 +925,10 @@ extension MMFuncTool {
         //读取
 //        guard let readData = try? Data(contentsOf: url, options: .alwaysMapped) else { return }
 //        let modelArr = try? JSONDecoder().decode([MMCity].self, from: readData)
+        // 不可以，会直接连 test.txt也创建成文件夹
+        let path = NSSearchPathForDirectoriesInDomains(.cachesDirectory, .userDomainMask, true).first!.appendPathComponent(string: "test/test.txt")
+        MMFileManager.createDirectory(path: path)
+        MMFileManager.fileExist(path: path)
         mm_printLog(result)
 //        mm_printLog(modelArr)
         
@@ -837,10 +939,10 @@ extension MMFuncTool {
     func timerTest36() {
         var count = 0
         //锁屏、进后台会暂停
-//        timerStr = MMDispatchTimer.createTimer(startTime: 1, infiniteInterval: 2, isRepeat: true, async: true) {
-//            count += 1
-//            mm_printLog("DpatchTimer->\(count)")
-//        }
+        timerStr = MMDispatchTimer.createTimer(startTime: 1, infiniteInterval: 2, isRepeat: true, async: true) {
+            count += 1
+            mm_printLog("DpatchTimer->\(count)")
+        }
         
         //需要手动将timer放到 runloop中
 //        timer = Timer(fire: Date(timeIntervalSince1970: Date().timeIntervalSince1970 + 2), interval: 2, repeats: true, block: { _ in
@@ -850,7 +952,12 @@ extension MMFuncTool {
 //        })
         //进后台会暂停，回到前台会连续执行两次。
 //        mm_printLog("timer->\(Date().timeIntervalSince1970), \(count)")
+        //        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 2) {
+        //            self.timer?.fire()
+        //        }
+        
         var timerCount = 0
+        // 返回一个新的 Timer 对象，并且把它安排在当前的运行循环中的默认模式下
         timer = Timer.scheduledTimer(withTimeInterval: 2, repeats: true) { timer in
 //            if count == 30 {
 //                timer.invalidate()
@@ -858,9 +965,7 @@ extension MMFuncTool {
             timerCount += 1;
             mm_printLog("timer->\(Date().timeIntervalSince1970), \(timerCount)")
         }
-//        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 2) {
-//            self.timer?.fire()
-//        }
+
         
         
         mm_printLog("timer->end")
@@ -912,6 +1017,12 @@ extension MMFuncTool {
         let o = EnumTest(rawValue: 4)
         mm_printLog("")
     }
+}
+
+struct TestWordModel: Codable {
+    let word: String
+    let title: String
+    let trs: String
 }
 
 enum EnumTest: Int {

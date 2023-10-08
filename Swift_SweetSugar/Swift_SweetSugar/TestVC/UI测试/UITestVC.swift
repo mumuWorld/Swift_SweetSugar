@@ -12,6 +12,8 @@ import SnapKit
 import AVKit
 import Lottie
 import MessageUI
+import WebKit
+import Kingfisher
 
 func creat(_ block:(UIButton)->()) -> UIButton {
     let btn = UIButton()
@@ -46,7 +48,7 @@ class UITestVC: UIViewController {
     
     lazy var customButton: YDCustomButton = {
         let item = YDCustomButton()
-        item.backgroundColor = .blue
+        item.backgroundColor = .brown
         item.layer.cornerRadius = 15
         return item
     }()
@@ -64,7 +66,7 @@ class UITestVC: UIViewController {
         label.numberOfLines = 0
         label.lineBreakMode = .byWordWrapping
         label.font = UIFont.systemFont(ofSize: 14)
-        label.backgroundColor = .cyan
+        label.backgroundColor = .blue
         return label
     }()
     
@@ -94,10 +96,29 @@ class UITestVC: UIViewController {
     var _compareView: UIView?
     // 高斯模糊
     private lazy var blurEffectView: UIVisualEffectView = {
-        let blurEffect = UIBlurEffect(style: .systemThickMaterial)
+        let blurEffect = UIBlurEffect(style: .light)
         let blurView = UIVisualEffectView(effect: blurEffect)
         blurView.alpha = 1
         return blurView
+    }()
+    
+    lazy var panGestureView: MMPassthroughView = {
+        let item = MMPassthroughView()
+        item.backgroundColor = UIColor.brown.withAlphaComponent(0.5)
+        let pan = UIPanGestureRecognizer(target: self, action: #selector(handlePanGes(sender:)))
+//        pan.cancelsTouchesInView = false
+//        pan.delegate = self
+//        item.addGestureRecognizer(pan)
+//        let tap = UITapGestureRecognizer(target: self, action: #selector(handleTap(sender:)))
+//        item.addGestureRecognizer(tap)
+        return item
+    }()
+    
+    lazy var webView: WKWebView = {
+        let item = WKWebView()
+        item.navigationDelegate = self
+        item.uiDelegate = self
+        return item
     }()
     
     @IBOutlet weak var stackView: UIStackView!
@@ -106,6 +127,17 @@ class UITestVC: UIViewController {
     
     @IBOutlet weak var button1: UIButton!
     
+    @IBOutlet weak var netImageView: UIImageView!
+    
+    @IBOutlet weak var resetImageView: UIImageView!
+    
+    var customDrawView: MMHighlightView?
+    
+    lazy var netAniImageView: AnimatedImageView = {
+        let item = AnimatedImageView()
+        return item
+    }()
+
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
         print("test-> isViewLoaded1: \(isViewLoaded)")
@@ -136,7 +168,7 @@ class UITestVC: UIViewController {
         mm_printLog("center->\(shadowView.center),position->\(shadowView.layer.position),frame->\(shadowView.frame)")
         //位置比较
         let compareView = UIView(frame: baseFrame)
-        compareView.backgroundColor = .red.withAlphaComponent(0.7)
+        compareView.backgroundColor = .brown.withAlphaComponent(0.7)
         view.insertSubview(compareView, belowSubview: shadowView)
         compareView.snp.makeConstraints { make in
             make.leading.equalToSuperview().offset(10)
@@ -164,7 +196,7 @@ class UITestVC: UIViewController {
 //        widthLabel.font = font
 //        widthLabel.text = "大 \u{e60b}"
         
-        pieChartView.colors = [.red,.blue,.green, .yellow]
+        pieChartView.colors = [.brown,.brown,.green, .yellow]
         pieChartView.drawWidth = 20
         pieChartView.percents = [0.5, 0.3, 0.1, 0.1]
         pieChartView.setNeedsDisplay()
@@ -194,13 +226,78 @@ class UITestVC: UIViewController {
             make.size.equalTo(CGSize(28, 28))
         }
         
-        gradientLayer.addSubview(blurEffectView)
+        resetImageView.addSubview(blurEffectView)
         blurEffectView.snp.makeConstraints { make in
             make.edges.equalToSuperview()
             make.height.width.equalToSuperview()
         }
-        print("test-> isViewLoaded3: \(isViewLoaded)")
+  
+//        addWebView()
+//        netImageTest()
+//        createBtn()
+        
+//        adjustImage()
     }
+    
+    /// 调整图片的平铺
+    func adjustImage() {
+        let img = UIImage(named: "noteShowBg")!
+        mm_printLog("test->\(img): size:\(img.size)")
+        let middleX = ceil(img.size.width * 0.5)
+        let middleY = ceil(img.size.height * 0.5)
+        resetImageView.image = img.resizableImage(withCapInsets: UIEdgeInsets(top: middleY - 1, left: middleX - 1, bottom: middleY, right: middleX), resizingMode: .tile)
+    }
+
+    
+    func createBtn() {
+        let item = UIButton(type: .system)
+        item.setTitle("确定", for: .normal)
+        item.setTitleColor(UIColor.yellow, for: .normal)
+        item.layer.cornerRadius = 22
+        item.frame = CGRect(x: 10, y: 100, width: 100, height: 40)
+        item.backgroundColor = UIColor.blue
+        item.isEnabled = false
+        
+        let item_2 = UIButton(type: .custom)
+        item_2.setTitle("确定2", for: .normal)
+        item_2.setTitleColor(UIColor.yellow, for: .normal)
+        item_2.setTitleColor(UIColor.yellow.withAlphaComponent(0.5), for: .disabled)
+        item_2.layer.cornerRadius = 22
+        item_2.layer.masksToBounds = true
+        item_2.frame = CGRect(x: 10, y: 150, width: 100, height: 40)
+        item_2.backgroundColor = UIColor.red
+        item_2.setBackgroundImage(UIImage.createImage(.blue), for: .normal)
+        item_2.isEnabled = false
+        
+        let item_3 = UIButton()
+        item_3.setTitle("确定3", for: .normal)
+        item_3.setTitleColor(UIColor.yellow, for: .normal)
+        item_3.layer.cornerRadius = 22
+        item_3.frame = CGRect(x: 10, y: 200, width: 100, height: 40)
+        item_3.setBackgroundImage(UIImage.createImage(.blue), for: .normal)
+//        item_2.backgroundColor = UIColor.red
+        item_3.isEnabled = false
+        
+        let item_4 = UIButton(type: .detailDisclosure)
+        item_4.setTitle("确定4", for: .normal)
+        item_4.setTitleColor(UIColor.yellow, for: .normal)
+        item_4.layer.cornerRadius = 22
+        item_4.frame = CGRect(x: 10, y: 250, width: 100, height: 40)
+        item_4.backgroundColor = UIColor.blue
+        item_4.isEnabled = false
+        
+        self.view.addSubview(item)
+        self.view.addSubview(item_2)
+        self.view.addSubview(item_3)
+        self.view.addSubview(item_4)
+
+    }
+    
+    lazy var panGesture: UIPanGestureRecognizer = {
+        let pan = UIPanGestureRecognizer(target: self, action: #selector(handlePanGes(sender:)))
+        pan.delegate = self
+        return pan
+    }()
     
     @IBOutlet weak var graphicImageView: UIImageView!
     
@@ -210,6 +307,7 @@ class UITestVC: UIViewController {
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        guard MMMainManager.shared.isPrintLifeLog else { return }
         if let present = UIViewController.currentViewController() {
             // <Swift_SweetSugar.UITestVC: 0x13f008e00>
             mm_printLog("test->\(present)")
@@ -219,14 +317,22 @@ class UITestVC: UIViewController {
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
+        guard MMMainManager.shared.isPrintLifeLog else { return }
         if let present = UIViewController.currentViewController() {
             //HomeListVC
             mm_printLog("test->\(present)")
         }
     }
     
+//    override func viewIsAppearing(_ animated: Bool) {
+//        super.viewIsAppearing(animated)
+//        guard MMMainManager.shared.isPrintLifeLog else { return }
+//        mm_printLog("test->appearing")
+//    }
+    
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+        guard MMMainManager.shared.isPrintLifeLog else { return }
         if let present = UIViewController.currentViewController() {
             //UITestVC
             mm_printLog("test->\(present)")
@@ -234,6 +340,7 @@ class UITestVC: UIViewController {
     }
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
+        guard MMMainManager.shared.isPrintLifeLog else { return }
         if let present = UIViewController.currentViewController() {
             //HomeListVC
             mm_printLog("test->\(present)")
@@ -250,14 +357,14 @@ class UITestVC: UIViewController {
     
     //MARK: - 从这里开始测试
 
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+//    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+//        mm_printLog("test->touch")
 //        animationButton()
 //        handleClick(sender: bar)
 //        shadowTest()
 //        playAnimation()
 //        windowTest()
 //        addActivity()
-        //        dismiss(animated: true)
         
 //        area()
 //        textViewTest()
@@ -280,8 +387,9 @@ class UITestVC: UIViewController {
         //transform 测试 CGAffineTransform
 //        transformTest()
 //        playerTest()
-        gradientLabelTest()
-    }
+//        gradientLabelTest()
+//        pushVC()
+//    }
     
     /// stackView 间距测试: 可以自定义某个 子视图之后的间距
     func stackViewTest() {
@@ -291,7 +399,7 @@ class UITestVC: UIViewController {
         stackView.distribution = .fill
         
         let v = UIView(frame: CGRect(x: 0, y: 0, width: 50, height: 50))
-        v.backgroundColor = .red
+        v.backgroundColor = .brown
         stackView.insertArrangedSubview(v, at: 0)
         
 //        mm_printLog("test->\(stackView.arrangedSubviews)")
@@ -359,9 +467,9 @@ class UITestVC: UIViewController {
                 make.height.equalTo(200)
             }
             //        v.frame = CGRect(x: 100, y: 200, width: 300, height: 300)
-            v.update(colors: [UIColor.red,
+            v.update(colors: [UIColor.brown,
                               UIColor.yellow,
-                              UIColor.blue], start: CGPoint(x: 0.5, y: 0), end: CGPoint(x: 0.5, y: 1), locations: [0, 0.99,  1])
+                              UIColor.brown], start: CGPoint(x: 0.5, y: 0), end: CGPoint(x: 0.5, y: 1), locations: [0, 0.99,  1])
 
         }
         //"🔨[UITestVC gradientTest()](317): test->耗时:0.016939163208007812"
@@ -386,6 +494,16 @@ class UITestVC: UIViewController {
 //        //"🔨[UITestVC gradientTest()](336): test->耗时:0.06610107421875" 真机  0.1   286 - 22M = 264M
 //        mm_printLog("test->耗时:\(NSDate().timeIntervalSince1970 - time.timeIntervalSince1970)")
 
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        mm_printLog("test->touchesBegan")
+//        animationButton()
+        customDrawTest()
+    }
+    
+    override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
+        mm_printLog("test->move")
     }
     
     override func touchesCancelled(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -439,7 +557,7 @@ class UITestVC: UIViewController {
         }
         
         let bg = UIView()
-        bg.backgroundColor = UIColor.red.withAlphaComponent(0.6)
+        bg.backgroundColor = UIColor.brown.withAlphaComponent(0.6)
         scrollView.addSubview(bg)
         bg.snp.makeConstraints { make in
             make.leading.top.equalToSuperview()
@@ -487,7 +605,7 @@ class UITestVC: UIViewController {
             //支持发送邮件
         }
         let mail = MFMailComposeViewController()
-        mail.navigationBar.tintColor = UIColor.blue //导航颜色
+        mail.navigationBar.tintColor = UIColor.brown //导航颜色
         mail.setToRecipients(["123456789@qq.com"]) //设置收件地址
         mail.setCcRecipients(["123456789@qq.com"]) //添加抄送
         mail.setBccRecipients(["123456789@qq.com"]) //秘密抄送
@@ -509,9 +627,14 @@ class UITestVC: UIViewController {
     func showVC() {
         let vc = FuncTestVC()
         //push
-//        show(vc, sender: self)
+        show(vc, sender: self)
         //present
         showDetailViewController(vc, sender: self)
+    }
+    
+    func pushVC() {
+        let vc = FuncTestVC()
+        navigationController?.pushViewController(vc, animated: true)
     }
     
     func playAnimation() {
@@ -711,7 +834,7 @@ class UITestVC: UIViewController {
         
         let text = "The appropriate bgText The appropriate word elu"
         let attr = NSMutableAttributedString(string: text)
-        attr.addAttributes([.backgroundColor: UIColor.red,
+        attr.addAttributes([.backgroundColor: UIColor.brown,
                             .foregroundColor: UIColor.green], range: NSRange(location: 4, length: 5))
         textView.attributedText = attr
     }
@@ -830,27 +953,38 @@ extension UITestVC {
 //        testButton.imageView?.transform = .identity
 //        let imgTransform = CGAffineTransform(scaleX: 4, y: 4)
 //        imgTransform.rotated(by: CGFloat.pi)
-        var confi = customButton.configure
-        confi.image = confi.selectedImage
-        customButton.setConfigure(con: confi)
-        
-        let scaleAni = CAKeyframeAnimation(keyPath: "transform.scale")
-        scaleAni.values = [0.8, 1.2, 1.5, 1.2, 1]
-        scaleAni.keyTimes = [0, 0.2, 0.5, 0.8, 1]
-        scaleAni.duration = 2
-        scaleAni.timingFunction =  CAMediaTimingFunction(name: .easeInEaseOut)
-        customButton._imageView.layer.add(scaleAni, forKey: nil)
-        
-        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1) {
-            UIView.animate(withDuration: 1) {
-                self.customButton.isYDSelected = true
-                self.customButton.snp.updateConstraints { make in
-                    make.size.equalTo(self.customButton.fitSizeContent(1))
-                }
-                self.view.layoutIfNeeded()
-            } completion: { _ in
-                
-            }
+//        var confi = customButton.configure
+//        confi.image = confi.selectedImage
+//        customButton.setConfigure(con: confi)
+//        
+//        let scaleAni = CAKeyframeAnimation(keyPath: "transform.scale")
+//        scaleAni.values = [0.8, 1.2, 1.5, 1.2, 1]
+//        scaleAni.keyTimes = [0, 0.2, 0.5, 0.8, 1]
+//        scaleAni.duration = 2
+//        scaleAni.timingFunction =  CAMediaTimingFunction(name: .easeInEaseOut)
+//        customButton._imageView.layer.add(scaleAni, forKey: nil)
+//        
+//        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1) {
+//            UIView.animate(withDuration: 1) {
+//                self.customButton.isYDSelected = true
+//                self.customButton.snp.updateConstraints { make in
+//                    make.size.equalTo(self.customButton.fitSizeContent(1))
+//                }
+//                self.view.layoutIfNeeded()
+//            } completion: { _ in
+//                
+//            }
+//        }
+        // 创建一个UIView对象
+//        let view = UIView(frame: CGRect(x: 100, y: 100, width: 100, height: 100))
+        // 设置layer的borderWidth属性
+        resetImageView.layer.borderWidth = 3.0
+        self.resetImageView.layer.borderColor = nil
+        // 使用UIView.animate的block方法来执行动画
+        UIView.animate(withDuration: 0.5) {
+            self.resetImageView.layer.borderWidth = 10
+            // 将layer的borderColor属性从红色变为蓝色
+            self.resetImageView.layer.borderColor = UIColor.blue.cgColor
         }
 
 //        UIView.animate(withDuration: 1) {
@@ -893,6 +1027,60 @@ extension UITestVC: AVPictureInPictureControllerDelegate {
     }
     func pictureInPictureControllerDidStopPictureInPicture(_ pictureInPictureController: AVPictureInPictureController) {
         mm_printLog("DidStop")
+    }
+}
+
+
+
+extension UITestVC: UIGestureRecognizerDelegate {
+//    func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWith otherGestureRecognizer: UIGestureRecognizer) -> Bool {
+//        mm_printLog("test->gesture \(gestureRecognizer), other: \(otherGestureRecognizer)")
+//        if gestureRecognizer is UITapGestureRecognizer {
+//            return true
+//        }
+//        return false
+//    }
+    
+//    func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWith otherGestureRecognizer: UIGestureRecognizer) -> Bool {
+//        mm_printLog("test->gesture \(gestureRecognizer), other: \(otherGestureRecognizer)")
+//
+//        if !(gestureRecognizer is UIPanGestureRecognizer) {
+//            return true
+//        }
+//        return false
+//    }
+
+//    func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldRequireFailureOf otherGestureRecognizer: UIGestureRecognizer) -> Bool {
+//        mm_printLog("test->gesture2: \(gestureRecognizer), \\n other: \(otherGestureRecognizer)")
+//        return true
+//    }
+    
+    @objc func handlePanGes(sender: UIPanGestureRecognizer) {
+//        guard !isFullScreen else { return }
+        let translation: CGPoint = sender.translation(in: sender.view!)
+        mm_printLog("test->pan:\(translation)")
+        switch sender.state {
+        case .began: //开始记录
+            break
+//            scrollViewWillBeginDragging(webView.scrollView)
+        case .changed:
+//            handleOffsetY(offsetY: translation.y)
+            if translation.y < -50 {
+                panGesture.isEnabled = false
+            }
+        case .ended, .cancelled:
+            break;
+//            handleOffsetY(offsetY: translation.y)
+//            scrollViewDidEndDragging(webView.scrollView, willDecelerate: true)
+        default:
+            break
+        }
+    }
+    
+    @objc func handleTap(sender: UITapGestureRecognizer) {
+        
+//        let translation: CGPoint = sender.translation(in: sender.view!)
+        mm_printLog("test->tap:\(sender)")
     }
 }
 
@@ -961,4 +1149,23 @@ extension UITestVC: MFMailComposeViewControllerDelegate {
     func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
         controller.dismiss(animated: true, completion: nil)
     }
+}
+
+class MMPassthroughView: UIView {
+//    override func hitTest(_ point: CGPoint, with event: UIEvent?) -> UIView? {
+//        let view = super.hitTest(point, with: event)
+//        print("点击->\(event!)")
+//        return view == self ? nil : view
+//    }
+//    override func hitTest(_ point: CGPoint, with event: UIEvent?) -> UIView? {
+//            if let result = super.hitTest(point, with: event) {
+//                        print("点击->\(event?.allTouches)")
+//                if result == self && event?.allTouches?.first?.gestureRecognizers?.contains(where: { $0 is UIPanGestureRecognizer }) == true {
+//                    return self
+//                } else {
+//                    return nil
+//                }
+//            }
+//            return nil
+//        }
 }
