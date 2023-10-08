@@ -8,6 +8,9 @@
 
 import UIKit
 import BackgroundTasks
+import OSLog
+import DoraemonKit
+
 //import FlipperKit
 
 @UIApplicationMain
@@ -32,11 +35,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //            client?.add(FlipperKitLayoutPlugin(rootNode: application, with: layoutDescriptorMapper!))
 //            client?.start()
         
+        DoraemonStatisticsUtil.shareInstance().noUpLoad = true
+        DoraemonManager.shareInstance().install()
         return true
     }
     
     func application(_ application: UIApplication, willFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
-        mm_printLog(launchOptions ?? [:])
+        if MMMainManager.shared.isPrintLifeLog {
+            mm_printLog(launchOptions ?? [:])
+        }
         return true
     }
     
@@ -156,6 +163,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //    }
 }
 
+@available(iOS 14.0, *)
+let logger = Logger(subsystem: "com.mumu", category: "test_new")
+
 func mm_printLog<T>(_ message : T, file : String = #file, funcName : String = #function, lineNum : Int = #line) {
     
 #if DEBUG
@@ -166,7 +176,15 @@ func mm_printLog<T>(_ message : T, file : String = #file, funcName : String = #f
     // 1.2 获取文件名
     let fileName = fileArray[0]
     // 2.打印内容
-    debugPrint("🔨[\(fileName) \(funcName)](\(lineNum)): \(message)")
+    let printStr = "🔨[\(fileName) \(funcName)](\(lineNum)): \(message)"
+    if #available(iOS 14.0, *) {
+        debugPrint(printStr)
+//        let str = "This is a debug message.:\(type(of: printStr))"
+//        logger.debug(str)
+//        logger.debug(printStr)
+    } else {
+        debugPrint("🔨[\(fileName) \(funcName)](\(lineNum)): \(message)")
+    }
 #endif
 }
 

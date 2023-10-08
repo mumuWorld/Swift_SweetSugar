@@ -1,5 +1,5 @@
 # Uncomment the next line to define a global platform for your project
- platform :ios, '11.0'
+ platform :ios, '13.0'
 #source 'https://cdn.cocoapods.org/'
 source 'https://github.com/CocoaPods/Specs.git'
 #flipperkit_version = '0.128.2'
@@ -21,6 +21,7 @@ target 'Swift_SweetSugar' do
   pod 'MLeaksFinder', :configurations => ['Debug']
   pod 'FBRetainCycleDetector', :git => 'git@gitlab.corp.youdao.com:lunafork/FBRetainCycleDetector.git', :branch => 'feature/yd_dev'
   pod 'LookinServer', :configurations => ['Debug']
+  pod 'DoraemonKit/Core', '~> 3.0.4', :configurations => ['Debug'] #必选
   # Pods for Swift_SweetSugar
 
   #调试
@@ -82,6 +83,8 @@ post_install do |installer|
       ##      elsif target.name.include? 'YDTExtentionService' then
       ##      elsif target.name.include? 'YDTWidget' then
       config.build_settings['IPHONEOS_DEPLOYMENT_TARGET'] = '13.0'
+      # 针对M1机型 模拟器 https://juejin.cn/post/7037037120158269448
+      config.build_settings['EXCLUDED_ARCHS[sdk=iphonesimulator*]'] = "arm64"
       #      else
       #      config.build_settings['IPHONEOS_DEPLOYMENT_TARGET'] = '11.0'
       #    end

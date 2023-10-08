@@ -9,7 +9,11 @@
 /* Begin PBXBuildFile section */
 		4EDB48E4FFF4B3DCF6951C75 /* Pods_Swift_SweetSugar_Swift_SweetSugarUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FE472623FF9612F2CF526DCF /* Pods_Swift_SweetSugar_Swift_SweetSugarUITests.framework */; };
 		6500D347292CD7C7000B3535 /* error_result.json in Resources */ = {isa = PBXBuildFile; fileRef = 6500D346292CD71A000B3535 /* error_result.json */; };
+		65032DA52A67C993004C41B7 /* UITestVC+WKWebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65032DA42A67C993004C41B7 /* UITestVC+WKWebView.swift */; };
 		650769C32A40406C00E4E2D6 /* MMReplayTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 650769C22A40406C00E4E2D6 /* MMReplayTool.swift */; };
+		650892852A6F6EE7009FF1B2 /* MMTaskTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 650892842A6F6EE7009FF1B2 /* MMTaskTest.swift */; };
+		650E7B952AA9DE2F00059409 /* MMRotateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 650E7B942AA9DE2F00059409 /* MMRotateView.swift */; };
+		651209BE2ABC21750044FF84 /* SomeAnyTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 651209BD2ABC21740044FF84 /* SomeAnyTest.swift */; };
 		651344EB28729889002FEF1B /* MMUIKitAnimationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 651344E928729889002FEF1B /* MMUIKitAnimationVC.swift */; };
 		651344EC28729889002FEF1B /* MMUIKitAnimationVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 651344EA28729889002FEF1B /* MMUIKitAnimationVC.xib */; };
 		651344EF28729CC1002FEF1B /* Pods_Swift_SweetSugar.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 748C148B6DFFF2BD69E19139 /* Pods_Swift_SweetSugar.framework */; };
@@ -19,13 +23,16 @@
 		652D4D6E2963FC9900CC4EA3 /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 652D4D6D2963FC9900CC4EA3 /* UIViewController+Extension.swift */; };
 		652DA2922A08ADDE00434352 /* MMLanguageTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 652DA2912A08ADDE00434352 /* MMLanguageTest.swift */; };
 		652DA2952A090A2800434352 /* UITestVC+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 652DA2942A090A2800434352 /* UITestVC+Extension.swift */; };
+		653710862A9307CE0005EF4A /* MMHighlightView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 653710852A9307CE0005EF4A /* MMHighlightView.swift */; };
 		653A49782A2F2CCD003DC1BE /* MMGradientLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 653A49772A2F2CCD003DC1BE /* MMGradientLabel.swift */; };
+		654BA72B2AA7403F000B4C34 /* MMCollectionPaoMaDengScroll.swift in Sources */ = {isa = PBXBuildFile; fileRef = 654BA72A2AA7403F000B4C34 /* MMCollectionPaoMaDengScroll.swift */; };
 		654DEFC728780831009F6757 /* Data+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 654DEFC628780831009F6757 /* Data+Extension.swift */; };
 		6550B9EF292728F30093B437 /* 百度一下，你就知道_files in Resources */ = {isa = PBXBuildFile; fileRef = 6550B9ED292728F30093B437 /* 百度一下，你就知道_files */; };
 		6550B9F0292728F30093B437 /* 百度一下，你就知道.html in Resources */ = {isa = PBXBuildFile; fileRef = 6550B9EE292728F30093B437 /* 百度一下，你就知道.html */; };
 		6550B9F2292729940093B437 /* sw in Resources */ = {isa = PBXBuildFile; fileRef = 6550B9F1292729940093B437 /* sw */; };
 		6599CE4229EEAB34005DD9B5 /* MMSingleLabelCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6599CE4029EEAB34005DD9B5 /* MMSingleLabelCollectionViewCell.swift */; };
 		6599CE4329EEAB34005DD9B5 /* MMSingleLabelCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6599CE4129EEAB34005DD9B5 /* MMSingleLabelCollectionViewCell.xib */; };
+		659BE68F2A7B3E1D00F18E1C /* MMNetworkTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 659BE68E2A7B3E1D00F18E1C /* MMNetworkTest.swift */; };
 		65ADB9EC28768FEA004F6624 /* NetTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65ADB9EB28768FEA004F6624 /* NetTest.swift */; };
 		65BF26BA2876FE09007434E5 /* MMAnyTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65BF26B92876FE09007434E5 /* MMAnyTest.swift */; };
 		65C3C4E029E9452A00FFA11C /* MMListAutoHeightViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65C3C4DE29E9452A00FFA11C /* MMListAutoHeightViewController.swift */; };
@@ -40,11 +47,17 @@
 		65D2923D2811566600B31DFD /* TestCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65D2923B2811566600B31DFD /* TestCollectionViewCell.swift */; };
 		65D2923E2811566600B31DFD /* TestCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 65D2923C2811566600B31DFD /* TestCollectionViewCell.xib */; };
 		65D292402811583700B31DFD /* ScrollTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65D2923F2811583700B31DFD /* ScrollTableViewCell.swift */; };
+		65D487CD2A5C03E20024F82D /* MMPreViewUIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65D487CB2A5C03E20024F82D /* MMPreViewUIViewController.swift */; };
+		65D487CE2A5C03E20024F82D /* MMPreViewUIViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 65D487CC2A5C03E20024F82D /* MMPreViewUIViewController.xib */; };
 		65D7C87A29AEFC1F00E7CA51 /* MMHookTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 65D7C87929AEFC1F00E7CA51 /* MMHookTextView.m */; };
 		65D7C87D29AEFD0700E7CA51 /* ObjcUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 65D7C87C29AEFD0700E7CA51 /* ObjcUtil.m */; };
 		65E188DD2995F1AE00B177C1 /* AnimationTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65E188DC2995F1AE00B177C1 /* AnimationTest.swift */; };
+		65E4C9132A60E7AA0019D94B /* MMSyntaxTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65E4C9122A60E7AA0019D94B /* MMSyntaxTool.swift */; };
+		65E4C9162A60E9970019D94B /* MMMainManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65E4C9152A60E9970019D94B /* MMMainManager.swift */; };
 		65E920C629F1152F000672C8 /* WebViewPrintPageRenderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65E920C529F1152F000672C8 /* WebViewPrintPageRenderer.swift */; };
 		65E920CA29F230B3000672C8 /* snapshot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65E920C929F230B3000672C8 /* snapshot.swift */; };
+		65F26B2E2ABC4BE60025C93E /* DynamicDispatchTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65F26B2D2ABC4BE60025C93E /* DynamicDispatchTest.swift */; };
+		65F26B302ABD3EA00025C93E /* BaseSynatx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65F26B2F2ABD3EA00025C93E /* BaseSynatx.swift */; };
 		65F5FAA629F50EE4005E41CE /* MMLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65F5FAA529F50EE4005E41CE /* MMLabel.swift */; };
 		65F5FAA829F55230005E41CE /* ClickableLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65F5FAA729F55230005E41CE /* ClickableLabel.swift */; };
 		65FB47D22807EB94003EC323 /* UIButton+PropertyExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65FB47CF2807EB94003EC323 /* UIButton+PropertyExtension.swift */; };
@@ -229,7 +242,11 @@
 		2028267AE1A8AD89F66A9103 /* Pods-Swift_SweetSugar-Swift_SweetSugarUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Swift_SweetSugar-Swift_SweetSugarUITests.debug.xcconfig"; path = "Target Support Files/Pods-Swift_SweetSugar-Swift_SweetSugarUITests/Pods-Swift_SweetSugar-Swift_SweetSugarUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		5517FE394A1BE726129E9488 /* Pods-Swift_SweetSugarTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Swift_SweetSugarTests.release.xcconfig"; path = "Target Support Files/Pods-Swift_SweetSugarTests/Pods-Swift_SweetSugarTests.release.xcconfig"; sourceTree = "<group>"; };
 		6500D346292CD71A000B3535 /* error_result.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = error_result.json; sourceTree = "<group>"; };
+		65032DA42A67C993004C41B7 /* UITestVC+WKWebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITestVC+WKWebView.swift"; sourceTree = "<group>"; };
 		650769C22A40406C00E4E2D6 /* MMReplayTool.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MMReplayTool.swift; sourceTree = "<group>"; };
+		650892842A6F6EE7009FF1B2 /* MMTaskTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MMTaskTest.swift; sourceTree = "<group>"; };
+		650E7B942AA9DE2F00059409 /* MMRotateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MMRotateView.swift; sourceTree = "<group>"; };
+		651209BD2ABC21740044FF84 /* SomeAnyTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SomeAnyTest.swift; sourceTree = "<group>"; };
 		651344E928729889002FEF1B /* MMUIKitAnimationVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MMUIKitAnimationVC.swift; sourceTree = "<group>"; };
 		651344EA28729889002FEF1B /* MMUIKitAnimationVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MMUIKitAnimationVC.xib; sourceTree = "<group>"; };
 		651F696028F3CCDA00BE565A /* MMBubbleLayoutFragment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MMBubbleLayoutFragment.swift; sourceTree = "<group>"; };
@@ -238,13 +255,16 @@
 		652D4D6D2963FC9900CC4EA3 /* UIViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
 		652DA2912A08ADDE00434352 /* MMLanguageTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MMLanguageTest.swift; sourceTree = "<group>"; };
 		652DA2942A090A2800434352 /* UITestVC+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITestVC+Extension.swift"; sourceTree = "<group>"; };
+		653710852A9307CE0005EF4A /* MMHighlightView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MMHighlightView.swift; sourceTree = "<group>"; };
 		653A49772A2F2CCD003DC1BE /* MMGradientLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MMGradientLabel.swift; sourceTree = "<group>"; };
+		654BA72A2AA7403F000B4C34 /* MMCollectionPaoMaDengScroll.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MMCollectionPaoMaDengScroll.swift; sourceTree = "<group>"; };
 		654DEFC628780831009F6757 /* Data+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Data+Extension.swift"; sourceTree = "<group>"; };
 		6550B9ED292728F30093B437 /* 百度一下，你就知道_files */ = {isa = PBXFileReference; lastKnownFileType = folder; path = "百度一下，你就知道_files"; sourceTree = "<group>"; };
 		6550B9EE292728F30093B437 /* 百度一下，你就知道.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = "百度一下，你就知道.html"; sourceTree = "<group>"; };
 		6550B9F1292729940093B437 /* sw */ = {isa = PBXFileReference; lastKnownFileType = folder; path = sw; sourceTree = "<group>"; };
 		6599CE4029EEAB34005DD9B5 /* MMSingleLabelCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MMSingleLabelCollectionViewCell.swift; sourceTree = "<group>"; };
 		6599CE4129EEAB34005DD9B5 /* MMSingleLabelCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MMSingleLabelCollectionViewCell.xib; sourceTree = "<group>"; };
+		659BE68E2A7B3E1D00F18E1C /* MMNetworkTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MMNetworkTest.swift; sourceTree = "<group>"; };
 		65ADB9EB28768FEA004F6624 /* NetTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetTest.swift; sourceTree = "<group>"; };
 		65BF26B92876FE09007434E5 /* MMAnyTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MMAnyTest.swift; sourceTree = "<group>"; };
 		65C3C4DE29E9452A00FFA11C /* MMListAutoHeightViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MMListAutoHeightViewController.swift; sourceTree = "<group>"; };
@@ -259,13 +279,19 @@
 		65D2923B2811566600B31DFD /* TestCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestCollectionViewCell.swift; sourceTree = "<group>"; };
 		65D2923C2811566600B31DFD /* TestCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TestCollectionViewCell.xib; sourceTree = "<group>"; };
 		65D2923F2811583700B31DFD /* ScrollTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollTableViewCell.swift; sourceTree = "<group>"; };
+		65D487CB2A5C03E20024F82D /* MMPreViewUIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MMPreViewUIViewController.swift; sourceTree = "<group>"; };
+		65D487CC2A5C03E20024F82D /* MMPreViewUIViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MMPreViewUIViewController.xib; sourceTree = "<group>"; };
 		65D7C87829AEFC1F00E7CA51 /* MMHookTextView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MMHookTextView.h; sourceTree = "<group>"; };
 		65D7C87929AEFC1F00E7CA51 /* MMHookTextView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MMHookTextView.m; sourceTree = "<group>"; };
 		65D7C87B29AEFD0700E7CA51 /* ObjcUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ObjcUtil.h; sourceTree = "<group>"; };
 		65D7C87C29AEFD0700E7CA51 /* ObjcUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ObjcUtil.m; sourceTree = "<group>"; };
 		65E188DC2995F1AE00B177C1 /* AnimationTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimationTest.swift; sourceTree = "<group>"; };
+		65E4C9122A60E7AA0019D94B /* MMSyntaxTool.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MMSyntaxTool.swift; sourceTree = "<group>"; };
+		65E4C9152A60E9970019D94B /* MMMainManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MMMainManager.swift; sourceTree = "<group>"; };
 		65E920C529F1152F000672C8 /* WebViewPrintPageRenderer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewPrintPageRenderer.swift; sourceTree = "<group>"; };
 		65E920C929F230B3000672C8 /* snapshot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = snapshot.swift; sourceTree = "<group>"; };
+		65F26B2D2ABC4BE60025C93E /* DynamicDispatchTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DynamicDispatchTest.swift; sourceTree = "<group>"; };
+		65F26B2F2ABD3EA00025C93E /* BaseSynatx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseSynatx.swift; sourceTree = "<group>"; };
 		65F5FAA529F50EE4005E41CE /* MMLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MMLabel.swift; sourceTree = "<group>"; };
 		65F5FAA729F55230005E41CE /* ClickableLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClickableLabel.swift; sourceTree = "<group>"; };
 		65FB47CF2807EB94003EC323 /* UIButton+PropertyExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIButton+PropertyExtension.swift"; sourceTree = "<group>"; };
@@ -526,6 +552,7 @@
 			children = (
 				6599CE4029EEAB34005DD9B5 /* MMSingleLabelCollectionViewCell.swift */,
 				6599CE4129EEAB34005DD9B5 /* MMSingleLabelCollectionViewCell.xib */,
+				650E7B942AA9DE2F00059409 /* MMRotateView.swift */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -555,6 +582,23 @@
 			path = Scroll;
 			sourceTree = "<group>";
 		};
+		65D487CA2A5C03C20024F82D /* PreView */ = {
+			isa = PBXGroup;
+			children = (
+				65D487CB2A5C03E20024F82D /* MMPreViewUIViewController.swift */,
+				65D487CC2A5C03E20024F82D /* MMPreViewUIViewController.xib */,
+			);
+			path = PreView;
+			sourceTree = "<group>";
+		};
+		65E4C9142A60E9870019D94B /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+				65E4C9152A60E9970019D94B /* MMMainManager.swift */,
+			);
+			path = Manager;
+			sourceTree = "<group>";
+		};
 		65E920C429F11518000672C8 /* snapshot */ = {
 			isa = PBXGroup;
 			children = (
@@ -562,6 +606,23 @@
 				65E920C929F230B3000672C8 /* snapshot.swift */,
 			);
 			path = snapshot;
+			sourceTree = "<group>";
+		};
+		65F26B2B2ABC4BC50025C93E /* Swift语法 */ = {
+			isa = PBXGroup;
+			children = (
+				65F26B2C2ABC4BD20025C93E /* 动态派发 */,
+				65F26B2F2ABD3EA00025C93E /* BaseSynatx.swift */,
+			);
+			path = "Swift语法";
+			sourceTree = "<group>";
+		};
+		65F26B2C2ABC4BD20025C93E /* 动态派发 */ = {
+			isa = PBXGroup;
+			children = (
+				65F26B2D2ABC4BE60025C93E /* DynamicDispatchTest.swift */,
+			);
+			path = "动态派发";
 			sourceTree = "<group>";
 		};
 		65F5FAAF29F7C6EE005E41CE /* Tk1 */ = {
@@ -589,6 +650,8 @@
 		B4063D59260B49B800F3135E /* TestVC */ = {
 			isa = PBXGroup;
 			children = (
+				65F26B2B2ABC4BC50025C93E /* Swift语法 */,
+				65D487CA2A5C03C20024F82D /* PreView */,
 				651344E72872986C002FEF1B /* UIView动画 */,
 				65D2922D2811503100B31DFD /* Scroll */,
 				B4B4347B2701CB8300F7FAD4 /* CoreText */,
@@ -632,6 +695,7 @@
 			children = (
 				B480D0C32615CEA300965530 /* View */,
 				B4063D99260B60C100F3135E /* UITestVC.swift */,
+				65032DA42A67C993004C41B7 /* UITestVC+WKWebView.swift */,
 				B4063D9A260B60C100F3135E /* UITestVC.xib */,
 				B4A1808627B36112009E21D3 /* UITestVC+Test.swift */,
 				652DA2942A090A2800434352 /* UITestVC+Extension.swift */,
@@ -704,6 +768,7 @@
 				B459B5ED22CCF08100DEEA87 /* Algorithm */,
 				B425AC962252526800B02B77 /* Extension */,
 				B425AC682252526000B02B77 /* AppDelegate.swift */,
+				65E4C9142A60E9870019D94B /* Manager */,
 				B425AC6A2252526000B02B77 /* ViewController.swift */,
 				B425AC6C2252526000B02B77 /* Main.storyboard */,
 				B425AC6F2252526200B02B77 /* Assets.xcassets */,
@@ -823,6 +888,7 @@
 			isa = PBXGroup;
 			children = (
 				B46FED51238C2FA30023F0FA /* GCDTest.swift */,
+				651209BD2ABC21740044FF84 /* SomeAnyTest.swift */,
 			);
 			path = GCDTest;
 			sourceTree = "<group>";
@@ -861,6 +927,7 @@
 				65ADB9EB28768FEA004F6624 /* NetTest.swift */,
 				65BF26B92876FE09007434E5 /* MMAnyTest.swift */,
 				6500D346292CD71A000B3535 /* error_result.json */,
+				659BE68E2A7B3E1D00F18E1C /* MMNetworkTest.swift */,
 			);
 			path = Test;
 			sourceTree = "<group>";
@@ -898,6 +965,7 @@
 				B495035026E2463C00C10601 /* MMGraphicViewController.xib */,
 				B48AEBC126F070BB000C513B /* MMDottedLine.swift */,
 				B43DF3B9278B17C3009F3BE9 /* MMCurveView.swift */,
+				653710852A9307CE0005EF4A /* MMHighlightView.swift */,
 				B49751C0269C1E08004445E4 /* MMPieChartView.swift */,
 			);
 			path = Graphic;
@@ -935,6 +1003,7 @@
 				B49BAB88262022730097DFC9 /* CollectionViewController.swift */,
 				B49BAB89262022730097DFC9 /* CollectionViewController.xib */,
 				B4B6FDAE26CE6D6400C57423 /* MMStackCollectionViewLayout.swift */,
+				654BA72A2AA7403F000B4C34 /* MMCollectionPaoMaDengScroll.swift */,
 			);
 			path = "Collection测试";
 			sourceTree = "<group>";
@@ -1099,6 +1168,8 @@
 				B4C9397A27C8D118005FA0EE /* MMCustomOCObj.m */,
 				65CB983929C179A400893157 /* MMTool.swift */,
 				650769C22A40406C00E4E2D6 /* MMReplayTool.swift */,
+				65E4C9122A60E7AA0019D94B /* MMSyntaxTool.swift */,
+				650892842A6F6EE7009FF1B2 /* MMTaskTest.swift */,
 			);
 			path = Tool;
 			sourceTree = "<group>";
@@ -1319,6 +1390,7 @@
 				6500D347292CD7C7000B3535 /* error_result.json in Resources */,
 				652432B228D4766000FE591E /* 90879c75-da87-4b9d-9ab6-9654378198f6.txt in Resources */,
 				B4063D9C260B60C100F3135E /* UITestVC.xib in Resources */,
+				65D487CE2A5C03E20024F82D /* MMPreViewUIViewController.xib in Resources */,
 				B4E3909C2796968A000670FC /* AREACODE.txt in Resources */,
 				B47468F226FED2F300C79F2C /* MMGraphic2VC.xib in Resources */,
 				651344EC28729889002FEF1B /* MMUIKitAnimationVC.xib in Resources */,
@@ -1484,11 +1556,13 @@
 				B469D02F269D9C57001D7234 /* MMEmitterVC.swift in Sources */,
 				B459B5EF22CCF0A700DEEA87 /* Solution.swift in Sources */,
 				B4417A3322CE42AC00818FA0 /* StringSolution.swift in Sources */,
+				65D487CD2A5C03E20024F82D /* MMPreViewUIViewController.swift in Sources */,
 				DF0D36E8235D705C006EE6D5 /* LeeCodeTrueSubject.swift in Sources */,
 				B4C4E3A22710671100387B97 /* MMTextView.swift in Sources */,
 				B407B59B279308C100398F92 /* MMPageControl.swift in Sources */,
 				B4C9397727C8C878005FA0EE /* Array+MM_Extension.swift in Sources */,
 				B4A936962689ADD7001E181B /* MMControlView.swift in Sources */,
+				659BE68F2A7B3E1D00F18E1C /* MMNetworkTest.swift in Sources */,
 				DF2ED5D8238546F7001617F8 /* Stack.swift in Sources */,
 				65D292402811583700B31DFD /* ScrollTableViewCell.swift in Sources */,
 				B4D32E6B279EA17800C0EB64 /* MMAnimationLabel.swift in Sources */,
@@ -1502,6 +1576,7 @@
 				652D4D6E2963FC9900CC4EA3 /* UIViewController+Extension.swift in Sources */,
 				B4A7E0C0277303FE0091687C /* MMListUpdateViewController.swift in Sources */,
 				B49751C1269C1E08004445E4 /* MMPieChartView.swift in Sources */,
+				65032DA52A67C993004C41B7 /* UITestVC+WKWebView.swift in Sources */,
 				B4C67653279565A70088D1A2 /* MMTextStorage.swift in Sources */,
 				B495035126E2463C00C10601 /* MMGraphicViewController.swift in Sources */,
 				B4A3625024889B26006696C3 /* MMDispatchTimer.swift in Sources */,
@@ -1517,6 +1592,8 @@
 				B4C9EE3B27CF60F40047860B /* MMAudioTool.swift in Sources */,
 				B4A1808727B36112009E21D3 /* UITestVC+Test.swift in Sources */,
 				B4A936992689B129001E181B /* MMCustomView.swift in Sources */,
+				65E4C9132A60E7AA0019D94B /* MMSyntaxTool.swift in Sources */,
+				65F26B302ABD3EA00025C93E /* BaseSynatx.swift in Sources */,
 				65BF26BA2876FE09007434E5 /* MMAnyTest.swift in Sources */,
 				650769C32A40406C00E4E2D6 /* MMReplayTool.swift in Sources */,
 				6528B2B0296BCCD400481F7D /* MMFloatTextView.swift in Sources */,
@@ -1524,6 +1601,7 @@
 				B4063D9B260B60C100F3135E /* UITestVC.swift in Sources */,
 				65D292332811506D00B31DFD /* ScrollTestViewController.swift in Sources */,
 				DFF332AA2328C5DE0015295C /* Bundle+MM_extension.swift in Sources */,
+				650892852A6F6EE7009FF1B2 /* MMTaskTest.swift in Sources */,
 				B45853632386D95E005A4FFA /* MonitorViewController.swift in Sources */,
 				B4C9397B27C8D118005FA0EE /* MMCustomOCObj.m in Sources */,
 				DF2ED5DA23854856001617F8 /* Queue.swift in Sources */,
@@ -1535,16 +1613,20 @@
 				652DA2952A090A2800434352 /* UITestVC+Extension.swift in Sources */,
 				B4AC61532732374200B76990 /* YDCustomButton.swift in Sources */,
 				DF128F3F232F2FF900491475 /* CommonModel.swift in Sources */,
+				65F26B2E2ABC4BE60025C93E /* DynamicDispatchTest.swift in Sources */,
+				653710862A9307CE0005EF4A /* MMHighlightView.swift in Sources */,
 				DF2ED5DC2386219A001617F8 /* QuickSort.swift in Sources */,
 				DF2ED5F52387C31F001617F8 /* Sort.swift in Sources */,
 				65E920CA29F230B3000672C8 /* snapshot.swift in Sources */,
 				65D29237281154D800B31DFD /* LabelTableViewCell.swift in Sources */,
 				B4B69E78233E55D40061AF93 /* CreateTool.swift in Sources */,
+				650E7B952AA9DE2F00059409 /* MMRotateView.swift in Sources */,
 				B4E390B02796B3ED000670FC /* WordWidget.intentdefinition in Sources */,
 				652DA2922A08ADDE00434352 /* MMLanguageTest.swift in Sources */,
 				65E188DD2995F1AE00B177C1 /* AnimationTest.swift in Sources */,
 				B4A17DE42669FA870030E40D /* MMTableViewVC.swift in Sources */,
 				65F5FAA829F55230005E41CE /* ClickableLabel.swift in Sources */,
+				65E4C9162A60E9970019D94B /* MMMainManager.swift in Sources */,
 				651344EB28729889002FEF1B /* MMUIKitAnimationVC.swift in Sources */,
 				B425AC6B2252526000B02B77 /* ViewController.swift in Sources */,
 				65D2923A2811557400B31DFD /* CollectionContainerTableViewCell.swift in Sources */,
@@ -1586,6 +1668,7 @@
 				B47468F126FED2F300C79F2C /* MMGraphic2VC.swift in Sources */,
 				B4A1808F27B3E9D9009E21D3 /* MMJsonNode.swift in Sources */,
 				B4C6046C277AC72500EA287E /* Structured.swift in Sources */,
+				654BA72B2AA7403F000B4C34 /* MMCollectionPaoMaDengScroll.swift in Sources */,
 				65D2923D2811566600B31DFD /* TestCollectionViewCell.swift in Sources */,
 				B4DDA669279FE6A900DBDB56 /* MMLocalSpeech.swift in Sources */,
 				B4063D6D260B4E2800F3135E /* HomeListItem.swift in Sources */,
@@ -1596,6 +1679,7 @@
 				B47F342126608DEC00F46C90 /* MMWebViewController.swift in Sources */,
 				65FB47D32807EB94003EC323 /* UIButton+typeLayout.swift in Sources */,
 				B4B434772701ADA900F7FAD4 /* MMFuncTool.swift in Sources */,
+				651209BE2ABC21750044FF84 /* SomeAnyTest.swift in Sources */,
 				B4C6342C279A4D4D00375D69 /* MMLocationManager.swift in Sources */,
 				B4C06FEE274251F800681C95 /* UIImageView+Extension.swift in Sources */,
 				B495034A26E1FF3800C10601 /* MMBaseNavigationController.swift in Sources */,
@@ -1726,7 +1810,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -1781,7 +1865,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -1809,10 +1893,65 @@
 					"COCOAPODS=1",
 				);
 				INFOPLIST_FILE = Swift_SweetSugar/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
+				);
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-l\"c++\"",
+					"-l\"sqlite3\"",
+					"-l\"xml2\"",
+					"-l\"z\"",
+					"-framework",
+					"\"Accelerate\"",
+					"-framework",
+					"\"CFNetwork\"",
+					"-framework",
+					"\"CoreFoundation\"",
+					"-framework",
+					"\"CoreGraphics\"",
+					"-framework",
+					"\"CoreText\"",
+					"-framework",
+					"\"DoraemonKit\"",
+					"-framework",
+					"\"FBRetainCycleDetector\"",
+					"-framework",
+					"\"FMDB\"",
+					"-framework",
+					"\"Foundation\"",
+					"-framework",
+					"\"GCDWebServer\"",
+					"-framework",
+					"\"HandyJSON\"",
+					"-framework",
+					"\"Kingfisher\"",
+					"-framework",
+					"\"LookinServer\"",
+					"-framework",
+					"\"Lottie\"",
+					"-framework",
+					"\"MLeaksFinder\"",
+					"-framework",
+					"\"MobileCoreServices\"",
+					"-framework",
+					"\"QuartzCore\"",
+					"-framework",
+					"\"SnapKit\"",
+					"-framework",
+					"\"SwiftyJSON\"",
+					"-framework",
+					"\"UIKit\"",
+					"-framework",
+					"\"YYText\"",
+					"-framework",
+					"\"testDev\"",
+					"-weak_framework",
+					"\"Combine\"",
+					"-weak_framework",
+					"\"SwiftUI\"",
 				);
 				OTHER_SWIFT_FLAGS = "$(inherited) -D COCOAPODS";
 				PRODUCT_BUNDLE_IDENTIFIER = com.mm.sugar.demo;
@@ -1837,7 +1976,7 @@
 					"$(PROJECT_DIR)/Swift_SweetSugar/Component",
 				);
 				INFOPLIST_FILE = Swift_SweetSugar/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

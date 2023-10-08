@@ -40,7 +40,8 @@ class MMLayerAnimationVC: UIViewController {
 //        test_transform_x()
 //        createMask()
 //        groupTest()
-        entryView.show()
+//        entryView.show()
+        trans()
     }
     
     func groupTest() {
@@ -79,12 +80,15 @@ class MMLayerAnimationVC: UIViewController {
     }
     
     func trans() -> Void {
+        // 要先设置m34 再设置旋转
+        var form = CATransform3DIdentity
+        form.m34 = -1.0 / 1000
+        form = CATransform3DRotate(form, CGFloat(Double.pi * 0.25), 0, 1, 0)
+        
         let trans = CABasicAnimation(keyPath: "transform")
-        var form = CATransform3DMakeRotation(CGFloat(Double.pi * 0.3), 0, 1, 0)
-        form.m34 =  -1.0 / 1000
         trans.fromValue = CATransform3DIdentity
         trans.toValue = form
-        trans.duration = 2.0
+        trans.duration = 1.0
         trans.fillMode = .forwards
         trans.isRemovedOnCompletion = false
         searchIconImgView.layer.add(trans, forKey: "trans")
