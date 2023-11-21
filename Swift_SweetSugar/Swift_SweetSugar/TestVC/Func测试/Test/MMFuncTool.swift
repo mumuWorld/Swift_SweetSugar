@@ -20,6 +20,16 @@ enum MMTest {
 
 class MMFuncTool: NSObject {
     
+    lazy var blockClass: MMBlockClass = {
+        let item = MMBlockClass()
+        return item
+    }()
+    
+    lazy var blockClass2: MMBlockClass2 = {
+        let item = MMBlockClass2()
+        return item
+    }()
+    
     lazy var player: MMAudioTool = {
         let item = MMAudioTool()
         return item
@@ -163,18 +173,79 @@ class MMFuncTool: NSObject {
         }
     }
     
+    
+    /// weakTest 循环引用测试
+    /// - Parameter vc: 测试
     func blockTest(vc: FuncTestVC) {
-        blockDemoFunc { [weak self, weak vc] tool, vc in
-            
+//        blockDemoFunc { [weak self, weak vc] tool, vc in
+//            
+//        }
+//        //会捕获
+//        var testStr: String = ""
+//        let testBlock: (String) -> Void = { str in
+//            print(testStr + str)
+//        }
+//        testStr = "test"
+//        testBlock("good")
+//        ["test"].joined()
+        
+        // 不会循环引用
+//        blockClass.block1 = { [weak self] in
+//            print("test->测试持有self1:\(self)")
+//            DispatchQueue.main.safeAsync {
+//                print("test->测试持有self2:\(self)")
+//            }
+//        }
+        
+        // 不会循环引用： 不论 blockClass.block1?() 是否调用
+//        blockClass.block1 = { [weak self] in
+//            print("test->测试持有self1:\(self)")
+//            self?.blockClass2.block1 = {
+//                print("test->测试持有self2:\(self)")
+//            }
+//            // 跟下面block调用也没有关系
+//            self?.blockClass2.block1?()
+//        }
+//        blockClass.block1?()
+        
+        // 会循环引用: 在调用 blockClass.block1?() 时。
+        blockClass.block1 = { [weak self] in
+            guard let self = self else { return }
+            print("test->测试持有self1:\(self)")
+            self.blockClass2.block1 = {
+                print("test->测试持有self2:\(self)")
+            }
+            // 跟下面block调用没有关系
+            self.blockClass2.block1?()
         }
-        //会捕获
-        var testStr: String = ""
-        let testBlock: (String) -> Void = { str in
-            print(testStr + str)
-        }
-        testStr = "test"
-        testBlock("good")
-        ["test"].joined()
+        // 跟下面block调用有关系
+//        blockClass.block1?()
+        
+        // 不会循环引用 不论 blockClass.block1?() 是否调用
+//        blockClass.block1 = { [weak self] in
+//            guard let self = self else { return }
+//            print("test->测试持有self1:\(self)")
+//            self.blockClass2.block1 = { [weak self] in
+//                print("test->测试持有self2:\(self)")
+//            }
+//            // 跟下面block调用也没有关系
+//            self.blockClass2.block1?()
+//        }
+//        //跟下面block调用也没有关系
+//        blockClass.block1?()
+        
+        // 不会循环引用
+//        blockClass.block1 = { [weak self] in
+//            guard let self = self else { return }
+//            print("test->测试持有self1:\(self)")
+//            DispatchQueue.main.safeAsync {
+//                print("test->测试持有self2:\(self)")
+//            }
+//        }
+////        跟下面block调用也没有关系
+//        blockClass.block1?()
+        
+        print("test->调用完成")
     }
     
     func blockDemoFunc(b: ((_ tool: MMFuncTool,_ vc: FuncTestVC) -> Void)) {
@@ -349,7 +420,16 @@ After apologising, Mr Musk said that Mr Thorleifsson was considering coming back
         var toolStrArr: [String] = ["0","1","2","3","4"]
         //"0,1,2,3,4"
         let joinStr = toolStrArr.joined(separator: ",")
+        
+        //找出元素的index
+        switch toolStrArr.firstIndex(of: "four") {
+        case let idx?:
+            toolStrArr.remove(at: idx)
+        case nil:
+            break // 什么都不做
+        }
 
+        
         var toolArr: [Int] = [0,1,2,3,4,5]
         var toolOptionStrArr: [String?] = ["0","1","str","3"]
 
@@ -361,6 +441,10 @@ After apologising, Mr Musk said that Mr Thorleifsson was considering coming back
         let r2 = toolStrArr.reduce("result->") { partialResult, item in
             return partialResult + item
         }
+        
+        let r2_1 = toolArr.reduce(+)
+        let r2_2 = toolArr.reduce_alt(+)
+
         // r3 -> [[0], [1]]
         let r3 = toolStrArr.map { item in
             return [item]
@@ -445,6 +529,16 @@ After apologising, Mr Musk said that Mr Thorleifsson was considering coming back
         
         let res = nf.string(from: NSNumber(1234.02)) ?? ""
         mm_printLog("res->\(res)")
+        
+        let price1 = Decimal(0.0)
+        // 使用错误
+        let price2 = Decimal(4980.99)
+        let price3 = price1 + price2
+        // 使用正确: 需要
+        let price4 = Decimal(string: "4980.99") ?? 0
+        let price5 = price1 + price4
+        mm_printLog("res->\(price3)")
+
     }
     
     func imgPress() {
@@ -709,6 +803,14 @@ extension MMFuncTool {
         
         mm_printLog("test->")
         stringTest_50_2()
+        
+        var str_1: String? = nil
+        // 只有当str_1 有值是才会赋值成功
+        str_1? = "test"
+        // 无条件赋值
+//        str_1 = "word"
+        mm_printLog("test-> str_1: \(String(describing: str_1))")
+
     }
     
     
@@ -804,8 +906,14 @@ extension MMFuncTool {
                 mm_printLog("")
             })
         }
+        
+        let str = "1234567890"
+        let range_3 = str.mm_nsRangeOfString(str: "0")
+        let isContain = range_3.contains(str.count)
+        let isContain_2 = range_3.contains(str.count - 1)
+        mm_printLog("")
     }
-    
+
     func secretTest() {
 
         let text = "appid=1657835537language=zh-Hanslocation=WX4FBXXFKE4Ftimestamp=1642663075000unit=c"

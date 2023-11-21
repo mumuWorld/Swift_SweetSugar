@@ -6551,6 +6551,7 @@
 				IBSC_MODULE = DoraemonKit;
 				INFOPLIST_FILE = "Target Support Files/DoraemonKit/ResourceBundle-DoraemonKit-DoraemonKit-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				MERGED_BINARY_TYPE = automatic;
 				PRODUCT_NAME = DoraemonKit;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
@@ -6581,6 +6582,7 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
+				MERGED_BINARY_TYPE = automatic;
 				MODULEMAP_FILE = "Target Support Files/YYText/YYText.modulemap";
 				PRODUCT_MODULE_NAME = YYText;
 				PRODUCT_NAME = YYText;
@@ -6617,6 +6619,7 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
+				MERGED_BINARY_TYPE = automatic;
 				MODULEMAP_FILE = "Target Support Files/MLeaksFinder/MLeaksFinder.modulemap";
 				PRODUCT_MODULE_NAME = MLeaksFinder;
 				PRODUCT_NAME = MLeaksFinder;
@@ -6653,6 +6656,7 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
+				MERGED_BINARY_TYPE = automatic;
 				MODULEMAP_FILE = "Target Support Files/FBRetainCycleDetector/FBRetainCycleDetector.modulemap";
 				PRODUCT_MODULE_NAME = FBRetainCycleDetector;
 				PRODUCT_NAME = FBRetainCycleDetector;
@@ -6689,6 +6693,7 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
+				MERGED_BINARY_TYPE = automatic;
 				MODULEMAP_FILE = "Target Support Files/LookinServer/LookinServer.modulemap";
 				PRODUCT_MODULE_NAME = LookinServer;
 				PRODUCT_NAME = LookinServer;
@@ -6724,6 +6729,7 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
+				MERGED_BINARY_TYPE = automatic;
 				MODULEMAP_FILE = "Target Support Files/FMDB/FMDB.modulemap";
 				PRODUCT_MODULE_NAME = FMDB;
 				PRODUCT_NAME = FMDB;
@@ -6759,6 +6765,7 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
+				MERGED_BINARY_TYPE = automatic;
 				MODULEMAP_FILE = "Target Support Files/YYText/YYText.modulemap";
 				PRODUCT_MODULE_NAME = YYText;
 				PRODUCT_NAME = YYText;
@@ -6782,6 +6789,7 @@
 				IBSC_MODULE = DoraemonKit;
 				INFOPLIST_FILE = "Target Support Files/DoraemonKit/ResourceBundle-DoraemonKit-DoraemonKit-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				MERGED_BINARY_TYPE = automatic;
 				PRODUCT_NAME = DoraemonKit;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
@@ -6812,6 +6820,7 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
+				MERGED_BINARY_TYPE = automatic;
 				MODULEMAP_FILE = "Target Support Files/DoraemonKit/DoraemonKit.modulemap";
 				PRODUCT_MODULE_NAME = DoraemonKit;
 				PRODUCT_NAME = DoraemonKit;
@@ -6848,6 +6857,7 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
+				MERGED_BINARY_TYPE = automatic;
 				MODULEMAP_FILE = "Target Support Files/FBRetainCycleDetector/FBRetainCycleDetector.modulemap";
 				PRODUCT_MODULE_NAME = FBRetainCycleDetector;
 				PRODUCT_NAME = FBRetainCycleDetector;
@@ -6883,6 +6893,7 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
+				MERGED_BINARY_TYPE = automatic;
 				MODULEMAP_FILE = "Target Support Files/HandyJSON/HandyJSON.modulemap";
 				PRODUCT_MODULE_NAME = HandyJSON;
 				PRODUCT_NAME = HandyJSON;
@@ -6918,6 +6929,7 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
+				MERGED_BINARY_TYPE = automatic;
 				MODULEMAP_FILE = "Target Support Files/lottie-ios/lottie-ios.modulemap";
 				PRODUCT_MODULE_NAME = Lottie;
 				PRODUCT_NAME = Lottie;
@@ -6955,6 +6967,7 @@
 					"@loader_path/Frameworks",
 				);
 				MACH_O_TYPE = staticlib;
+				MERGED_BINARY_TYPE = automatic;
 				MODULEMAP_FILE = "Target Support Files/Pods-Swift_SweetSugar/Pods-Swift_SweetSugar.modulemap";
 				OTHER_LDFLAGS = "";
 				OTHER_LIBTOOLFLAGS = "";
@@ -6979,6 +6992,7 @@
 				IBSC_MODULE = testDev;
 				INFOPLIST_FILE = "Target Support Files/testDev/ResourceBundle-testDev-testDev-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				MERGED_BINARY_TYPE = automatic;
 				PRODUCT_NAME = testDev;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
@@ -7010,6 +7024,7 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
+				MERGED_BINARY_TYPE = automatic;
 				MODULEMAP_FILE = "Target Support Files/SnapKit/SnapKit.modulemap";
 				PRODUCT_MODULE_NAME = SnapKit;
 				PRODUCT_NAME = SnapKit;
@@ -7112,6 +7127,7 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
+				MERGED_BINARY_TYPE = automatic;
 				MODULEMAP_FILE = "Target Support Files/FMDB/FMDB.modulemap";
 				PRODUCT_MODULE_NAME = FMDB;
 				PRODUCT_NAME = FMDB;
@@ -7150,6 +7166,7 @@
 					"@loader_path/Frameworks",
 				);
 				MACH_O_TYPE = staticlib;
+				MERGED_BINARY_TYPE = automatic;
 				MODULEMAP_FILE = "Target Support Files/Pods-Swift_SweetSugar-Swift_SweetSugarUITests/Pods-Swift_SweetSugar-Swift_SweetSugarUITests.modulemap";
 				OTHER_LDFLAGS = "";
 				OTHER_LIBTOOLFLAGS = "";
@@ -7189,6 +7206,7 @@
 					"@loader_path/Frameworks",
 				);
 				MACH_O_TYPE = staticlib;
+				MERGED_BINARY_TYPE = automatic;
 				MODULEMAP_FILE = "Target Support Files/Pods-Swift_SweetSugarTests/Pods-Swift_SweetSugarTests.modulemap";
 				OTHER_LDFLAGS = "";
 				OTHER_LIBTOOLFLAGS = "";
@@ -7226,6 +7244,7 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
+				MERGED_BINARY_TYPE = automatic;
 				MODULEMAP_FILE = "Target Support Files/Kingfisher/Kingfisher.modulemap";
 				PRODUCT_MODULE_NAME = Kingfisher;
 				PRODUCT_NAME = Kingfisher;
@@ -7325,6 +7344,7 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
+				MERGED_BINARY_TYPE = automatic;
 				MODULEMAP_FILE = "Target Support Files/SnapKit/SnapKit.modulemap";
 				PRODUCT_MODULE_NAME = SnapKit;
 				PRODUCT_NAME = SnapKit;
@@ -7360,6 +7380,7 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
+				MERGED_BINARY_TYPE = automatic;
 				MODULEMAP_FILE = "Target Support Files/SwiftyJSON/SwiftyJSON.modulemap";
 				PRODUCT_MODULE_NAME = SwiftyJSON;
 				PRODUCT_NAME = SwiftyJSON;
@@ -7396,6 +7417,7 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
+				MERGED_BINARY_TYPE = automatic;
 				MODULEMAP_FILE = "Target Support Files/LookinServer/LookinServer.modulemap";
 				PRODUCT_MODULE_NAME = LookinServer;
 				PRODUCT_NAME = LookinServer;
@@ -7430,6 +7452,7 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
+				MERGED_BINARY_TYPE = automatic;
 				MODULEMAP_FILE = "Target Support Files/SwiftyJSON/SwiftyJSON.modulemap";
 				PRODUCT_MODULE_NAME = SwiftyJSON;
 				PRODUCT_NAME = SwiftyJSON;
@@ -7465,6 +7488,7 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
+				MERGED_BINARY_TYPE = automatic;
 				MODULEMAP_FILE = "Target Support Files/lottie-ios/lottie-ios.modulemap";
 				PRODUCT_MODULE_NAME = Lottie;
 				PRODUCT_NAME = Lottie;
@@ -7501,6 +7525,7 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
+				MERGED_BINARY_TYPE = automatic;
 				MODULEMAP_FILE = "Target Support Files/GCDWebServer/GCDWebServer.modulemap";
 				PRODUCT_MODULE_NAME = GCDWebServer;
 				PRODUCT_NAME = GCDWebServer;
@@ -7538,6 +7563,7 @@
 					"@loader_path/Frameworks",
 				);
 				MACH_O_TYPE = staticlib;
+				MERGED_BINARY_TYPE = automatic;
 				MODULEMAP_FILE = "Target Support Files/Pods-Swift_SweetSugarTests/Pods-Swift_SweetSugarTests.modulemap";
 				OTHER_LDFLAGS = "";
 				OTHER_LIBTOOLFLAGS = "";
@@ -7575,6 +7601,7 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
+				MERGED_BINARY_TYPE = automatic;
 				MODULEMAP_FILE = "Target Support Files/DoraemonKit/DoraemonKit.modulemap";
 				PRODUCT_MODULE_NAME = DoraemonKit;
 				PRODUCT_NAME = DoraemonKit;
@@ -7611,6 +7638,7 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
+				MERGED_BINARY_TYPE = automatic;
 				MODULEMAP_FILE = "Target Support Files/testDev/testDev.modulemap";
 				PRODUCT_MODULE_NAME = testDev;
 				PRODUCT_NAME = testDev;
@@ -7647,6 +7675,7 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
+				MERGED_BINARY_TYPE = automatic;
 				MODULEMAP_FILE = "Target Support Files/GCDWebServer/GCDWebServer.modulemap";
 				PRODUCT_MODULE_NAME = GCDWebServer;
 				PRODUCT_NAME = GCDWebServer;
@@ -7684,6 +7713,7 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
+				MERGED_BINARY_TYPE = automatic;
 				MODULEMAP_FILE = "Target Support Files/testDev/testDev.modulemap";
 				PRODUCT_MODULE_NAME = testDev;
 				PRODUCT_NAME = testDev;
@@ -7719,6 +7749,7 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
+				MERGED_BINARY_TYPE = automatic;
 				MODULEMAP_FILE = "Target Support Files/MLeaksFinder/MLeaksFinder.modulemap";
 				PRODUCT_MODULE_NAME = MLeaksFinder;
 				PRODUCT_NAME = MLeaksFinder;
@@ -7755,6 +7786,7 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
+				MERGED_BINARY_TYPE = automatic;
 				MODULEMAP_FILE = "Target Support Files/Kingfisher/Kingfisher.modulemap";
 				PRODUCT_MODULE_NAME = Kingfisher;
 				PRODUCT_NAME = Kingfisher;
@@ -7778,6 +7810,7 @@
 				IBSC_MODULE = testDev;
 				INFOPLIST_FILE = "Target Support Files/testDev/ResourceBundle-testDev-testDev-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				MERGED_BINARY_TYPE = automatic;
 				PRODUCT_NAME = testDev;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
@@ -7810,6 +7843,7 @@
 					"@loader_path/Frameworks",
 				);
 				MACH_O_TYPE = staticlib;
+				MERGED_BINARY_TYPE = automatic;
 				MODULEMAP_FILE = "Target Support Files/Pods-Swift_SweetSugar-Swift_SweetSugarUITests/Pods-Swift_SweetSugar-Swift_SweetSugarUITests.modulemap";
 				OTHER_LDFLAGS = "";
 				OTHER_LIBTOOLFLAGS = "";
@@ -7848,6 +7882,7 @@
 					"@loader_path/Frameworks",
 				);
 				MACH_O_TYPE = staticlib;
+				MERGED_BINARY_TYPE = automatic;
 				MODULEMAP_FILE = "Target Support Files/Pods-Swift_SweetSugar/Pods-Swift_SweetSugar.modulemap";
 				OTHER_LDFLAGS = "";
 				OTHER_LIBTOOLFLAGS = "";
@@ -7885,6 +7920,7 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
+				MERGED_BINARY_TYPE = automatic;
 				MODULEMAP_FILE = "Target Support Files/HandyJSON/HandyJSON.modulemap";
 				PRODUCT_MODULE_NAME = HandyJSON;
 				PRODUCT_NAME = HandyJSON;

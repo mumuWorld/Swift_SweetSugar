@@ -158,7 +158,7 @@ class FuncTestVC: UIViewController {
         case 21:
             emptyTest()
         case 22:
-            regularTest()
+            tool.regularTest_22()
         case 23:
             speechSynthesisVoiceTest()
         case 24:
@@ -217,7 +217,8 @@ class FuncTestVC: UIViewController {
         case 42:
             MMFuncTool().structTest_42()
         case 43:
-            MMFuncTool().blockTest(vc: self)
+//            MMFuncTool().blockTest(vc: self)
+            tool.blockTest(vc: self)
         case 44:
             createTargetTimer()
         case 45:
@@ -343,18 +344,6 @@ extension FuncTestVC {
     func speechSynthesisVoiceTest() -> Void {
         let arr = AVSpeechSynthesisVoice.speechVoices()
         mm_printLog(arr)
-    }
-    
-    func regularTest() {
-        let str = " "
-        let result = str.mm_hasSpecialCharactor()
-        
-        let str_2 = "good"
-        let result_2 = str_2.mm_hasSpecialCharactor()
-        
-        let str_3 = "mm+"
-        let result_3 = str_3.mm_hasSpecialCharactor()
-        mm_printLog("test")
     }
     
     @objc func application(_ application: UIApplication, performActionFor shortcutItem: UIApplicationShortcutItem, completionHandler: @escaping (Bool) -> Void) {

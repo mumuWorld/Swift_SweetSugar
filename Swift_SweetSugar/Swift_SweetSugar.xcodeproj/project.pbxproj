@@ -20,6 +20,7 @@
 		651F696128F3CCDA00BE565A /* MMBubbleLayoutFragment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 651F696028F3CCDA00BE565A /* MMBubbleLayoutFragment.swift */; };
 		652432B228D4766000FE591E /* 90879c75-da87-4b9d-9ab6-9654378198f6.txt in Resources */ = {isa = PBXBuildFile; fileRef = 652432B128D4766000FE591E /* 90879c75-da87-4b9d-9ab6-9654378198f6.txt */; };
 		6528B2B0296BCCD400481F7D /* MMFloatTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6528B2AF296BCCD400481F7D /* MMFloatTextView.swift */; };
+		652D43AA2AE24E42003E01FE /* MMBlockClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 652D43A92AE24E42003E01FE /* MMBlockClass.swift */; };
 		652D4D6E2963FC9900CC4EA3 /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 652D4D6D2963FC9900CC4EA3 /* UIViewController+Extension.swift */; };
 		652DA2922A08ADDE00434352 /* MMLanguageTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 652DA2912A08ADDE00434352 /* MMLanguageTest.swift */; };
 		652DA2952A090A2800434352 /* UITestVC+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 652DA2942A090A2800434352 /* UITestVC+Extension.swift */; };
@@ -53,6 +54,7 @@
 		65D7C87A29AEFC1F00E7CA51 /* MMHookTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 65D7C87929AEFC1F00E7CA51 /* MMHookTextView.m */; };
 		65D7C87D29AEFD0700E7CA51 /* ObjcUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 65D7C87C29AEFD0700E7CA51 /* ObjcUtil.m */; };
 		65E188DD2995F1AE00B177C1 /* AnimationTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65E188DC2995F1AE00B177C1 /* AnimationTest.swift */; };
+		65E1B01A2AEF99E3009E5AD8 /* ArrayAlgorithm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65E1B0192AEF99E3009E5AD8 /* ArrayAlgorithm.swift */; };
 		65E4C9132A60E7AA0019D94B /* MMSyntaxTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65E4C9122A60E7AA0019D94B /* MMSyntaxTool.swift */; };
 		65E4C9162A60E9970019D94B /* MMMainManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65E4C9152A60E9970019D94B /* MMMainManager.swift */; };
 		65E920C629F1152F000672C8 /* WebViewPrintPageRenderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65E920C529F1152F000672C8 /* WebViewPrintPageRenderer.swift */; };
@@ -115,16 +117,6 @@
 		B495035126E2463C00C10601 /* MMGraphicViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B495034F26E2463C00C10601 /* MMGraphicViewController.swift */; };
 		B495035226E2463C00C10601 /* MMGraphicViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B495035026E2463C00C10601 /* MMGraphicViewController.xib */; };
 		B49751C1269C1E08004445E4 /* MMPieChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B49751C0269C1E08004445E4 /* MMPieChartView.swift */; };
-		B49AA839276227CF00E41372 /* SafariWebExtensionHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = B49AA838276227CF00E41372 /* SafariWebExtensionHandler.swift */; };
-		B49AA83C276227CF00E41372 /* _locales in Resources */ = {isa = PBXBuildFile; fileRef = B49AA83B276227CF00E41372 /* _locales */; };
-		B49AA83E276227CF00E41372 /* images in Resources */ = {isa = PBXBuildFile; fileRef = B49AA83D276227CF00E41372 /* images */; };
-		B49AA840276227CF00E41372 /* manifest.json in Resources */ = {isa = PBXBuildFile; fileRef = B49AA83F276227CF00E41372 /* manifest.json */; };
-		B49AA842276227CF00E41372 /* background.js in Resources */ = {isa = PBXBuildFile; fileRef = B49AA841276227CF00E41372 /* background.js */; };
-		B49AA844276227CF00E41372 /* content.js in Resources */ = {isa = PBXBuildFile; fileRef = B49AA843276227CF00E41372 /* content.js */; };
-		B49AA846276227CF00E41372 /* popup.html in Resources */ = {isa = PBXBuildFile; fileRef = B49AA845276227CF00E41372 /* popup.html */; };
-		B49AA848276227CF00E41372 /* popup.css in Resources */ = {isa = PBXBuildFile; fileRef = B49AA847276227CF00E41372 /* popup.css */; };
-		B49AA84A276227CF00E41372 /* popup.js in Resources */ = {isa = PBXBuildFile; fileRef = B49AA849276227CF00E41372 /* popup.js */; };
-		B49AA84E276227CF00E41372 /* SafariTranslate.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = B49AA836276227CF00E41372 /* SafariTranslate.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		B49BAB812620223B0097DFC9 /* SingleViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B49BAB7F2620223B0097DFC9 /* SingleViewCell.swift */; };
 		B49BAB822620223B0097DFC9 /* SingleViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B49BAB802620223B0097DFC9 /* SingleViewCell.xib */; };
 		B49BAB8A262022730097DFC9 /* CollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B49BAB88262022730097DFC9 /* CollectionViewController.swift */; };
@@ -216,23 +208,25 @@
 			remoteGlobalIDString = B425AC642252526000B02B77;
 			remoteInfo = Swift_SweetSugar;
 		};
-		B49AA84C276227CF00E41372 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = B425AC5D2252526000B02B77 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = B49AA835276227CF00E41372;
-			remoteInfo = SafariTranslate;
-		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
+		6560DB682ADD4D1300EE7D20 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		B49AA84F276227CF00E41372 /* Embed App Extensions */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 13;
 			files = (
-				B49AA84E276227CF00E41372 /* SafariTranslate.appex in Embed App Extensions */,
 			);
 			name = "Embed App Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -253,6 +247,7 @@
 		651F696028F3CCDA00BE565A /* MMBubbleLayoutFragment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MMBubbleLayoutFragment.swift; sourceTree = "<group>"; };
 		652432B128D4766000FE591E /* 90879c75-da87-4b9d-9ab6-9654378198f6.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "90879c75-da87-4b9d-9ab6-9654378198f6.txt"; sourceTree = "<group>"; };
 		6528B2AF296BCCD400481F7D /* MMFloatTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MMFloatTextView.swift; sourceTree = "<group>"; };
+		652D43A92AE24E42003E01FE /* MMBlockClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MMBlockClass.swift; sourceTree = "<group>"; };
 		652D4D6D2963FC9900CC4EA3 /* UIViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
 		652DA2912A08ADDE00434352 /* MMLanguageTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MMLanguageTest.swift; sourceTree = "<group>"; };
 		652DA2942A090A2800434352 /* UITestVC+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITestVC+Extension.swift"; sourceTree = "<group>"; };
@@ -288,6 +283,7 @@
 		65D7C87B29AEFD0700E7CA51 /* ObjcUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ObjcUtil.h; sourceTree = "<group>"; };
 		65D7C87C29AEFD0700E7CA51 /* ObjcUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ObjcUtil.m; sourceTree = "<group>"; };
 		65E188DC2995F1AE00B177C1 /* AnimationTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimationTest.swift; sourceTree = "<group>"; };
+		65E1B0192AEF99E3009E5AD8 /* ArrayAlgorithm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrayAlgorithm.swift; sourceTree = "<group>"; };
 		65E4C9122A60E7AA0019D94B /* MMSyntaxTool.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MMSyntaxTool.swift; sourceTree = "<group>"; };
 		65E4C9152A60E9970019D94B /* MMMainManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MMMainManager.swift; sourceTree = "<group>"; };
 		65E920C529F1152F000672C8 /* WebViewPrintPageRenderer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewPrintPageRenderer.swift; sourceTree = "<group>"; };
@@ -360,7 +356,6 @@
 		B495034F26E2463C00C10601 /* MMGraphicViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MMGraphicViewController.swift; sourceTree = "<group>"; };
 		B495035026E2463C00C10601 /* MMGraphicViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MMGraphicViewController.xib; sourceTree = "<group>"; };
 		B49751C0269C1E08004445E4 /* MMPieChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MMPieChartView.swift; sourceTree = "<group>"; };
-		B49AA836276227CF00E41372 /* SafariTranslate.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = SafariTranslate.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		B49AA838276227CF00E41372 /* SafariWebExtensionHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SafariWebExtensionHandler.swift; sourceTree = "<group>"; };
 		B49AA83B276227CF00E41372 /* _locales */ = {isa = PBXFileReference; lastKnownFileType = folder; path = _locales; sourceTree = "<group>"; };
 		B49AA83D276227CF00E41372 /* images */ = {isa = PBXFileReference; lastKnownFileType = folder; path = images; sourceTree = "<group>"; };
@@ -492,13 +487,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		B49AA833276227CF00E41372 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -591,6 +579,14 @@
 				65D487CC2A5C03E20024F82D /* MMPreViewUIViewController.xib */,
 			);
 			path = PreView;
+			sourceTree = "<group>";
+		};
+		65E1B0182AEF99CE009E5AD8 /* 数组 */ = {
+			isa = PBXGroup;
+			children = (
+				65E1B0192AEF99E3009E5AD8 /* ArrayAlgorithm.swift */,
+			);
+			path = "数组";
 			sourceTree = "<group>";
 		};
 		65E4C9142A60E9870019D94B /* Manager */ = {
@@ -749,7 +745,6 @@
 				B425AC792252526200B02B77 /* Swift_SweetSugarTests.xctest */,
 				B425AC842252526200B02B77 /* Swift_SweetSugarUITests.xctest */,
 				DF68A8E3238BB3E900610380 /* InsetrumentDemo.instrdst */,
-				B49AA836276227CF00E41372 /* SafariTranslate.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -865,6 +860,7 @@
 		B459B5ED22CCF08100DEEA87 /* Algorithm */ = {
 			isa = PBXGroup;
 			children = (
+				65E1B0182AEF99CE009E5AD8 /* 数组 */,
 				DF2ED5EF2387BCA7001617F8 /* Sort */,
 				DF0D36E6235D701B006EE6D5 /* 动态规划 */,
 				B4B69E76233E55BD0061AF93 /* Tool */,
@@ -1173,6 +1169,7 @@
 				650769C22A40406C00E4E2D6 /* MMReplayTool.swift */,
 				65E4C9122A60E7AA0019D94B /* MMSyntaxTool.swift */,
 				650892842A6F6EE7009FF1B2 /* MMTaskTest.swift */,
+				652D43A92AE24E42003E01FE /* MMBlockClass.swift */,
 			);
 			path = Tool;
 			sourceTree = "<group>";
@@ -1227,11 +1224,11 @@
 				B425AC632252526000B02B77 /* Resources */,
 				63DDD9DEBBD9399D37CA83E9 /* [CP] Embed Pods Frameworks */,
 				B49AA84F276227CF00E41372 /* Embed App Extensions */,
+				6560DB682ADD4D1300EE7D20 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				B49AA84D276227CF00E41372 /* PBXTargetDependency */,
 			);
 			name = Swift_SweetSugar;
 			packageProductDependencies = (
@@ -1279,23 +1276,6 @@
 			productReference = B425AC842252526200B02B77 /* Swift_SweetSugarUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
-		B49AA835276227CF00E41372 /* SafariTranslate */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = B49AA853276227CF00E41372 /* Build configuration list for PBXNativeTarget "SafariTranslate" */;
-			buildPhases = (
-				B49AA832276227CF00E41372 /* Sources */,
-				B49AA833276227CF00E41372 /* Frameworks */,
-				B49AA834276227CF00E41372 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = SafariTranslate;
-			productName = SafariTranslate;
-			productReference = B49AA836276227CF00E41372 /* SafariTranslate.appex */;
-			productType = "com.apple.product-type.app-extension";
-		};
 		DF68A8E2238BB3E900610380 /* InsetrumentDemo */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = DF68A8E9238BB3E900610380 /* Build configuration list for PBXNativeTarget "InsetrumentDemo" */;
@@ -1333,9 +1313,6 @@
 						CreatedOnToolsVersion = 10.1;
 						TestTargetID = B425AC642252526000B02B77;
 					};
-					B49AA835276227CF00E41372 = {
-						CreatedOnToolsVersion = 13.1;
-					};
 					DF68A8E2238BB3E900610380 = {
 						CreatedOnToolsVersion = 11.1;
 					};
@@ -1360,7 +1337,6 @@
 				B425AC782252526200B02B77 /* Swift_SweetSugarTests */,
 				B425AC832252526200B02B77 /* Swift_SweetSugarUITests */,
 				DF68A8E2238BB3E900610380 /* InsetrumentDemo */,
-				B49AA835276227CF00E41372 /* SafariTranslate */,
 			);
 		};
 /* End PBXProject section */
@@ -1426,21 +1402,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		B49AA834276227CF00E41372 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				B49AA842276227CF00E41372 /* background.js in Resources */,
-				B49AA848276227CF00E41372 /* popup.css in Resources */,
-				B49AA846276227CF00E41372 /* popup.html in Resources */,
-				B49AA83E276227CF00E41372 /* images in Resources */,
-				B49AA840276227CF00E41372 /* manifest.json in Resources */,
-				B49AA83C276227CF00E41372 /* _locales in Resources */,
-				B49AA844276227CF00E41372 /* content.js in Resources */,
-				B49AA84A276227CF00E41372 /* popup.js in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1575,6 +1536,7 @@
 				B4063D88260B530C00F3135E /* HomeListItemCell.swift in Sources */,
 				B49CED6F27F93A0800E2B8DF /* MMDefine.swift in Sources */,
 				B4CD02AC27A16C5900DC02FA /* MMGradientView.swift in Sources */,
+				652D43AA2AE24E42003E01FE /* MMBlockClass.swift in Sources */,
 				65F5FAA629F50EE4005E41CE /* MMLabel.swift in Sources */,
 				652D4D6E2963FC9900CC4EA3 /* UIViewController+Extension.swift in Sources */,
 				B4A7E0C0277303FE0091687C /* MMListUpdateViewController.swift in Sources */,
@@ -1582,6 +1544,7 @@
 				65032DA52A67C993004C41B7 /* UITestVC+WKWebView.swift in Sources */,
 				B4C67653279565A70088D1A2 /* MMTextStorage.swift in Sources */,
 				B495035126E2463C00C10601 /* MMGraphicViewController.swift in Sources */,
+				65E1B01A2AEF99E3009E5AD8 /* ArrayAlgorithm.swift in Sources */,
 				B4A3625024889B26006696C3 /* MMDispatchTimer.swift in Sources */,
 				B4C6342F279A4E0400375D69 /* MMLocationItem.swift in Sources */,
 				B4D5E4D6279C2FB700B25A3D /* MMDateTest.swift in Sources */,
@@ -1707,14 +1670,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		B49AA832276227CF00E41372 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				B49AA839276227CF00E41372 /* SafariWebExtensionHandler.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		DF68A8E1238BB3E900610380 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -1735,11 +1690,6 @@
 			isa = PBXTargetDependency;
 			target = B425AC642252526000B02B77 /* Swift_SweetSugar */;
 			targetProxy = B425AC852252526200B02B77 /* PBXContainerItemProxy */;
-		};
-		B49AA84D276227CF00E41372 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = B49AA835276227CF00E41372 /* SafariTranslate */;
-			targetProxy = B49AA84C276227CF00E41372 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -1890,6 +1840,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Swift_SweetSugar/Component",
+					"\"$(SRCROOT)/../../../../Library/Developer/Xcode/DerivedData/MMHomeWork-fffqefoqkbogpegnxlqoajxxymmq/Build/Products/Debug-iphonesimulator\"",
 				);
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"$(inherited)",
@@ -1902,6 +1853,13 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"${DT_TOOLCHAIN_DIR}/usr/lib/swift/${PLATFORM_NAME}\"",
+					/usr/lib/swift,
+					/Users/yangjie01/Documents/demo/iOS_demo/MMHomeWork,
+				);
+				MERGED_BINARY_TYPE = automatic;
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-l\"c++\"",
@@ -1985,6 +1943,13 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"${DT_TOOLCHAIN_DIR}/usr/lib/swift/${PLATFORM_NAME}\"",
+					/usr/lib/swift,
+					/Users/yangjie01/Documents/demo/iOS_demo/MMHomeWork,
+				);
+				MERGED_BINARY_TYPE = automatic;
 				OTHER_SWIFT_FLAGS = "$(inherited) -D COCOAPODS";
 				PRODUCT_BUNDLE_IDENTIFIER = com.mm.sugar.demo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -2080,70 +2045,6 @@
 			};
 			name = Release;
 		};
-		B49AA850276227CF00E41372 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
-				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = DQMV9NHZ7M;
-				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = SafariTranslate/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = SafariTranslate;
-				INFOPLIST_KEY_NSHumanReadableCopyright = "Copyright © 2021 Mumu. All rights reserved.";
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@executable_path/../../Frameworks",
-				);
-				MARKETING_VERSION = 1.0;
-				OTHER_LDFLAGS = (
-					"-framework",
-					SafariServices,
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.mm.sugar.demo.SafariTranslate;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SKIP_INSTALL = YES;
-				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Debug;
-		};
-		B49AA851276227CF00E41372 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
-				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = DQMV9NHZ7M;
-				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = SafariTranslate/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = SafariTranslate;
-				INFOPLIST_KEY_NSHumanReadableCopyright = "Copyright © 2021 Mumu. All rights reserved.";
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@executable_path/../../Frameworks",
-				);
-				MARKETING_VERSION = 1.0;
-				OTHER_LDFLAGS = (
-					"-framework",
-					SafariServices,
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.mm.sugar.demo.SafariTranslate;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SKIP_INSTALL = YES;
-				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Release;
-		};
 		DF68A8E7238BB3E900610380 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -2201,15 +2102,6 @@
 			buildConfigurations = (
 				B425AC942252526200B02B77 /* Debug */,
 				B425AC952252526200B02B77 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		B49AA853276227CF00E41372 /* Build configuration list for PBXNativeTarget "SafariTranslate" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				B49AA850276227CF00E41372 /* Debug */,
-				B49AA851276227CF00E41372 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
