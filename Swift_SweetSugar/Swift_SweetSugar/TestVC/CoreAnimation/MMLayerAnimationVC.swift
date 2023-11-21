@@ -14,6 +14,8 @@ class MMLayerAnimationVC: UIViewController {
     
     @IBOutlet weak var view_2: UIView!
     
+    @IBOutlet weak var view_3: UIView!
+    
     @IBOutlet weak var animationImgView: UIImageView!
     
     @IBOutlet weak var searchIconImgView: UIImageView!
@@ -22,6 +24,7 @@ class MMLayerAnimationVC: UIViewController {
         let item = YDDOCRKeyInfoEntryView()
         return item
     }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 //        self.navigationController?.interactivePopGestureRecognizer?.delegate
@@ -41,7 +44,15 @@ class MMLayerAnimationVC: UIViewController {
 //        createMask()
 //        groupTest()
 //        entryView.show()
-        trans()
+//        trans()
+        yinshidonghua()
+    }
+    
+    /// 隐式动画
+    func yinshidonghua() {
+        // 都没有动画
+        view_1.backgroundColor = .red
+        view_3.layer.backgroundColor = UIColor.green.cgColor
     }
     
     func groupTest() {

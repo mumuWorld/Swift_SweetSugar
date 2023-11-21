@@ -163,6 +163,12 @@ extension String {
     }
 }
 
+//extension Range {
+//    func mm_nsRange(str: String) -> NSRange {
+//        return NSRange(self, in: str)
+//    }
+//}
+
 extension String {
     
     var MD5String: String {

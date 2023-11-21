@@ -183,61 +183,107 @@ class UITestVC: UIViewController {
 //            make.width.height.equalTo(200)
 //        }
         
-        let line: MMDottedLine = MMDottedLine()
-        line.mm_size = CGSize(width: 100, height: 10)
-//        line.test()
-        line.mm_y = 100
-        view.addSubview(line)
+//        let line: MMDottedLine = MMDottedLine()
+//        line.mm_size = CGSize(width: 100, height: 10)
+////        line.test()
+//        line.mm_y = 100
+//        view.addSubview(line)
         
-        view.addSubview(attrText)
+//        view.addSubview(attrText)
 
         //也会进行放大。
 //        let font = UIFont(name: "iconfont", size: 30)
 //        widthLabel.font = font
 //        widthLabel.text = "大 \u{e60b}"
         
-        pieChartView.colors = [.brown,.brown,.green, .yellow]
-        pieChartView.drawWidth = 20
-        pieChartView.percents = [0.5, 0.3, 0.1, 0.1]
-        pieChartView.setNeedsDisplay()
+//        pieChartView.colors = [.brown,.brown,.green, .yellow]
+//        pieChartView.drawWidth = 20
+//        pieChartView.percents = [0.5, 0.3, 0.1, 0.1]
+//        pieChartView.setNeedsDisplay()
         
-        var configure = customButton.configure
-        configure.title = "测试文字"
-        configure.titleColor = UIColor.green
-        configure.selectedTitle = ""
-        configure.image = UIImage(named: "btn_heart")
-        configure.selectedImage = UIImage(named: "btn_heart_selected")
-        customButton.setConfigure(con: configure)
-        customButton.mm_size = customButton.fitSizeContent()
-        customButton.origin = CGPoint(x: 100, y: 200)
-        view.addSubview(customButton)
-        customButton.snp.makeConstraints { (make) in
-            make.trailing.equalToSuperview()
-            make.top.equalToSuperview().offset(300)
-            make.size.equalTo(customButton.mm_size)
-        }
-        shadowBtn.layer.cornerRadius = 25
-        shadowBtn.layer.masksToBounds = true
-
-        view.addSubview(inputIconLotView)
-        inputIconLotView.snp.makeConstraints { (make) in
-            make.trailing.equalToSuperview().offset(-19)
-            make.centerY.equalToSuperview()
-            make.size.equalTo(CGSize(28, 28))
-        }
-        
-        resetImageView.addSubview(blurEffectView)
-        blurEffectView.snp.makeConstraints { make in
-            make.edges.equalToSuperview()
-            make.height.width.equalToSuperview()
-        }
+//        var configure = customButton.configure
+//        configure.title = "测试文字"
+//        configure.titleColor = UIColor.green
+//        configure.selectedTitle = ""
+//        configure.image = UIImage(named: "btn_heart")
+//        configure.selectedImage = UIImage(named: "btn_heart_selected")
+//        customButton.setConfigure(con: configure)
+//        customButton.mm_size = customButton.fitSizeContent()
+//        customButton.origin = CGPoint(x: 100, y: 200)
+//        view.addSubview(customButton)
+//        customButton.snp.makeConstraints { (make) in
+//            make.trailing.equalToSuperview()
+//            make.top.equalToSuperview().offset(300)
+//            make.size.equalTo(customButton.mm_size)
+//        }
+//        shadowBtn.layer.cornerRadius = 25
+//        shadowBtn.layer.masksToBounds = true
+//
+//        view.addSubview(inputIconLotView)
+//        inputIconLotView.snp.makeConstraints { (make) in
+//            make.trailing.equalToSuperview().offset(-19)
+//            make.centerY.equalToSuperview()
+//            make.size.equalTo(CGSize(28, 28))
+//        }
+//        
+//        resetImageView.addSubview(blurEffectView)
+//        blurEffectView.snp.makeConstraints { make in
+//            make.edges.equalToSuperview()
+//            make.height.width.equalToSuperview()
+//        }
   
 //        addWebView()
 //        netImageTest()
 //        createBtn()
         
 //        adjustImage()
+        /*addScrollLabel*/()
     }
+    
+    lazy var scrollLabel: UILabel = {
+        let label = UILabel()
+        label.numberOfLines = 0
+        label.lineBreakMode = .byWordWrapping
+        label.font = UIFont.systemFont(ofSize: 14)
+        label.backgroundColor = .lightGray
+        return label
+    }()
+    
+    func addScrollLabel() {
+        view.addSubview(scrollLabel)
+        scrollLabel.snp.makeConstraints { make in
+            make.leading.equalToSuperview().offset(20)
+            make.centerY.equalToSuperview()
+            make.trailing.equalToSuperview().offset(-20)
+            make.height.equalTo(50)
+        }
+        displayLink =  CADisplayLink(target: self, selector: #selector(handleUpdate))
+                displayLink?.add(to: .main, forMode: .default)
+    }
+    
+    var startValue = 0.0
+        let endValue = 1200.0
+        var displayLink: CADisplayLink?
+
+        let animationDuration = 1.5
+        let animationStartDate = Date()
+        
+        @objc func handleUpdate() {
+            
+            let now = Date()
+            let elapsedTime = now.timeIntervalSince(animationStartDate)
+            
+            
+            if elapsedTime > animationDuration {
+                self.scrollLabel.text = "\(Int(endValue))"
+                displayLink?.invalidate()
+                displayLink = nil
+            } else {
+                let percentage = elapsedTime / animationDuration
+                let value = startValue + percentage * (endValue - startValue)
+                self.scrollLabel.text = "\(Int(value))"
+            }
+        }
     
     /// 调整图片的平铺
     func adjustImage() {
@@ -300,6 +346,14 @@ class UITestVC: UIViewController {
     }()
     
     @IBOutlet weak var graphicImageView: UIImageView!
+    
+    lazy var gradientLabel: MMGradientLabel = {
+//        let item = MMGradientLabel(text: "必须要把Label添加到view上，如果不添加到view上，label的图层就不会调用drawRect方法绘制文字，也就没有文字裁剪了。", font: UIFont.systemFont(ofSize: 20), colors: [UIColor.mm_colorFromHex(color_vaule: 0xAD28FF),
+//                                                                                                                                                               UIColor.mm_colorFromHex(color_vaule: 0x4D74FF)])
+        let item = MMGradientLabel()
+        item.backgroundColor = .lightGray
+        return item
+    }()
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return .default
@@ -387,7 +441,7 @@ class UITestVC: UIViewController {
         //transform 测试 CGAffineTransform
 //        transformTest()
 //        playerTest()
-//        gradientLabelTest()
+        
 //        pushVC()
 //    }
     
@@ -499,7 +553,8 @@ class UITestVC: UIViewController {
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         mm_printLog("test->touchesBegan")
 //        animationButton()
-        customDrawTest()
+//        customDrawTest()
+        gradientLabelTest()
     }
     
     override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
