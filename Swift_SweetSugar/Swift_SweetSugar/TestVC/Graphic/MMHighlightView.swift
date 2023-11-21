@@ -8,7 +8,6 @@
 
 import UIKit
 
-/// 透明、高亮绘制
 class MMHighlightView: UIView {
     
 
@@ -16,7 +15,7 @@ class MMHighlightView: UIView {
         super.draw(rect)
         guard let context = UIGraphicsGetCurrentContext() else { return }
         // 绘制背景
-        context.setFillColor(UIColor.yellow.withAlphaComponent(0.5).cgColor)
+        context.setFillColor(UIColor.yellow.withAlphaComponent(0.2).cgColor)
         context.addRect(rect)
         context.fillPath()
 //        context.setAlpha(0.1)
@@ -34,8 +33,6 @@ class MMHighlightView: UIView {
         context.addPath(fullTextPath.cgPath)
 //        context.setStrokeColor(UIColor.red.cgColor)
         context.setFillColor(UIColor.red.withAlphaComponent(0.1).cgColor)
-        //`CGBlendMode.clear` 是 `CGBlendMode` 枚举中的一个值，它的效果是将结果设置为透明¹。在这种模式下，无论源图像样本是什么，结果都是透明的¹。这种模式通常用于擦除或清除图像的一部分⁴。在 `CGBlendMode.clear` 的等式中，R（结果）等于0¹。这意味着无论源图像或背景图像的颜色如何，最终的颜色都会是透明的¹。这在需要从图像中删除某些部分或创建非矩形图像时非常有用⁴。
-  // https://blog.csdn.net/qq_14920635/article/details/75617188.
         context.setBlendMode(.clear)
         context.fillPath()
 //        context.strokePath()
@@ -43,8 +40,8 @@ class MMHighlightView: UIView {
         let fullTextPath_10 = UIBezierPath(rect: CGRect(x: 10, y: 30, width: 100, height: 10))
         context.addPath(fullTextPath_10.cgPath)
 //        context.setStrokeColor(UIColor.red.cgColor)
-        context.setFillColor(UIColor.green.cgColor)
-        context.setBlendMode(.normal)
+//        context.setFillColor(UIColor.green.cgColor)
+        context.setBlendMode(.clear)
         //填充路径的区域
         context.fillPath()
         // 绘制path，不会填充

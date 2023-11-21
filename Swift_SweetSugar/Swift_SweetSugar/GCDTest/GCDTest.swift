@@ -66,8 +66,6 @@ class GCDTest {
         }
     }
     
-    
-    
     func AllTestEntry() {
         if #available(iOS 16.0, *) {
             test4()
@@ -92,21 +90,6 @@ class GCDTest {
         
         mm_printLog("test->\(store.value) == 1_000_000")
     }
-    
-    /// 返回值测试
-    func test5() {
-        let queue = DispatchQueue(label: "com.serial.queue")
-        // 会接受block内的返回值
-        let reuslt = queue.sync {
-            return doSomething(v: "q")
-        }
-    }
-    
-    func doSomething(v: String) -> String {
-        print("test->doSomething: \(v)")
-        return "doSomething" + v
-    }
-    
 }
 
 

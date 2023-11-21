@@ -85,9 +85,6 @@ post_install do |installer|
       config.build_settings['IPHONEOS_DEPLOYMENT_TARGET'] = '13.0'
       # 针对M1机型 模拟器 https://juejin.cn/post/7037037120158269448
       config.build_settings['EXCLUDED_ARCHS[sdk=iphonesimulator*]'] = "arm64"
-      
-      config.build_settings['MERGED_BINARY_TYPE'] = 'automatic'
-
       #      else
       #      config.build_settings['IPHONEOS_DEPLOYMENT_TARGET'] = '11.0'
       #    end

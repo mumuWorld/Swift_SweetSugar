@@ -11,7 +11,6 @@ import Kingfisher
 
 extension UITestVC {
     
-    /// 绘制高亮
     func customDrawTest() {
         customDrawView?.removeFromSuperview()
         
@@ -126,26 +125,14 @@ extension UITestVC {
     }
     
     func gradientLabelTest3() {
-        if gradientLabel.superview != nil {
-//            gradientLabel.isHidden = !gradientLabel.isHidden
-            let a = "absdfsdfdsjfkjsadhfkjsdhfkjsd"
-            let b = "哥告诉你个水果蛋糕时高时低广东省高手打干撒搭嘎手打干撒搭嘎手打干撒搭嘎"
-            if gradientLabel.text == a {
-                gradientLabel.text = b
-                gradientLabel.mm_width = 100
-            } else {
-                gradientLabel.text = a
-                gradientLabel.mm_width = 250
-            }
-            return
+        let label = MMGradientLabel(text: "必须要把Label添加到view上，如果不添加到view上，label的图层就不会调用drawRect方法绘制文字，也就没有文字裁剪了。", font: UIFont.systemFont(ofSize: 20), colors: [UIColor.mm_colorFromHex(color_vaule: 0xAD28FF),
+                                                                                            UIColor.mm_colorFromHex(color_vaule: 0x4D74FF)])
+        label.backgroundColor = .lightGray
+        view.addSubview(label)
+        label.snp.makeConstraints { make in
+            make.leading.trailing.equalToSuperview()
+            make.bottom.equalToSuperview().offset(-40)
         }
-        gradientLabel.text = "你个水果蛋糕时高时低广东省高手打干撒搭嘎手打干撒搭嘎手打干"
-        view.addSubview(gradientLabel)
-        gradientLabel.frame = CGRect(origin: CGPoint(x: 100, y: 200), size: CGSize(250, 30))
-//        gradientLabel.snp.makeConstraints { make in
-//            make.leading.trailing.equalToSuperview()
-//            make.bottom.equalToSuperview().offset(-40)
-//        }
 //        label.text = "必须要把Label添加到view上，如果不添加到view上，label的图层就不会调用drawRect方法绘制文字，也就没有文字裁剪了。"
     }
     

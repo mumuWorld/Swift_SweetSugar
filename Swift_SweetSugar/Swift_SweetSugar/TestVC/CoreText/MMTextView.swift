@@ -49,17 +49,10 @@ class MMTextView: UITextView {
     override init(frame: CGRect, textContainer: NSTextContainer?) {
         super.init(frame: frame, textContainer: textContainer)
         delegate = self
-        returnKeyType = .done
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
-    }
-    
-    /// 换行时不会调用。
-    func textViewShouldEndEditing(_ textView: UITextView) -> Bool {
-        mm_printLog("test->")
-        return true
     }
     //    @objc func _wantsForwardingFromResponder(_ arg1: UIResponder, toNextResponder  arg2: UIResponder, withEvent arg3: UIEvent) -> Bool {
 //        let classStr = String(describing: arg2.self)

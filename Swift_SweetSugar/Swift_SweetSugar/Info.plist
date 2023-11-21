@@ -39,8 +39,8 @@
 	<string>用一下</string>
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string>用你相册</string>
-	<key>NSCameraUsageDescription</key>
-	<string>用你一下下</string>
+    <key>NSCameraUsageDescription</key>
+    <string>用你一下下</string>
 	<key>NSUserActivityTypes</key>
 	<array>
 		<string>com.mumu.func</string>
@@ -74,7 +74,5 @@
 		<string>UIInterfaceOrientationPortrait</string>
 		<string>UIInterfaceOrientationPortraitUpsideDown</string>
 	</array>
-	<key>com.app</key>
-	<string></string>
 </dict>
 </plist>

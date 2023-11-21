@@ -35,12 +35,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //            client?.add(FlipperKitLayoutPlugin(rootNode: application, with: layoutDescriptorMapper!))
 //            client?.start()
         
-        do {
-            let socket = try NWListener.init(using: .udp, on: 1000)
-            print("test->error:\(socket)")
-        } catch {
-            print("test->error:\(error)")
-        }
         DoraemonStatisticsUtil.shareInstance().noUpLoad = true
         DoraemonManager.shareInstance().install()
         return true

@@ -26,17 +26,3 @@ public let kBottomSafeHeight: CGFloat = {
         return 0.0
     }
 }()
-
-/// 推荐使用 kTopSafeHeight 此处命名与实际语义不同， 按照现有用法，先暂时保留此变量
-public let kStatusBarHeight: CGFloat = {
-    if #available(iOS 11.0, *) {
-        let height = UIApplication.shared.delegate?.window??.safeAreaInsets.top ?? 20
-        if height > 20 {
-            return height
-        } else {
-            return 20
-        }
-    } else {
-        return 20
-    }
-}()
