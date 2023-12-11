@@ -38,3 +38,13 @@ class MMTool {
         return result
     }
 }
+
+
+class MMCommonShare {
+    static let shareInstance: MMCommonShare = MMCommonShare()
+    
+    lazy var blockClass2: MMBlockClass2 = {
+        let item = MMBlockClass2()
+        return item
+    }()
+}

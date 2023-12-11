@@ -37,6 +37,11 @@ class FuncTestVC: UIViewController {
         return item
     }()
     
+    lazy var blockClass2: MMBlockClass2 = {
+        let item = MMBlockClass2()
+        return item
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "123456"

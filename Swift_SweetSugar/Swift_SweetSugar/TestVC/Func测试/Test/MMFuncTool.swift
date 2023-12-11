@@ -192,10 +192,23 @@ class MMFuncTool: NSObject {
         // 不会循环引用
 //        blockClass.block1 = { [weak self] in
 //            print("test->测试持有self1:\(self)")
-//            DispatchQueue.main.safeAsync {
+//            DispatchQueue.main.async {
 //                print("test->测试持有self2:\(self)")
 //            }
 //        }
+        
+        // 会循环引用
+//        blockClass.block1 = {
+//            print("test->测试持有self1:\(self)")
+//            DispatchQueue.main.async {
+//                print("test->测试持有self2:\(self)")
+//                self.blockClass2.block1 = {
+//                    print("test->测试持有self2:\(self)")
+//                }
+//            }
+//        }
+//        // 跟调用有关系
+//        blockClass.block1?()
         
         // 不会循环引用： 不论 blockClass.block1?() 是否调用
 //        blockClass.block1 = { [weak self] in
@@ -209,17 +222,45 @@ class MMFuncTool: NSObject {
 //        blockClass.block1?()
         
         // 会循环引用: 在调用 blockClass.block1?() 时。
-        blockClass.block1 = { [weak self] in
-            guard let self = self else { return }
-            print("test->测试持有self1:\(self)")
-            self.blockClass2.block1 = {
-                print("test->测试持有self2:\(self)")
-            }
-            // 跟下面block调用没有关系
-            self.blockClass2.block1?()
-        }
+//        blockClass.block1 = { [weak self] in
+//            guard let self = self else { return }
+//            print("test->测试持有self1:\(self)")
+//            self.blockClass2.block1 = {
+//                print("test->测试持有self2:\(self)")
+//            }
+//            // 跟下面block调用没有关系
+//            self.blockClass2.block1?()
+//        }
         // 跟下面block调用有关系
 //        blockClass.block1?()
+        
+        
+        // 会循环引用
+//        blockClass.block1 = {
+//            print("test->测试持有self1:")
+//            MMCommonShare.shareInstance.blockClass2.block1 = { [weak self] in
+//                guard let self = self else { return }
+//                print("test->测试持有self2:\(self)")
+//            }
+//            // 跟下面block调用没有关系
+//            // MMCommonShare.shareInstance.blockClass2.block1?()
+//        }
+//        // 跟下面block调用有关系
+//        blockClass.block1?()
+        
+        // 不会循环引用
+//        blockClass.block1 = { [weak self] in
+//            print("test->测试持有self1:")
+//            MMCommonShare.shareInstance.blockClass2.block1 = { [weak self] in
+//                guard let self = self else { return }
+//                print("test->测试持有self2:\(self)")
+//            }
+//            // 跟下面block调用没有关系
+//            // MMCommonShare.shareInstance.blockClass2.block1?()
+//        }
+//        // 跟下面block调用没有关系
+//        blockClass.block1?()
+        
         
         // 不会循环引用 不论 blockClass.block1?() 是否调用
 //        blockClass.block1 = { [weak self] in

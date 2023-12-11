@@ -153,3 +153,54 @@ class MMCurveView: UIView {
         }
     }
 }
+/*
+ 非常抱歉，我之前的回答仍然有误。我对此混淆了一些概念。实际上，`CALayer` 本身无法直接进行绘图，而是用于显示和管理视图内容的。如果需要实现局部刷新，iOS中的一种方法是使用 `UIView` 的 `setNeedsDisplay(in rect: CGRect)` 方法，该方法会触发视图的 `draw(_ rect: CGRect)` 方法进行绘图。
+
+ 下面是一个示例来演示如何使用 `UIView` 实现局部刷新：
+
+ 1. 创建一个自定义的 `UIView` 子类，并在其中实现 `draw(_ rect: CGRect)` 方法来绘制图形。例如：
+
+ ```swift
+ class DrawingView: UIView {
+     var path: UIBezierPath?
+     
+     override func draw(_ rect: CGRect) {
+         // 绘制整个视图的背景
+         UIColor.white.setFill()
+         UIRectFill(rect)
+         
+         // 绘制路径
+         if let path = path {
+             UIColor.black.setStroke()
+             path.stroke()
+         }
+     }
+ }
+ ```
+
+ 2. 在视图控制器中创建一个 `DrawingView` 实例，并将其添加到视图层级中。
+
+ ```swift
+ let drawingView = DrawingView(frame: CGRect(x: 0, y: 0, width: 320, height: 320))
+ view.addSubview(drawingView)
+ ```
+
+ 3. 在触摸事件方法中，根据用户拖动的路径记录，更新 `path` 属性，并调用 `setNeedsDisplay(in rect: CGRect)` 方法来指定需要刷新的区域。例如：
+
+ ```swift
+ override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
+     if let touch = touches.first {
+         let currentPoint = touch.location(in: drawingView)
+         let previousPoint = touch.previousLocation(in: drawingView)
+         
+         // 记录路径
+         if drawingView.path == nil {
+             drawingView.path = UIBezierPath()
+             drawingView.path?.move(to: previousPoint)
+         }
+         drawingView.path?.addLine(to: currentPoint)
+         
+         // 指定需要刷新的区域
+         let refresh
+ 
+ */
