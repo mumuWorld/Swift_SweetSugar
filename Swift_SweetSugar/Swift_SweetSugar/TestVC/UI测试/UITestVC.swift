@@ -55,10 +55,14 @@ class UITestVC: UIViewController {
     
     var emitter: CAEmitterLayer?
     
-    let bar: UIButton = creat { (btn) in
+    lazy var bar: UIButton = creat { (btn) in
         mm_printLog("测试调用")
         btn.backgroundColor = .black
         btn.addTarget(self, action: #selector(handleClick(sender:)), for: .touchUpInside)
+        btn.addTarget(self, action: #selector(handleClick(sender:)), for: .touchUpInside)
+        btn.addTarget(self, action: #selector(handleClick(sender:)), for: .touchUpInside)
+        btn.addTarget(self, action: #selector(handleBtnClick(sender:)), for: .touchUpInside)
+        btn.addTarget(self, action: #selector(handleBtnClick(sender:)), for: .touchUpInside)
     }
     
     var attrText: YYLabel = {
@@ -133,11 +137,15 @@ class UITestVC: UIViewController {
     
     var customDrawView: MMHighlightView?
     
+    lazy var tool: MMFuncTool = MMFuncTool()
+    
     lazy var netAniImageView: AnimatedImageView = {
         let item = AnimatedImageView()
         return item
     }()
 
+    let touchView: MMTouchView = MMTouchView()
+    
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
         print("test-> isViewLoaded1: \(isViewLoaded)")
@@ -158,25 +166,17 @@ class UITestVC: UIViewController {
 //        shadowView.layer.shadowRadius = 3
 //        shadowView.layer.shadowOpacity = 1
 
-        let baseFrame = CGRect(x: 10, y: 200, width: 200, height: 200)
-//        shadowView.frame = baseFrame
-//        shadowView.layer.maskedCorners = [.layerMaxXMaxYCorner, .layerMinXMinYCorner]
-
-//        let shadowSub = UIView(frame: CGRect(x: 0, y: 10, width: 50, height: 50))
-//        shadowSub.backgroundColor = .red
-//        shadowView.addSubview(shadowSub)
-        mm_printLog("center->\(shadowView.center),position->\(shadowView.layer.position),frame->\(shadowView.frame)")
-        //位置比较
-        let compareView = UIView(frame: baseFrame)
-        compareView.backgroundColor = .brown.withAlphaComponent(0.7)
-        view.insertSubview(compareView, belowSubview: shadowView)
-        compareView.snp.makeConstraints { make in
-            make.leading.equalToSuperview().offset(10)
-            make.top.equalToSuperview().offset(200)
+        view.addSubview(bar)
+        bar.snp.makeConstraints { make in
+            make.top.equalToSuperview().offset(100)
+            make.leading.equalToSuperview()
             make.width.height.equalTo(200)
         }
-        _compareView = compareView
-        
+
+        let baseFrame = CGRect(x: 10, y: 200, width: 200, height: 200)
+        touchView.frame = baseFrame
+        touchView.backgroundColor = .red
+        view.addSubview(touchView)
 //        shadowView.snp.makeConstraints { make in
 //            make.leading.equalToSuperview().offset(10)
 //            make.top.equalTo(_compareView!.snp.bottom).offset(20)
@@ -238,6 +238,27 @@ class UITestVC: UIViewController {
         
 //        adjustImage()
         /*addScrollLabel*/()
+    }
+    
+    func shadow() {
+        let baseFrame = CGRect(x: 10, y: 200, width: 200, height: 200)
+//        shadowView.frame = baseFrame
+//        shadowView.layer.maskedCorners = [.layerMaxXMaxYCorner, .layerMinXMinYCorner]
+
+//        let shadowSub = UIView(frame: CGRect(x: 0, y: 10, width: 50, height: 50))
+//        shadowSub.backgroundColor = .red
+//        shadowView.addSubview(shadowSub)
+        mm_printLog("center->\(shadowView.center),position->\(shadowView.layer.position),frame->\(shadowView.frame)")
+        //位置比较
+        let compareView = UIView(frame: baseFrame)
+        compareView.backgroundColor = .brown.withAlphaComponent(0.7)
+        view.insertSubview(compareView, belowSubview: shadowView)
+        compareView.snp.makeConstraints { make in
+            make.leading.equalToSuperview().offset(10)
+            make.top.equalToSuperview().offset(200)
+            make.width.height.equalTo(200)
+        }
+        _compareView = compareView
     }
     
     lazy var scrollLabel: UILabel = {
@@ -350,7 +371,7 @@ class UITestVC: UIViewController {
     lazy var gradientLabel: MMGradientLabel = {
 //        let item = MMGradientLabel(text: "必须要把Label添加到view上，如果不添加到view上，label的图层就不会调用drawRect方法绘制文字，也就没有文字裁剪了。", font: UIFont.systemFont(ofSize: 20), colors: [UIColor.mm_colorFromHex(color_vaule: 0xAD28FF),
 //                                                                                                                                                               UIColor.mm_colorFromHex(color_vaule: 0x4D74FF)])
-        let item = MMGradientLabel()
+        let item = MMGradientLabel( font: UIFont.systemFont(ofSize: 20), colors: [UIColor.mm_colorFromHex(color_vaule: 0x816FF1), UIColor.mm_colorFromHex(color_vaule: 0x6663F7), UIColor.mm_colorFromHex(color_vaule: 0x7583FF) ], locations: [0, 0.6, 1])
         item.backgroundColor = .lightGray
         return item
     }()
@@ -976,6 +997,11 @@ class UITestVC: UIViewController {
         
         return attr
     }
+    
+    @objc func handleBtnClick(sender: UIButton) {
+        mm_printLog("点击了->222")
+
+    }
     var str = "Your project does not explicitly specify"
     @objc func handleClick(sender: UIButton) {
         
@@ -984,10 +1010,10 @@ class UITestVC: UIViewController {
 //
 //        let number = attr.numberOfLine(width: 150)
 //
-//        mm_printLog("点击了->\(number)")
+        mm_printLog("点击了->111")
 //
 //        textView.attributedText = attr
-        textViewTest()
+//        textViewTest()
     }
     
     /// 视频播放器测试

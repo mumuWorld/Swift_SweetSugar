@@ -7,6 +7,20 @@
     {
       "filename" : "pop@2x.png",
       "idiom" : "universal",
+      "resizing" : {
+        "cap-insets" : {
+          "bottom" : 174,
+          "left" : 151,
+          "right" : 102,
+          "top" : 173
+        },
+        "center" : {
+          "height" : 1,
+          "mode" : "tile",
+          "width" : 192
+        },
+        "mode" : "9-part"
+      },
       "scale" : "2x"
     },
     {

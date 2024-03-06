@@ -15,7 +15,7 @@ import Network
 
 typealias emptyBlock = () -> ()
 
-class FuncTestVC: UIViewController {
+class FuncTestVC: MMBaseViewController {
     
     let tool = MMFuncTool()
 
@@ -207,8 +207,8 @@ class FuncTestVC: UIViewController {
         case 36:
             tool.timerTest36()
         case 37:
-//            tool.urltest()
-            tool.userDefaultTest37()
+            tool.urltest()
+//            tool.userDefaultTest37()
 //            tool.deviceTest()
 //            tool.audioTest_37_2()
         case 38:
@@ -276,6 +276,10 @@ class FuncTestVC: UIViewController {
         mm_printLog("test")
 //        let test = ProjectOneTool()
 //        test.test()
+    }
+    
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
     }
 
     deinit {
@@ -376,9 +380,17 @@ extension FuncTestVC {
         }
         str2 = "1"
         if str2?.isEmpty == true {  // false
-            mm_printLog("empty_2")
+            mm_printLog("empty_3")
         }
 
+        var array: [String]?
+        
+        if array?.isEmpty == true {  // false
+            mm_printLog("empty_arr1")
+        }
+        if array?.isEmpty == false {  // false
+            mm_printLog("empty_arr2")
+        }
         mm_printLog("end")
     }
     
@@ -483,6 +495,10 @@ extension FuncTestVC {
             self.removeItem = nil
         }
         mm_printLog("test")
+        
+        // 示例数组
+        let playlist = ["Song 1", "Song 2", "Song 3", "Song 4", "Song 5"]
+        ArrayAlgorithm().playRandomly(playlist: playlist)
     }
     
     func printTest() -> Void {

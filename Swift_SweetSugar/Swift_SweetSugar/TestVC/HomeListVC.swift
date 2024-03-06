@@ -8,7 +8,7 @@
 
 import UIKit
 
-class HomeListVC: UIViewController {
+class HomeListVC: MMBaseViewController {
 
     @IBOutlet weak var tableview: UITableView!
     
@@ -24,12 +24,16 @@ class HomeListVC: UIViewController {
     
     var model: MMSimpleModel = MMSimpleModel()
     
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .default
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         tableview.mm_registerNibCell(classType: HomeListItemCell.self)
         mm_printLog(MMFileManager.cachePath)
         model.name = "original"
-        model.target = self
+//        model.target = self
 #if Test
         // get log
 //        mm_printLog("get log")

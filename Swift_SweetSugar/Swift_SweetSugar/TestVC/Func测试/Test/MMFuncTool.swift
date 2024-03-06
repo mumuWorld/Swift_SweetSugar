@@ -41,7 +41,9 @@ class MMFuncTool: NSObject {
         let urlStr = "https://shared.youdao.com/dict/market/living-study-ranking-test/index.html#/?hide-toolbar=true"
 //        let urlStr_2 = "https://shared.youdao.com/dict/market/training-camp-test/index.html/campDetails"
         let urlStr_3 = "https://shared.youdao.com/dict/market/living-study-ranking-test?hide-toolbar=true/#/"
-//        
+        
+        let urlStr_4 = "https://hiecho.youdao.com/?t=1702628402#/web?from=cidian_czgn&noCache=true"
+        
 //        let encode_url = urlStr.urlEncoded()
 //        
         let component = URLComponents(string: urlStr)
@@ -51,7 +53,7 @@ class MMFuncTool: NSObject {
 //        
         let component_3 = URLComponents(string: urlStr_3)
 //
-//        let component_4 = URLComponents(string: encode_url)
+        let component_4 = URLComponents(string: urlStr_4)
 //
 //        let charSet = CharacterSet.urlQueryAllowed
 //        
@@ -470,10 +472,14 @@ After apologising, Mr Musk said that Mr Thorleifsson was considering coming back
             break // 什么都不做
         }
 
-        
+     
         var toolArr: [Int] = [0,1,2,3,4,5]
         var toolOptionStrArr: [String?] = ["0","1","str","3"]
 
+        var emptyArray: [Int] = []
+        // 不会崩
+        emptyArray.insert(contentsOf: toolArr, at: 0)
+        
         //17 -> 2 + 0 + 1 + 2 + 3 + 4 + 5
         let r1 = toolArr.reduce(2) { partialResult, item in
             return partialResult + item
@@ -829,7 +835,38 @@ extension MMFuncTool {
         var model_1 = MMSimpleModel()
         arr.append(model_1)
         model_1.name = "test"
+        //并不影响数组内的结构体数据
         mm_printLog(arr)
+        
+        var model_2 = model_1
+        
+        withUnsafePointer(to: &model_1) { pointer in
+            let address = UnsafeRawPointer(pointer)
+            // 0x00000003059b7fb0
+            print("Address of model_1 instance: \(address)")
+        }
+        mm_printLog("szie1: \(MemoryLayout.size(ofValue: model_1))")
+        mm_printLog("szie2: \(MemoryLayout.size(ofValue: model_2))")
+
+        withUnsafePointer(to: &model_2) { pointer in
+            let address = UnsafeRawPointer(pointer)
+            // 0x00000003059b7f70
+            print("Address of model_2 instance: \(address)")
+        }
+        model_2.name = "test2"
+        // 不影响model_1的值
+        mm_printLog(model_1)
+        
+        var typo = Typo()
+        typo.trans = "typo1"
+        var typo2 = Typo()
+        typo2.trans = "typo2"
+        var list = [typo, typo2]
+        
+        list[1].trans = "typo2_change"
+        //typo2_change
+        var c_typo2 = list[1]
+        mm_printLog("typo2_change")
     }
     
     func stringTest_50() {
@@ -908,11 +945,20 @@ extension MMFuncTool {
     /// 系统通知周期
     func sysNotifyTest_52() {
         
-        NotificationCenter.default.addObserver(self, selector: #selector(handleSysNotify(sender:)), name: UIApplication.didEnterBackgroundNotification, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(handleSysNotify(sender:)), name: UIApplication.willResignActiveNotification, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(handleSysNotify(sender:)), name: UIApplication.willEnterForegroundNotification, object: nil)
+//        NotificationCenter.default.addObserver(self, selector: #selector(handleSysNotify(sender:)), name: UIApplication.didEnterBackgroundNotification, object: nil)
+//        NotificationCenter.default.addObserver(self, selector: #selector(handleSysNotify(sender:)), name: UIApplication.willResignActiveNotification, object: nil)
+//        NotificationCenter.default.addObserver(self, selector: #selector(handleSysNotify(sender:)), name: UIApplication.willEnterForegroundNotification, object: nil)
+//        NotificationCenter.default.addObserver(self, selector: #selector(handleSysNotify(sender:)), name: UIApplication.didBecomeActiveNotification, object: nil)
+//        NotificationCenter.default.addObserver(self, selector: #selector(handleSysNotify(sender:)), name: UIApplication.willTerminateNotification, object: nil)
+        
+        // 重复添加，会接收N条通知
         NotificationCenter.default.addObserver(self, selector: #selector(handleSysNotify(sender:)), name: UIApplication.didBecomeActiveNotification, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(handleSysNotify(sender:)), name: UIApplication.willTerminateNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(handleSysNotify(sender:)), name: UIApplication.didBecomeActiveNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(handleSysNotify(sender:)), name: UIApplication.didBecomeActiveNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(handleSysNotify(sender:)), name: UIApplication.didBecomeActiveNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(handleSysNotify(sender:)), name: UIApplication.didBecomeActiveNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(handleSysNotify(sender:)), name: UIApplication.didBecomeActiveNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(handleSysNotify(sender:)), name: UIApplication.didBecomeActiveNotification, object: nil)
     }
     
     @objc func handleSysNotify(sender: Notification) {
@@ -1136,24 +1182,7 @@ extension MMFuncTool {
 //
 //        }
     }
-    
 
-    func copyTest() {
-        var typo = Typo()
-        typo.trans = "typo1"
-        var typo2 = Typo()
-        typo2.trans = "typo2"
-        var typo3 = Typo()
-        typo3.trans = "typo3"
-        var list = [typo, typo2, typo3]
-        
-        list[1].trans = "typo2_change"
-        //typo2_change
-        var c_typo2 = list[1]
-        
-        mm_printLog("")
-    }
-    
     func attrTest() {
         let attr = NSMutableAttributedString.init(string: "")
         let imgStr = NSAttributedString(string: "test")
@@ -1165,6 +1194,14 @@ extension MMFuncTool {
     func enumTEst() {
         let o = EnumTest(rawValue: 4)
         mm_printLog("")
+        
+        let index = EnumTest2.index(20)
+        if case EnumTest2.index(let val) = index {
+            mm_printLog("test->取值方式1:\(val)")
+        }
+        if case let .index(val) = index {
+            mm_printLog("test->取值方式2:\(val)")
+        }
     }
 }
 
@@ -1177,7 +1214,14 @@ struct TestWordModel: Codable {
 enum EnumTest: Int {
     case one = 0
     case two = 1
+    
 }
+
+enum EnumTest2 {
+    case type_1
+    case index(Int)
+}
+
 var index: Int = 0
 struct TQCityModel: Codable {
     var cityId: String = "北京市"

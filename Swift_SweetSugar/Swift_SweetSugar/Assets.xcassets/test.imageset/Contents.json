@@ -3,6 +3,20 @@
     {
       "filename" : "test.jpg",
       "idiom" : "universal",
+      "resizing" : {
+        "cap-insets" : {
+          "bottom" : 680,
+          "left" : 509,
+          "right" : 510,
+          "top" : 679
+        },
+        "center" : {
+          "height" : 1,
+          "mode" : "tile",
+          "width" : 1
+        },
+        "mode" : "9-part"
+      },
       "scale" : "1x"
     },
     {

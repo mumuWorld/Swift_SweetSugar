@@ -3,6 +3,20 @@
     {
       "filename" : "6e6bbd05ly1h71oi19drlj22bc3gykjm.jpg",
       "idiom" : "universal",
+      "resizing" : {
+        "cap-insets" : {
+          "bottom" : 2249,
+          "left" : 1499,
+          "right" : 1500,
+          "top" : 2248
+        },
+        "center" : {
+          "height" : 1,
+          "mode" : "tile",
+          "width" : 1
+        },
+        "mode" : "9-part"
+      },
       "scale" : "1x"
     },
     {

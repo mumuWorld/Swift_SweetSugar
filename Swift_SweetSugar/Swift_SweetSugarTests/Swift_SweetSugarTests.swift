@@ -21,8 +21,14 @@ class Swift_SweetSugarTests: XCTestCase {
 
     func testExample() {
 //        GCDTest().test3()
-      let result =  ArrayAlgorithm().longestConsecutive(nums: [7,6,5,3,2,1,8])
-        print("test->reuslt:\(result)")
+//      let result =  ArrayAlgorithm().longestConsecutive(nums: [7,6,5,3,2,1,8])
+//        print("test->reuslt:\(result)")
+        
+        
+        
+        // 示例数组
+        let playlist = ["Song 1", "Song 2", "Song 3", "Song 4", "Song 5"]
+        ArrayAlgorithm().playRandomly(playlist: playlist)
         // This is an example of a functional test case.
         // Use XCTAssert and related functions to verify your tests produce the correct results.
     }

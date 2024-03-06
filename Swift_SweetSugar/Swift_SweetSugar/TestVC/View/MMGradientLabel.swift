@@ -52,10 +52,13 @@ class MMGradientLabel: UIView {
         gradientLayer.mask = label.layer
     }
     
-    convenience init(text: String = "", limitSize: CGSize = .zero, font: UIFont, colors: [UIColor]) {
+    convenience init(text: String = "", limitSize: CGSize = .zero, font: UIFont, colors: [UIColor], locations: [NSNumber]? = nil) {
         self.init(frame: .zero)
         label.font = font
         label.text = text
+        if let locations {
+            gradientLayer.locations = locations
+        }
         gradientLayer.colors = colors.map({ $0.cgColor })
         self.limitSize = limitSize
         //        self.textInset = textInset

@@ -10,11 +10,11 @@ import Foundation
 
 struct MMSimpleModel {
     var name: String?
-    var target: AnyObject?
-    
-    static func post<P: Codable>(url: String, param: P? = nil) {
-        
-    }
+//    var target: AnyObject?
+//    
+//    static func post<P: Codable>(url: String, param: P? = nil) {
+//        
+//    }
 }
 
 //protocol MMSimpleProtocol {

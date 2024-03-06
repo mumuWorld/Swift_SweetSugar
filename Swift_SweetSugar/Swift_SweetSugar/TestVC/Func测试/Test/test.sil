@@ -1,0 +1,1479 @@
+sil_stage raw
+
+import Builtin
+import Swift
+import SwiftShims
+
+import Foundation
+
+struct MMPoint {
+  @_hasStorage var x: Float { get set }
+  @_hasStorage var y: Float { get set }
+  init(x: Float, y: Float)
+}
+
+struct TestJsonStruct : Decodable & Encodable {
+  @_hasStorage @_hasInitialValue var text: String? { get set }
+  enum CodingKeys : CodingKey {
+    case text
+    @_implements(Equatable, ==(_:_:)) static func __derived_enum_equals(_ a: TestJsonStruct.CodingKeys, _ b: TestJsonStruct.CodingKeys) -> Bool
+    func hash(into hasher: inout Hasher)
+    init?(stringValue: String)
+    init?(intValue: Int)
+    var hashValue: Int { get }
+    var intValue: Int? { get }
+    var stringValue: String { get }
+  }
+  func encode(to encoder: any Encoder) throws
+  init()
+  init(from decoder: any Decoder) throws
+  init(text: String? = nil)
+}
+
+class TestJsonClass : Decodable & Encodable {
+  @_hasStorage @_hasInitialValue var text: String? { get set }
+  enum CodingKeys : CodingKey {
+    case text
+    @_implements(Equatable, ==(_:_:)) static func __derived_enum_equals(_ a: TestJsonClass.CodingKeys, _ b: TestJsonClass.CodingKeys) -> Bool
+    func hash(into hasher: inout Hasher)
+    init?(stringValue: String)
+    init?(intValue: Int)
+    var hashValue: Int { get }
+    var intValue: Int? { get }
+    var stringValue: String { get }
+  }
+  @objc deinit
+  func encode(to encoder: any Encoder) throws
+  init()
+  required init(from decoder: any Decoder) throws
+}
+
+// main
+sil [ossa] @main : $@convention(c) (Int32, UnsafeMutablePointer<Optional<UnsafeMutablePointer<Int8>>>) -> Int32 {
+bb0(%0 : $Int32, %1 : $UnsafeMutablePointer<Optional<UnsafeMutablePointer<Int8>>>):
+  %2 = integer_literal $Builtin.Int32, 0          // user: %3
+  %3 = struct $Int32 (%2 : $Builtin.Int32)        // user: %4
+  return %3 : $Int32                              // id: %4
+} // end sil function 'main'
+
+// MMPoint.x.getter
+sil hidden [transparent] [ossa] @MMPoint.MMPoint.x.getter : Swift.Float : $@convention(method) (MMPoint) -> Float {
+// %0 "self"                                      // users: %2, %1
+bb0(%0 : $MMPoint):
+  debug_value %0 : $MMPoint, let, name "self", argno 1, implicit // id: %1
+  %2 = struct_extract %0 : $MMPoint, #MMPoint.x   // user: %3
+  return %2 : $Float                              // id: %3
+} // end sil function 'MMPoint.MMPoint.x.getter : Swift.Float'
+
+// MMPoint.x.setter
+sil hidden [transparent] [ossa] @MMPoint.MMPoint.x.setter : Swift.Float : $@convention(method) (Float, @inout MMPoint) -> () {
+// %0 "value"                                     // users: %6, %2
+// %1 "self"                                      // users: %4, %3
+bb0(%0 : $Float, %1 : $*MMPoint):
+  debug_value %0 : $Float, let, name "value", argno 1, implicit // id: %2
+  debug_value %1 : $*MMPoint, var, name "self", argno 2, implicit, expr op_deref // id: %3
+  %4 = begin_access [modify] [unknown] %1 : $*MMPoint // users: %7, %5
+  %5 = struct_element_addr %4 : $*MMPoint, #MMPoint.x // user: %6
+  assign %0 to %5 : $*Float                       // id: %6
+  end_access %4 : $*MMPoint                       // id: %7
+  %8 = tuple ()                                   // user: %9
+  return %8 : $()                                 // id: %9
+} // end sil function 'MMPoint.MMPoint.x.setter : Swift.Float'
+
+// MMPoint.x.modify
+sil hidden [transparent] [ossa] @MMPoint.MMPoint.x.modify : Swift.Float : $@yield_once @convention(method) (@inout MMPoint) -> @yields @inout Float {
+// %0 "self"                                      // users: %2, %1
+bb0(%0 : $*MMPoint):
+  debug_value %0 : $*MMPoint, var, name "self", argno 1, implicit, expr op_deref // id: %1
+  %2 = begin_access [modify] [unknown] %0 : $*MMPoint // users: %5, %8, %3
+  %3 = struct_element_addr %2 : $*MMPoint, #MMPoint.x // user: %4
+  yield %3 : $*Float, resume bb1, unwind bb2      // id: %4
+
+bb1:                                              // Preds: bb0
+  end_access %2 : $*MMPoint                       // id: %5
+  %6 = tuple ()                                   // user: %7
+  return %6 : $()                                 // id: %7
+
+bb2:                                              // Preds: bb0
+  end_access %2 : $*MMPoint                       // id: %8
+  unwind                                          // id: %9
+} // end sil function 'MMPoint.MMPoint.x.modify : Swift.Float'
+
+// MMPoint.y.getter
+sil hidden [transparent] [ossa] @MMPoint.MMPoint.y.getter : Swift.Float : $@convention(method) (MMPoint) -> Float {
+// %0 "self"                                      // users: %2, %1
+bb0(%0 : $MMPoint):
+  debug_value %0 : $MMPoint, let, name "self", argno 1, implicit // id: %1
+  %2 = struct_extract %0 : $MMPoint, #MMPoint.y   // user: %3
+  return %2 : $Float                              // id: %3
+} // end sil function 'MMPoint.MMPoint.y.getter : Swift.Float'
+
+// MMPoint.y.setter
+sil hidden [transparent] [ossa] @MMPoint.MMPoint.y.setter : Swift.Float : $@convention(method) (Float, @inout MMPoint) -> () {
+// %0 "value"                                     // users: %6, %2
+// %1 "self"                                      // users: %4, %3
+bb0(%0 : $Float, %1 : $*MMPoint):
+  debug_value %0 : $Float, let, name "value", argno 1, implicit // id: %2
+  debug_value %1 : $*MMPoint, var, name "self", argno 2, implicit, expr op_deref // id: %3
+  %4 = begin_access [modify] [unknown] %1 : $*MMPoint // users: %7, %5
+  %5 = struct_element_addr %4 : $*MMPoint, #MMPoint.y // user: %6
+  assign %0 to %5 : $*Float                       // id: %6
+  end_access %4 : $*MMPoint                       // id: %7
+  %8 = tuple ()                                   // user: %9
+  return %8 : $()                                 // id: %9
+} // end sil function 'MMPoint.MMPoint.y.setter : Swift.Float'
+
+// MMPoint.y.modify
+sil hidden [transparent] [ossa] @MMPoint.MMPoint.y.modify : Swift.Float : $@yield_once @convention(method) (@inout MMPoint) -> @yields @inout Float {
+// %0 "self"                                      // users: %2, %1
+bb0(%0 : $*MMPoint):
+  debug_value %0 : $*MMPoint, var, name "self", argno 1, implicit, expr op_deref // id: %1
+  %2 = begin_access [modify] [unknown] %0 : $*MMPoint // users: %5, %8, %3
+  %3 = struct_element_addr %2 : $*MMPoint, #MMPoint.y // user: %4
+  yield %3 : $*Float, resume bb1, unwind bb2      // id: %4
+
+bb1:                                              // Preds: bb0
+  end_access %2 : $*MMPoint                       // id: %5
+  %6 = tuple ()                                   // user: %7
+  return %6 : $()                                 // id: %7
+
+bb2:                                              // Preds: bb0
+  end_access %2 : $*MMPoint                       // id: %8
+  unwind                                          // id: %9
+} // end sil function 'MMPoint.MMPoint.y.modify : Swift.Float'
+
+// MMPoint.init(x:y:)
+sil hidden [ossa] @MMPoint.MMPoint.init(x: Swift.Float, y: Swift.Float) -> MMPoint.MMPoint : $@convention(method) (Float, Float, @thin MMPoint.Type) -> MMPoint {
+// %0 "$implicit_value"                           // user: %3
+// %1 "$implicit_value"                           // user: %3
+// %2 "$metatype"
+bb0(%0 : $Float, %1 : $Float, %2 : $@thin MMPoint.Type):
+  %3 = struct $MMPoint (%0 : $Float, %1 : $Float) // user: %4
+  return %3 : $MMPoint                            // id: %4
+} // end sil function 'MMPoint.MMPoint.init(x: Swift.Float, y: Swift.Float) -> MMPoint.MMPoint'
+
+// variable initialization expression of TestJsonStruct.text
+sil hidden [transparent] [ossa] @variable initialization expression of MMPoint.TestJsonStruct.text : Swift.String? : $@convention(thin) () -> @owned Optional<String> {
+bb0:
+  %0 = enum $Optional<String>, #Optional.none!enumelt // user: %1
+  return %0 : $Optional<String>                   // id: %1
+} // end sil function 'variable initialization expression of MMPoint.TestJsonStruct.text : Swift.String?'
+
+// TestJsonStruct.text.getter
+sil hidden [transparent] [ossa] @MMPoint.TestJsonStruct.text.getter : Swift.String? : $@convention(method) (@guaranteed TestJsonStruct) -> @owned Optional<String> {
+// %0 "self"                                      // users: %2, %1
+bb0(%0 : @guaranteed $TestJsonStruct):
+  debug_value %0 : $TestJsonStruct, let, name "self", argno 1, implicit // id: %1
+  %2 = struct_extract %0 : $TestJsonStruct, #TestJsonStruct.text // user: %3
+  %3 = copy_value %2 : $Optional<String>          // user: %4
+  return %3 : $Optional<String>                   // id: %4
+} // end sil function 'MMPoint.TestJsonStruct.text.getter : Swift.String?'
+
+// TestJsonStruct.text.setter
+sil hidden [transparent] [ossa] @MMPoint.TestJsonStruct.text.setter : Swift.String? : $@convention(method) (@owned Optional<String>, @inout TestJsonStruct) -> () {
+// %0 "value"                                     // users: %11, %4, %2
+// %1 "self"                                      // users: %6, %3
+bb0(%0 : @owned $Optional<String>, %1 : $*TestJsonStruct):
+  debug_value %0 : $Optional<String>, let, name "value", argno 1, implicit // id: %2
+  debug_value %1 : $*TestJsonStruct, var, name "self", argno 2, implicit, expr op_deref // id: %3
+  %4 = begin_borrow %0 : $Optional<String>        // users: %10, %5
+  %5 = copy_value %4 : $Optional<String>          // user: %8
+  %6 = begin_access [modify] [unknown] %1 : $*TestJsonStruct // users: %9, %7
+  %7 = struct_element_addr %6 : $*TestJsonStruct, #TestJsonStruct.text // user: %8
+  assign %5 to %7 : $*Optional<String>            // id: %8
+  end_access %6 : $*TestJsonStruct                // id: %9
+  end_borrow %4 : $Optional<String>               // id: %10
+  destroy_value %0 : $Optional<String>            // id: %11
+  %12 = tuple ()                                  // user: %13
+  return %12 : $()                                // id: %13
+} // end sil function 'MMPoint.TestJsonStruct.text.setter : Swift.String?'
+
+// TestJsonStruct.text.modify
+sil hidden [transparent] [ossa] @MMPoint.TestJsonStruct.text.modify : Swift.String? : $@yield_once @convention(method) (@inout TestJsonStruct) -> @yields @inout Optional<String> {
+// %0 "self"                                      // users: %2, %1
+bb0(%0 : $*TestJsonStruct):
+  debug_value %0 : $*TestJsonStruct, var, name "self", argno 1, implicit, expr op_deref // id: %1
+  %2 = begin_access [modify] [unknown] %0 : $*TestJsonStruct // users: %5, %8, %3
+  %3 = struct_element_addr %2 : $*TestJsonStruct, #TestJsonStruct.text // user: %4
+  yield %3 : $*Optional<String>, resume bb1, unwind bb2 // id: %4
+
+bb1:                                              // Preds: bb0
+  end_access %2 : $*TestJsonStruct                // id: %5
+  %6 = tuple ()                                   // user: %7
+  return %6 : $()                                 // id: %7
+
+bb2:                                              // Preds: bb0
+  end_access %2 : $*TestJsonStruct                // id: %8
+  unwind                                          // id: %9
+} // end sil function 'MMPoint.TestJsonStruct.text.modify : Swift.String?'
+
+// static TestJsonStruct.CodingKeys.__derived_enum_equals(_:_:)
+sil private [ossa] @static MMPoint.TestJsonStruct.(CodingKeys in _7D4DEB83CDE18722DA21D9D4858DE5E2).__derived_enum_equals(MMPoint.TestJsonStruct.(CodingKeys in _7D4DEB83CDE18722DA21D9D4858DE5E2), MMPoint.TestJsonStruct.(CodingKeys in _7D4DEB83CDE18722DA21D9D4858DE5E2)) -> Swift.Bool : $@convention(method) (TestJsonStruct.CodingKeys, TestJsonStruct.CodingKeys, @thin TestJsonStruct.CodingKeys.Type) -> Bool {
+// %0 "a"                                         // users: %9, %3
+// %1 "b"                                         // users: %20, %4
+// %2 "self"                                      // user: %5
+bb0(%0 : $TestJsonStruct.CodingKeys, %1 : $TestJsonStruct.CodingKeys, %2 : $@thin TestJsonStruct.CodingKeys.Type):
+  debug_value %0 : $TestJsonStruct.CodingKeys, let, name "a", argno 1, implicit // id: %3
+  debug_value %1 : $TestJsonStruct.CodingKeys, let, name "b", argno 2, implicit // id: %4
+  debug_value %2 : $@thin TestJsonStruct.CodingKeys.Type, let, name "self", argno 3, implicit // id: %5
+  %6 = alloc_box ${ var Int }                     // user: %7
+  %7 = mark_uninitialized [var] %6 : ${ var Int } // users: %34, %8
+  %8 = project_box %7 : ${ var Int }, 0           // users: %29, %14
+  switch_enum %0 : $TestJsonStruct.CodingKeys, case #TestJsonStruct.CodingKeys.text!enumelt: bb1 // id: %9
+
+bb1:                                              // Preds: bb0
+  %10 = integer_literal $Builtin.IntLiteral, 0    // user: %13
+  %11 = metatype $@thin Int.Type                  // user: %13
+  // function_ref Int.init(_builtinIntegerLiteral:)
+  %12 = function_ref @Swift.Int.init(_builtinIntegerLiteral: Builtin.IntLiteral) -> Swift.Int : $@convention(method) (Builtin.IntLiteral, @thin Int.Type) -> Int // user: %13
+  %13 = apply %12(%10, %11) : $@convention(method) (Builtin.IntLiteral, @thin Int.Type) -> Int // user: %15
+  %14 = begin_access [modify] [unknown] %8 : $*Int // users: %16, %15
+  assign %13 to %14 : $*Int                       // id: %15
+  end_access %14 : $*Int                          // id: %16
+  %17 = alloc_box ${ var Int }                    // user: %18
+  %18 = mark_uninitialized [var] %17 : ${ var Int } // users: %33, %19
+  %19 = project_box %18 : ${ var Int }, 0         // users: %30, %25
+  switch_enum %1 : $TestJsonStruct.CodingKeys, case #TestJsonStruct.CodingKeys.text!enumelt: bb2 // id: %20
+
+bb2:                                              // Preds: bb1
+  %21 = integer_literal $Builtin.IntLiteral, 0    // user: %24
+  %22 = metatype $@thin Int.Type                  // user: %24
+  // function_ref Int.init(_builtinIntegerLiteral:)
+  %23 = function_ref @Swift.Int.init(_builtinIntegerLiteral: Builtin.IntLiteral) -> Swift.Int : $@convention(method) (Builtin.IntLiteral, @thin Int.Type) -> Int // user: %24
+  %24 = apply %23(%21, %22) : $@convention(method) (Builtin.IntLiteral, @thin Int.Type) -> Int // user: %26
+  %25 = begin_access [modify] [unknown] %19 : $*Int // users: %27, %26
+  assign %24 to %25 : $*Int                       // id: %26
+  end_access %25 : $*Int                          // id: %27
+  %28 = metatype $@thin Int.Type                  // user: %32
+  %29 = load [trivial] %8 : $*Int                 // user: %32
+  %30 = load [trivial] %19 : $*Int                // user: %32
+  // function_ref static Int.== infix(_:_:)
+  %31 = function_ref @static Swift.Int.== infix(Swift.Int, Swift.Int) -> Swift.Bool : $@convention(method) (Int, Int, @thin Int.Type) -> Bool // user: %32
+  %32 = apply %31(%29, %30, %28) : $@convention(method) (Int, Int, @thin Int.Type) -> Bool // user: %35
+  destroy_value %18 : ${ var Int }                // id: %33
+  destroy_value %7 : ${ var Int }                 // id: %34
+  return %32 : $Bool                              // id: %35
+} // end sil function 'static MMPoint.TestJsonStruct.(CodingKeys in _7D4DEB83CDE18722DA21D9D4858DE5E2).__derived_enum_equals(MMPoint.TestJsonStruct.(CodingKeys in _7D4DEB83CDE18722DA21D9D4858DE5E2), MMPoint.TestJsonStruct.(CodingKeys in _7D4DEB83CDE18722DA21D9D4858DE5E2)) -> Swift.Bool'
+
+// TestJsonStruct.CodingKeys.hash(into:)
+sil private [ossa] @MMPoint.TestJsonStruct.(CodingKeys in _7D4DEB83CDE18722DA21D9D4858DE5E2).hash(into: inout Swift.Hasher) -> () : $@convention(method) (@inout Hasher, TestJsonStruct.CodingKeys) -> () {
+// %0 "hasher"                                    // users: %20, %2
+// %1 "self"                                      // users: %7, %3
+bb0(%0 : $*Hasher, %1 : $TestJsonStruct.CodingKeys):
+  debug_value %0 : $*Hasher, var, name "hasher", argno 1, implicit, expr op_deref // id: %2
+  debug_value %1 : $TestJsonStruct.CodingKeys, let, name "self", argno 2, implicit // id: %3
+  %4 = alloc_box ${ var Int }                     // user: %5
+  %5 = mark_uninitialized [var] %4 : ${ var Int } // users: %25, %6
+  %6 = project_box %5 : ${ var Int }, 0           // users: %15, %12
+  switch_enum %1 : $TestJsonStruct.CodingKeys, case #TestJsonStruct.CodingKeys.text!enumelt: bb1 // id: %7
+
+bb1:                                              // Preds: bb0
+  %8 = integer_literal $Builtin.IntLiteral, 0     // user: %11
+  %9 = metatype $@thin Int.Type                   // user: %11
+  // function_ref Int.init(_builtinIntegerLiteral:)
+  %10 = function_ref @Swift.Int.init(_builtinIntegerLiteral: Builtin.IntLiteral) -> Swift.Int : $@convention(method) (Builtin.IntLiteral, @thin Int.Type) -> Int // user: %11
+  %11 = apply %10(%8, %9) : $@convention(method) (Builtin.IntLiteral, @thin Int.Type) -> Int // user: %13
+  %12 = begin_access [modify] [unknown] %6 : $*Int // users: %14, %13
+  assign %11 to %12 : $*Int                       // id: %13
+  end_access %12 : $*Int                          // id: %14
+  %15 = begin_access [read] [unknown] %6 : $*Int  // users: %17, %16
+  %16 = load [trivial] %15 : $*Int                // user: %19
+  end_access %15 : $*Int                          // id: %17
+  %18 = alloc_stack $Int                          // users: %24, %22, %19
+  store %16 to [trivial] %18 : $*Int              // id: %19
+  %20 = begin_access [modify] [unknown] %0 : $*Hasher // users: %23, %22
+  // function_ref Hasher.combine<A>(_:)
+  %21 = function_ref @Swift.Hasher.combine<A where A: Swift.Hashable>(A) -> () : $@convention(method) <τ_0_0 where τ_0_0 : Hashable> (@in_guaranteed τ_0_0, @inout Hasher) -> () // user: %22
+  %22 = apply %21<Int>(%18, %20) : $@convention(method) <τ_0_0 where τ_0_0 : Hashable> (@in_guaranteed τ_0_0, @inout Hasher) -> ()
+  end_access %20 : $*Hasher                       // id: %23
+  dealloc_stack %18 : $*Int                       // id: %24
+  destroy_value %5 : ${ var Int }                 // id: %25
+  %26 = tuple ()                                  // user: %27
+  return %26 : $()                                // id: %27
+} // end sil function 'MMPoint.TestJsonStruct.(CodingKeys in _7D4DEB83CDE18722DA21D9D4858DE5E2).hash(into: inout Swift.Hasher) -> ()'
+
+// TestJsonStruct.CodingKeys.init(stringValue:)
+sil private [ossa] @MMPoint.TestJsonStruct.(CodingKeys in _7D4DEB83CDE18722DA21D9D4858DE5E2).init(stringValue: Swift.String) -> MMPoint.TestJsonStruct.(CodingKeys in _7D4DEB83CDE18722DA21D9D4858DE5E2)? : $@convention(method) (@owned String, @thin TestJsonStruct.CodingKeys.Type) -> Optional<TestJsonStruct.CodingKeys> {
+// %0 "stringValue"                               // users: %43, %6, %46, %5
+// %1 "$metatype"
+bb0(%0 : @owned $String, %1 : $@thin TestJsonStruct.CodingKeys.Type):
+  %2 = alloc_box ${ var TestJsonStruct.CodingKeys } // user: %3
+  %3 = mark_uninitialized [delegatingself] %2 : ${ var TestJsonStruct.CodingKeys } // users: %44, %47, %4
+  %4 = project_box %3 : ${ var TestJsonStruct.CodingKeys }, 0 // users: %41, %31
+  debug_value %0 : $String, let, name "stringValue", argno 1, implicit // id: %5
+  %6 = begin_borrow %0 : $String                  // users: %39, %34, %7
+  %7 = copy_value %6 : $String                    // users: %28, %37, %8
+  %8 = begin_borrow [lexical] %7 : $String        // users: %27, %36, %18
+  %9 = string_literal utf8 "text"                 // user: %14
+  %10 = integer_literal $Builtin.Word, 4          // user: %14
+  %11 = integer_literal $Builtin.Int1, -1         // user: %14
+  %12 = metatype $@thin String.Type               // user: %14
+  // function_ref String.init(_builtinStringLiteral:utf8CodeUnitCount:isASCII:)
+  %13 = function_ref @Swift.String.init(_builtinStringLiteral: Builtin.RawPointer, utf8CodeUnitCount: Builtin.Word, isASCII: Builtin.Int1) -> Swift.String : $@convention(method) (Builtin.RawPointer, Builtin.Word, Builtin.Int1, @thin String.Type) -> @owned String // user: %14
+  %14 = apply %13(%9, %10, %11, %12) : $@convention(method) (Builtin.RawPointer, Builtin.Word, Builtin.Int1, @thin String.Type) -> @owned String // user: %16
+  %15 = alloc_stack $String                       // users: %24, %23, %20, %16
+  store %14 to [init] %15 : $*String              // id: %16
+  %17 = alloc_stack $String                       // users: %22, %18
+  %18 = store_borrow %8 to %17 : $*String         // users: %21, %20
+  // function_ref ~= infix<A>(_:_:)
+  %19 = function_ref @Swift.~= infix<A where A: Swift.Equatable>(A, A) -> Swift.Bool : $@convention(thin) <τ_0_0 where τ_0_0 : Equatable> (@in_guaranteed τ_0_0, @in_guaranteed τ_0_0) -> Bool // user: %20
+  %20 = apply %19<String>(%15, %18) : $@convention(thin) <τ_0_0 where τ_0_0 : Equatable> (@in_guaranteed τ_0_0, @in_guaranteed τ_0_0) -> Bool // user: %25
+  end_borrow %18 : $*String                       // id: %21
+  dealloc_stack %17 : $*String                    // id: %22
+  destroy_addr %15 : $*String                     // id: %23
+  dealloc_stack %15 : $*String                    // id: %24
+  %25 = struct_extract %20 : $Bool, #Bool._value  // user: %26
+  cond_br %25, bb1, bb2                           // id: %26
+
+bb1:                                              // Preds: bb0
+  end_borrow %8 : $String                         // id: %27
+  destroy_value %7 : $String                      // id: %28
+  %29 = metatype $@thin TestJsonStruct.CodingKeys.Type
+  %30 = enum $TestJsonStruct.CodingKeys, #TestJsonStruct.CodingKeys.text!enumelt // user: %32
+  %31 = begin_access [modify] [unknown] %4 : $*TestJsonStruct.CodingKeys // users: %33, %32
+  assign %30 to %31 : $*TestJsonStruct.CodingKeys // id: %32
+  end_access %31 : $*TestJsonStruct.CodingKeys    // id: %33
+  end_borrow %6 : $String                         // id: %34
+  br bb4                                          // id: %35
+
+bb2:                                              // Preds: bb0
+  end_borrow %8 : $String                         // id: %36
+  destroy_value %7 : $String                      // id: %37
+  br bb3                                          // id: %38
+
+bb3:                                              // Preds: bb2
+  end_borrow %6 : $String                         // id: %39
+  br bb5                                          // id: %40
+
+bb4:                                              // Preds: bb1
+  %41 = load [trivial] %4 : $*TestJsonStruct.CodingKeys // user: %42
+  %42 = enum $Optional<TestJsonStruct.CodingKeys>, #Optional.some!enumelt, %41 : $TestJsonStruct.CodingKeys // user: %45
+  destroy_value %0 : $String                      // id: %43
+  destroy_value %3 : ${ var TestJsonStruct.CodingKeys } // id: %44
+  br bb6(%42 : $Optional<TestJsonStruct.CodingKeys>) // id: %45
+
+bb5:                                              // Preds: bb3
+  destroy_value %0 : $String                      // id: %46
+  destroy_value %3 : ${ var TestJsonStruct.CodingKeys } // id: %47
+  %48 = enum $Optional<TestJsonStruct.CodingKeys>, #Optional.none!enumelt // user: %49
+  br bb6(%48 : $Optional<TestJsonStruct.CodingKeys>) // id: %49
+
+// %50                                            // user: %51
+bb6(%50 : $Optional<TestJsonStruct.CodingKeys>):  // Preds: bb4 bb5
+  return %50 : $Optional<TestJsonStruct.CodingKeys> // id: %51
+} // end sil function 'MMPoint.TestJsonStruct.(CodingKeys in _7D4DEB83CDE18722DA21D9D4858DE5E2).init(stringValue: Swift.String) -> MMPoint.TestJsonStruct.(CodingKeys in _7D4DEB83CDE18722DA21D9D4858DE5E2)?'
+
+// TestJsonStruct.CodingKeys.init(intValue:)
+sil private [ossa] @MMPoint.TestJsonStruct.(CodingKeys in _7D4DEB83CDE18722DA21D9D4858DE5E2).init(intValue: Swift.Int) -> MMPoint.TestJsonStruct.(CodingKeys in _7D4DEB83CDE18722DA21D9D4858DE5E2)? : $@convention(method) (Int, @thin TestJsonStruct.CodingKeys.Type) -> Optional<TestJsonStruct.CodingKeys> {
+// %0 "intValue"                                  // user: %5
+// %1 "$metatype"
+bb0(%0 : $Int, %1 : $@thin TestJsonStruct.CodingKeys.Type):
+  %2 = alloc_box ${ var TestJsonStruct.CodingKeys } // user: %3
+  %3 = mark_uninitialized [delegatingself] %2 : ${ var TestJsonStruct.CodingKeys } // users: %7, %4
+  %4 = project_box %3 : ${ var TestJsonStruct.CodingKeys }, 0
+  debug_value %0 : $Int, let, name "intValue", argno 1, implicit // id: %5
+  br bb1                                          // id: %6
+
+bb1:                                              // Preds: bb0
+  destroy_value %3 : ${ var TestJsonStruct.CodingKeys } // id: %7
+  %8 = enum $Optional<TestJsonStruct.CodingKeys>, #Optional.none!enumelt // user: %9
+  br bb2(%8 : $Optional<TestJsonStruct.CodingKeys>) // id: %9
+
+// %10                                            // user: %11
+bb2(%10 : $Optional<TestJsonStruct.CodingKeys>):  // Preds: bb1
+  return %10 : $Optional<TestJsonStruct.CodingKeys> // id: %11
+} // end sil function 'MMPoint.TestJsonStruct.(CodingKeys in _7D4DEB83CDE18722DA21D9D4858DE5E2).init(intValue: Swift.Int) -> MMPoint.TestJsonStruct.(CodingKeys in _7D4DEB83CDE18722DA21D9D4858DE5E2)?'
+
+// TestJsonStruct.CodingKeys.hashValue.getter
+sil private [ossa] @MMPoint.TestJsonStruct.(CodingKeys in _7D4DEB83CDE18722DA21D9D4858DE5E2).hashValue.getter : Swift.Int : $@convention(method) (TestJsonStruct.CodingKeys) -> Int {
+// %0 "self"                                      // users: %3, %1
+bb0(%0 : $TestJsonStruct.CodingKeys):
+  debug_value %0 : $TestJsonStruct.CodingKeys, let, name "self", argno 1, implicit // id: %1
+  %2 = alloc_stack $TestJsonStruct.CodingKeys     // users: %6, %5, %3
+  store %0 to [trivial] %2 : $*TestJsonStruct.CodingKeys // id: %3
+  // function_ref _hashValue<A>(for:)
+  %4 = function_ref @Swift._hashValue<A where A: Swift.Hashable>(for: A) -> Swift.Int : $@convention(thin) <τ_0_0 where τ_0_0 : Hashable> (@in_guaranteed τ_0_0) -> Int // user: %5
+  %5 = apply %4<TestJsonStruct.CodingKeys>(%2) : $@convention(thin) <τ_0_0 where τ_0_0 : Hashable> (@in_guaranteed τ_0_0) -> Int // user: %7
+  dealloc_stack %2 : $*TestJsonStruct.CodingKeys  // id: %6
+  return %5 : $Int                                // id: %7
+} // end sil function 'MMPoint.TestJsonStruct.(CodingKeys in _7D4DEB83CDE18722DA21D9D4858DE5E2).hashValue.getter : Swift.Int'
+
+// TestJsonStruct.CodingKeys.intValue.getter
+sil private [ossa] @MMPoint.TestJsonStruct.(CodingKeys in _7D4DEB83CDE18722DA21D9D4858DE5E2).intValue.getter : Swift.Int? : $@convention(method) (TestJsonStruct.CodingKeys) -> Optional<Int> {
+// %0 "self"                                      // user: %1
+bb0(%0 : $TestJsonStruct.CodingKeys):
+  debug_value %0 : $TestJsonStruct.CodingKeys, let, name "self", argno 1, implicit // id: %1
+  %2 = enum $Optional<Int>, #Optional.none!enumelt // user: %3
+  return %2 : $Optional<Int>                      // id: %3
+} // end sil function 'MMPoint.TestJsonStruct.(CodingKeys in _7D4DEB83CDE18722DA21D9D4858DE5E2).intValue.getter : Swift.Int?'
+
+// TestJsonStruct.CodingKeys.stringValue.getter
+sil private [ossa] @MMPoint.TestJsonStruct.(CodingKeys in _7D4DEB83CDE18722DA21D9D4858DE5E2).stringValue.getter : Swift.String : $@convention(method) (TestJsonStruct.CodingKeys) -> @owned String {
+// %0 "self"                                      // users: %2, %1
+bb0(%0 : $TestJsonStruct.CodingKeys):
+  debug_value %0 : $TestJsonStruct.CodingKeys, let, name "self", argno 1, implicit // id: %1
+  switch_enum %0 : $TestJsonStruct.CodingKeys, case #TestJsonStruct.CodingKeys.text!enumelt: bb1 // id: %2
+
+bb1:                                              // Preds: bb0
+  %3 = string_literal utf8 "text"                 // user: %8
+  %4 = integer_literal $Builtin.Word, 4           // user: %8
+  %5 = integer_literal $Builtin.Int1, -1          // user: %8
+  %6 = metatype $@thin String.Type                // user: %8
+  // function_ref String.init(_builtinStringLiteral:utf8CodeUnitCount:isASCII:)
+  %7 = function_ref @Swift.String.init(_builtinStringLiteral: Builtin.RawPointer, utf8CodeUnitCount: Builtin.Word, isASCII: Builtin.Int1) -> Swift.String : $@convention(method) (Builtin.RawPointer, Builtin.Word, Builtin.Int1, @thin String.Type) -> @owned String // user: %8
+  %8 = apply %7(%3, %4, %5, %6) : $@convention(method) (Builtin.RawPointer, Builtin.Word, Builtin.Int1, @thin String.Type) -> @owned String // user: %9
+  return %8 : $String                             // id: %9
+} // end sil function 'MMPoint.TestJsonStruct.(CodingKeys in _7D4DEB83CDE18722DA21D9D4858DE5E2).stringValue.getter : Swift.String'
+
+// protocol witness for static Equatable.== infix(_:_:) in conformance TestJsonStruct.CodingKeys
+sil private [transparent] [thunk] [ossa] @protocol witness for static Swift.Equatable.== infix(A, A) -> Swift.Bool in conformance MMPoint.TestJsonStruct.(CodingKeys in _7D4DEB83CDE18722DA21D9D4858DE5E2) : Swift.Equatable in MMPoint : $@convention(witness_method: Equatable) (@in_guaranteed TestJsonStruct.CodingKeys, @in_guaranteed TestJsonStruct.CodingKeys, @thick TestJsonStruct.CodingKeys.Type) -> Bool {
+// %0                                             // user: %3
+// %1                                             // user: %4
+bb0(%0 : $*TestJsonStruct.CodingKeys, %1 : $*TestJsonStruct.CodingKeys, %2 : $@thick TestJsonStruct.CodingKeys.Type):
+  %3 = load [trivial] %0 : $*TestJsonStruct.CodingKeys // user: %7
+  %4 = load [trivial] %1 : $*TestJsonStruct.CodingKeys // user: %7
+  %5 = metatype $@thin TestJsonStruct.CodingKeys.Type // user: %7
+  // function_ref static TestJsonStruct.CodingKeys.__derived_enum_equals(_:_:)
+  %6 = function_ref @static MMPoint.TestJsonStruct.(CodingKeys in _7D4DEB83CDE18722DA21D9D4858DE5E2).__derived_enum_equals(MMPoint.TestJsonStruct.(CodingKeys in _7D4DEB83CDE18722DA21D9D4858DE5E2), MMPoint.TestJsonStruct.(CodingKeys in _7D4DEB83CDE18722DA21D9D4858DE5E2)) -> Swift.Bool : $@convention(method) (TestJsonStruct.CodingKeys, TestJsonStruct.CodingKeys, @thin TestJsonStruct.CodingKeys.Type) -> Bool // user: %7
+  %7 = apply %6(%3, %4, %5) : $@convention(method) (TestJsonStruct.CodingKeys, TestJsonStruct.CodingKeys, @thin TestJsonStruct.CodingKeys.Type) -> Bool // user: %8
+  return %7 : $Bool                               // id: %8
+} // end sil function 'protocol witness for static Swift.Equatable.== infix(A, A) -> Swift.Bool in conformance MMPoint.TestJsonStruct.(CodingKeys in _7D4DEB83CDE18722DA21D9D4858DE5E2) : Swift.Equatable in MMPoint'
+
+// protocol witness for Hashable.hashValue.getter in conformance TestJsonStruct.CodingKeys
+sil private [transparent] [thunk] [ossa] @protocol witness for Swift.Hashable.hashValue.getter : Swift.Int in conformance MMPoint.TestJsonStruct.(CodingKeys in _7D4DEB83CDE18722DA21D9D4858DE5E2) : Swift.Hashable in MMPoint : $@convention(witness_method: Hashable) (@in_guaranteed TestJsonStruct.CodingKeys) -> Int {
+// %0                                             // user: %1
+bb0(%0 : $*TestJsonStruct.CodingKeys):
+  %1 = load [trivial] %0 : $*TestJsonStruct.CodingKeys // user: %3
+  // function_ref TestJsonStruct.CodingKeys.hashValue.getter
+  %2 = function_ref @MMPoint.TestJsonStruct.(CodingKeys in _7D4DEB83CDE18722DA21D9D4858DE5E2).hashValue.getter : Swift.Int : $@convention(method) (TestJsonStruct.CodingKeys) -> Int // user: %3
+  %3 = apply %2(%1) : $@convention(method) (TestJsonStruct.CodingKeys) -> Int // user: %4
+  return %3 : $Int                                // id: %4
+} // end sil function 'protocol witness for Swift.Hashable.hashValue.getter : Swift.Int in conformance MMPoint.TestJsonStruct.(CodingKeys in _7D4DEB83CDE18722DA21D9D4858DE5E2) : Swift.Hashable in MMPoint'
+
+// protocol witness for Hashable.hash(into:) in conformance TestJsonStruct.CodingKeys
+sil private [transparent] [thunk] [ossa] @protocol witness for Swift.Hashable.hash(into: inout Swift.Hasher) -> () in conformance MMPoint.TestJsonStruct.(CodingKeys in _7D4DEB83CDE18722DA21D9D4858DE5E2) : Swift.Hashable in MMPoint : $@convention(witness_method: Hashable) (@inout Hasher, @in_guaranteed TestJsonStruct.CodingKeys) -> () {
+// %0                                             // user: %4
+// %1                                             // user: %2
+bb0(%0 : $*Hasher, %1 : $*TestJsonStruct.CodingKeys):
+  %2 = load [trivial] %1 : $*TestJsonStruct.CodingKeys // user: %4
+  // function_ref TestJsonStruct.CodingKeys.hash(into:)
+  %3 = function_ref @MMPoint.TestJsonStruct.(CodingKeys in _7D4DEB83CDE18722DA21D9D4858DE5E2).hash(into: inout Swift.Hasher) -> () : $@convention(method) (@inout Hasher, TestJsonStruct.CodingKeys) -> () // user: %4
+  %4 = apply %3(%0, %2) : $@convention(method) (@inout Hasher, TestJsonStruct.CodingKeys) -> ()
+  %5 = tuple ()                                   // user: %6
+  return %5 : $()                                 // id: %6
+} // end sil function 'protocol witness for Swift.Hashable.hash(into: inout Swift.Hasher) -> () in conformance MMPoint.TestJsonStruct.(CodingKeys in _7D4DEB83CDE18722DA21D9D4858DE5E2) : Swift.Hashable in MMPoint'
+
+// protocol witness for Hashable._rawHashValue(seed:) in conformance TestJsonStruct.CodingKeys
+sil private [transparent] [thunk] [always_inline] [ossa] @protocol witness for Swift.Hashable._rawHashValue(seed: Swift.Int) -> Swift.Int in conformance MMPoint.TestJsonStruct.(CodingKeys in _7D4DEB83CDE18722DA21D9D4858DE5E2) : Swift.Hashable in MMPoint : $@convention(witness_method: Hashable) (Int, @in_guaranteed TestJsonStruct.CodingKeys) -> Int {
+// %0                                             // user: %3
+// %1                                             // user: %3
+bb0(%0 : $Int, %1 : $*TestJsonStruct.CodingKeys):
+  // function_ref Hashable._rawHashValue(seed:)
+  %2 = function_ref @(extension in Swift):Swift.Hashable._rawHashValue(seed: Swift.Int) -> Swift.Int : $@convention(method) <τ_0_0 where τ_0_0 : Hashable> (Int, @in_guaranteed τ_0_0) -> Int // user: %3
+  %3 = apply %2<TestJsonStruct.CodingKeys>(%0, %1) : $@convention(method) <τ_0_0 where τ_0_0 : Hashable> (Int, @in_guaranteed τ_0_0) -> Int // user: %4
+  return %3 : $Int                                // id: %4
+} // end sil function 'protocol witness for Swift.Hashable._rawHashValue(seed: Swift.Int) -> Swift.Int in conformance MMPoint.TestJsonStruct.(CodingKeys in _7D4DEB83CDE18722DA21D9D4858DE5E2) : Swift.Hashable in MMPoint'
+
+// Hashable._rawHashValue(seed:)
+sil [serialized] [always_inline] @(extension in Swift):Swift.Hashable._rawHashValue(seed: Swift.Int) -> Swift.Int : $@convention(method) <τ_0_0 where τ_0_0 : Hashable> (Int, @in_guaranteed τ_0_0) -> Int
+
+// protocol witness for CodingKey.stringValue.getter in conformance TestJsonStruct.CodingKeys
+sil private [transparent] [thunk] [ossa] @protocol witness for Swift.CodingKey.stringValue.getter : Swift.String in conformance MMPoint.TestJsonStruct.(CodingKeys in _7D4DEB83CDE18722DA21D9D4858DE5E2) : Swift.CodingKey in MMPoint : $@convention(witness_method: CodingKey) (@in_guaranteed TestJsonStruct.CodingKeys) -> @owned String {
+// %0                                             // user: %1
+bb0(%0 : $*TestJsonStruct.CodingKeys):
+  %1 = load [trivial] %0 : $*TestJsonStruct.CodingKeys // user: %3
+  // function_ref TestJsonStruct.CodingKeys.stringValue.getter
+  %2 = function_ref @MMPoint.TestJsonStruct.(CodingKeys in _7D4DEB83CDE18722DA21D9D4858DE5E2).stringValue.getter : Swift.String : $@convention(method) (TestJsonStruct.CodingKeys) -> @owned String // user: %3
+  %3 = apply %2(%1) : $@convention(method) (TestJsonStruct.CodingKeys) -> @owned String // user: %4
+  return %3 : $String                             // id: %4
+} // end sil function 'protocol witness for Swift.CodingKey.stringValue.getter : Swift.String in conformance MMPoint.TestJsonStruct.(CodingKeys in _7D4DEB83CDE18722DA21D9D4858DE5E2) : Swift.CodingKey in MMPoint'
+
+// protocol witness for CodingKey.init(stringValue:) in conformance TestJsonStruct.CodingKeys
+sil private [transparent] [thunk] [ossa] @protocol witness for Swift.CodingKey.init(stringValue: Swift.String) -> A? in conformance MMPoint.TestJsonStruct.(CodingKeys in _7D4DEB83CDE18722DA21D9D4858DE5E2) : Swift.CodingKey in MMPoint : $@convention(witness_method: CodingKey) (@owned String, @thick TestJsonStruct.CodingKeys.Type) -> @out Optional<TestJsonStruct.CodingKeys> {
+// %0                                             // user: %6
+// %1                                             // user: %5
+bb0(%0 : $*Optional<TestJsonStruct.CodingKeys>, %1 : @owned $String, %2 : $@thick TestJsonStruct.CodingKeys.Type):
+  %3 = metatype $@thin TestJsonStruct.CodingKeys.Type // user: %5
+  // function_ref TestJsonStruct.CodingKeys.init(stringValue:)
+  %4 = function_ref @MMPoint.TestJsonStruct.(CodingKeys in _7D4DEB83CDE18722DA21D9D4858DE5E2).init(stringValue: Swift.String) -> MMPoint.TestJsonStruct.(CodingKeys in _7D4DEB83CDE18722DA21D9D4858DE5E2)? : $@convention(method) (@owned String, @thin TestJsonStruct.CodingKeys.Type) -> Optional<TestJsonStruct.CodingKeys> // user: %5
+  %5 = apply %4(%1, %3) : $@convention(method) (@owned String, @thin TestJsonStruct.CodingKeys.Type) -> Optional<TestJsonStruct.CodingKeys> // user: %6
+  store %5 to [trivial] %0 : $*Optional<TestJsonStruct.CodingKeys> // id: %6
+  %7 = tuple ()                                   // user: %8
+  return %7 : $()                                 // id: %8
+} // end sil function 'protocol witness for Swift.CodingKey.init(stringValue: Swift.String) -> A? in conformance MMPoint.TestJsonStruct.(CodingKeys in _7D4DEB83CDE18722DA21D9D4858DE5E2) : Swift.CodingKey in MMPoint'
+
+// protocol witness for CodingKey.intValue.getter in conformance TestJsonStruct.CodingKeys
+sil private [transparent] [thunk] [ossa] @protocol witness for Swift.CodingKey.intValue.getter : Swift.Int? in conformance MMPoint.TestJsonStruct.(CodingKeys in _7D4DEB83CDE18722DA21D9D4858DE5E2) : Swift.CodingKey in MMPoint : $@convention(witness_method: CodingKey) (@in_guaranteed TestJsonStruct.CodingKeys) -> Optional<Int> {
+// %0                                             // user: %1
+bb0(%0 : $*TestJsonStruct.CodingKeys):
+  %1 = load [trivial] %0 : $*TestJsonStruct.CodingKeys // user: %3
+  // function_ref TestJsonStruct.CodingKeys.intValue.getter
+  %2 = function_ref @MMPoint.TestJsonStruct.(CodingKeys in _7D4DEB83CDE18722DA21D9D4858DE5E2).intValue.getter : Swift.Int? : $@convention(method) (TestJsonStruct.CodingKeys) -> Optional<Int> // user: %3
+  %3 = apply %2(%1) : $@convention(method) (TestJsonStruct.CodingKeys) -> Optional<Int> // user: %4
+  return %3 : $Optional<Int>                      // id: %4
+} // end sil function 'protocol witness for Swift.CodingKey.intValue.getter : Swift.Int? in conformance MMPoint.TestJsonStruct.(CodingKeys in _7D4DEB83CDE18722DA21D9D4858DE5E2) : Swift.CodingKey in MMPoint'
+
+// protocol witness for CodingKey.init(intValue:) in conformance TestJsonStruct.CodingKeys
+sil private [transparent] [thunk] [ossa] @protocol witness for Swift.CodingKey.init(intValue: Swift.Int) -> A? in conformance MMPoint.TestJsonStruct.(CodingKeys in _7D4DEB83CDE18722DA21D9D4858DE5E2) : Swift.CodingKey in MMPoint : $@convention(witness_method: CodingKey) (Int, @thick TestJsonStruct.CodingKeys.Type) -> @out Optional<TestJsonStruct.CodingKeys> {
+// %0                                             // user: %6
+// %1                                             // user: %5
+bb0(%0 : $*Optional<TestJsonStruct.CodingKeys>, %1 : $Int, %2 : $@thick TestJsonStruct.CodingKeys.Type):
+  %3 = metatype $@thin TestJsonStruct.CodingKeys.Type // user: %5
+  // function_ref TestJsonStruct.CodingKeys.init(intValue:)
+  %4 = function_ref @MMPoint.TestJsonStruct.(CodingKeys in _7D4DEB83CDE18722DA21D9D4858DE5E2).init(intValue: Swift.Int) -> MMPoint.TestJsonStruct.(CodingKeys in _7D4DEB83CDE18722DA21D9D4858DE5E2)? : $@convention(method) (Int, @thin TestJsonStruct.CodingKeys.Type) -> Optional<TestJsonStruct.CodingKeys> // user: %5
+  %5 = apply %4(%1, %3) : $@convention(method) (Int, @thin TestJsonStruct.CodingKeys.Type) -> Optional<TestJsonStruct.CodingKeys> // user: %6
+  store %5 to [trivial] %0 : $*Optional<TestJsonStruct.CodingKeys> // id: %6
+  %7 = tuple ()                                   // user: %8
+  return %7 : $()                                 // id: %8
+} // end sil function 'protocol witness for Swift.CodingKey.init(intValue: Swift.Int) -> A? in conformance MMPoint.TestJsonStruct.(CodingKeys in _7D4DEB83CDE18722DA21D9D4858DE5E2) : Swift.CodingKey in MMPoint'
+
+// protocol witness for CustomDebugStringConvertible.debugDescription.getter in conformance TestJsonStruct.CodingKeys
+sil private [transparent] [thunk] [ossa] @protocol witness for Swift.CustomDebugStringConvertible.debugDescription.getter : Swift.String in conformance MMPoint.TestJsonStruct.(CodingKeys in _7D4DEB83CDE18722DA21D9D4858DE5E2) : Swift.CustomDebugStringConvertible in MMPoint : $@convention(witness_method: CustomDebugStringConvertible) (@in_guaranteed TestJsonStruct.CodingKeys) -> @owned String {
+// %0                                             // user: %2
+bb0(%0 : $*TestJsonStruct.CodingKeys):
+  // function_ref CodingKey.debugDescription.getter
+  %1 = function_ref @(extension in Swift):Swift.CodingKey.debugDescription.getter : Swift.String : $@convention(method) <τ_0_0 where τ_0_0 : CodingKey> (@in_guaranteed τ_0_0) -> @owned String // user: %2
+  %2 = apply %1<TestJsonStruct.CodingKeys>(%0) : $@convention(method) <τ_0_0 where τ_0_0 : CodingKey> (@in_guaranteed τ_0_0) -> @owned String // user: %3
+  return %2 : $String                             // id: %3
+} // end sil function 'protocol witness for Swift.CustomDebugStringConvertible.debugDescription.getter : Swift.String in conformance MMPoint.TestJsonStruct.(CodingKeys in _7D4DEB83CDE18722DA21D9D4858DE5E2) : Swift.CustomDebugStringConvertible in MMPoint'
+
+// CodingKey.debugDescription.getter
+sil @(extension in Swift):Swift.CodingKey.debugDescription.getter : Swift.String : $@convention(method) <τ_0_0 where τ_0_0 : CodingKey> (@in_guaranteed τ_0_0) -> @owned String
+
+// protocol witness for CustomStringConvertible.description.getter in conformance TestJsonStruct.CodingKeys
+sil private [transparent] [thunk] [ossa] @protocol witness for Swift.CustomStringConvertible.description.getter : Swift.String in conformance MMPoint.TestJsonStruct.(CodingKeys in _7D4DEB83CDE18722DA21D9D4858DE5E2) : Swift.CustomStringConvertible in MMPoint : $@convention(witness_method: CustomStringConvertible) (@in_guaranteed TestJsonStruct.CodingKeys) -> @owned String {
+// %0                                             // user: %2
+bb0(%0 : $*TestJsonStruct.CodingKeys):
+  // function_ref CodingKey.description.getter
+  %1 = function_ref @(extension in Swift):Swift.CodingKey.description.getter : Swift.String : $@convention(method) <τ_0_0 where τ_0_0 : CodingKey> (@in_guaranteed τ_0_0) -> @owned String // user: %2
+  %2 = apply %1<TestJsonStruct.CodingKeys>(%0) : $@convention(method) <τ_0_0 where τ_0_0 : CodingKey> (@in_guaranteed τ_0_0) -> @owned String // user: %3
+  return %2 : $String                             // id: %3
+} // end sil function 'protocol witness for Swift.CustomStringConvertible.description.getter : Swift.String in conformance MMPoint.TestJsonStruct.(CodingKeys in _7D4DEB83CDE18722DA21D9D4858DE5E2) : Swift.CustomStringConvertible in MMPoint'
+
+// CodingKey.description.getter
+sil @(extension in Swift):Swift.CodingKey.description.getter : Swift.String : $@convention(method) <τ_0_0 where τ_0_0 : CodingKey> (@in_guaranteed τ_0_0) -> @owned String
+
+// TestJsonStruct.encode(to:)
+sil hidden [ossa] @MMPoint.TestJsonStruct.encode(to: Swift.Encoder) throws -> () : $@convention(method) (@in_guaranteed any Encoder, @guaranteed TestJsonStruct) -> @error any Error {
+// %0 "encoder"                                   // users: %8, %2
+// %1 "self"                                      // users: %13, %3
+bb0(%0 : $*any Encoder, %1 : @guaranteed $TestJsonStruct):
+  debug_value %0 : $*any Encoder, let, name "encoder", argno 1, implicit, expr op_deref // id: %2
+  debug_value %1 : $TestJsonStruct, let, name "self", argno 2, implicit // id: %3
+  debug_value undef : $any Error, var, name "$error", argno 3 // id: %4
+  %5 = alloc_box ${ var KeyedEncodingContainer<TestJsonStruct.CodingKeys> } // users: %27, %35, %6
+  %6 = begin_borrow [lexical] %5 : ${ var KeyedEncodingContainer<TestJsonStruct.CodingKeys> } // users: %26, %34, %7
+  %7 = project_box %6 : ${ var KeyedEncodingContainer<TestJsonStruct.CodingKeys> }, 0 // users: %19, %12
+  %8 = open_existential_addr immutable_access %0 : $*any Encoder to $*@opened("034BD4AA-ABB9-11EE-B9E9-5209EABF2191", any Encoder) Self // users: %12, %12, %11
+  %9 = metatype $@thin TestJsonStruct.CodingKeys.Type
+  %10 = metatype $@thick TestJsonStruct.CodingKeys.Type // user: %12
+  %11 = witness_method $@opened("034BD4AA-ABB9-11EE-B9E9-5209EABF2191", any Encoder) Self, #Encoder.container : <Self where Self : Encoder><Key where Key : CodingKey> (Self) -> (Key.Type) -> KeyedEncodingContainer<Key>, %8 : $*@opened("034BD4AA-ABB9-11EE-B9E9-5209EABF2191", any Encoder) Self : $@convention(witness_method: Encoder) <τ_0_0 where τ_0_0 : Encoder><τ_1_0 where τ_1_0 : CodingKey> (@thick τ_1_0.Type, @in_guaranteed τ_0_0) -> @out KeyedEncodingContainer<τ_1_0> // type-defs: %8; user: %12
+  %12 = apply %11<@opened("034BD4AA-ABB9-11EE-B9E9-5209EABF2191", any Encoder) Self, TestJsonStruct.CodingKeys>(%7, %10, %8) : $@convention(witness_method: Encoder) <τ_0_0 where τ_0_0 : Encoder><τ_1_0 where τ_1_0 : CodingKey> (@thick τ_1_0.Type, @in_guaranteed τ_0_0) -> @out KeyedEncodingContainer<τ_1_0> // type-defs: %8
+  %13 = struct_extract %1 : $TestJsonStruct, #TestJsonStruct.text // user: %14
+  %14 = copy_value %13 : $Optional<String>        // users: %25, %21, %33
+  %15 = metatype $@thin TestJsonStruct.CodingKeys.Type
+  %16 = enum $TestJsonStruct.CodingKeys, #TestJsonStruct.CodingKeys.text!enumelt // user: %18
+  %17 = alloc_stack $TestJsonStruct.CodingKeys    // users: %24, %21, %32, %18
+  store %16 to [trivial] %17 : $*TestJsonStruct.CodingKeys // id: %18
+  %19 = begin_access [modify] [unknown] %7 : $*KeyedEncodingContainer<TestJsonStruct.CodingKeys> // users: %23, %21, %31
+  // function_ref KeyedEncodingContainer.encodeIfPresent(_:forKey:)
+  %20 = function_ref @Swift.KeyedEncodingContainer.encodeIfPresent(_: Swift.String?, forKey: A) throws -> () : $@convention(method) <τ_0_0 where τ_0_0 : CodingKey> (@guaranteed Optional<String>, @in_guaranteed τ_0_0, @inout KeyedEncodingContainer<τ_0_0>) -> @error any Error // user: %21
+  try_apply %20<TestJsonStruct.CodingKeys>(%14, %17, %19) : $@convention(method) <τ_0_0 where τ_0_0 : CodingKey> (@guaranteed Optional<String>, @in_guaranteed τ_0_0, @inout KeyedEncodingContainer<τ_0_0>) -> @error any Error, normal bb1, error bb2 // id: %21
+
+bb1(%22 : $()):                                   // Preds: bb0
+  end_access %19 : $*KeyedEncodingContainer<TestJsonStruct.CodingKeys> // id: %23
+  dealloc_stack %17 : $*TestJsonStruct.CodingKeys // id: %24
+  destroy_value %14 : $Optional<String>           // id: %25
+  end_borrow %6 : ${ var KeyedEncodingContainer<TestJsonStruct.CodingKeys> } // id: %26
+  destroy_value %5 : ${ var KeyedEncodingContainer<TestJsonStruct.CodingKeys> } // id: %27
+  %28 = tuple ()                                  // user: %29
+  return %28 : $()                                // id: %29
+
+// %30                                            // user: %36
+bb2(%30 : @owned $any Error):                     // Preds: bb0
+  end_access %19 : $*KeyedEncodingContainer<TestJsonStruct.CodingKeys> // id: %31
+  dealloc_stack %17 : $*TestJsonStruct.CodingKeys // id: %32
+  destroy_value %14 : $Optional<String>           // id: %33
+  end_borrow %6 : ${ var KeyedEncodingContainer<TestJsonStruct.CodingKeys> } // id: %34
+  destroy_value %5 : ${ var KeyedEncodingContainer<TestJsonStruct.CodingKeys> } // id: %35
+  throw %30 : $any Error                          // id: %36
+} // end sil function 'MMPoint.TestJsonStruct.encode(to: Swift.Encoder) throws -> ()'
+
+// KeyedEncodingContainer.encodeIfPresent(_:forKey:)
+sil @Swift.KeyedEncodingContainer.encodeIfPresent(_: Swift.String?, forKey: A) throws -> () : $@convention(method) <τ_0_0 where τ_0_0 : CodingKey> (@guaranteed Optional<String>, @in_guaranteed τ_0_0, @inout KeyedEncodingContainer<τ_0_0>) -> @error any Error
+
+// TestJsonStruct.init()
+sil hidden [ossa] @MMPoint.TestJsonStruct.init() -> MMPoint.TestJsonStruct : $@convention(method) (@thin TestJsonStruct.Type) -> @owned TestJsonStruct {
+// %0 "$metatype"
+bb0(%0 : $@thin TestJsonStruct.Type):
+  %1 = alloc_box ${ var TestJsonStruct }, var, name "self" // user: %2
+  %2 = mark_uninitialized [rootself] %1 : ${ var TestJsonStruct } // users: %11, %3
+  %3 = begin_borrow [lexical] %2 : ${ var TestJsonStruct } // users: %10, %4
+  %4 = project_box %3 : ${ var TestJsonStruct }, 0 // users: %9, %5
+  %5 = struct_element_addr %4 : $*TestJsonStruct, #TestJsonStruct.text // user: %8
+  // function_ref variable initialization expression of TestJsonStruct.text
+  %6 = function_ref @variable initialization expression of MMPoint.TestJsonStruct.text : Swift.String? : $@convention(thin) () -> @owned Optional<String> // user: %7
+  %7 = apply %6() : $@convention(thin) () -> @owned Optional<String> // user: %8
+  store %7 to [init] %5 : $*Optional<String>      // id: %8
+  %9 = load [copy] %4 : $*TestJsonStruct          // user: %12
+  end_borrow %3 : ${ var TestJsonStruct }         // id: %10
+  destroy_value %2 : ${ var TestJsonStruct }      // id: %11
+  return %9 : $TestJsonStruct                     // id: %12
+} // end sil function 'MMPoint.TestJsonStruct.init() -> MMPoint.TestJsonStruct'
+
+// TestJsonStruct.init(from:)
+sil hidden [ossa] @MMPoint.TestJsonStruct.init(from: Swift.Decoder) throws -> MMPoint.TestJsonStruct : $@convention(method) (@in any Decoder, @thin TestJsonStruct.Type) -> (@owned TestJsonStruct, @error any Error) {
+// %0 "decoder"                                   // users: %48, %35, %13, %6
+// %1 "$metatype"
+bb0(%0 : $*any Decoder, %1 : $@thin TestJsonStruct.Type):
+  %2 = alloc_box ${ var TestJsonStruct }          // user: %3
+  %3 = mark_uninitialized [rootself] %2 : ${ var TestJsonStruct } // users: %50, %37, %4
+  %4 = begin_borrow [lexical] %3 : ${ var TestJsonStruct } // users: %49, %36, %5
+  %5 = project_box %4 : ${ var TestJsonStruct }, 0 // users: %34, %28, %8
+  debug_value %0 : $*any Decoder, let, name "decoder", argno 1, implicit, expr op_deref // id: %6
+  debug_value undef : $any Error, var, name "$error", argno 2 // id: %7
+  %8 = struct_element_addr %5 : $*TestJsonStruct, #TestJsonStruct.text // user: %11
+  // function_ref variable initialization expression of TestJsonStruct.text
+  %9 = function_ref @variable initialization expression of MMPoint.TestJsonStruct.text : Swift.String? : $@convention(thin) () -> @owned Optional<String> // user: %10
+  %10 = apply %9() : $@convention(thin) () -> @owned Optional<String> // user: %11
+  store %10 to [init] %8 : $*Optional<String>     // id: %11
+  %12 = alloc_stack [lexical] $KeyedDecodingContainer<TestJsonStruct.CodingKeys> // users: %33, %32, %25, %45, %44, %17, %40
+  %13 = open_existential_addr immutable_access %0 : $*any Decoder to $*@opened("03433728-ABB9-11EE-B9E9-5209EABF2191", any Decoder) Self // users: %17, %17, %16
+  %14 = metatype $@thin TestJsonStruct.CodingKeys.Type
+  %15 = metatype $@thick TestJsonStruct.CodingKeys.Type // user: %17
+  %16 = witness_method $@opened("03433728-ABB9-11EE-B9E9-5209EABF2191", any Decoder) Self, #Decoder.container : <Self where Self : Decoder><Key where Key : CodingKey> (Self) -> (Key.Type) throws -> KeyedDecodingContainer<Key>, %13 : $*@opened("03433728-ABB9-11EE-B9E9-5209EABF2191", any Decoder) Self : $@convention(witness_method: Decoder) <τ_0_0 where τ_0_0 : Decoder><τ_1_0 where τ_1_0 : CodingKey> (@thick τ_1_0.Type, @in_guaranteed τ_0_0) -> (@out KeyedDecodingContainer<τ_1_0>, @error any Error) // type-defs: %13; user: %17
+  try_apply %16<@opened("03433728-ABB9-11EE-B9E9-5209EABF2191", any Decoder) Self, TestJsonStruct.CodingKeys>(%12, %15, %13) : $@convention(witness_method: Decoder) <τ_0_0 where τ_0_0 : Decoder><τ_1_0 where τ_1_0 : CodingKey> (@thick τ_1_0.Type, @in_guaranteed τ_0_0) -> (@out KeyedDecodingContainer<τ_1_0>, @error any Error), normal bb1, error bb3 // type-defs: %13; id: %17
+
+bb1(%18 : $()):                                   // Preds: bb0
+  %19 = metatype $@thin String.Type               // user: %25
+  %20 = metatype $@thin TestJsonStruct.CodingKeys.Type
+  %21 = enum $TestJsonStruct.CodingKeys, #TestJsonStruct.CodingKeys.text!enumelt // user: %23
+  %22 = alloc_stack $TestJsonStruct.CodingKeys    // users: %27, %25, %43, %23
+  store %21 to [trivial] %22 : $*TestJsonStruct.CodingKeys // id: %23
+  // function_ref KeyedDecodingContainer.decodeIfPresent(_:forKey:)
+  %24 = function_ref @Swift.KeyedDecodingContainer.decodeIfPresent(_: Swift.String.Type, forKey: A) throws -> Swift.String? : $@convention(method) <τ_0_0 where τ_0_0 : CodingKey> (@thin String.Type, @in_guaranteed τ_0_0, @in_guaranteed KeyedDecodingContainer<τ_0_0>) -> (@owned Optional<String>, @error any Error) // user: %25
+  try_apply %24<TestJsonStruct.CodingKeys>(%19, %22, %12) : $@convention(method) <τ_0_0 where τ_0_0 : CodingKey> (@thin String.Type, @in_guaranteed τ_0_0, @in_guaranteed KeyedDecodingContainer<τ_0_0>) -> (@owned Optional<String>, @error any Error), normal bb2, error bb4 // id: %25
+
+// %26                                            // user: %30
+bb2(%26 : @owned $Optional<String>):              // Preds: bb1
+  dealloc_stack %22 : $*TestJsonStruct.CodingKeys // id: %27
+  %28 = begin_access [modify] [unknown] %5 : $*TestJsonStruct // users: %31, %29
+  %29 = struct_element_addr %28 : $*TestJsonStruct, #TestJsonStruct.text // user: %30
+  assign %26 to %29 : $*Optional<String>          // id: %30
+  end_access %28 : $*TestJsonStruct               // id: %31
+  destroy_addr %12 : $*KeyedDecodingContainer<TestJsonStruct.CodingKeys> // id: %32
+  dealloc_stack %12 : $*KeyedDecodingContainer<TestJsonStruct.CodingKeys> // id: %33
+  %34 = load [copy] %5 : $*TestJsonStruct         // user: %38
+  destroy_addr %0 : $*any Decoder                 // id: %35
+  end_borrow %4 : ${ var TestJsonStruct }         // id: %36
+  destroy_value %3 : ${ var TestJsonStruct }      // id: %37
+  return %34 : $TestJsonStruct                    // id: %38
+
+// %39                                            // user: %41
+bb3(%39 : @owned $any Error):                     // Preds: bb0
+  dealloc_stack %12 : $*KeyedDecodingContainer<TestJsonStruct.CodingKeys> // id: %40
+  br bb5(%39 : $any Error)                        // id: %41
+
+// %42                                            // user: %46
+bb4(%42 : @owned $any Error):                     // Preds: bb1
+  dealloc_stack %22 : $*TestJsonStruct.CodingKeys // id: %43
+  destroy_addr %12 : $*KeyedDecodingContainer<TestJsonStruct.CodingKeys> // id: %44
+  dealloc_stack %12 : $*KeyedDecodingContainer<TestJsonStruct.CodingKeys> // id: %45
+  br bb5(%42 : $any Error)                        // id: %46
+
+// %47                                            // user: %51
+bb5(%47 : @owned $any Error):                     // Preds: bb4 bb3
+  destroy_addr %0 : $*any Decoder                 // id: %48
+  end_borrow %4 : ${ var TestJsonStruct }         // id: %49
+  destroy_value %3 : ${ var TestJsonStruct }      // id: %50
+  throw %47 : $any Error                          // id: %51
+} // end sil function 'MMPoint.TestJsonStruct.init(from: Swift.Decoder) throws -> MMPoint.TestJsonStruct'
+
+// KeyedDecodingContainer.decodeIfPresent(_:forKey:)
+sil @Swift.KeyedDecodingContainer.decodeIfPresent(_: Swift.String.Type, forKey: A) throws -> Swift.String? : $@convention(method) <τ_0_0 where τ_0_0 : CodingKey> (@thin String.Type, @in_guaranteed τ_0_0, @in_guaranteed KeyedDecodingContainer<τ_0_0>) -> (@owned Optional<String>, @error any Error)
+
+// TestJsonStruct.init(text:)
+sil hidden [ossa] @MMPoint.TestJsonStruct.init(text: Swift.String?) -> MMPoint.TestJsonStruct : $@convention(method) (@owned Optional<String>, @thin TestJsonStruct.Type) -> @owned TestJsonStruct {
+// %0 "$implicit_value"                           // user: %2
+// %1 "$metatype"
+bb0(%0 : @owned $Optional<String>, %1 : $@thin TestJsonStruct.Type):
+  %2 = struct $TestJsonStruct (%0 : $Optional<String>) // user: %3
+  return %2 : $TestJsonStruct                     // id: %3
+} // end sil function 'MMPoint.TestJsonStruct.init(text: Swift.String?) -> MMPoint.TestJsonStruct'
+
+// protocol witness for Decodable.init(from:) in conformance TestJsonStruct
+sil private [transparent] [thunk] [ossa] @protocol witness for Swift.Decodable.init(from: Swift.Decoder) throws -> A in conformance MMPoint.TestJsonStruct : Swift.Decodable in MMPoint : $@convention(witness_method: Decodable) (@in any Decoder, @thick TestJsonStruct.Type) -> (@out TestJsonStruct, @error any Error) {
+// %0                                             // user: %7
+// %1                                             // user: %5
+bb0(%0 : $*TestJsonStruct, %1 : $*any Decoder, %2 : $@thick TestJsonStruct.Type):
+  %3 = metatype $@thin TestJsonStruct.Type        // user: %5
+  // function_ref TestJsonStruct.init(from:)
+  %4 = function_ref @MMPoint.TestJsonStruct.init(from: Swift.Decoder) throws -> MMPoint.TestJsonStruct : $@convention(method) (@in any Decoder, @thin TestJsonStruct.Type) -> (@owned TestJsonStruct, @error any Error) // user: %5
+  try_apply %4(%1, %3) : $@convention(method) (@in any Decoder, @thin TestJsonStruct.Type) -> (@owned TestJsonStruct, @error any Error), normal bb1, error bb2 // id: %5
+
+// %6                                             // user: %7
+bb1(%6 : @owned $TestJsonStruct):                 // Preds: bb0
+  store %6 to [init] %0 : $*TestJsonStruct        // id: %7
+  %8 = tuple ()                                   // user: %9
+  return %8 : $()                                 // id: %9
+
+// %10                                            // user: %11
+bb2(%10 : @owned $any Error):                     // Preds: bb0
+  throw %10 : $any Error                          // id: %11
+} // end sil function 'protocol witness for Swift.Decodable.init(from: Swift.Decoder) throws -> A in conformance MMPoint.TestJsonStruct : Swift.Decodable in MMPoint'
+
+// protocol witness for Encodable.encode(to:) in conformance TestJsonStruct
+sil private [transparent] [thunk] [ossa] @protocol witness for Swift.Encodable.encode(to: Swift.Encoder) throws -> () in conformance MMPoint.TestJsonStruct : Swift.Encodable in MMPoint : $@convention(witness_method: Encodable) (@in_guaranteed any Encoder, @in_guaranteed TestJsonStruct) -> @error any Error {
+// %0                                             // user: %4
+// %1                                             // user: %2
+bb0(%0 : $*any Encoder, %1 : $*TestJsonStruct):
+  %2 = load_borrow %1 : $*TestJsonStruct          // users: %7, %10, %4
+  // function_ref TestJsonStruct.encode(to:)
+  %3 = function_ref @MMPoint.TestJsonStruct.encode(to: Swift.Encoder) throws -> () : $@convention(method) (@in_guaranteed any Encoder, @guaranteed TestJsonStruct) -> @error any Error // user: %4
+  try_apply %3(%0, %2) : $@convention(method) (@in_guaranteed any Encoder, @guaranteed TestJsonStruct) -> @error any Error, normal bb1, error bb2 // id: %4
+
+bb1(%5 : $()):                                    // Preds: bb0
+  %6 = tuple ()                                   // user: %8
+  end_borrow %2 : $TestJsonStruct                 // id: %7
+  return %6 : $()                                 // id: %8
+
+// %9                                             // user: %11
+bb2(%9 : @owned $any Error):                      // Preds: bb0
+  end_borrow %2 : $TestJsonStruct                 // id: %10
+  throw %9 : $any Error                           // id: %11
+} // end sil function 'protocol witness for Swift.Encodable.encode(to: Swift.Encoder) throws -> () in conformance MMPoint.TestJsonStruct : Swift.Encodable in MMPoint'
+
+// variable initialization expression of TestJsonClass.text
+sil hidden [transparent] [ossa] @variable initialization expression of MMPoint.TestJsonClass.text : Swift.String? : $@convention(thin) () -> @owned Optional<String> {
+bb0:
+  %0 = enum $Optional<String>, #Optional.none!enumelt // user: %1
+  return %0 : $Optional<String>                   // id: %1
+} // end sil function 'variable initialization expression of MMPoint.TestJsonClass.text : Swift.String?'
+
+// TestJsonClass.text.getter
+sil hidden [transparent] [ossa] @MMPoint.TestJsonClass.text.getter : Swift.String? : $@convention(method) (@guaranteed TestJsonClass) -> @owned Optional<String> {
+// %0 "self"                                      // users: %2, %1
+bb0(%0 : @guaranteed $TestJsonClass):
+  debug_value %0 : $TestJsonClass, let, name "self", argno 1, implicit // id: %1
+  %2 = ref_element_addr %0 : $TestJsonClass, #TestJsonClass.text // user: %3
+  %3 = begin_access [read] [dynamic] %2 : $*Optional<String> // users: %5, %4
+  %4 = load [copy] %3 : $*Optional<String>        // user: %6
+  end_access %3 : $*Optional<String>              // id: %5
+  return %4 : $Optional<String>                   // id: %6
+} // end sil function 'MMPoint.TestJsonClass.text.getter : Swift.String?'
+
+// TestJsonClass.text.setter
+sil hidden [transparent] [ossa] @MMPoint.TestJsonClass.text.setter : Swift.String? : $@convention(method) (@owned Optional<String>, @guaranteed TestJsonClass) -> () {
+// %0 "value"                                     // users: %11, %4, %2
+// %1 "self"                                      // users: %6, %3
+bb0(%0 : @owned $Optional<String>, %1 : @guaranteed $TestJsonClass):
+  debug_value %0 : $Optional<String>, let, name "value", argno 1, implicit // id: %2
+  debug_value %1 : $TestJsonClass, let, name "self", argno 2, implicit // id: %3
+  %4 = begin_borrow %0 : $Optional<String>        // users: %10, %5
+  %5 = copy_value %4 : $Optional<String>          // user: %8
+  %6 = ref_element_addr %1 : $TestJsonClass, #TestJsonClass.text // user: %7
+  %7 = begin_access [modify] [dynamic] %6 : $*Optional<String> // users: %9, %8
+  assign %5 to %7 : $*Optional<String>            // id: %8
+  end_access %7 : $*Optional<String>              // id: %9
+  end_borrow %4 : $Optional<String>               // id: %10
+  destroy_value %0 : $Optional<String>            // id: %11
+  %12 = tuple ()                                  // user: %13
+  return %12 : $()                                // id: %13
+} // end sil function 'MMPoint.TestJsonClass.text.setter : Swift.String?'
+
+// TestJsonClass.text.modify
+sil hidden [transparent] [ossa] @MMPoint.TestJsonClass.text.modify : Swift.String? : $@yield_once @convention(method) (@guaranteed TestJsonClass) -> @yields @inout Optional<String> {
+// %0 "self"                                      // users: %2, %1
+bb0(%0 : @guaranteed $TestJsonClass):
+  debug_value %0 : $TestJsonClass, let, name "self", argno 1, implicit // id: %1
+  %2 = ref_element_addr %0 : $TestJsonClass, #TestJsonClass.text // user: %3
+  %3 = begin_access [modify] [dynamic] %2 : $*Optional<String> // users: %5, %8, %4
+  yield %3 : $*Optional<String>, resume bb1, unwind bb2 // id: %4
+
+bb1:                                              // Preds: bb0
+  end_access %3 : $*Optional<String>              // id: %5
+  %6 = tuple ()                                   // user: %7
+  return %6 : $()                                 // id: %7
+
+bb2:                                              // Preds: bb0
+  end_access %3 : $*Optional<String>              // id: %8
+  unwind                                          // id: %9
+} // end sil function 'MMPoint.TestJsonClass.text.modify : Swift.String?'
+
+// static TestJsonClass.CodingKeys.__derived_enum_equals(_:_:)
+sil private [ossa] @static MMPoint.TestJsonClass.(CodingKeys in _7D4DEB83CDE18722DA21D9D4858DE5E2).__derived_enum_equals(MMPoint.TestJsonClass.(CodingKeys in _7D4DEB83CDE18722DA21D9D4858DE5E2), MMPoint.TestJsonClass.(CodingKeys in _7D4DEB83CDE18722DA21D9D4858DE5E2)) -> Swift.Bool : $@convention(method) (TestJsonClass.CodingKeys, TestJsonClass.CodingKeys, @thin TestJsonClass.CodingKeys.Type) -> Bool {
+// %0 "a"                                         // users: %9, %3
+// %1 "b"                                         // users: %20, %4
+// %2 "self"                                      // user: %5
+bb0(%0 : $TestJsonClass.CodingKeys, %1 : $TestJsonClass.CodingKeys, %2 : $@thin TestJsonClass.CodingKeys.Type):
+  debug_value %0 : $TestJsonClass.CodingKeys, let, name "a", argno 1, implicit // id: %3
+  debug_value %1 : $TestJsonClass.CodingKeys, let, name "b", argno 2, implicit // id: %4
+  debug_value %2 : $@thin TestJsonClass.CodingKeys.Type, let, name "self", argno 3, implicit // id: %5
+  %6 = alloc_box ${ var Int }                     // user: %7
+  %7 = mark_uninitialized [var] %6 : ${ var Int } // users: %34, %8
+  %8 = project_box %7 : ${ var Int }, 0           // users: %29, %14
+  switch_enum %0 : $TestJsonClass.CodingKeys, case #TestJsonClass.CodingKeys.text!enumelt: bb1 // id: %9
+
+bb1:                                              // Preds: bb0
+  %10 = integer_literal $Builtin.IntLiteral, 0    // user: %13
+  %11 = metatype $@thin Int.Type                  // user: %13
+  // function_ref Int.init(_builtinIntegerLiteral:)
+  %12 = function_ref @Swift.Int.init(_builtinIntegerLiteral: Builtin.IntLiteral) -> Swift.Int : $@convention(method) (Builtin.IntLiteral, @thin Int.Type) -> Int // user: %13
+  %13 = apply %12(%10, %11) : $@convention(method) (Builtin.IntLiteral, @thin Int.Type) -> Int // user: %15
+  %14 = begin_access [modify] [unknown] %8 : $*Int // users: %16, %15
+  assign %13 to %14 : $*Int                       // id: %15
+  end_access %14 : $*Int                          // id: %16
+  %17 = alloc_box ${ var Int }                    // user: %18
+  %18 = mark_uninitialized [var] %17 : ${ var Int } // users: %33, %19
+  %19 = project_box %18 : ${ var Int }, 0         // users: %30, %25
+  switch_enum %1 : $TestJsonClass.CodingKeys, case #TestJsonClass.CodingKeys.text!enumelt: bb2 // id: %20
+
+bb2:                                              // Preds: bb1
+  %21 = integer_literal $Builtin.IntLiteral, 0    // user: %24
+  %22 = metatype $@thin Int.Type                  // user: %24
+  // function_ref Int.init(_builtinIntegerLiteral:)
+  %23 = function_ref @Swift.Int.init(_builtinIntegerLiteral: Builtin.IntLiteral) -> Swift.Int : $@convention(method) (Builtin.IntLiteral, @thin Int.Type) -> Int // user: %24
+  %24 = apply %23(%21, %22) : $@convention(method) (Builtin.IntLiteral, @thin Int.Type) -> Int // user: %26
+  %25 = begin_access [modify] [unknown] %19 : $*Int // users: %27, %26
+  assign %24 to %25 : $*Int                       // id: %26
+  end_access %25 : $*Int                          // id: %27
+  %28 = metatype $@thin Int.Type                  // user: %32
+  %29 = load [trivial] %8 : $*Int                 // user: %32
+  %30 = load [trivial] %19 : $*Int                // user: %32
+  // function_ref static Int.== infix(_:_:)
+  %31 = function_ref @static Swift.Int.== infix(Swift.Int, Swift.Int) -> Swift.Bool : $@convention(method) (Int, Int, @thin Int.Type) -> Bool // user: %32
+  %32 = apply %31(%29, %30, %28) : $@convention(method) (Int, Int, @thin Int.Type) -> Bool // user: %35
+  destroy_value %18 : ${ var Int }                // id: %33
+  destroy_value %7 : ${ var Int }                 // id: %34
+  return %32 : $Bool                              // id: %35
+} // end sil function 'static MMPoint.TestJsonClass.(CodingKeys in _7D4DEB83CDE18722DA21D9D4858DE5E2).__derived_enum_equals(MMPoint.TestJsonClass.(CodingKeys in _7D4DEB83CDE18722DA21D9D4858DE5E2), MMPoint.TestJsonClass.(CodingKeys in _7D4DEB83CDE18722DA21D9D4858DE5E2)) -> Swift.Bool'
+
+// TestJsonClass.CodingKeys.hash(into:)
+sil private [ossa] @MMPoint.TestJsonClass.(CodingKeys in _7D4DEB83CDE18722DA21D9D4858DE5E2).hash(into: inout Swift.Hasher) -> () : $@convention(method) (@inout Hasher, TestJsonClass.CodingKeys) -> () {
+// %0 "hasher"                                    // users: %20, %2
+// %1 "self"                                      // users: %7, %3
+bb0(%0 : $*Hasher, %1 : $TestJsonClass.CodingKeys):
+  debug_value %0 : $*Hasher, var, name "hasher", argno 1, implicit, expr op_deref // id: %2
+  debug_value %1 : $TestJsonClass.CodingKeys, let, name "self", argno 2, implicit // id: %3
+  %4 = alloc_box ${ var Int }                     // user: %5
+  %5 = mark_uninitialized [var] %4 : ${ var Int } // users: %25, %6
+  %6 = project_box %5 : ${ var Int }, 0           // users: %15, %12
+  switch_enum %1 : $TestJsonClass.CodingKeys, case #TestJsonClass.CodingKeys.text!enumelt: bb1 // id: %7
+
+bb1:                                              // Preds: bb0
+  %8 = integer_literal $Builtin.IntLiteral, 0     // user: %11
+  %9 = metatype $@thin Int.Type                   // user: %11
+  // function_ref Int.init(_builtinIntegerLiteral:)
+  %10 = function_ref @Swift.Int.init(_builtinIntegerLiteral: Builtin.IntLiteral) -> Swift.Int : $@convention(method) (Builtin.IntLiteral, @thin Int.Type) -> Int // user: %11
+  %11 = apply %10(%8, %9) : $@convention(method) (Builtin.IntLiteral, @thin Int.Type) -> Int // user: %13
+  %12 = begin_access [modify] [unknown] %6 : $*Int // users: %14, %13
+  assign %11 to %12 : $*Int                       // id: %13
+  end_access %12 : $*Int                          // id: %14
+  %15 = begin_access [read] [unknown] %6 : $*Int  // users: %17, %16
+  %16 = load [trivial] %15 : $*Int                // user: %19
+  end_access %15 : $*Int                          // id: %17
+  %18 = alloc_stack $Int                          // users: %24, %22, %19
+  store %16 to [trivial] %18 : $*Int              // id: %19
+  %20 = begin_access [modify] [unknown] %0 : $*Hasher // users: %23, %22
+  // function_ref Hasher.combine<A>(_:)
+  %21 = function_ref @Swift.Hasher.combine<A where A: Swift.Hashable>(A) -> () : $@convention(method) <τ_0_0 where τ_0_0 : Hashable> (@in_guaranteed τ_0_0, @inout Hasher) -> () // user: %22
+  %22 = apply %21<Int>(%18, %20) : $@convention(method) <τ_0_0 where τ_0_0 : Hashable> (@in_guaranteed τ_0_0, @inout Hasher) -> ()
+  end_access %20 : $*Hasher                       // id: %23
+  dealloc_stack %18 : $*Int                       // id: %24
+  destroy_value %5 : ${ var Int }                 // id: %25
+  %26 = tuple ()                                  // user: %27
+  return %26 : $()                                // id: %27
+} // end sil function 'MMPoint.TestJsonClass.(CodingKeys in _7D4DEB83CDE18722DA21D9D4858DE5E2).hash(into: inout Swift.Hasher) -> ()'
+
+// TestJsonClass.CodingKeys.init(stringValue:)
+sil private [ossa] @MMPoint.TestJsonClass.(CodingKeys in _7D4DEB83CDE18722DA21D9D4858DE5E2).init(stringValue: Swift.String) -> MMPoint.TestJsonClass.(CodingKeys in _7D4DEB83CDE18722DA21D9D4858DE5E2)? : $@convention(method) (@owned String, @thin TestJsonClass.CodingKeys.Type) -> Optional<TestJsonClass.CodingKeys> {
+// %0 "stringValue"                               // users: %43, %6, %46, %5
+// %1 "$metatype"
+bb0(%0 : @owned $String, %1 : $@thin TestJsonClass.CodingKeys.Type):
+  %2 = alloc_box ${ var TestJsonClass.CodingKeys } // user: %3
+  %3 = mark_uninitialized [delegatingself] %2 : ${ var TestJsonClass.CodingKeys } // users: %44, %47, %4
+  %4 = project_box %3 : ${ var TestJsonClass.CodingKeys }, 0 // users: %41, %31
+  debug_value %0 : $String, let, name "stringValue", argno 1, implicit // id: %5
+  %6 = begin_borrow %0 : $String                  // users: %39, %34, %7
+  %7 = copy_value %6 : $String                    // users: %28, %37, %8
+  %8 = begin_borrow [lexical] %7 : $String        // users: %27, %36, %18
+  %9 = string_literal utf8 "text"                 // user: %14
+  %10 = integer_literal $Builtin.Word, 4          // user: %14
+  %11 = integer_literal $Builtin.Int1, -1         // user: %14
+  %12 = metatype $@thin String.Type               // user: %14
+  // function_ref String.init(_builtinStringLiteral:utf8CodeUnitCount:isASCII:)
+  %13 = function_ref @Swift.String.init(_builtinStringLiteral: Builtin.RawPointer, utf8CodeUnitCount: Builtin.Word, isASCII: Builtin.Int1) -> Swift.String : $@convention(method) (Builtin.RawPointer, Builtin.Word, Builtin.Int1, @thin String.Type) -> @owned String // user: %14
+  %14 = apply %13(%9, %10, %11, %12) : $@convention(method) (Builtin.RawPointer, Builtin.Word, Builtin.Int1, @thin String.Type) -> @owned String // user: %16
+  %15 = alloc_stack $String                       // users: %24, %23, %20, %16
+  store %14 to [init] %15 : $*String              // id: %16
+  %17 = alloc_stack $String                       // users: %22, %18
+  %18 = store_borrow %8 to %17 : $*String         // users: %21, %20
+  // function_ref ~= infix<A>(_:_:)
+  %19 = function_ref @Swift.~= infix<A where A: Swift.Equatable>(A, A) -> Swift.Bool : $@convention(thin) <τ_0_0 where τ_0_0 : Equatable> (@in_guaranteed τ_0_0, @in_guaranteed τ_0_0) -> Bool // user: %20
+  %20 = apply %19<String>(%15, %18) : $@convention(thin) <τ_0_0 where τ_0_0 : Equatable> (@in_guaranteed τ_0_0, @in_guaranteed τ_0_0) -> Bool // user: %25
+  end_borrow %18 : $*String                       // id: %21
+  dealloc_stack %17 : $*String                    // id: %22
+  destroy_addr %15 : $*String                     // id: %23
+  dealloc_stack %15 : $*String                    // id: %24
+  %25 = struct_extract %20 : $Bool, #Bool._value  // user: %26
+  cond_br %25, bb1, bb2                           // id: %26
+
+bb1:                                              // Preds: bb0
+  end_borrow %8 : $String                         // id: %27
+  destroy_value %7 : $String                      // id: %28
+  %29 = metatype $@thin TestJsonClass.CodingKeys.Type
+  %30 = enum $TestJsonClass.CodingKeys, #TestJsonClass.CodingKeys.text!enumelt // user: %32
+  %31 = begin_access [modify] [unknown] %4 : $*TestJsonClass.CodingKeys // users: %33, %32
+  assign %30 to %31 : $*TestJsonClass.CodingKeys  // id: %32
+  end_access %31 : $*TestJsonClass.CodingKeys     // id: %33
+  end_borrow %6 : $String                         // id: %34
+  br bb4                                          // id: %35
+
+bb2:                                              // Preds: bb0
+  end_borrow %8 : $String                         // id: %36
+  destroy_value %7 : $String                      // id: %37
+  br bb3                                          // id: %38
+
+bb3:                                              // Preds: bb2
+  end_borrow %6 : $String                         // id: %39
+  br bb5                                          // id: %40
+
+bb4:                                              // Preds: bb1
+  %41 = load [trivial] %4 : $*TestJsonClass.CodingKeys // user: %42
+  %42 = enum $Optional<TestJsonClass.CodingKeys>, #Optional.some!enumelt, %41 : $TestJsonClass.CodingKeys // user: %45
+  destroy_value %0 : $String                      // id: %43
+  destroy_value %3 : ${ var TestJsonClass.CodingKeys } // id: %44
+  br bb6(%42 : $Optional<TestJsonClass.CodingKeys>) // id: %45
+
+bb5:                                              // Preds: bb3
+  destroy_value %0 : $String                      // id: %46
+  destroy_value %3 : ${ var TestJsonClass.CodingKeys } // id: %47
+  %48 = enum $Optional<TestJsonClass.CodingKeys>, #Optional.none!enumelt // user: %49
+  br bb6(%48 : $Optional<TestJsonClass.CodingKeys>) // id: %49
+
+// %50                                            // user: %51
+bb6(%50 : $Optional<TestJsonClass.CodingKeys>):   // Preds: bb4 bb5
+  return %50 : $Optional<TestJsonClass.CodingKeys> // id: %51
+} // end sil function 'MMPoint.TestJsonClass.(CodingKeys in _7D4DEB83CDE18722DA21D9D4858DE5E2).init(stringValue: Swift.String) -> MMPoint.TestJsonClass.(CodingKeys in _7D4DEB83CDE18722DA21D9D4858DE5E2)?'
+
+// TestJsonClass.CodingKeys.init(intValue:)
+sil private [ossa] @MMPoint.TestJsonClass.(CodingKeys in _7D4DEB83CDE18722DA21D9D4858DE5E2).init(intValue: Swift.Int) -> MMPoint.TestJsonClass.(CodingKeys in _7D4DEB83CDE18722DA21D9D4858DE5E2)? : $@convention(method) (Int, @thin TestJsonClass.CodingKeys.Type) -> Optional<TestJsonClass.CodingKeys> {
+// %0 "intValue"                                  // user: %5
+// %1 "$metatype"
+bb0(%0 : $Int, %1 : $@thin TestJsonClass.CodingKeys.Type):
+  %2 = alloc_box ${ var TestJsonClass.CodingKeys } // user: %3
+  %3 = mark_uninitialized [delegatingself] %2 : ${ var TestJsonClass.CodingKeys } // users: %7, %4
+  %4 = project_box %3 : ${ var TestJsonClass.CodingKeys }, 0
+  debug_value %0 : $Int, let, name "intValue", argno 1, implicit // id: %5
+  br bb1                                          // id: %6
+
+bb1:                                              // Preds: bb0
+  destroy_value %3 : ${ var TestJsonClass.CodingKeys } // id: %7
+  %8 = enum $Optional<TestJsonClass.CodingKeys>, #Optional.none!enumelt // user: %9
+  br bb2(%8 : $Optional<TestJsonClass.CodingKeys>) // id: %9
+
+// %10                                            // user: %11
+bb2(%10 : $Optional<TestJsonClass.CodingKeys>):   // Preds: bb1
+  return %10 : $Optional<TestJsonClass.CodingKeys> // id: %11
+} // end sil function 'MMPoint.TestJsonClass.(CodingKeys in _7D4DEB83CDE18722DA21D9D4858DE5E2).init(intValue: Swift.Int) -> MMPoint.TestJsonClass.(CodingKeys in _7D4DEB83CDE18722DA21D9D4858DE5E2)?'
+
+// TestJsonClass.CodingKeys.hashValue.getter
+sil private [ossa] @MMPoint.TestJsonClass.(CodingKeys in _7D4DEB83CDE18722DA21D9D4858DE5E2).hashValue.getter : Swift.Int : $@convention(method) (TestJsonClass.CodingKeys) -> Int {
+// %0 "self"                                      // users: %3, %1
+bb0(%0 : $TestJsonClass.CodingKeys):
+  debug_value %0 : $TestJsonClass.CodingKeys, let, name "self", argno 1, implicit // id: %1
+  %2 = alloc_stack $TestJsonClass.CodingKeys      // users: %6, %5, %3
+  store %0 to [trivial] %2 : $*TestJsonClass.CodingKeys // id: %3
+  // function_ref _hashValue<A>(for:)
+  %4 = function_ref @Swift._hashValue<A where A: Swift.Hashable>(for: A) -> Swift.Int : $@convention(thin) <τ_0_0 where τ_0_0 : Hashable> (@in_guaranteed τ_0_0) -> Int // user: %5
+  %5 = apply %4<TestJsonClass.CodingKeys>(%2) : $@convention(thin) <τ_0_0 where τ_0_0 : Hashable> (@in_guaranteed τ_0_0) -> Int // user: %7
+  dealloc_stack %2 : $*TestJsonClass.CodingKeys   // id: %6
+  return %5 : $Int                                // id: %7
+} // end sil function 'MMPoint.TestJsonClass.(CodingKeys in _7D4DEB83CDE18722DA21D9D4858DE5E2).hashValue.getter : Swift.Int'
+
+// TestJsonClass.CodingKeys.intValue.getter
+sil private [ossa] @MMPoint.TestJsonClass.(CodingKeys in _7D4DEB83CDE18722DA21D9D4858DE5E2).intValue.getter : Swift.Int? : $@convention(method) (TestJsonClass.CodingKeys) -> Optional<Int> {
+// %0 "self"                                      // user: %1
+bb0(%0 : $TestJsonClass.CodingKeys):
+  debug_value %0 : $TestJsonClass.CodingKeys, let, name "self", argno 1, implicit // id: %1
+  %2 = enum $Optional<Int>, #Optional.none!enumelt // user: %3
+  return %2 : $Optional<Int>                      // id: %3
+} // end sil function 'MMPoint.TestJsonClass.(CodingKeys in _7D4DEB83CDE18722DA21D9D4858DE5E2).intValue.getter : Swift.Int?'
+
+// TestJsonClass.CodingKeys.stringValue.getter
+sil private [ossa] @MMPoint.TestJsonClass.(CodingKeys in _7D4DEB83CDE18722DA21D9D4858DE5E2).stringValue.getter : Swift.String : $@convention(method) (TestJsonClass.CodingKeys) -> @owned String {
+// %0 "self"                                      // users: %2, %1
+bb0(%0 : $TestJsonClass.CodingKeys):
+  debug_value %0 : $TestJsonClass.CodingKeys, let, name "self", argno 1, implicit // id: %1
+  switch_enum %0 : $TestJsonClass.CodingKeys, case #TestJsonClass.CodingKeys.text!enumelt: bb1 // id: %2
+
+bb1:                                              // Preds: bb0
+  %3 = string_literal utf8 "text"                 // user: %8
+  %4 = integer_literal $Builtin.Word, 4           // user: %8
+  %5 = integer_literal $Builtin.Int1, -1          // user: %8
+  %6 = metatype $@thin String.Type                // user: %8
+  // function_ref String.init(_builtinStringLiteral:utf8CodeUnitCount:isASCII:)
+  %7 = function_ref @Swift.String.init(_builtinStringLiteral: Builtin.RawPointer, utf8CodeUnitCount: Builtin.Word, isASCII: Builtin.Int1) -> Swift.String : $@convention(method) (Builtin.RawPointer, Builtin.Word, Builtin.Int1, @thin String.Type) -> @owned String // user: %8
+  %8 = apply %7(%3, %4, %5, %6) : $@convention(method) (Builtin.RawPointer, Builtin.Word, Builtin.Int1, @thin String.Type) -> @owned String // user: %9
+  return %8 : $String                             // id: %9
+} // end sil function 'MMPoint.TestJsonClass.(CodingKeys in _7D4DEB83CDE18722DA21D9D4858DE5E2).stringValue.getter : Swift.String'
+
+// protocol witness for static Equatable.== infix(_:_:) in conformance TestJsonClass.CodingKeys
+sil private [transparent] [thunk] [ossa] @protocol witness for static Swift.Equatable.== infix(A, A) -> Swift.Bool in conformance MMPoint.TestJsonClass.(CodingKeys in _7D4DEB83CDE18722DA21D9D4858DE5E2) : Swift.Equatable in MMPoint : $@convention(witness_method: Equatable) (@in_guaranteed TestJsonClass.CodingKeys, @in_guaranteed TestJsonClass.CodingKeys, @thick TestJsonClass.CodingKeys.Type) -> Bool {
+// %0                                             // user: %3
+// %1                                             // user: %4
+bb0(%0 : $*TestJsonClass.CodingKeys, %1 : $*TestJsonClass.CodingKeys, %2 : $@thick TestJsonClass.CodingKeys.Type):
+  %3 = load [trivial] %0 : $*TestJsonClass.CodingKeys // user: %7
+  %4 = load [trivial] %1 : $*TestJsonClass.CodingKeys // user: %7
+  %5 = metatype $@thin TestJsonClass.CodingKeys.Type // user: %7
+  // function_ref static TestJsonClass.CodingKeys.__derived_enum_equals(_:_:)
+  %6 = function_ref @static MMPoint.TestJsonClass.(CodingKeys in _7D4DEB83CDE18722DA21D9D4858DE5E2).__derived_enum_equals(MMPoint.TestJsonClass.(CodingKeys in _7D4DEB83CDE18722DA21D9D4858DE5E2), MMPoint.TestJsonClass.(CodingKeys in _7D4DEB83CDE18722DA21D9D4858DE5E2)) -> Swift.Bool : $@convention(method) (TestJsonClass.CodingKeys, TestJsonClass.CodingKeys, @thin TestJsonClass.CodingKeys.Type) -> Bool // user: %7
+  %7 = apply %6(%3, %4, %5) : $@convention(method) (TestJsonClass.CodingKeys, TestJsonClass.CodingKeys, @thin TestJsonClass.CodingKeys.Type) -> Bool // user: %8
+  return %7 : $Bool                               // id: %8
+} // end sil function 'protocol witness for static Swift.Equatable.== infix(A, A) -> Swift.Bool in conformance MMPoint.TestJsonClass.(CodingKeys in _7D4DEB83CDE18722DA21D9D4858DE5E2) : Swift.Equatable in MMPoint'
+
+// protocol witness for Hashable.hashValue.getter in conformance TestJsonClass.CodingKeys
+sil private [transparent] [thunk] [ossa] @protocol witness for Swift.Hashable.hashValue.getter : Swift.Int in conformance MMPoint.TestJsonClass.(CodingKeys in _7D4DEB83CDE18722DA21D9D4858DE5E2) : Swift.Hashable in MMPoint : $@convention(witness_method: Hashable) (@in_guaranteed TestJsonClass.CodingKeys) -> Int {
+// %0                                             // user: %1
+bb0(%0 : $*TestJsonClass.CodingKeys):
+  %1 = load [trivial] %0 : $*TestJsonClass.CodingKeys // user: %3
+  // function_ref TestJsonClass.CodingKeys.hashValue.getter
+  %2 = function_ref @MMPoint.TestJsonClass.(CodingKeys in _7D4DEB83CDE18722DA21D9D4858DE5E2).hashValue.getter : Swift.Int : $@convention(method) (TestJsonClass.CodingKeys) -> Int // user: %3
+  %3 = apply %2(%1) : $@convention(method) (TestJsonClass.CodingKeys) -> Int // user: %4
+  return %3 : $Int                                // id: %4
+} // end sil function 'protocol witness for Swift.Hashable.hashValue.getter : Swift.Int in conformance MMPoint.TestJsonClass.(CodingKeys in _7D4DEB83CDE18722DA21D9D4858DE5E2) : Swift.Hashable in MMPoint'
+
+// protocol witness for Hashable.hash(into:) in conformance TestJsonClass.CodingKeys
+sil private [transparent] [thunk] [ossa] @protocol witness for Swift.Hashable.hash(into: inout Swift.Hasher) -> () in conformance MMPoint.TestJsonClass.(CodingKeys in _7D4DEB83CDE18722DA21D9D4858DE5E2) : Swift.Hashable in MMPoint : $@convention(witness_method: Hashable) (@inout Hasher, @in_guaranteed TestJsonClass.CodingKeys) -> () {
+// %0                                             // user: %4
+// %1                                             // user: %2
+bb0(%0 : $*Hasher, %1 : $*TestJsonClass.CodingKeys):
+  %2 = load [trivial] %1 : $*TestJsonClass.CodingKeys // user: %4
+  // function_ref TestJsonClass.CodingKeys.hash(into:)
+  %3 = function_ref @MMPoint.TestJsonClass.(CodingKeys in _7D4DEB83CDE18722DA21D9D4858DE5E2).hash(into: inout Swift.Hasher) -> () : $@convention(method) (@inout Hasher, TestJsonClass.CodingKeys) -> () // user: %4
+  %4 = apply %3(%0, %2) : $@convention(method) (@inout Hasher, TestJsonClass.CodingKeys) -> ()
+  %5 = tuple ()                                   // user: %6
+  return %5 : $()                                 // id: %6
+} // end sil function 'protocol witness for Swift.Hashable.hash(into: inout Swift.Hasher) -> () in conformance MMPoint.TestJsonClass.(CodingKeys in _7D4DEB83CDE18722DA21D9D4858DE5E2) : Swift.Hashable in MMPoint'
+
+// protocol witness for Hashable._rawHashValue(seed:) in conformance TestJsonClass.CodingKeys
+sil private [transparent] [thunk] [always_inline] [ossa] @protocol witness for Swift.Hashable._rawHashValue(seed: Swift.Int) -> Swift.Int in conformance MMPoint.TestJsonClass.(CodingKeys in _7D4DEB83CDE18722DA21D9D4858DE5E2) : Swift.Hashable in MMPoint : $@convention(witness_method: Hashable) (Int, @in_guaranteed TestJsonClass.CodingKeys) -> Int {
+// %0                                             // user: %3
+// %1                                             // user: %3
+bb0(%0 : $Int, %1 : $*TestJsonClass.CodingKeys):
+  // function_ref Hashable._rawHashValue(seed:)
+  %2 = function_ref @(extension in Swift):Swift.Hashable._rawHashValue(seed: Swift.Int) -> Swift.Int : $@convention(method) <τ_0_0 where τ_0_0 : Hashable> (Int, @in_guaranteed τ_0_0) -> Int // user: %3
+  %3 = apply %2<TestJsonClass.CodingKeys>(%0, %1) : $@convention(method) <τ_0_0 where τ_0_0 : Hashable> (Int, @in_guaranteed τ_0_0) -> Int // user: %4
+  return %3 : $Int                                // id: %4
+} // end sil function 'protocol witness for Swift.Hashable._rawHashValue(seed: Swift.Int) -> Swift.Int in conformance MMPoint.TestJsonClass.(CodingKeys in _7D4DEB83CDE18722DA21D9D4858DE5E2) : Swift.Hashable in MMPoint'
+
+// protocol witness for CodingKey.stringValue.getter in conformance TestJsonClass.CodingKeys
+sil private [transparent] [thunk] [ossa] @protocol witness for Swift.CodingKey.stringValue.getter : Swift.String in conformance MMPoint.TestJsonClass.(CodingKeys in _7D4DEB83CDE18722DA21D9D4858DE5E2) : Swift.CodingKey in MMPoint : $@convention(witness_method: CodingKey) (@in_guaranteed TestJsonClass.CodingKeys) -> @owned String {
+// %0                                             // user: %1
+bb0(%0 : $*TestJsonClass.CodingKeys):
+  %1 = load [trivial] %0 : $*TestJsonClass.CodingKeys // user: %3
+  // function_ref TestJsonClass.CodingKeys.stringValue.getter
+  %2 = function_ref @MMPoint.TestJsonClass.(CodingKeys in _7D4DEB83CDE18722DA21D9D4858DE5E2).stringValue.getter : Swift.String : $@convention(method) (TestJsonClass.CodingKeys) -> @owned String // user: %3
+  %3 = apply %2(%1) : $@convention(method) (TestJsonClass.CodingKeys) -> @owned String // user: %4
+  return %3 : $String                             // id: %4
+} // end sil function 'protocol witness for Swift.CodingKey.stringValue.getter : Swift.String in conformance MMPoint.TestJsonClass.(CodingKeys in _7D4DEB83CDE18722DA21D9D4858DE5E2) : Swift.CodingKey in MMPoint'
+
+// protocol witness for CodingKey.init(stringValue:) in conformance TestJsonClass.CodingKeys
+sil private [transparent] [thunk] [ossa] @protocol witness for Swift.CodingKey.init(stringValue: Swift.String) -> A? in conformance MMPoint.TestJsonClass.(CodingKeys in _7D4DEB83CDE18722DA21D9D4858DE5E2) : Swift.CodingKey in MMPoint : $@convention(witness_method: CodingKey) (@owned String, @thick TestJsonClass.CodingKeys.Type) -> @out Optional<TestJsonClass.CodingKeys> {
+// %0                                             // user: %6
+// %1                                             // user: %5
+bb0(%0 : $*Optional<TestJsonClass.CodingKeys>, %1 : @owned $String, %2 : $@thick TestJsonClass.CodingKeys.Type):
+  %3 = metatype $@thin TestJsonClass.CodingKeys.Type // user: %5
+  // function_ref TestJsonClass.CodingKeys.init(stringValue:)
+  %4 = function_ref @MMPoint.TestJsonClass.(CodingKeys in _7D4DEB83CDE18722DA21D9D4858DE5E2).init(stringValue: Swift.String) -> MMPoint.TestJsonClass.(CodingKeys in _7D4DEB83CDE18722DA21D9D4858DE5E2)? : $@convention(method) (@owned String, @thin TestJsonClass.CodingKeys.Type) -> Optional<TestJsonClass.CodingKeys> // user: %5
+  %5 = apply %4(%1, %3) : $@convention(method) (@owned String, @thin TestJsonClass.CodingKeys.Type) -> Optional<TestJsonClass.CodingKeys> // user: %6
+  store %5 to [trivial] %0 : $*Optional<TestJsonClass.CodingKeys> // id: %6
+  %7 = tuple ()                                   // user: %8
+  return %7 : $()                                 // id: %8
+} // end sil function 'protocol witness for Swift.CodingKey.init(stringValue: Swift.String) -> A? in conformance MMPoint.TestJsonClass.(CodingKeys in _7D4DEB83CDE18722DA21D9D4858DE5E2) : Swift.CodingKey in MMPoint'
+
+// protocol witness for CodingKey.intValue.getter in conformance TestJsonClass.CodingKeys
+sil private [transparent] [thunk] [ossa] @protocol witness for Swift.CodingKey.intValue.getter : Swift.Int? in conformance MMPoint.TestJsonClass.(CodingKeys in _7D4DEB83CDE18722DA21D9D4858DE5E2) : Swift.CodingKey in MMPoint : $@convention(witness_method: CodingKey) (@in_guaranteed TestJsonClass.CodingKeys) -> Optional<Int> {
+// %0                                             // user: %1
+bb0(%0 : $*TestJsonClass.CodingKeys):
+  %1 = load [trivial] %0 : $*TestJsonClass.CodingKeys // user: %3
+  // function_ref TestJsonClass.CodingKeys.intValue.getter
+  %2 = function_ref @MMPoint.TestJsonClass.(CodingKeys in _7D4DEB83CDE18722DA21D9D4858DE5E2).intValue.getter : Swift.Int? : $@convention(method) (TestJsonClass.CodingKeys) -> Optional<Int> // user: %3
+  %3 = apply %2(%1) : $@convention(method) (TestJsonClass.CodingKeys) -> Optional<Int> // user: %4
+  return %3 : $Optional<Int>                      // id: %4
+} // end sil function 'protocol witness for Swift.CodingKey.intValue.getter : Swift.Int? in conformance MMPoint.TestJsonClass.(CodingKeys in _7D4DEB83CDE18722DA21D9D4858DE5E2) : Swift.CodingKey in MMPoint'
+
+// protocol witness for CodingKey.init(intValue:) in conformance TestJsonClass.CodingKeys
+sil private [transparent] [thunk] [ossa] @protocol witness for Swift.CodingKey.init(intValue: Swift.Int) -> A? in conformance MMPoint.TestJsonClass.(CodingKeys in _7D4DEB83CDE18722DA21D9D4858DE5E2) : Swift.CodingKey in MMPoint : $@convention(witness_method: CodingKey) (Int, @thick TestJsonClass.CodingKeys.Type) -> @out Optional<TestJsonClass.CodingKeys> {
+// %0                                             // user: %6
+// %1                                             // user: %5
+bb0(%0 : $*Optional<TestJsonClass.CodingKeys>, %1 : $Int, %2 : $@thick TestJsonClass.CodingKeys.Type):
+  %3 = metatype $@thin TestJsonClass.CodingKeys.Type // user: %5
+  // function_ref TestJsonClass.CodingKeys.init(intValue:)
+  %4 = function_ref @MMPoint.TestJsonClass.(CodingKeys in _7D4DEB83CDE18722DA21D9D4858DE5E2).init(intValue: Swift.Int) -> MMPoint.TestJsonClass.(CodingKeys in _7D4DEB83CDE18722DA21D9D4858DE5E2)? : $@convention(method) (Int, @thin TestJsonClass.CodingKeys.Type) -> Optional<TestJsonClass.CodingKeys> // user: %5
+  %5 = apply %4(%1, %3) : $@convention(method) (Int, @thin TestJsonClass.CodingKeys.Type) -> Optional<TestJsonClass.CodingKeys> // user: %6
+  store %5 to [trivial] %0 : $*Optional<TestJsonClass.CodingKeys> // id: %6
+  %7 = tuple ()                                   // user: %8
+  return %7 : $()                                 // id: %8
+} // end sil function 'protocol witness for Swift.CodingKey.init(intValue: Swift.Int) -> A? in conformance MMPoint.TestJsonClass.(CodingKeys in _7D4DEB83CDE18722DA21D9D4858DE5E2) : Swift.CodingKey in MMPoint'
+
+// protocol witness for CustomDebugStringConvertible.debugDescription.getter in conformance TestJsonClass.CodingKeys
+sil private [transparent] [thunk] [ossa] @protocol witness for Swift.CustomDebugStringConvertible.debugDescription.getter : Swift.String in conformance MMPoint.TestJsonClass.(CodingKeys in _7D4DEB83CDE18722DA21D9D4858DE5E2) : Swift.CustomDebugStringConvertible in MMPoint : $@convention(witness_method: CustomDebugStringConvertible) (@in_guaranteed TestJsonClass.CodingKeys) -> @owned String {
+// %0                                             // user: %2
+bb0(%0 : $*TestJsonClass.CodingKeys):
+  // function_ref CodingKey.debugDescription.getter
+  %1 = function_ref @(extension in Swift):Swift.CodingKey.debugDescription.getter : Swift.String : $@convention(method) <τ_0_0 where τ_0_0 : CodingKey> (@in_guaranteed τ_0_0) -> @owned String // user: %2
+  %2 = apply %1<TestJsonClass.CodingKeys>(%0) : $@convention(method) <τ_0_0 where τ_0_0 : CodingKey> (@in_guaranteed τ_0_0) -> @owned String // user: %3
+  return %2 : $String                             // id: %3
+} // end sil function 'protocol witness for Swift.CustomDebugStringConvertible.debugDescription.getter : Swift.String in conformance MMPoint.TestJsonClass.(CodingKeys in _7D4DEB83CDE18722DA21D9D4858DE5E2) : Swift.CustomDebugStringConvertible in MMPoint'
+
+// protocol witness for CustomStringConvertible.description.getter in conformance TestJsonClass.CodingKeys
+sil private [transparent] [thunk] [ossa] @protocol witness for Swift.CustomStringConvertible.description.getter : Swift.String in conformance MMPoint.TestJsonClass.(CodingKeys in _7D4DEB83CDE18722DA21D9D4858DE5E2) : Swift.CustomStringConvertible in MMPoint : $@convention(witness_method: CustomStringConvertible) (@in_guaranteed TestJsonClass.CodingKeys) -> @owned String {
+// %0                                             // user: %2
+bb0(%0 : $*TestJsonClass.CodingKeys):
+  // function_ref CodingKey.description.getter
+  %1 = function_ref @(extension in Swift):Swift.CodingKey.description.getter : Swift.String : $@convention(method) <τ_0_0 where τ_0_0 : CodingKey> (@in_guaranteed τ_0_0) -> @owned String // user: %2
+  %2 = apply %1<TestJsonClass.CodingKeys>(%0) : $@convention(method) <τ_0_0 where τ_0_0 : CodingKey> (@in_guaranteed τ_0_0) -> @owned String // user: %3
+  return %2 : $String                             // id: %3
+} // end sil function 'protocol witness for Swift.CustomStringConvertible.description.getter : Swift.String in conformance MMPoint.TestJsonClass.(CodingKeys in _7D4DEB83CDE18722DA21D9D4858DE5E2) : Swift.CustomStringConvertible in MMPoint'
+
+// TestJsonClass.deinit
+sil hidden [ossa] @MMPoint.TestJsonClass.deinit : $@convention(method) (@guaranteed TestJsonClass) -> @owned Builtin.NativeObject {
+// %0 "self"                                      // users: %6, %2, %1
+bb0(%0 : @guaranteed $TestJsonClass):
+  debug_value %0 : $TestJsonClass, let, name "self", argno 1, implicit // id: %1
+  %2 = ref_element_addr %0 : $TestJsonClass, #TestJsonClass.text // user: %3
+  %3 = begin_access [deinit] [static] %2 : $*Optional<String> // users: %5, %4
+  destroy_addr %3 : $*Optional<String>            // id: %4
+  end_access %3 : $*Optional<String>              // id: %5
+  %6 = unchecked_ref_cast %0 : $TestJsonClass to $Builtin.NativeObject // user: %7
+  %7 = unchecked_ownership_conversion %6 : $Builtin.NativeObject, @guaranteed to @owned // user: %8
+  return %7 : $Builtin.NativeObject               // id: %8
+} // end sil function 'MMPoint.TestJsonClass.deinit'
+
+// TestJsonClass.__deallocating_deinit
+sil hidden [ossa] @MMPoint.TestJsonClass.__deallocating_deinit : $@convention(method) (@owned TestJsonClass) -> () {
+// %0 "self"                                      // users: %6, %3, %1
+bb0(%0 : @owned $TestJsonClass):
+  debug_value %0 : $TestJsonClass, let, name "self", argno 1, implicit // id: %1
+  // function_ref TestJsonClass.deinit
+  %2 = function_ref @MMPoint.TestJsonClass.deinit : $@convention(method) (@guaranteed TestJsonClass) -> @owned Builtin.NativeObject // user: %4
+  %3 = begin_borrow %0 : $TestJsonClass           // users: %5, %4
+  %4 = apply %2(%3) : $@convention(method) (@guaranteed TestJsonClass) -> @owned Builtin.NativeObject // user: %7
+  end_borrow %3 : $TestJsonClass                  // id: %5
+  end_lifetime %0 : $TestJsonClass                // id: %6
+  %7 = unchecked_ref_cast %4 : $Builtin.NativeObject to $TestJsonClass // user: %8
+  dealloc_ref %7 : $TestJsonClass                 // id: %8
+  %9 = tuple ()                                   // user: %10
+  return %9 : $()                                 // id: %10
+} // end sil function 'MMPoint.TestJsonClass.__deallocating_deinit'
+
+// TestJsonClass.encode(to:)
+sil hidden [ossa] @MMPoint.TestJsonClass.encode(to: Swift.Encoder) throws -> () : $@convention(method) (@in_guaranteed any Encoder, @guaranteed TestJsonClass) -> @error any Error {
+// %0 "encoder"                                   // users: %8, %2
+// %1 "self"                                      // users: %14, %13, %3
+bb0(%0 : $*any Encoder, %1 : @guaranteed $TestJsonClass):
+  debug_value %0 : $*any Encoder, let, name "encoder", argno 1, implicit, expr op_deref // id: %2
+  debug_value %1 : $TestJsonClass, let, name "self", argno 2, implicit // id: %3
+  debug_value undef : $any Error, var, name "$error", argno 3 // id: %4
+  %5 = alloc_box ${ var KeyedEncodingContainer<TestJsonClass.CodingKeys> } // users: %27, %35, %6
+  %6 = begin_borrow [lexical] %5 : ${ var KeyedEncodingContainer<TestJsonClass.CodingKeys> } // users: %26, %34, %7
+  %7 = project_box %6 : ${ var KeyedEncodingContainer<TestJsonClass.CodingKeys> }, 0 // users: %19, %12
+  %8 = open_existential_addr immutable_access %0 : $*any Encoder to $*@opened("03447142-ABB9-11EE-B9E9-5209EABF2191", any Encoder) Self // users: %12, %12, %11
+  %9 = metatype $@thin TestJsonClass.CodingKeys.Type
+  %10 = metatype $@thick TestJsonClass.CodingKeys.Type // user: %12
+  %11 = witness_method $@opened("03447142-ABB9-11EE-B9E9-5209EABF2191", any Encoder) Self, #Encoder.container : <Self where Self : Encoder><Key where Key : CodingKey> (Self) -> (Key.Type) -> KeyedEncodingContainer<Key>, %8 : $*@opened("03447142-ABB9-11EE-B9E9-5209EABF2191", any Encoder) Self : $@convention(witness_method: Encoder) <τ_0_0 where τ_0_0 : Encoder><τ_1_0 where τ_1_0 : CodingKey> (@thick τ_1_0.Type, @in_guaranteed τ_0_0) -> @out KeyedEncodingContainer<τ_1_0> // type-defs: %8; user: %12
+  %12 = apply %11<@opened("03447142-ABB9-11EE-B9E9-5209EABF2191", any Encoder) Self, TestJsonClass.CodingKeys>(%7, %10, %8) : $@convention(witness_method: Encoder) <τ_0_0 where τ_0_0 : Encoder><τ_1_0 where τ_1_0 : CodingKey> (@thick τ_1_0.Type, @in_guaranteed τ_0_0) -> @out KeyedEncodingContainer<τ_1_0> // type-defs: %8
+  %13 = class_method %1 : $TestJsonClass, #TestJsonClass.text!getter : (TestJsonClass) -> () -> String?, $@convention(method) (@guaranteed TestJsonClass) -> @owned Optional<String> // user: %14
+  %14 = apply %13(%1) : $@convention(method) (@guaranteed TestJsonClass) -> @owned Optional<String> // users: %25, %21, %33
+  %15 = metatype $@thin TestJsonClass.CodingKeys.Type
+  %16 = enum $TestJsonClass.CodingKeys, #TestJsonClass.CodingKeys.text!enumelt // user: %18
+  %17 = alloc_stack $TestJsonClass.CodingKeys     // users: %24, %21, %32, %18
+  store %16 to [trivial] %17 : $*TestJsonClass.CodingKeys // id: %18
+  %19 = begin_access [modify] [unknown] %7 : $*KeyedEncodingContainer<TestJsonClass.CodingKeys> // users: %23, %21, %31
+  // function_ref KeyedEncodingContainer.encodeIfPresent(_:forKey:)
+  %20 = function_ref @Swift.KeyedEncodingContainer.encodeIfPresent(_: Swift.String?, forKey: A) throws -> () : $@convention(method) <τ_0_0 where τ_0_0 : CodingKey> (@guaranteed Optional<String>, @in_guaranteed τ_0_0, @inout KeyedEncodingContainer<τ_0_0>) -> @error any Error // user: %21
+  try_apply %20<TestJsonClass.CodingKeys>(%14, %17, %19) : $@convention(method) <τ_0_0 where τ_0_0 : CodingKey> (@guaranteed Optional<String>, @in_guaranteed τ_0_0, @inout KeyedEncodingContainer<τ_0_0>) -> @error any Error, normal bb1, error bb2 // id: %21
+
+bb1(%22 : $()):                                   // Preds: bb0
+  end_access %19 : $*KeyedEncodingContainer<TestJsonClass.CodingKeys> // id: %23
+  dealloc_stack %17 : $*TestJsonClass.CodingKeys  // id: %24
+  destroy_value %14 : $Optional<String>           // id: %25
+  end_borrow %6 : ${ var KeyedEncodingContainer<TestJsonClass.CodingKeys> } // id: %26
+  destroy_value %5 : ${ var KeyedEncodingContainer<TestJsonClass.CodingKeys> } // id: %27
+  %28 = tuple ()                                  // user: %29
+  return %28 : $()                                // id: %29
+
+// %30                                            // user: %36
+bb2(%30 : @owned $any Error):                     // Preds: bb0
+  end_access %19 : $*KeyedEncodingContainer<TestJsonClass.CodingKeys> // id: %31
+  dealloc_stack %17 : $*TestJsonClass.CodingKeys  // id: %32
+  destroy_value %14 : $Optional<String>           // id: %33
+  end_borrow %6 : ${ var KeyedEncodingContainer<TestJsonClass.CodingKeys> } // id: %34
+  destroy_value %5 : ${ var KeyedEncodingContainer<TestJsonClass.CodingKeys> } // id: %35
+  throw %30 : $any Error                          // id: %36
+} // end sil function 'MMPoint.TestJsonClass.encode(to: Swift.Encoder) throws -> ()'
+
+// TestJsonClass.__allocating_init()
+sil hidden [exact_self_class] [ossa] @MMPoint.TestJsonClass.__allocating_init() -> MMPoint.TestJsonClass : $@convention(method) (@thick TestJsonClass.Type) -> @owned TestJsonClass {
+// %0 "$metatype"
+bb0(%0 : $@thick TestJsonClass.Type):
+  %1 = alloc_ref $TestJsonClass                   // user: %3
+  // function_ref TestJsonClass.init()
+  %2 = function_ref @MMPoint.TestJsonClass.init() -> MMPoint.TestJsonClass : $@convention(method) (@owned TestJsonClass) -> @owned TestJsonClass // user: %3
+  %3 = apply %2(%1) : $@convention(method) (@owned TestJsonClass) -> @owned TestJsonClass // user: %4
+  return %3 : $TestJsonClass                      // id: %4
+} // end sil function 'MMPoint.TestJsonClass.__allocating_init() -> MMPoint.TestJsonClass'
+
+// TestJsonClass.init()
+sil hidden [ossa] @MMPoint.TestJsonClass.init() -> MMPoint.TestJsonClass : $@convention(method) (@owned TestJsonClass) -> @owned TestJsonClass {
+// %0 "self"                                      // users: %2, %1
+bb0(%0 : @owned $TestJsonClass):
+  debug_value %0 : $TestJsonClass, let, name "self", argno 1, implicit // id: %1
+  %2 = mark_uninitialized [rootself] %0 : $TestJsonClass // users: %10, %9, %3
+  %3 = begin_borrow %2 : $TestJsonClass           // users: %8, %4
+  %4 = ref_element_addr %3 : $TestJsonClass, #TestJsonClass.text // user: %7
+  // function_ref variable initialization expression of TestJsonClass.text
+  %5 = function_ref @variable initialization expression of MMPoint.TestJsonClass.text : Swift.String? : $@convention(thin) () -> @owned Optional<String> // user: %6
+  %6 = apply %5() : $@convention(thin) () -> @owned Optional<String> // user: %7
+  store %6 to [init] %4 : $*Optional<String>      // id: %7
+  end_borrow %3 : $TestJsonClass                  // id: %8
+  %9 = copy_value %2 : $TestJsonClass             // user: %11
+  destroy_value %2 : $TestJsonClass               // id: %10
+  return %9 : $TestJsonClass                      // id: %11
+} // end sil function 'MMPoint.TestJsonClass.init() -> MMPoint.TestJsonClass'
+
+// TestJsonClass.__allocating_init(from:)
+sil hidden [exact_self_class] [ossa] @MMPoint.TestJsonClass.__allocating_init(from: Swift.Decoder) throws -> MMPoint.TestJsonClass : $@convention(method) (@in any Decoder, @thick TestJsonClass.Type) -> (@owned TestJsonClass, @error any Error) {
+// %0 "decoder"                                   // user: %4
+// %1 "$metatype"
+bb0(%0 : $*any Decoder, %1 : $@thick TestJsonClass.Type):
+  %2 = alloc_ref $TestJsonClass                   // user: %4
+  // function_ref TestJsonClass.init(from:)
+  %3 = function_ref @MMPoint.TestJsonClass.init(from: Swift.Decoder) throws -> MMPoint.TestJsonClass : $@convention(method) (@in any Decoder, @owned TestJsonClass) -> (@owned TestJsonClass, @error any Error) // user: %4
+  try_apply %3(%0, %2) : $@convention(method) (@in any Decoder, @owned TestJsonClass) -> (@owned TestJsonClass, @error any Error), normal bb1, error bb2 // id: %4
+
+// %5                                             // user: %6
+bb1(%5 : @owned $TestJsonClass):                  // Preds: bb0
+  return %5 : $TestJsonClass                      // id: %6
+
+// %7                                             // user: %8
+bb2(%7 : @owned $any Error):                      // Preds: bb0
+  throw %7 : $any Error                           // id: %8
+} // end sil function 'MMPoint.TestJsonClass.__allocating_init(from: Swift.Decoder) throws -> MMPoint.TestJsonClass'
+
+// TestJsonClass.init(from:)
+sil hidden [ossa] @MMPoint.TestJsonClass.init(from: Swift.Decoder) throws -> MMPoint.TestJsonClass : $@convention(method) (@in any Decoder, @owned TestJsonClass) -> (@owned TestJsonClass, @error any Error) {
+// %0 "decoder"                                   // users: %51, %38, %13, %2
+// %1 "self"                                      // users: %5, %4
+bb0(%0 : $*any Decoder, %1 : @owned $TestJsonClass):
+  debug_value %0 : $*any Decoder, let, name "decoder", argno 1, implicit, expr op_deref // id: %2
+  debug_value undef : $any Error, var, name "$error", argno 2 // id: %3
+  debug_value %1 : $TestJsonClass, let, name "self", argno 3, implicit // id: %4
+  %5 = mark_uninitialized [rootself] %1 : $TestJsonClass // users: %50, %37, %36, %19, %6
+  %6 = begin_borrow %5 : $TestJsonClass           // users: %11, %7
+  %7 = ref_element_addr %6 : $TestJsonClass, #TestJsonClass.text // user: %10
+  // function_ref variable initialization expression of TestJsonClass.text
+  %8 = function_ref @variable initialization expression of MMPoint.TestJsonClass.text : Swift.String? : $@convention(thin) () -> @owned Optional<String> // user: %9
+  %9 = apply %8() : $@convention(thin) () -> @owned Optional<String> // user: %10
+  store %9 to [init] %7 : $*Optional<String>      // id: %10
+  end_borrow %6 : $TestJsonClass                  // id: %11
+  %12 = alloc_stack [lexical] $KeyedDecodingContainer<TestJsonClass.CodingKeys> // users: %35, %34, %26, %47, %46, %17, %41
+  %13 = open_existential_addr immutable_access %0 : $*any Decoder to $*@opened("0344E0C8-ABB9-11EE-B9E9-5209EABF2191", any Decoder) Self // users: %17, %17, %16
+  %14 = metatype $@thin TestJsonClass.CodingKeys.Type
+  %15 = metatype $@thick TestJsonClass.CodingKeys.Type // user: %17
+  %16 = witness_method $@opened("0344E0C8-ABB9-11EE-B9E9-5209EABF2191", any Decoder) Self, #Decoder.container : <Self where Self : Decoder><Key where Key : CodingKey> (Self) -> (Key.Type) throws -> KeyedDecodingContainer<Key>, %13 : $*@opened("0344E0C8-ABB9-11EE-B9E9-5209EABF2191", any Decoder) Self : $@convention(witness_method: Decoder) <τ_0_0 where τ_0_0 : Decoder><τ_1_0 where τ_1_0 : CodingKey> (@thick τ_1_0.Type, @in_guaranteed τ_0_0) -> (@out KeyedDecodingContainer<τ_1_0>, @error any Error) // type-defs: %13; user: %17
+  try_apply %16<@opened("0344E0C8-ABB9-11EE-B9E9-5209EABF2191", any Decoder) Self, TestJsonClass.CodingKeys>(%12, %15, %13) : $@convention(witness_method: Decoder) <τ_0_0 where τ_0_0 : Decoder><τ_1_0 where τ_1_0 : CodingKey> (@thick τ_1_0.Type, @in_guaranteed τ_0_0) -> (@out KeyedDecodingContainer<τ_1_0>, @error any Error), normal bb1, error bb3 // type-defs: %13; id: %17
+
+bb1(%18 : $()):                                   // Preds: bb0
+  %19 = begin_borrow %5 : $TestJsonClass          // users: %33, %29, %45
+  %20 = metatype $@thin String.Type               // user: %26
+  %21 = metatype $@thin TestJsonClass.CodingKeys.Type
+  %22 = enum $TestJsonClass.CodingKeys, #TestJsonClass.CodingKeys.text!enumelt // user: %24
+  %23 = alloc_stack $TestJsonClass.CodingKeys     // users: %28, %26, %44, %24
+  store %22 to [trivial] %23 : $*TestJsonClass.CodingKeys // id: %24
+  // function_ref KeyedDecodingContainer.decodeIfPresent(_:forKey:)
+  %25 = function_ref @Swift.KeyedDecodingContainer.decodeIfPresent(_: Swift.String.Type, forKey: A) throws -> Swift.String? : $@convention(method) <τ_0_0 where τ_0_0 : CodingKey> (@thin String.Type, @in_guaranteed τ_0_0, @in_guaranteed KeyedDecodingContainer<τ_0_0>) -> (@owned Optional<String>, @error any Error) // user: %26
+  try_apply %25<TestJsonClass.CodingKeys>(%20, %23, %12) : $@convention(method) <τ_0_0 where τ_0_0 : CodingKey> (@thin String.Type, @in_guaranteed τ_0_0, @in_guaranteed KeyedDecodingContainer<τ_0_0>) -> (@owned Optional<String>, @error any Error), normal bb2, error bb4 // id: %26
+
+// %27                                            // user: %31
+bb2(%27 : @owned $Optional<String>):              // Preds: bb1
+  dealloc_stack %23 : $*TestJsonClass.CodingKeys  // id: %28
+  %29 = ref_element_addr %19 : $TestJsonClass, #TestJsonClass.text // user: %30
+  %30 = begin_access [modify] [dynamic] %29 : $*Optional<String> // users: %32, %31
+  assign %27 to %30 : $*Optional<String>          // id: %31
+  end_access %30 : $*Optional<String>             // id: %32
+  end_borrow %19 : $TestJsonClass                 // id: %33
+  destroy_addr %12 : $*KeyedDecodingContainer<TestJsonClass.CodingKeys> // id: %34
+  dealloc_stack %12 : $*KeyedDecodingContainer<TestJsonClass.CodingKeys> // id: %35
+  %36 = copy_value %5 : $TestJsonClass            // user: %39
+  destroy_value %5 : $TestJsonClass               // id: %37
+  destroy_addr %0 : $*any Decoder                 // id: %38
+  return %36 : $TestJsonClass                     // id: %39
+
+// %40                                            // user: %42
+bb3(%40 : @owned $any Error):                     // Preds: bb0
+  dealloc_stack %12 : $*KeyedDecodingContainer<TestJsonClass.CodingKeys> // id: %41
+  br bb5(%40 : $any Error)                        // id: %42
+
+// %43                                            // user: %48
+bb4(%43 : @owned $any Error):                     // Preds: bb1
+  dealloc_stack %23 : $*TestJsonClass.CodingKeys  // id: %44
+  end_borrow %19 : $TestJsonClass                 // id: %45
+  destroy_addr %12 : $*KeyedDecodingContainer<TestJsonClass.CodingKeys> // id: %46
+  dealloc_stack %12 : $*KeyedDecodingContainer<TestJsonClass.CodingKeys> // id: %47
+  br bb5(%43 : $any Error)                        // id: %48
+
+// %49                                            // user: %52
+bb5(%49 : @owned $any Error):                     // Preds: bb4 bb3
+  destroy_value %5 : $TestJsonClass               // id: %50
+  destroy_addr %0 : $*any Decoder                 // id: %51
+  throw %49 : $any Error                          // id: %52
+} // end sil function 'MMPoint.TestJsonClass.init(from: Swift.Decoder) throws -> MMPoint.TestJsonClass'
+
+// protocol witness for Decodable.init(from:) in conformance TestJsonClass
+sil private [transparent] [thunk] [ossa] @protocol witness for Swift.Decodable.init(from: Swift.Decoder) throws -> A in conformance MMPoint.TestJsonClass : Swift.Decodable in MMPoint : $@convention(witness_method: Decodable) (@in any Decoder, @thick TestJsonClass.Type) -> (@out TestJsonClass, @error any Error) {
+// %0                                             // user: %6
+// %1                                             // user: %4
+// %2                                             // users: %4, %3
+bb0(%0 : $*TestJsonClass, %1 : $*any Decoder, %2 : $@thick TestJsonClass.Type):
+  %3 = class_method %2 : $@thick TestJsonClass.Type, #TestJsonClass.init!allocator : (TestJsonClass.Type) -> (any Decoder) throws -> TestJsonClass, $@convention(method) (@in any Decoder, @thick TestJsonClass.Type) -> (@owned TestJsonClass, @error any Error) // user: %4
+  try_apply %3(%1, %2) : $@convention(method) (@in any Decoder, @thick TestJsonClass.Type) -> (@owned TestJsonClass, @error any Error), normal bb1, error bb2 // id: %4
+
+// %5                                             // user: %6
+bb1(%5 : @owned $TestJsonClass):                  // Preds: bb0
+  store %5 to [init] %0 : $*TestJsonClass         // id: %6
+  %7 = tuple ()                                   // user: %8
+  return %7 : $()                                 // id: %8
+
+// %9                                             // user: %10
+bb2(%9 : @owned $any Error):                      // Preds: bb0
+  throw %9 : $any Error                           // id: %10
+} // end sil function 'protocol witness for Swift.Decodable.init(from: Swift.Decoder) throws -> A in conformance MMPoint.TestJsonClass : Swift.Decodable in MMPoint'
+
+// protocol witness for Encodable.encode(to:) in conformance TestJsonClass
+sil private [transparent] [thunk] [ossa] @protocol witness for Swift.Encodable.encode(to: Swift.Encoder) throws -> () in conformance MMPoint.TestJsonClass : Swift.Encodable in MMPoint : $@convention(witness_method: Encodable) (@in_guaranteed any Encoder, @in_guaranteed TestJsonClass) -> @error any Error {
+// %0                                             // user: %4
+// %1                                             // user: %2
+bb0(%0 : $*any Encoder, %1 : $*TestJsonClass):
+  %2 = load_borrow %1 : $*TestJsonClass           // users: %7, %10, %4, %3
+  %3 = class_method %2 : $TestJsonClass, #TestJsonClass.encode : (TestJsonClass) -> (any Encoder) throws -> (), $@convention(method) (@in_guaranteed any Encoder, @guaranteed TestJsonClass) -> @error any Error // user: %4
+  try_apply %3(%0, %2) : $@convention(method) (@in_guaranteed any Encoder, @guaranteed TestJsonClass) -> @error any Error, normal bb1, error bb2 // id: %4
+
+bb1(%5 : $()):                                    // Preds: bb0
+  %6 = tuple ()                                   // user: %8
+  end_borrow %2 : $TestJsonClass                  // id: %7
+  return %6 : $()                                 // id: %8
+
+// %9                                             // user: %11
+bb2(%9 : @owned $any Error):                      // Preds: bb0
+  end_borrow %2 : $TestJsonClass                  // id: %10
+  throw %9 : $any Error                           // id: %11
+} // end sil function 'protocol witness for Swift.Encodable.encode(to: Swift.Encoder) throws -> () in conformance MMPoint.TestJsonClass : Swift.Encodable in MMPoint'
+
+// Int.init(_builtinIntegerLiteral:)
+sil [transparent] [serialized] @Swift.Int.init(_builtinIntegerLiteral: Builtin.IntLiteral) -> Swift.Int : $@convention(method) (Builtin.IntLiteral, @thin Int.Type) -> Int
+
+// static Int.== infix(_:_:)
+sil [transparent] [serialized] @static Swift.Int.== infix(Swift.Int, Swift.Int) -> Swift.Bool : $@convention(method) (Int, Int, @thin Int.Type) -> Bool
+
+// _hashValue<A>(for:)
+sil [serialized] [always_inline] @Swift._hashValue<A where A: Swift.Hashable>(for: A) -> Swift.Int : $@convention(thin) <τ_0_0 where τ_0_0 : Hashable> (@in_guaranteed τ_0_0) -> Int
+
+// Hasher.combine<A>(_:)
+sil [serialized] [always_inline] @Swift.Hasher.combine<A where A: Swift.Hashable>(A) -> () : $@convention(method) <τ_0_0 where τ_0_0 : Hashable> (@in_guaranteed τ_0_0, @inout Hasher) -> ()
+
+// String.init(_builtinStringLiteral:utf8CodeUnitCount:isASCII:)
+sil [serialized] [always_inline] [readonly] [_semantics "string.makeUTF8"] @Swift.String.init(_builtinStringLiteral: Builtin.RawPointer, utf8CodeUnitCount: Builtin.Word, isASCII: Builtin.Int1) -> Swift.String : $@convention(method) (Builtin.RawPointer, Builtin.Word, Builtin.Int1, @thin String.Type) -> @owned String
+
+// ~= infix<A>(_:_:)
+sil [transparent] [serialized] @Swift.~= infix<A where A: Swift.Equatable>(A, A) -> Swift.Bool : $@convention(thin) <τ_0_0 where τ_0_0 : Equatable> (@in_guaranteed τ_0_0, @in_guaranteed τ_0_0) -> Bool
+
+sil_vtable TestJsonClass {
+  #TestJsonClass.text!getter: (TestJsonClass) -> () -> String? : @MMPoint.TestJsonClass.text.getter : Swift.String?	// TestJsonClass.text.getter
+  #TestJsonClass.text!setter: (TestJsonClass) -> (String?) -> () : @MMPoint.TestJsonClass.text.setter : Swift.String?	// TestJsonClass.text.setter
+  #TestJsonClass.text!modify: (TestJsonClass) -> () -> () : @MMPoint.TestJsonClass.text.modify : Swift.String?	// TestJsonClass.text.modify
+  #TestJsonClass.encode: (TestJsonClass) -> (any Encoder) throws -> () : @MMPoint.TestJsonClass.encode(to: Swift.Encoder) throws -> ()	// TestJsonClass.encode(to:)
+  #TestJsonClass.init!allocator: (TestJsonClass.Type) -> () -> TestJsonClass : @MMPoint.TestJsonClass.__allocating_init() -> MMPoint.TestJsonClass	// TestJsonClass.__allocating_init()
+  #TestJsonClass.init!allocator: (TestJsonClass.Type) -> (any Decoder) throws -> TestJsonClass : @MMPoint.TestJsonClass.__allocating_init(from: Swift.Decoder) throws -> MMPoint.TestJsonClass	// TestJsonClass.__allocating_init(from:)
+  #TestJsonClass.deinit!deallocator: @MMPoint.TestJsonClass.__deallocating_deinit	// TestJsonClass.__deallocating_deinit
+}
+
+sil_witness_table private TestJsonStruct.CodingKeys: Equatable module MMPoint {
+  method #Equatable."==": <Self where Self : Equatable> (Self.Type) -> (Self, Self) -> Bool : @protocol witness for static Swift.Equatable.== infix(A, A) -> Swift.Bool in conformance MMPoint.TestJsonStruct.(CodingKeys in _7D4DEB83CDE18722DA21D9D4858DE5E2) : Swift.Equatable in MMPoint	// protocol witness for static Equatable.== infix(_:_:) in conformance TestJsonStruct.CodingKeys
+}
+
+sil_witness_table private TestJsonStruct.CodingKeys: Hashable module MMPoint {
+  base_protocol Equatable: TestJsonStruct.CodingKeys: Equatable module MMPoint
+  method #Hashable.hashValue!getter: <Self where Self : Hashable> (Self) -> () -> Int : @protocol witness for Swift.Hashable.hashValue.getter : Swift.Int in conformance MMPoint.TestJsonStruct.(CodingKeys in _7D4DEB83CDE18722DA21D9D4858DE5E2) : Swift.Hashable in MMPoint	// protocol witness for Hashable.hashValue.getter in conformance TestJsonStruct.CodingKeys
+  method #Hashable.hash: <Self where Self : Hashable> (Self) -> (inout Hasher) -> () : @protocol witness for Swift.Hashable.hash(into: inout Swift.Hasher) -> () in conformance MMPoint.TestJsonStruct.(CodingKeys in _7D4DEB83CDE18722DA21D9D4858DE5E2) : Swift.Hashable in MMPoint	// protocol witness for Hashable.hash(into:) in conformance TestJsonStruct.CodingKeys
+  method #Hashable._rawHashValue: <Self where Self : Hashable> (Self) -> (Int) -> Int : @protocol witness for Swift.Hashable._rawHashValue(seed: Swift.Int) -> Swift.Int in conformance MMPoint.TestJsonStruct.(CodingKeys in _7D4DEB83CDE18722DA21D9D4858DE5E2) : Swift.Hashable in MMPoint	// protocol witness for Hashable._rawHashValue(seed:) in conformance TestJsonStruct.CodingKeys
+}
+
+sil_witness_table private TestJsonStruct.CodingKeys: CodingKey module MMPoint {
+  base_protocol CustomDebugStringConvertible: TestJsonStruct.CodingKeys: CustomDebugStringConvertible module MMPoint
+  base_protocol CustomStringConvertible: TestJsonStruct.CodingKeys: CustomStringConvertible module MMPoint
+  method #CodingKey.stringValue!getter: <Self where Self : CodingKey> (Self) -> () -> String : @protocol witness for Swift.CodingKey.stringValue.getter : Swift.String in conformance MMPoint.TestJsonStruct.(CodingKeys in _7D4DEB83CDE18722DA21D9D4858DE5E2) : Swift.CodingKey in MMPoint	// protocol witness for CodingKey.stringValue.getter in conformance TestJsonStruct.CodingKeys
+  method #CodingKey.init!allocator: <Self where Self : CodingKey> (Self.Type) -> (String) -> Self? : @protocol witness for Swift.CodingKey.init(stringValue: Swift.String) -> A? in conformance MMPoint.TestJsonStruct.(CodingKeys in _7D4DEB83CDE18722DA21D9D4858DE5E2) : Swift.CodingKey in MMPoint	// protocol witness for CodingKey.init(stringValue:) in conformance TestJsonStruct.CodingKeys
+  method #CodingKey.intValue!getter: <Self where Self : CodingKey> (Self) -> () -> Int? : @protocol witness for Swift.CodingKey.intValue.getter : Swift.Int? in conformance MMPoint.TestJsonStruct.(CodingKeys in _7D4DEB83CDE18722DA21D9D4858DE5E2) : Swift.CodingKey in MMPoint	// protocol witness for CodingKey.intValue.getter in conformance TestJsonStruct.CodingKeys
+  method #CodingKey.init!allocator: <Self where Self : CodingKey> (Self.Type) -> (Int) -> Self? : @protocol witness for Swift.CodingKey.init(intValue: Swift.Int) -> A? in conformance MMPoint.TestJsonStruct.(CodingKeys in _7D4DEB83CDE18722DA21D9D4858DE5E2) : Swift.CodingKey in MMPoint	// protocol witness for CodingKey.init(intValue:) in conformance TestJsonStruct.CodingKeys
+}
+
+sil_witness_table private TestJsonStruct.CodingKeys: CustomDebugStringConvertible module MMPoint {
+  method #CustomDebugStringConvertible.debugDescription!getter: <Self where Self : CustomDebugStringConvertible> (Self) -> () -> String : @protocol witness for Swift.CustomDebugStringConvertible.debugDescription.getter : Swift.String in conformance MMPoint.TestJsonStruct.(CodingKeys in _7D4DEB83CDE18722DA21D9D4858DE5E2) : Swift.CustomDebugStringConvertible in MMPoint	// protocol witness for CustomDebugStringConvertible.debugDescription.getter in conformance TestJsonStruct.CodingKeys
+}
+
+sil_witness_table private TestJsonStruct.CodingKeys: CustomStringConvertible module MMPoint {
+  method #CustomStringConvertible.description!getter: <Self where Self : CustomStringConvertible> (Self) -> () -> String : @protocol witness for Swift.CustomStringConvertible.description.getter : Swift.String in conformance MMPoint.TestJsonStruct.(CodingKeys in _7D4DEB83CDE18722DA21D9D4858DE5E2) : Swift.CustomStringConvertible in MMPoint	// protocol witness for CustomStringConvertible.description.getter in conformance TestJsonStruct.CodingKeys
+}
+
+sil_witness_table hidden TestJsonStruct: Decodable module MMPoint {
+  method #Decodable.init!allocator: <Self where Self : Decodable> (Self.Type) -> (any Decoder) throws -> Self : @protocol witness for Swift.Decodable.init(from: Swift.Decoder) throws -> A in conformance MMPoint.TestJsonStruct : Swift.Decodable in MMPoint	// protocol witness for Decodable.init(from:) in conformance TestJsonStruct
+}
+
+sil_witness_table hidden TestJsonStruct: Encodable module MMPoint {
+  method #Encodable.encode: <Self where Self : Encodable> (Self) -> (any Encoder) throws -> () : @protocol witness for Swift.Encodable.encode(to: Swift.Encoder) throws -> () in conformance MMPoint.TestJsonStruct : Swift.Encodable in MMPoint	// protocol witness for Encodable.encode(to:) in conformance TestJsonStruct
+}
+
+sil_witness_table private TestJsonClass.CodingKeys: Equatable module MMPoint {
+  method #Equatable."==": <Self where Self : Equatable> (Self.Type) -> (Self, Self) -> Bool : @protocol witness for static Swift.Equatable.== infix(A, A) -> Swift.Bool in conformance MMPoint.TestJsonClass.(CodingKeys in _7D4DEB83CDE18722DA21D9D4858DE5E2) : Swift.Equatable in MMPoint	// protocol witness for static Equatable.== infix(_:_:) in conformance TestJsonClass.CodingKeys
+}
+
+sil_witness_table private TestJsonClass.CodingKeys: Hashable module MMPoint {
+  base_protocol Equatable: TestJsonClass.CodingKeys: Equatable module MMPoint
+  method #Hashable.hashValue!getter: <Self where Self : Hashable> (Self) -> () -> Int : @protocol witness for Swift.Hashable.hashValue.getter : Swift.Int in conformance MMPoint.TestJsonClass.(CodingKeys in _7D4DEB83CDE18722DA21D9D4858DE5E2) : Swift.Hashable in MMPoint	// protocol witness for Hashable.hashValue.getter in conformance TestJsonClass.CodingKeys
+  method #Hashable.hash: <Self where Self : Hashable> (Self) -> (inout Hasher) -> () : @protocol witness for Swift.Hashable.hash(into: inout Swift.Hasher) -> () in conformance MMPoint.TestJsonClass.(CodingKeys in _7D4DEB83CDE18722DA21D9D4858DE5E2) : Swift.Hashable in MMPoint	// protocol witness for Hashable.hash(into:) in conformance TestJsonClass.CodingKeys
+  method #Hashable._rawHashValue: <Self where Self : Hashable> (Self) -> (Int) -> Int : @protocol witness for Swift.Hashable._rawHashValue(seed: Swift.Int) -> Swift.Int in conformance MMPoint.TestJsonClass.(CodingKeys in _7D4DEB83CDE18722DA21D9D4858DE5E2) : Swift.Hashable in MMPoint	// protocol witness for Hashable._rawHashValue(seed:) in conformance TestJsonClass.CodingKeys
+}
+
+sil_witness_table private TestJsonClass.CodingKeys: CodingKey module MMPoint {
+  base_protocol CustomDebugStringConvertible: TestJsonClass.CodingKeys: CustomDebugStringConvertible module MMPoint
+  base_protocol CustomStringConvertible: TestJsonClass.CodingKeys: CustomStringConvertible module MMPoint
+  method #CodingKey.stringValue!getter: <Self where Self : CodingKey> (Self) -> () -> String : @protocol witness for Swift.CodingKey.stringValue.getter : Swift.String in conformance MMPoint.TestJsonClass.(CodingKeys in _7D4DEB83CDE18722DA21D9D4858DE5E2) : Swift.CodingKey in MMPoint	// protocol witness for CodingKey.stringValue.getter in conformance TestJsonClass.CodingKeys
+  method #CodingKey.init!allocator: <Self where Self : CodingKey> (Self.Type) -> (String) -> Self? : @protocol witness for Swift.CodingKey.init(stringValue: Swift.String) -> A? in conformance MMPoint.TestJsonClass.(CodingKeys in _7D4DEB83CDE18722DA21D9D4858DE5E2) : Swift.CodingKey in MMPoint	// protocol witness for CodingKey.init(stringValue:) in conformance TestJsonClass.CodingKeys
+  method #CodingKey.intValue!getter: <Self where Self : CodingKey> (Self) -> () -> Int? : @protocol witness for Swift.CodingKey.intValue.getter : Swift.Int? in conformance MMPoint.TestJsonClass.(CodingKeys in _7D4DEB83CDE18722DA21D9D4858DE5E2) : Swift.CodingKey in MMPoint	// protocol witness for CodingKey.intValue.getter in conformance TestJsonClass.CodingKeys
+  method #CodingKey.init!allocator: <Self where Self : CodingKey> (Self.Type) -> (Int) -> Self? : @protocol witness for Swift.CodingKey.init(intValue: Swift.Int) -> A? in conformance MMPoint.TestJsonClass.(CodingKeys in _7D4DEB83CDE18722DA21D9D4858DE5E2) : Swift.CodingKey in MMPoint	// protocol witness for CodingKey.init(intValue:) in conformance TestJsonClass.CodingKeys
+}
+
+sil_witness_table private TestJsonClass.CodingKeys: CustomDebugStringConvertible module MMPoint {
+  method #CustomDebugStringConvertible.debugDescription!getter: <Self where Self : CustomDebugStringConvertible> (Self) -> () -> String : @protocol witness for Swift.CustomDebugStringConvertible.debugDescription.getter : Swift.String in conformance MMPoint.TestJsonClass.(CodingKeys in _7D4DEB83CDE18722DA21D9D4858DE5E2) : Swift.CustomDebugStringConvertible in MMPoint	// protocol witness for CustomDebugStringConvertible.debugDescription.getter in conformance TestJsonClass.CodingKeys
+}
+
+sil_witness_table private TestJsonClass.CodingKeys: CustomStringConvertible module MMPoint {
+  method #CustomStringConvertible.description!getter: <Self where Self : CustomStringConvertible> (Self) -> () -> String : @protocol witness for Swift.CustomStringConvertible.description.getter : Swift.String in conformance MMPoint.TestJsonClass.(CodingKeys in _7D4DEB83CDE18722DA21D9D4858DE5E2) : Swift.CustomStringConvertible in MMPoint	// protocol witness for CustomStringConvertible.description.getter in conformance TestJsonClass.CodingKeys
+}
+
+sil_witness_table hidden TestJsonClass: Decodable module MMPoint {
+  method #Decodable.init!allocator: <Self where Self : Decodable> (Self.Type) -> (any Decoder) throws -> Self : @protocol witness for Swift.Decodable.init(from: Swift.Decoder) throws -> A in conformance MMPoint.TestJsonClass : Swift.Decodable in MMPoint	// protocol witness for Decodable.init(from:) in conformance TestJsonClass
+}
+
+sil_witness_table hidden TestJsonClass: Encodable module MMPoint {
+  method #Encodable.encode: <Self where Self : Encodable> (Self) -> (any Encoder) throws -> () : @protocol witness for Swift.Encodable.encode(to: Swift.Encoder) throws -> () in conformance MMPoint.TestJsonClass : Swift.Encodable in MMPoint	// protocol witness for Encodable.encode(to:) in conformance TestJsonClass
+}
+
+
+
+// Mappings from '#fileID' to '#filePath':
+//   'MMPoint/MMPoint.swift' => 'MMPoint.swift'
+
+

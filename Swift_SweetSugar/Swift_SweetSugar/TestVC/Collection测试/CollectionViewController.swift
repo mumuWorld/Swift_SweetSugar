@@ -72,7 +72,7 @@ class CollectionViewController: UIViewController {
     }()
     
     lazy var collectionView_3: UICollectionView = {
-        let item = UICollectionView(frame: .zero, collectionViewLayout: ScrollLayout)
+        let item = UICollectionView(frame: .zero, collectionViewLayout: flowLayout)
         item.showsHorizontalScrollIndicator = false
         item.showsVerticalScrollIndicator = false
         item.dataSource = self
@@ -103,9 +103,9 @@ class CollectionViewController: UIViewController {
         super.viewDidLoad()
 //        view.addSubview(collectionView)
 //        view.addSubview(collectionView_2)
-
-//        addCollection3()
-        addCustomScroll()
+        bgImageView.isHidden = true
+        addCollection3()
+//        addCustomScroll()
     }
     
     var _eachItemWidth: CGFloat = 0
@@ -221,37 +221,37 @@ class CollectionViewController: UIViewController {
     }
     
     func addCollection3() {
-        kBottmonHeight = kBottomSafeHeight;
-        var botLogoH = kScreenWidth / 375 * 104
-        var itemWidth = 418.0
-        if kBottmonHeight > 0 {
-            botLogoH += kBottmonHeight
-            
-        } else {
-            
-        }
-        // 根据剩余高度，计算最大高度，然后根据比例 计算宽度，看是否能展示
-        //TODO: 杨杰- 后面再算吧
-        if kScreenWidth < 375 {
-            itemWidth = 178
-        } else if kBottmonHeight > 0 {
-            itemWidth = 214
-        }
-        
-        //16:9
-        let itemHeight = ceil(itemWidth * 16 / 9)
-        ScrollLayout.itemSize = CGSize(width: itemWidth, height: itemHeight)
-        
-        bgImageView.frame = view.bounds
+//        kBottmonHeight = kBottomSafeHeight;
+//        var botLogoH = kScreenWidth / 375 * 104
+//        var itemWidth = 418.0
+//        if kBottmonHeight > 0 {
+//            botLogoH += kBottmonHeight
+//            
+//        } else {
+//            
+//        }
+//        // 根据剩余高度，计算最大高度，然后根据比例 计算宽度，看是否能展示
+//        //TODO: 杨杰- 后面再算吧
+//        if kScreenWidth < 375 {
+//            itemWidth = 178
+//        } else if kBottmonHeight > 0 {
+//            itemWidth = 214
+//        }
+//        
+//        //16:9
+//        let itemHeight = ceil(itemWidth * 16 / 9)
+//        ScrollLayout.itemSize = CGSize(width: itemWidth, height: itemHeight)
+//        
+//        bgImageView.frame = view.bounds
 //        view.addSubview(collectionView_3)
         view.insertSubview(collectionView_3, belowSubview: bgImageView)
         collectionView_3.snp.makeConstraints { make in
             make.leading.trailing.equalToSuperview()
             make.top.equalToSuperview().offset(100)
-            make.height.equalTo(itemHeight)
+            make.height.equalTo(100)
         }
         
-        self.collectionView.alpha = 0
+//        self.collectionView.alpha = 0
     }
 
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {

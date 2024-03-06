@@ -93,6 +93,16 @@ extension UITestVC {
         widthLabel.attributedText = attr
     }
     
+    func hanshushiTest() -> Void {
+        guard let url = URL(string: "http://www.objc.io/images/covers/16.jpg"), let image = CIImage(contentsOf: url) else { return }
+        
+        let blurRadius = 5.0
+        let overlayColor = UIColor.red.withAlphaComponent(0.2)
+        let blurredImage = tool.blur(radius: blurRadius)(image)
+        let overlaidImage = tool.colorOverlay(color: overlayColor)(blurredImage)
+        
+    }
+    
     func gradientLabelTest() {
         
         gradientLabelTest3()
@@ -120,7 +130,7 @@ extension UITestVC {
         }
         gradientView.update(colors: [UIColor.mm_colorFromHex(color_vaule: 0x7d42d4),
                                      UIColor.mm_colorFromHex(color_vaule: 0x534dd1),
-                                     UIColor.mm_colorFromHex(color_vaule: 0x78a0e5)], start: CGPoint(x: 0, y: 0.5), end: CGPoint(x: 1, y: 0.5), locations: [0, 0.5,  1])
+                                     UIColor.mm_colorFromHex(color_vaule: 0x78a0e5)], start: CGPoint(x: 0, y: 0.5), end: CGPoint(x: 1, y: 0.5), locations: [0.2, 0.5,  1])
         gradientView.layer.mask = label.layer
         label.frame = gradientView.bounds
     }

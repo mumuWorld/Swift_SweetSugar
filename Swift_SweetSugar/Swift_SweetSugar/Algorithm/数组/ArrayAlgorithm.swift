@@ -39,5 +39,55 @@ class ArrayAlgorithm {
         }
         return maxLength
     }
+
+    // 随机播放函数
+    func playRandomly(playlist: [String]) {
+        var _playList = playlist
+        // 使用shuffled()打乱数组
+//        let shuffledPlaylist = _playList.shuffled()
+        _playList.mm_shuffle()
+        
+        let shuffledPlaylist = _playList
+        // 初始化播放索引
+        var currentIndex = 0
+
+        // 播放当前索引的元素
+        func playCurrent() {
+            if currentIndex < shuffledPlaylist.count {
+                print("Playing: $shuffledPlaylist[currentIndex])")
+                print("test->播放: \(_playList[currentIndex])")
+
+                currentIndex += 1
+                // 延迟一段时间以模拟播放，然后继续播放下一个
+                // 这里使用DispatchQueue.main.asyncAfter来模拟延迟
+
+                DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
+                    playCurrent() // 注意：这里需要使用self来引用外部的playCurrent闭包
+                }
+            } else {
+                // 播放结束，可以选择重新开始或者停止
+//                print("Playback completed. Restarting...")
+//                playRandomly(playlist: playlist) // 重新开始
+            }
+        }
+
+        // 调用播放当前元素的函数
+        playCurrent()
+    }
     
+    
+}
+
+extension Array {
+    mutating func mm_shuffle() {
+        for i in (1..<count).reversed() {
+            let j = Int.random(in: 0..<i)
+            print("test->随机: \(i), j: \(j)")
+            swapAt(i, j)
+        }
+//        for i in stride(from: count - 1, through: 0, by: 1) {
+//            let j = Int(arc4random_uniform(UInt32(i + 1)))
+//            swapAt(i, j)
+//        }
+    }
 }

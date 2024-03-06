@@ -85,3 +85,54 @@ extension MMFuncTool {
         mm_printLog("test")
     }
 }
+
+typealias Filter = (CIImage) -> CIImage
+
+extension MMFuncTool {
+    func blur(radius: Double) -> Filter {
+        return { image in
+            let parameters = [
+                kCIInputRadiusKey: radius,
+                kCIInputImageKey: image
+            ]
+            guard let filter = CIFilter(name: "CIGaussianBlur", parameters: parameters) else { fatalError() }
+            guard let outputImage = filter.outputImage else { fatalError() }
+            return outputImage
+        }
+    }
+    
+    /// “生成固定颜色的滤镜
+    func colorGenerator(color: UIColor) -> Filter {
+        return { _ in
+            let c = CIColor(color: color)
+            let parameters = [kCIInputColorKey: c]
+            guard let filter = CIFilter(name: "CIConstantColorGenerator",
+                                        parameters: parameters) else { fatalError() }
+            guard let outputImage = filter.outputImage else { fatalError() }
+            return outputImage
+        }
+    }
+    
+    /// 合成滤镜
+    func compositeSourceOver(overlay: CIImage) -> Filter {
+        return { image in
+            let parameters = [
+                kCIInputBackgroundImageKey: image,
+                kCIInputImageKey: overlay
+            ]
+            guard let filter = CIFilter(name: "CISourceOverCompositing",
+                                        parameters: parameters) else { fatalError() }
+            guard let outputImage = filter.outputImage else { fatalError() }
+            // 将输出图像裁剪为与输入图像一致的尺寸
+            let cropRect = image.extent
+            return outputImage.cropped(to: cropRect)
+        }
+    }
+    
+    func colorOverlay(color: UIColor) -> Filter {
+        return { image in
+            let overlay = self.colorGenerator(color: color)(image)
+            return self.compositeSourceOver(overlay: overlay)(image)
+        }
+    }
+}

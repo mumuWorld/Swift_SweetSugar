@@ -27,6 +27,8 @@ class MMTouchView: UIView {
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         handleHighlight(true)
+        super.touchesBegan(touches, with: event)
+        mm_printLog("test-> view")
     }
     
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
