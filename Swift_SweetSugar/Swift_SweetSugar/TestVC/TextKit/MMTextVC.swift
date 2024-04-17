@@ -51,6 +51,7 @@ class MMTextVC: UIViewController {
     lazy var textField: UITextField = {
         let item = UITextField()
         item.borderStyle = .line
+        item.delegate = self
         return item
     }()
 
@@ -69,6 +70,7 @@ class MMTextVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         addUITextView()
+        addTextField()
 //        addYYTextView()
 //        getText()
 //        pasteControl()
@@ -84,6 +86,11 @@ class MMTextVC: UIViewController {
             make.width.equalTo(300)
             make.height.equalTo(100)
         }
+    }
+    
+    func addTextField() {
+        view.addSubview(textField)
+        textField.frame = CGRect(x: 20, y: 340, width: 300, height: 30)
     }
     
     func addUITextView() {
@@ -222,12 +229,32 @@ struct MMTextJson: Decodable {
     }
     var test: String?
 }
-
+extension MMTextVC: UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        mm_printLog("test->return")
+        textField.resignFirstResponder()
+        return false
+    }
+    
+    func textFieldDidEndEditing(_ textField: UITextField, reason: UITextField.DidEndEditingReason) {
+        mm_printLog("test->didEND, reason:\(reason.rawValue)")
+    }
+    
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        mm_printLog("test->repceing: \(string)")
+        return true
+    }
+}
 extension MMTextVC: UITextViewDelegate {
     
     func textViewDidEndEditing(_ textView: UITextView) {
-        mm_printLog("test->DidEnd")
+        mm_printLog("test->DidEnd") 
         textView.endEditing(true)
+    }
+    
+    func textViewShouldEndEditing(_ textView: UITextView) -> Bool {
+        mm_printLog("test->shouldEnd")
+        return true
     }
     
     func textViewShouldBeginEditing(_ textView: UITextView) -> Bool {

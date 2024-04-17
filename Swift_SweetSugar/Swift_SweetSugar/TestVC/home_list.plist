@@ -130,5 +130,13 @@
 		<key>showName</key>
 		<string>嵌套滚动测试</string>
 	</dict>
+	<dict>
+		<key>desc</key>
+		<string>scroll</string>
+		<key>routerVC</key>
+		<string>CustomScrollAnimationViewController</string>
+		<key>showName</key>
+		<string>自定义滚动动画</string>
+	</dict>
 </array>
 </plist>

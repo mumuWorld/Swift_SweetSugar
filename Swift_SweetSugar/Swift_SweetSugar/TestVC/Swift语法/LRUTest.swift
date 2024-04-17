@@ -108,3 +108,75 @@ class LRUCache<Key: Hashable, Value> {
         }
     }
 }
+
+
+class LRUCacheTest {
+    class Node {
+        var key: Int
+        var value: Int
+        var prev: Node?
+        var next: Node?
+        
+        init(key: Int, value: Int) {
+            self.key = key
+            self.value = value
+        }
+    }
+    
+    var capacity: Int
+    var cache: [Int: Node]
+    var head: Node
+    var tail: Node
+    
+    init(_ capacity: Int) {
+        self.capacity = capacity
+        self.cache = [Int: Node]()
+        self.head = Node(key: 0, value: 0)
+        self.tail = Node(key: 0, value: 0)
+        self.head.next = self.tail
+        self.tail.prev = self.head
+    }
+    
+    func get(_ key: Int) -> Int {
+        guard let node = cache[key] else { return -1 }
+        moveToHead(node)
+        return node.value
+    }
+    
+    func put(_ key: Int, _ value: Int) {
+        if let node = cache[key] {
+            node.value = value
+            moveToHead(node)
+        } else {
+            let newNode = Node(key: key, value: value)
+            cache[key] = newNode
+            addToHead(newNode)
+            if cache.count > capacity {
+                removeTail()
+            }
+        }
+    }
+    
+    private func addToHead(_ node: Node) {
+        node.prev = head
+        node.next = head.next
+        head.next?.prev = node
+        head.next = node
+    }
+    
+    private func removeNode(_ node: Node) {
+        node.prev?.next = node.next
+        node.next?.prev = node.prev
+    }
+    
+    private func moveToHead(_ node: Node) {
+        removeNode(node)
+        addToHead(node)
+    }
+    
+    private func removeTail() {
+        guard let tailNode = tail.prev else { return }
+        removeNode(tailNode)
+        cache.removeValue(forKey: tailNode.key)
+    }
+}

@@ -157,16 +157,35 @@ class MMFuncTool: NSObject {
 //        })
     }
     
+    lazy var downloader = ImageDownloader()
     func operationQueueTest() {
-        let operation = Operation()
-        operation.completionBlock = {
-            mm_printLog("finished")
-        }
-        OperationQueue.main.addOperation(operation)
+//        let operation = Operation()
+//        operation.completionBlock = {
+//            mm_printLog("finished")
+//        }
+//        OperationQueue.main.addOperation(operation)
+//        
+//        MMFuncTool.add(a: 1, b: 3) { result in
+//            mm_printLog(result)
+//        }
+//        mm_printLog("before wait")
+//        // 主线程执行会卡死主线程
+////        OperationQueue.main.waitUntilAllOperationsAreFinished()
+//        mm_printLog("wait")
         
-        MMFuncTool.add(a: 1, b: 3) { result in
-            mm_printLog(result)
-        }
+//        downloadImages()
+        // 完美
+//        downloader.downloadImages()
+        downloader.downloadImages_OperationQueue()
+
+    }
+    
+    func naviTest() {
+        guard let nav = UIViewController.currentViewController()?.navigationController,
+                  var viewcontrollers = UIViewController.currentViewController()?.navigationController?.viewControllers else { return }
+        viewcontrollers.removeLast()
+        viewcontrollers.append(UITestVC())
+        nav.setViewControllers(viewcontrollers, animated: true)
     }
     
     static func add(a: Int, b: Int, block: @escaping ((Int) -> Void)) {
@@ -175,22 +194,76 @@ class MMFuncTool: NSObject {
         }
     }
     
-    
+    // 主函数
+    func downloadImages() {
+        let operationQueue = OperationQueue()
+        operationQueue.maxConcurrentOperationCount = 5
+        let completionOperation = BlockOperation {
+            // 所有图片下载完成后的回调
+            print("All images downloaded!")
+        }
+
+        // 生成100个下载操作，并添加到队列
+        for i in 1...10000 {
+            if let imageURL = URL(string: "https://example.com/image\(i).jpg") {
+//                let downloadOperation = ImageDownloadOperation(imageURL: imageURL)
+                
+                let downloadOperation = Operation()
+                downloadOperation.completionBlock = {
+                    mm_printLog("下载: \(i), \(Thread.current)")
+                }
+                // 将下载操作添加到 completionOperation 的依赖中
+                completionOperation.addDependency(downloadOperation)
+
+                // 添加操作到队列
+                operationQueue.addOperation(downloadOperation)
+            }
+        }
+
+        // 将 completionOperation 添加到队列
+        operationQueue.addOperation(completionOperation)
+        mm_printLog("before wait")
+
+        // 等待队列中的所有操作完成
+//        operationQueue.waitUntilAllOperationsAreFinished()
+        
+//        mm_printLog("wait")
+
+    }
+
+    var testBlock4: ((MMFuncTool) -> Void)?
     /// weakTest 循环引用测试
     /// - Parameter vc: 测试
     func blockTest(vc: FuncTestVC) {
 //        blockDemoFunc { [weak self, weak vc] tool, vc in
 //            
 //        }
-//        //会捕获
-//        var testStr: String = ""
-//        let testBlock: (String) -> Void = { str in
-//            print(testStr + str)
-//        }
-//        testStr = "test"
-//        testBlock("good")
-//        ["test"].joined()
+//      //隐士捕获
+        var testStr: String = ""
+        let testBlock: (String) -> Void = { str in
+            testStr += str
+            print("test->testStr:\(testStr)")
+        }
+        testStr = "test"
+        testBlock("good")
+        // test->testStr:testgood
+        print("test->testStr:\(testStr)")
+        // 捕获列表
+        let testBlock2: (String) -> Void = { [_testStr = testStr] str in
+            // test->_testStr:testgood, str: good2
+            print("test->_testStr:\(_testStr), str: \(str)")
+        }
+        testStr = "test2"
+        testBlock2("good2")
+        // 弱引用捕获
         
+        
+        let testBlock4: (MMFuncTool) -> Void = { (tool) in
+            print("test->---------------:\(tool)--")
+        }
+        self.testBlock4 = testBlock4
+        testBlock4(self)
+        print("test->------------------")
         // 不会循环引用
 //        blockClass.block1 = { [weak self] in
 //            print("test->测试持有self1:\(self)")
@@ -458,7 +531,20 @@ After apologising, Mr Musk said that Mr Thorleifsson was considering coming back
 //            mm_printLog("item->\(item)")
 //            return item < 4
 //        }.prefix(2).map({ $0 * 2 })
-        
+        let item1 = MMSortItem(couponPrice: 10, expiredTime: 3)
+        let item2 = MMSortItem(couponPrice: 10, expiredTime: 5)
+        let item3 = MMSortItem(couponPrice: 9, expiredTime: 3)
+        let item4 = MMSortItem(couponPrice: 3, expiredTime: 3)
+        var arr = [item1, item2, item3, item4]
+
+        let maxConcup = arr.max { left, right in
+            if left.couponPrice == right.couponPrice {
+                // 取小的
+                return (left.expiredTime ?? 1) > (right.expiredTime ?? 0)
+            }
+            // 取大的
+            return (left.couponPrice ?? 0) < (right.couponPrice ?? 1)
+        }
         
         var toolStrArr: [String] = ["0","1","2","3","4"]
         //"0,1,2,3,4"
@@ -717,16 +803,19 @@ After apologising, Mr Musk said that Mr Thorleifsson was considering coming back
     /// 必须使用 @objc dynamic
     @objc dynamic private var myObject_2: MyClass = MyClass()
 
+    @objc dynamic var kvoStr: String = "test"
+    
     func kvoTest_48(vc: FuncTestVC) {
+        // 监听有效
         stateObservation = observe(\.state, options: [.old, .new]) { object, change in
-            mm_printLog("test->\(change.oldValue), \(change.newValue)")
+            mm_printLog("test->stateChange:\(change.oldValue), \(change.newValue)")
         }
         // 监听有效 3. 在需要监听属性的类中，使用KVO来监听属性的更改。
         observation = self.myObject.observe(\.myEnumNumber, options: [.new]) { (object, change) in
             guard let newValue = change.newValue else { return }
             print("observation value changed to: \(newValue)")
         }
-        
+        // 监听有效
         vcObservation = vc.observe(\.obStr, options: [.new]) { obVC, change in
             guard let newValue = change.newValue else { return }
             print("Enum value changed to: \(newValue)")
@@ -738,11 +827,15 @@ After apologising, Mr Musk said that Mr Thorleifsson was considering coming back
             print("claObservation value changed to: \(newValue)")
         })
         
+        addObserver(self, forKeyPath: "kvoStr", options: [.new, .old], context: nil)
+        // 注册对 person.name 属性的观察，传递新值和旧值，使用 KeyPath 类型
+//self.addObserver(self, forKeyPath: \MMFuncTool.kvoStr, options: [.new, .old], context: nil)
         DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1) {
             print("test->变更: myObject")
+            vc.obStr = "改变新的"
             self.state = .pause
             self.myObject.myEnum = .second
-            self.myObject.myEnum = .third
+            self.kvoStr = "变更"
             print("test->变更: myObject end")
         }
         
@@ -760,6 +853,13 @@ After apologising, Mr Musk said that Mr Thorleifsson was considering coming back
 //        }
     }
     
+    override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
+        guard let keyPath else { return }
+        print("test->鉴定到kvo: \(keyPath)")
+        print("test->鉴定到kvo2: \(String(describing: change))")
+
+    }
+    
     deinit {
         MMDispatchTimer.cancelTimer(timerName: self.timerStr)
         timer?.invalidate()
@@ -767,6 +867,8 @@ After apologising, Mr Musk said that Mr Thorleifsson was considering coming back
         observation?.invalidate()
         stateObservation?.invalidate()
         claObservation?.invalidate()
+        vcObservation?.invalidate()
+        
         mm_printLog("释放")
     }
 }
@@ -889,6 +991,9 @@ extension MMFuncTool {
 //        str_1 = "word"
         mm_printLog("test-> str_1: \(String(describing: str_1))")
 
+        let price: Double = 0.0001
+        let priceStr = String(format: "￥%.2f", price)
+        mm_printLog("test->\(priceStr)")
     }
     
     
@@ -1072,18 +1177,42 @@ extension MMFuncTool {
         let str2 = String(format: "%02d", 1)
         
         let str3 = String(format: "%04d", 1)
+        
+        
+        let f1: Double = 168.10
+        let f2: Double = 168.000
+
+        // 168.100
+        let str4 = String(format: "%.3f", f1)
+        
+        let yourDoubleValue = 123.45600 // 替换为你的 Double 值
+
+        let numberFormatter = NumberFormatter()
+        numberFormatter.numberStyle = .decimal
+        numberFormatter.maximumFractionDigits = Int.max // 设置最大位数
+        // 去除double后面的0
+        if let formattedString = numberFormatter.string(from: NSNumber(value: yourDoubleValue)) {
+            // 123.456
+            print("test->1:\(formattedString)")
+        }
+        if let formattedString = numberFormatter.string(from: NSNumber(value: f2)) {
+            // 168
+            print("test->3:\(formattedString)")
+        }
+        
+        print("test->2:\(str4)")
         //false
 //        let isWord = "abc d".isEnglistWord
         //无论什么情况都会crash
 //        fatalError("test")
-        mm_printLog(str)
+//        mm_printLog(str)
+        GCDTest().AllTestEntry()
     }
     
     func fontTest() {
         let familyNames = UIFont.familyNames
         mm_printLog(familyNames)
     }
-    
     
     func testAnaly() {
         

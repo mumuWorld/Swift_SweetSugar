@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="22113.3" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="32700.99.1234" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22089.1"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22684"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -180,7 +180,7 @@
                     </constraints>
                 </stackView>
                 <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="frV-13-JUL">
-                    <rect key="frame" x="8" y="213" width="403" height="44"/>
+                    <rect key="frame" x="8" y="213" width="405" height="44"/>
                     <subviews>
                         <button opaque="NO" tag="28" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hCI-KF-va0">
                             <rect key="frame" x="0.0" y="7" width="62" height="30"/>
@@ -225,7 +225,7 @@
                             </connections>
                         </button>
                         <button opaque="NO" tag="33" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="r0w-fH-vTa">
-                            <rect key="frame" x="329" y="7" width="74" height="30"/>
+                            <rect key="frame" x="329" y="7" width="76" height="30"/>
                             <color key="backgroundColor" red="1" green="0.40000000000000002" blue="0.35686274509999999" alpha="1" colorSpace="calibratedRGB"/>
                             <state key="normal" title="Range测试"/>
                             <connections>
@@ -238,7 +238,7 @@
                     </constraints>
                 </stackView>
                 <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="JAb-jy-yeI">
-                    <rect key="frame" x="6" y="265" width="396" height="44"/>
+                    <rect key="frame" x="6" y="265" width="400" height="44"/>
                     <subviews>
                         <button opaque="NO" tag="34" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xcW-Do-IB6">
                             <rect key="frame" x="0.0" y="7" width="31" height="30"/>
@@ -283,7 +283,7 @@
                             </connections>
                         </button>
                         <button opaque="NO" tag="39" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vZr-JR-iXt">
-                            <rect key="frame" x="257" y="7" width="53" height="30"/>
+                            <rect key="frame" x="257" y="7" width="55" height="30"/>
                             <color key="backgroundColor" red="1" green="0.40000000000000002" blue="0.35686274509999999" alpha="1" colorSpace="calibratedRGB"/>
                             <state key="normal" title="net测试"/>
                             <connections>
@@ -291,7 +291,7 @@
                             </connections>
                         </button>
                         <button opaque="NO" tag="40" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kl7-eL-Axi">
-                            <rect key="frame" x="318" y="7" width="78" height="30"/>
+                            <rect key="frame" x="320" y="7" width="80" height="30"/>
                             <color key="backgroundColor" red="1" green="0.40000000000000002" blue="0.35686274509999999" alpha="1" colorSpace="calibratedRGB"/>
                             <state key="normal" title="40_file测试"/>
                             <connections>
@@ -383,7 +383,7 @@
                             </connections>
                         </button>
                         <button opaque="NO" tag="49" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nlu-le-Ay0">
-                            <rect key="frame" x="184" y="7" width="90" height="30"/>
+                            <rect key="frame" x="184" y="7" width="88" height="30"/>
                             <color key="backgroundColor" red="1" green="0.40000000000000002" blue="0.35686274509999999" alpha="1" colorSpace="calibratedRGB"/>
                             <state key="normal" title="49_语法"/>
                             <connections>
@@ -391,7 +391,7 @@
                             </connections>
                         </button>
                         <button opaque="NO" tag="50" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MaF-N4-JNo">
-                            <rect key="frame" x="279" y="7" width="67" height="30"/>
+                            <rect key="frame" x="277" y="7" width="67" height="30"/>
                             <color key="backgroundColor" red="1" green="0.40000000000000002" blue="0.35686274509999999" alpha="1" colorSpace="calibratedRGB"/>
                             <state key="normal" title="50_String"/>
                             <connections>
@@ -399,7 +399,7 @@
                             </connections>
                         </button>
                         <button opaque="NO" tag="51" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ulH-M1-5aP">
-                            <rect key="frame" x="351" y="7" width="47" height="30"/>
+                            <rect key="frame" x="349" y="7" width="49" height="30"/>
                             <color key="backgroundColor" red="1" green="0.40000000000000002" blue="0.35686274509999999" alpha="1" colorSpace="calibratedRGB"/>
                             <state key="normal" title="51录屏"/>
                             <connections>
@@ -415,7 +415,7 @@
                     <rect key="frame" x="8" y="421" width="398" height="44"/>
                     <subviews>
                         <button opaque="NO" tag="52" contentMode="scaleToFill" horizontalHuggingPriority="251" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tOb-ZQ-xEr">
-                            <rect key="frame" x="0.0" y="7" width="63" height="30"/>
+                            <rect key="frame" x="0.0" y="7" width="65" height="30"/>
                             <color key="backgroundColor" red="0.2901960784" green="0.56470588239999997" blue="0.8862745098" alpha="1" colorSpace="calibratedRGB"/>
                             <state key="normal" title="52:系统通知">
                                 <color key="titleColor" systemColor="systemRedColor"/>
@@ -425,7 +425,7 @@
                             </connections>
                         </button>
                         <button opaque="NO" tag="53" contentMode="scaleToFill" horizontalHuggingPriority="251" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ErL-mY-h8u">
-                            <rect key="frame" x="68" y="7" width="57" height="30"/>
+                            <rect key="frame" x="70" y="7" width="57" height="30"/>
                             <color key="backgroundColor" red="1" green="0.40000000000000002" blue="0.35686274509999999" alpha="1" colorSpace="calibratedRGB"/>
                             <state key="normal" title="53: item"/>
                             <connections>
@@ -433,23 +433,23 @@
                             </connections>
                         </button>
                         <button opaque="NO" tag="54" contentMode="scaleToFill" horizontalHuggingPriority="251" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SkN-iY-5HT">
-                            <rect key="frame" x="130" y="7" width="81" height="30"/>
+                            <rect key="frame" x="132" y="7" width="81" height="30"/>
                             <color key="backgroundColor" red="1" green="0.40000000000000002" blue="0.35686274509999999" alpha="1" colorSpace="calibratedRGB"/>
                             <state key="normal" title="54:Network"/>
                             <connections>
                                 <action selector="handleClick:" destination="-1" eventType="touchUpInside" id="K0f-eb-Aoa"/>
                             </connections>
                         </button>
-                        <button opaque="NO" tag="49" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MzD-h0-Pv6">
-                            <rect key="frame" x="216" y="7" width="58" height="30"/>
+                        <button opaque="NO" tag="55" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MzD-h0-Pv6">
+                            <rect key="frame" x="218" y="7" width="54" height="30"/>
                             <color key="backgroundColor" red="1" green="0.40000000000000002" blue="0.35686274509999999" alpha="1" colorSpace="calibratedRGB"/>
-                            <state key="normal" title="49_语法"/>
+                            <state key="normal" title="55_navi"/>
                             <connections>
                                 <action selector="handleClick:" destination="-1" eventType="touchUpInside" id="dgD-a7-IcY"/>
                             </connections>
                         </button>
                         <button opaque="NO" tag="50" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nNX-qh-UEI">
-                            <rect key="frame" x="279" y="7" width="67" height="30"/>
+                            <rect key="frame" x="277" y="7" width="67" height="30"/>
                             <color key="backgroundColor" red="1" green="0.40000000000000002" blue="0.35686274509999999" alpha="1" colorSpace="calibratedRGB"/>
                             <state key="normal" title="50_String"/>
                             <connections>
@@ -457,7 +457,7 @@
                             </connections>
                         </button>
                         <button opaque="NO" tag="51" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kfE-cm-kaw">
-                            <rect key="frame" x="351" y="7" width="47" height="30"/>
+                            <rect key="frame" x="349" y="7" width="49" height="30"/>
                             <color key="backgroundColor" red="1" green="0.40000000000000002" blue="0.35686274509999999" alpha="1" colorSpace="calibratedRGB"/>
                             <state key="normal" title="51录屏"/>
                             <connections>

@@ -82,6 +82,10 @@ class HomeListVC: MMBaseViewController {
         super.viewDidDisappear(animated)
         mm_printLog("")
     }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        MMMainManager.shared.getStartUP()
+    }
 }
 
 extension HomeListVC : UITableViewDelegate, UITableViewDataSource {
@@ -97,7 +101,8 @@ extension HomeListVC : UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        //播放发音
+//        MMMainManager.shared.getStartUP()
+//        return;
         let item = listArr[indexPath.row]
         let routerStr = NAME_SPACE + "." + item.routerVC
         let routerClass = NSClassFromString(routerStr) as! UIViewController.Type

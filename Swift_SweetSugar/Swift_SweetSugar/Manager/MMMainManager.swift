@@ -14,4 +14,9 @@ class MMMainManager {
     /// 是否打印生命周期函数
     let isPrintLifeLog: Bool = false
     
+    lazy var startUp: MMStartUpTest = MMStartUpTest()
+    
+    func getStartUP() {
+        startUp.getAllFunc()
+    }
 }

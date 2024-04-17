@@ -11,6 +11,20 @@ import Foundation
 /// 语法练习
 class MMLanguageTest {
     
+    var name: String = "" {
+        didSet {
+            print("test->name1: \(name)")
+        }
+    }
+    
+    var calName: String {
+        get {
+            return "calName1特斯特"
+        }
+        set {
+            print("test->calName1:\(newValue)")
+        }
+    }
     func test() {
         test_str()
     }
@@ -26,4 +40,41 @@ class MMLanguageTest {
             """
         mm_printLog("test->\(string4)")
     }
+}
+
+
+class MMLanguageChildTest: MMLanguageTest {
+    
+    override var name: String {
+        didSet {
+            print("test->name2: \(name)")
+        }
+    }
+    
+    override var calName: String {
+        get {
+            return "calName2特斯特"
+        }
+        set {
+            // 必须手动调用super
+            super.calName = "测试"
+            print("test->calName2:\(newValue)")
+        }
+    }
+    override init() {
+        
+    }
+    
+    override func test() {
+        print("test->self: \(self)")
+//        print("test->super: \(super)")
+        print("test->self: \(self)")
+        print("test->self: \(self)")
+    }
+}
+
+
+struct MMSortItem {
+    var couponPrice: Int?
+    var expiredTime: Int?
 }

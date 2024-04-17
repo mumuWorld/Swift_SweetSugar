@@ -20,7 +20,7 @@ class CollectionViewController: UIViewController {
         layout.scrollDirection = .horizontal
         layout.minimumInteritemSpacing = 0
         layout.minimumLineSpacing = 0
-        let cv = UICollectionView(frame: CGRect(x: 50, y: 100, width: itemW, height: 100), collectionViewLayout: layout)
+        let cv = UICollectionView(frame: CGRect(x: 50, y: 100, width: itemW, height: 100), collectionViewLayout: ScrollLayout)
 //        let cv = UICollectionView(frame: CGRect(x: 0, y: 100, width: ScreenWidth + 40, height: 100), collectionViewLayout: layout)
         cv.bounces = false
         cv.isPagingEnabled = true
@@ -101,7 +101,7 @@ class CollectionViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-//        view.addSubview(collectionView)
+        addFirstCollectionView()
 //        view.addSubview(collectionView_2)
         bgImageView.isHidden = true
         addCollection3()
@@ -110,6 +110,17 @@ class CollectionViewController: UIViewController {
     
     var _eachItemWidth: CGFloat = 0
 
+    func addFirstCollectionView() {
+        view.addSubview(collectionView)
+        collectionView.snp.makeConstraints { make in
+            make.top.equalToSuperview().offset(100)
+            make.leading.trailing.equalToSuperview().inset(20)
+            make.height.equalTo(250)
+        }
+        
+//        ScrollLayout.eachItemWidth = itemW
+        ScrollLayout.itemSize = CGSizeMake(itemW, 200)
+    }
     func addCustomScroll() {
         bgImageView.isHidden = true
         kBottmonHeight = kBottomSafeHeight;
@@ -287,7 +298,7 @@ extension CollectionViewController: UICollectionViewDelegate, UICollectionViewDa
         if collectionView == collectionView_3 {
             return 10
         }
-        return 3
+        return 30
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {

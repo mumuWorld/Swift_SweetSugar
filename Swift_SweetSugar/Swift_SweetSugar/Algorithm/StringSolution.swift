@@ -80,5 +80,32 @@ class StringSolution {
         return R - L - 1
         
     }
+    
+    // 字符串全排列
+    // 定义函数，接受一个字符串参数和一个初始索引
+    func permute(_ str: String, _ index: Int = 0) -> [String] {
+        // 将字符串转换为字符数组
+        var chars = Array(str)
+        var permutations: [String] = []
+        
+        // 如果当前索引等于字符串长度减1，则将当前排列结果添加到数组中
+        if index == str.count - 1 {
+            permutations.append(String(chars))
+        } else {
+            // 对当前索引后的字符进行排列
+            for i in index..<str.count {
+                // 交换当前索引字符与后续字符的位置
+                chars.swapAt(index, i)
+                
+                // 递归调用permute函数，索引+1，并将返回结果合并到当前结果数组中
+                permutations += permute(String(chars), index + 1)
+                
+                // 恢复字符数组到原始状态，用于下一次交换
+                chars.swapAt(index, i)
+            }
+        }
+        // 返回当前结果数组
+        return permutations
+    }
 }
 

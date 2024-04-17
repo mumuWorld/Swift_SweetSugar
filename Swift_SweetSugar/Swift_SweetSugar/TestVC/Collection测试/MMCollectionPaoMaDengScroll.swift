@@ -22,6 +22,10 @@ class MMCollectionPaoMaDengScroll: UICollectionViewFlowLayout {
     
     var hasInit: Bool = false
     
+    /// 每个item占据的宽度
+    var eachItemWidth: CGFloat = 0
+
+    
     override func prepare() {
         super.prepare()
         guard !hasInit else { return }
@@ -83,7 +87,7 @@ class MMCollectionPaoMaDengScroll: UICollectionViewFlowLayout {
                 mm_printLog("test->hold: \(absDistance), \(maxDistance), ratio: \(ratio)")
 //                attribute.zIndex = -Int(distance)
                 
-                let scale = 1 - (ratio * 0.1)
+                let scale = 1 - (ratio * 0.2)
 //                let scale = 1.0
                
                 // 最多30° 是 0.523的弧度
@@ -101,6 +105,10 @@ class MMCollectionPaoMaDengScroll: UICollectionViewFlowLayout {
                 transform = CATransform3DRotate(transform, angle, 0, 1, 0)
                 transform = CATransform3DScale(transform, scale, scale, 0)
                 $0.transform3D = transform
+                var center = $0.center
+                let centerY = (collectionView?.mm_height ?? itemSize.height) * 0.5 + 25
+                $0.center = CGPoint(x: center.x, y: centerY)
+                print("test->center:\(center)")
                 return true
             }
             return false

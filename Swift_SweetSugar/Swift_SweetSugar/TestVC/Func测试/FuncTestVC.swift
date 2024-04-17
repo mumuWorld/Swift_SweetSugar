@@ -74,8 +74,8 @@ class FuncTestVC: MMBaseViewController {
 //        print("relase打印")
 //        debugPrint("release_ debugPrint")
         decodeString()
-      
-        MMFuncTool().operationQueueTest()
+      // 下载测试
+//        MMFuncTool().operationQueueTest()
         self.testPrint()
         
         let attrSet = CSSearchableItemAttributeSet(itemContentType: kUTTypeText as String)
@@ -152,6 +152,7 @@ class FuncTestVC: MMBaseViewController {
             testDict()
         case 16:
             printTest()
+            tool.printTest()
         case 17:
             urlTest()
         case 18:
@@ -186,8 +187,9 @@ class FuncTestVC: MMBaseViewController {
                 let vc = UITestVC()
                 vc.modalPresentationStyle = .fullScreen
                 self.navigationController?.present(vc, animated: true, completion: nil)
-                DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 2) {
-                    vc.dismiss(animated: true)
+                DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 3) {
+                    mm_printLog("test-> 消失")
+                    vc.presentingViewController?.dismiss(animated: true)
                 }
             }
         case 31:
@@ -262,6 +264,8 @@ class FuncTestVC: MMBaseViewController {
             MMTaskTest.shared.test()
         case 54:
             MMNetworkTest.shared.test()
+        case 55:
+            MMFuncTool().naviTest()
         default:
             break
         }
@@ -291,37 +295,45 @@ class FuncTestVC: MMBaseViewController {
 extension FuncTestVC {
     
     func createTargetTimer() {
-        //不停止不会释放
+        print("test->定时器启动")
+        
+        // 在deinit中调用停止，既不会停止,不会释放， 需要主动调用 timer?.invalidate()， 才会停止。
 //        let _timer = Timer(timeInterval: 2, target: self, selector: #selector(handleTimer(sender:)), userInfo: nil, repeats: true)
 //        timer = _timer
 //        RunLoop.main.add(_timer, forMode: .common)
         
-        //虽然没有持有vc， 但是持有了 block。 就算VC deinit， block还是会执行
-//        let _timer = Timer(timeInterval: 2, repeats: true) { [weak self] t in
-//            mm_printLog("test->\(t), \(String(describing: self))")
-//        }
-//        RunLoop.main.add(_timer, forMode: .common)
+        // 正常不会调用deinit。 既不会停止,不会释放， 需要主动调用 timer?.invalidate()， 才会停止。
+//        let _timer = Timer(fireAt: Date().addingTimeInterval(2), interval: 3, target: self, selector: #selector(handleTimer(sender:)), userInfo: nil, repeats: true)
 //        timer = _timer
-//        timer?.fire()
+//        RunLoop.main.add(_timer, forMode: .common)
         
-        var count = 0
-        let _timer = Timer(fire: Date().addingTimeInterval(2), interval: 4, repeats: true) { _ in
-            print("test->count: \(count)")
-            count += 1
+        // 会调用deinit，可以正常释放，不需要调用 fire方法
+        let _timer = Timer(timeInterval: 2, repeats: true) { [weak self] t in
+            mm_printLog("test->\(t), \(String(describing: self))")
         }
-        timer = _timer
         RunLoop.main.add(_timer, forMode: .common)
+        timer = _timer
+        
+        // 会调用deinit，只要停止了timer。就会释放: timer?.invalidate()
+//        var count = 0
+//        let _timer = Timer(fire: Date().addingTimeInterval(2), interval: 4, repeats: true) { _ in
+//            print("test->count: \(count)")
+//            count += 1
+//        }
+//        timer = _timer
+//        RunLoop.main.add(_timer, forMode: .common)
+
+    }
+    
+    @objc func handleTimer(sender: Timer) {
+        print("test->timer: 回调:\(sender)")
     }
     
     /// 只要停止了timer。就会释放
     func invalidateTimer() {
         timer?.invalidate()
+        print("test->停止定时器")
     }
-    
-    @objc func handleTimer(sender: Timer) {
-        mm_printLog("test->\(sender)")
-    }
-    
     
     func decodeString() -> Void {
         let value = "AppVersion=4.0.0&brand=apple&client=iOS&logout=false&product=fanyi&push=on&token=545703ddeb3dd3d556249ced6b3e09b90e0288f2bc50d49ace39bd1a13ffc2cd"

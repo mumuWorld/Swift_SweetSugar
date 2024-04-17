@@ -236,7 +236,7 @@ class UITestVC: UIViewController {
 //        netImageTest()
 //        createBtn()
         
-//        adjustImage()
+        adjustImage()
         /*addScrollLabel*/()
     }
     
@@ -308,11 +308,13 @@ class UITestVC: UIViewController {
     
     /// 调整图片的平铺
     func adjustImage() {
-        let img = UIImage(named: "noteShowBg")!
-        mm_printLog("test->\(img): size:\(img.size)")
-        let middleX = ceil(img.size.width * 0.5)
-        let middleY = ceil(img.size.height * 0.5)
-        resetImageView.image = img.resizableImage(withCapInsets: UIEdgeInsets(top: middleY - 1, left: middleX - 1, bottom: middleY, right: middleX), resizingMode: .tile)
+//        let img = UIImage(named: "noteShowBg")!
+//        mm_printLog("test->\(img): size:\(img.size)")
+//        let middleX = ceil(img.size.width * 0.5)
+//        let middleY = ceil(img.size.height * 0.5)
+//        resetImageView.image = img.resizableImage(withCapInsets: UIEdgeInsets(top: middleY - 1, left: middleX - 1, bottom: middleY, right: middleX), resizingMode: .tile)
+        
+        resetImageView.kf.setImage(with: URL(string: "https://img0.baidu.com/it/u=256816879,771155532&fm=253&app=120&size=w931&n=0&f=JPEG&fmt=auto?sec=1713027600&t=d3974cb7e09ce0dcfda8ffa6eba7382a"))
     }
 
     
@@ -575,7 +577,10 @@ class UITestVC: UIViewController {
         mm_printLog("test->touchesBegan")
 //        animationButton()
 //        customDrawTest()
-        gradientLabelTest()
+//        gradientLabelTest()
+        let vc = MMEmitterVC()
+        vc.modalPresentationStyle = .fullScreen
+        self.present(vc, animated: true, completion: nil)
     }
     
     override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
