@@ -72,7 +72,7 @@ class MMTextVC: UIViewController {
         addUITextView()
         addTextField()
 //        addYYTextView()
-//        getText()
+        getText()
 //        pasteControl()
 //        customMenu()
 //        addObserve()
@@ -199,6 +199,14 @@ class MMTextVC: UIViewController {
             let path = Bundle.main.path(forResource: "textview", ofType: "json")!
             let url = URL(fileURLWithPath: path)
             let data = try Data(contentsOf: url, options: .alwaysMapped)
+            if #available(iOS 15.0, *) {
+                if let dict = try JSONSerialization.jsonObject(with: data, options: .json5Allowed) as? [String: Any] {
+                    mm_printLog(dict)
+                }
+            } else {
+                // Fallback on earlier versions
+            }
+            
             let model = try JSONDecoder().decode(MMTextJson.self, from: data)
             let str = String(data: data, encoding: .utf8)
             textView.text = str

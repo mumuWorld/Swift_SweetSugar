@@ -390,6 +390,14 @@ class UITestVC: UIViewController {
             mm_printLog("test->\(present)")
         }
         print("test-> isViewLoaded4: \(isViewLoaded)")
+        
+//        navigationController?.isNavigationBarHidden = false
+//        navigationController?.navigationBar.titleTextAttributes =
+//        [.foregroundColor: UIColor.white]
+//        navigationController?.navigationBar.tintColor = .white
+//        navigationController?.navigationBar.isTranslucent = true
+//        navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
+//        navigationController?.navigationBar.shadowImage = UIImage()
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -578,9 +586,9 @@ class UITestVC: UIViewController {
 //        animationButton()
 //        customDrawTest()
 //        gradientLabelTest()
-        let vc = MMEmitterVC()
-        vc.modalPresentationStyle = .fullScreen
-        self.present(vc, animated: true, completion: nil)
+//        let vc = MMEmitterVC()
+//        vc.modalPresentationStyle = .fullScreen
+//        self.present(vc, animated: true, completion: nil)
     }
     
     override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {

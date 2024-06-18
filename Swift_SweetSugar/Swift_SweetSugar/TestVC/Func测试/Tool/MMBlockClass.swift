@@ -39,3 +39,8 @@ class MMBlockClass2 {
         mm_printLog("test->释放 MMBlockClass2")
     }
 }
+
+
+class MMNSObject: NSObject {
+    var name: String?
+}

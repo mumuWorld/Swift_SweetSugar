@@ -17,7 +17,6 @@ class MMBaseNavigationController: UINavigationController {
     }
     
     override var childForStatusBarStyle: UIViewController? {
-        print("test->navi: \(String(describing: topViewController))")
         return topViewController
     }
     

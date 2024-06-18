@@ -11,12 +11,12 @@ target 'Swift_SweetSugar' do
   # Comment the next line if you don't want to use dynamic frameworks
 #  use_frameworks!
   pod 'Kingfisher'
-  pod 'HandyJSON'
   pod 'YYText' #:modular_headers => true
   pod 'SnapKit'
   pod 'lottie-ios', '~> 3.2.3'
   pod 'SwiftyJSON'
   pod 'testDev', :path => './testDev/'
+  pod 'KSCrash'
   
   pod 'MLeaksFinder', :configurations => ['Debug']
   pod 'FBRetainCycleDetector', :git => 'git@gitlab.corp.youdao.com:lunafork/FBRetainCycleDetector.git', :branch => 'feature/yd_dev'

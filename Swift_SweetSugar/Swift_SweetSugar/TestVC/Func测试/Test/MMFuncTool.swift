@@ -11,6 +11,7 @@ import UIKit
 import SwiftyJSON
 import AVFoundation
 import NaturalLanguage
+import CoreMotion
 
 enum MMTest {
     case one
@@ -37,13 +38,26 @@ class MMFuncTool: NSObject {
     
     private var observer: NSObjectProtocol?
 
-    func urltest() -> Void {
+    func urltest_17() -> Void {
         let urlStr = "https://shared.youdao.com/dict/market/living-study-ranking-test/index.html#/?hide-toolbar=true"
 //        let urlStr_2 = "https://shared.youdao.com/dict/market/training-camp-test/index.html/campDetails"
         let urlStr_3 = "https://shared.youdao.com/dict/market/living-study-ranking-test?hide-toolbar=true/#/"
         
         let urlStr_4 = "https://hiecho.youdao.com/?t=1702628402#/web?from=cidian_czgn&noCache=true"
+    
+        let urlStr_5 = "https://shared.youdao.com/dict/market/living-study-ranking/#/?liveRoomId=63423275&userId=lunatest20%40163.com&full-screen=true&authorName=%E6%9C%89%E9%81%93%E8%87%AA%E4%B9%A0%E5%AE%A4&hide-toolbar=true&authorId=urs-phoneyd.dae58a7b75ec4299a%40163.com&t=1713421573465"
         
+        let urlStr_6 = "https://shared.youdao.com/dict?t=1713421573465#/"
+
+        let urlStr_7_1 = "https://c.youdao.com/dict/miniprogram/japanese50.html#/index?keyfrom=doc&topIndex=0"
+        let urlStr_8 = "https://shared.youdao.com/dict/market/dict-examv7/#/?level=%E5%9B%9B%E7%BA%A7"
+        let urlStr_9 = "https://shared.youdao.com/dict/market/living-study-ranking/#/?keyfrom=doc"
+        let urlStr_10 = "https://reg.163.com/naq/findPassword#/verifyAccount"
+        let urlStr_11 = "https://shared.youdao.com/dict/market/global-pronounce-list-test/?timestamp=1715238322671#/?rankType=total&topIndex=0&word=hello&hide-toolbar=true&full-screen=true&adjustSafeArea="
+
+
+    
+    
 //        let encode_url = urlStr.urlEncoded()
 //        
         let component = URLComponents(string: urlStr)
@@ -54,11 +68,15 @@ class MMFuncTool: NSObject {
         let component_3 = URLComponents(string: urlStr_3)
 //
         let component_4 = URLComponents(string: urlStr_4)
-//
+
+        let encode_url = urlStr_5.urlEncoded()
+        
+        let component_5 = URLComponents(string: urlStr_11)
+        
 //        let charSet = CharacterSet.urlQueryAllowed
 //        
 //        let url = URL(string: urlStr)
-//        mm_printLog("test->1")
+        mm_printLog("test->1")
 //        
 //        let params: [String: String] = [
 //            "goodInfo": "{dsdfsdf}",
@@ -114,6 +132,27 @@ class MMFuncTool: NSObject {
         }
         let str_2 = ""
         mm_printLog("test->")
+    }
+    
+    func memoryTest_56() {
+        var block = {
+            for i in 0...100000 {
+                autoreleasepool {
+                    // string 大概才会增加10m内存
+//                    let str = "helloword test: \(i)"
+//                    let str_2 = "helloword test2 : \(i)"
+                    // obj会增加180M内存
+                    let obj = MMNSObject()
+                    let obj2 = MMNSObject()
+                }
+            }
+            print("test->finishED:")
+        }
+//        block()
+        
+        DispatchQueue.global().async {
+            block()
+        }
     }
     
     var timerStr: String?
@@ -610,7 +649,7 @@ After apologising, Mr Musk said that Mr Thorleifsson was considering coming back
         emptyArr.removeAll()
         //不会crash
         let filter = Array(emptyArr.prefix(6))
-        if let model: MMSimpleModel = nil {
+        if let model: MMSimpleStruct = nil {
             mm_printLog("不会走")
         }
         // 不会crash, 插入成功
@@ -868,9 +907,16 @@ After apologising, Mr Musk said that Mr Thorleifsson was considering coming back
         stateObservation?.invalidate()
         claObservation?.invalidate()
         vcObservation?.invalidate()
-        
         mm_printLog("释放")
     }
+
+    
+    var window: UIWindow?
+    var vc: MMSplashViewController?
+    
+    var stop: Bool = false
+    var stopCount: Int = 0
+
 }
 
 extension MMFuncTool {
@@ -911,12 +957,60 @@ extension MMFuncTool {
 //        mainOp.addOperation {
 //            mm_printLog(self)
 //        }
-        let err_1 = NSError(domain: "", code: -999)
-        let err_2 = NSError()
-        let obj = MMCustomOCObj()
+        
+//        let arr = ["test"]
+        
+//        print("test->crash:\(arr[1])")
+//        let err_1 = NSError(domain: "", code: -999)
+//        let err_2 = NSError()
+
+//        obj.asserttest()
+//        obj.notImplMethod()
 //        obj.receiveError(err_1)
 //        obj.receiveError(err_2)
-        _sendError(error: err_2)
+//        _sendError(error: err_2)
+        
+//        blockCrashTest()
+        stopCount = 0
+        NotificationCenter.default.addObserver(self, selector: #selector(removeSplash), name: Notification.Name(rawValue: "dismissVC"), object: nil)
+        cmmotionManagerCrash()
+    }
+    
+    func cmmotionManagerCrash() {
+        self.window = nil
+        print("test->释放widdow:")
+        let _window = UIWindow(frame: UIScreen.main.bounds)
+        self.window = _window
+        vc = MMSplashViewController.init()
+        
+        window?.rootViewController = vc
+        window?.isHidden = false
+        
+        guard stopCount < 5 else {
+            removeSplash()
+            return
+        }
+        self.stopCount += 1
+        print("test->crash: 开始5秒倒计时")
+        DispatchQueue.main.asyncAfter(deadline: .now() + 5) {
+            print("test->crash: stopAccelerometerUpdates")
+            self.cmmotionManagerCrash()
+//            self.motionManager.stopAccelerometerUpdates()
+        }
+    }
+    
+    @objc func removeSplash() {
+        self.window = nil
+        print("test->释放widdow:2")
+    }
+    
+    func blockCrashTest() {
+        let obj = MMCustomOCObj()
+        if obj.emptyBlock != nil {
+            obj.emptyBlock?()
+        }
+        obj.emptyBlock?()
+        obj.callBlock()
     }
     
     func _sendError(error: Error) {
@@ -933,8 +1027,8 @@ extension MMFuncTool {
     
     //结构体测试
     func structTest_42() {
-        var arr:[MMSimpleModel] = []
-        var model_1 = MMSimpleModel()
+        var arr:[MMSimpleStruct] = []
+        var model_1 = MMSimpleStruct()
         arr.append(model_1)
         model_1.name = "test"
         //并不影响数组内的结构体数据

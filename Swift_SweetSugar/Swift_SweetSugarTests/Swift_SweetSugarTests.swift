@@ -77,10 +77,11 @@ class Swift_SweetSugarTests: XCTestCase {
     
     func testSyntax() {
         print("test->strat")
-        MMSyntaxTool().sayYes()
+//        MMSyntaxTool().sayYes()
+        MMSyntaxTool().start()
         print("test->end---------------")
 //        BaseSynatx().test()
-        BaseSynatx().blockTest()
+//        BaseSynatx().blockTest()
     }
     
     func testSort() {

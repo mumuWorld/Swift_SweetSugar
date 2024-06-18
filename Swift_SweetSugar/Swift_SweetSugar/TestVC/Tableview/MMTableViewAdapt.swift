@@ -13,6 +13,8 @@ class MMTableViewAdapt: NSObject {
     let listView: UITableView
 
     var dataArray: [MMCellItemProtocol]!
+    
+    var hadPrint: Bool = false
 
     internal init(listView: UITableView) {
         self.listView = listView
@@ -36,6 +38,24 @@ class MMTableViewAdapt: NSObject {
         listView.reloadData()
     }
     
+    func reload(complete: (() -> Void)? ) {
+        hadPrint = false
+        print("test->开始reload:")
+        CATransaction.begin()
+        CATransaction.setCompletionBlock {
+            print("test->回调:")
+            complete?()
+        }
+        listView.reloadData()
+        // 不准确。不可参考
+        DispatchQueue.main.async {
+            print("test->main.async")
+        }
+        CATransaction.commit()
+        print("test->commit:")
+
+    }
+    
     func add(data:MMCellItemProtocol, index: Int, animation: UITableView.RowAnimation = .fade, toBottom: Bool = true) -> Void {
         dataArray.insert(data, at: index)
         listView.insertRows(at: [IndexPath(row: index, section: 0)], with: animation)
@@ -55,6 +75,10 @@ extension MMTableViewAdapt: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        if hadPrint == false {
+            print("test->cellForRowAt:\(indexPath.row)")
+            hadPrint = true
+        }
         let item = dataArray[indexPath.row]
         guard let cell = tableView.mm_dequeueReusableCell(classType: item.cellType, indexPath: indexPath) as? MMCellProtocol else { return UITableViewCell() }
         cell.updateItem(item: item)

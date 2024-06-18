@@ -15,14 +15,17 @@ class HomeListVC: MMBaseViewController {
     lazy var listArr: [HomeListItem] = {
         let path = Bundle.main.path(forResource: "home_list", ofType: "plist")
         let data = try! Data.init(contentsOf: URL(fileURLWithPath: path!))
-        let arrInfo = try! PropertyListSerialization.propertyList(from: data, options: [], format: nil)
-        guard let arr = [HomeListItem].deserialize(from: arrInfo as? [Any]) as? [HomeListItem] else {
-            return []
+//        let arrInfo = try! PropertyListSerialization.propertyList(from: data, options: [], format: nil)
+        do {
+            let arr = try PropertyListDecoder().decode([HomeListItem].self, from: data)
+            return arr
+        } catch {
+            mm_printLog("test->error:\(error)")
         }
-        return arr
+        return []
     }()
     
-    var model: MMSimpleModel = MMSimpleModel()
+    var model: MMSimpleStruct = MMSimpleStruct()
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return .default

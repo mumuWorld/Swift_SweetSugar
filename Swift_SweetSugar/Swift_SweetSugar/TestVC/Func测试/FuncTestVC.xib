@@ -382,7 +382,7 @@
                                 <action selector="handleClick:" destination="-1" eventType="touchUpInside" id="K5S-Qo-vBj"/>
                             </connections>
                         </button>
-                        <button opaque="NO" tag="49" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nlu-le-Ay0">
+                        <button opaque="NO" tag="49" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nlu-le-Ay0">
                             <rect key="frame" x="184" y="7" width="88" height="30"/>
                             <color key="backgroundColor" red="1" green="0.40000000000000002" blue="0.35686274509999999" alpha="1" colorSpace="calibratedRGB"/>
                             <state key="normal" title="49_语法"/>
@@ -390,7 +390,7 @@
                                 <action selector="handleClick:" destination="-1" eventType="touchUpInside" id="Hmg-NQ-3ND"/>
                             </connections>
                         </button>
-                        <button opaque="NO" tag="50" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MaF-N4-JNo">
+                        <button opaque="NO" tag="50" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MaF-N4-JNo">
                             <rect key="frame" x="277" y="7" width="67" height="30"/>
                             <color key="backgroundColor" red="1" green="0.40000000000000002" blue="0.35686274509999999" alpha="1" colorSpace="calibratedRGB"/>
                             <state key="normal" title="50_String"/>
@@ -398,7 +398,7 @@
                                 <action selector="handleClick:" destination="-1" eventType="touchUpInside" id="MS5-fW-Mfd"/>
                             </connections>
                         </button>
-                        <button opaque="NO" tag="51" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ulH-M1-5aP">
+                        <button opaque="NO" tag="51" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ulH-M1-5aP">
                             <rect key="frame" x="349" y="7" width="49" height="30"/>
                             <color key="backgroundColor" red="1" green="0.40000000000000002" blue="0.35686274509999999" alpha="1" colorSpace="calibratedRGB"/>
                             <state key="normal" title="51录屏"/>
@@ -414,8 +414,8 @@
                 <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="25T-u5-u9F">
                     <rect key="frame" x="8" y="421" width="398" height="44"/>
                     <subviews>
-                        <button opaque="NO" tag="52" contentMode="scaleToFill" horizontalHuggingPriority="251" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tOb-ZQ-xEr">
-                            <rect key="frame" x="0.0" y="7" width="65" height="30"/>
+                        <button opaque="NO" tag="52" contentMode="scaleToFill" horizontalHuggingPriority="251" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tOb-ZQ-xEr">
+                            <rect key="frame" x="0.0" y="7" width="84" height="30"/>
                             <color key="backgroundColor" red="0.2901960784" green="0.56470588239999997" blue="0.8862745098" alpha="1" colorSpace="calibratedRGB"/>
                             <state key="normal" title="52:系统通知">
                                 <color key="titleColor" systemColor="systemRedColor"/>
@@ -424,50 +424,101 @@
                                 <action selector="handleClick:" destination="-1" eventType="touchUpInside" id="hoK-WP-X6p"/>
                             </connections>
                         </button>
-                        <button opaque="NO" tag="53" contentMode="scaleToFill" horizontalHuggingPriority="251" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ErL-mY-h8u">
-                            <rect key="frame" x="70" y="7" width="57" height="30"/>
+                        <button opaque="NO" tag="53" contentMode="scaleToFill" horizontalHuggingPriority="251" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ErL-mY-h8u">
+                            <rect key="frame" x="89" y="7" width="57" height="30"/>
                             <color key="backgroundColor" red="1" green="0.40000000000000002" blue="0.35686274509999999" alpha="1" colorSpace="calibratedRGB"/>
                             <state key="normal" title="53: item"/>
                             <connections>
                                 <action selector="handleClick:" destination="-1" eventType="touchUpInside" id="gmC-L8-gzD"/>
                             </connections>
                         </button>
-                        <button opaque="NO" tag="54" contentMode="scaleToFill" horizontalHuggingPriority="251" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SkN-iY-5HT">
-                            <rect key="frame" x="132" y="7" width="81" height="30"/>
+                        <button opaque="NO" tag="54" contentMode="scaleToFill" horizontalHuggingPriority="251" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SkN-iY-5HT">
+                            <rect key="frame" x="151" y="7" width="81" height="30"/>
                             <color key="backgroundColor" red="1" green="0.40000000000000002" blue="0.35686274509999999" alpha="1" colorSpace="calibratedRGB"/>
                             <state key="normal" title="54:Network"/>
                             <connections>
                                 <action selector="handleClick:" destination="-1" eventType="touchUpInside" id="K0f-eb-Aoa"/>
                             </connections>
                         </button>
-                        <button opaque="NO" tag="55" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MzD-h0-Pv6">
-                            <rect key="frame" x="218" y="7" width="54" height="30"/>
+                        <button opaque="NO" tag="55" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MzD-h0-Pv6">
+                            <rect key="frame" x="237" y="7" width="73" height="30"/>
                             <color key="backgroundColor" red="1" green="0.40000000000000002" blue="0.35686274509999999" alpha="1" colorSpace="calibratedRGB"/>
                             <state key="normal" title="55_navi"/>
                             <connections>
                                 <action selector="handleClick:" destination="-1" eventType="touchUpInside" id="dgD-a7-IcY"/>
                             </connections>
                         </button>
-                        <button opaque="NO" tag="50" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nNX-qh-UEI">
-                            <rect key="frame" x="277" y="7" width="67" height="30"/>
+                        <button opaque="NO" tag="56" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nNX-qh-UEI">
+                            <rect key="frame" x="315" y="7" width="83" height="30"/>
                             <color key="backgroundColor" red="1" green="0.40000000000000002" blue="0.35686274509999999" alpha="1" colorSpace="calibratedRGB"/>
-                            <state key="normal" title="50_String"/>
+                            <state key="normal" title="56_memory"/>
                             <connections>
                                 <action selector="handleClick:" destination="-1" eventType="touchUpInside" id="ejA-Se-FNx"/>
-                            </connections>
-                        </button>
-                        <button opaque="NO" tag="51" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kfE-cm-kaw">
-                            <rect key="frame" x="349" y="7" width="49" height="30"/>
-                            <color key="backgroundColor" red="1" green="0.40000000000000002" blue="0.35686274509999999" alpha="1" colorSpace="calibratedRGB"/>
-                            <state key="normal" title="51录屏"/>
-                            <connections>
-                                <action selector="handleClick:" destination="-1" eventType="touchUpInside" id="AUT-G1-bHr"/>
                             </connections>
                         </button>
                     </subviews>
                     <constraints>
                         <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="44" id="Q8a-fT-Mac"/>
                         <constraint firstAttribute="height" constant="44" id="TEO-RY-DJv"/>
+                    </constraints>
+                </stackView>
+                <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="up5-im-7d6">
+                    <rect key="frame" x="8" y="473" width="398" height="44"/>
+                    <subviews>
+                        <button opaque="NO" tag="52" contentMode="scaleToFill" horizontalHuggingPriority="251" horizontalCompressionResistancePriority="749" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DQt-xz-Gwp">
+                            <rect key="frame" x="0.0" y="7" width="65" height="30"/>
+                            <color key="backgroundColor" red="0.2901960784" green="0.56470588239999997" blue="0.8862745098" alpha="1" colorSpace="calibratedRGB"/>
+                            <state key="normal" title="52:系统通知">
+                                <color key="titleColor" systemColor="systemRedColor"/>
+                            </state>
+                            <connections>
+                                <action selector="handleClick:" destination="-1" eventType="touchUpInside" id="6Pl-kL-kSI"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" tag="53" contentMode="scaleToFill" horizontalHuggingPriority="251" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sWd-a8-CD4">
+                            <rect key="frame" x="70" y="7" width="57" height="30"/>
+                            <color key="backgroundColor" red="1" green="0.40000000000000002" blue="0.35686274509999999" alpha="1" colorSpace="calibratedRGB"/>
+                            <state key="normal" title="53: item"/>
+                            <connections>
+                                <action selector="handleClick:" destination="-1" eventType="touchUpInside" id="vCJ-tP-cSP"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" tag="54" contentMode="scaleToFill" horizontalHuggingPriority="251" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7QC-Ye-cUb">
+                            <rect key="frame" x="132" y="7" width="81" height="30"/>
+                            <color key="backgroundColor" red="1" green="0.40000000000000002" blue="0.35686274509999999" alpha="1" colorSpace="calibratedRGB"/>
+                            <state key="normal" title="54:Network"/>
+                            <connections>
+                                <action selector="handleClick:" destination="-1" eventType="touchUpInside" id="h1W-de-fWh"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" tag="55" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ufm-gR-IRl">
+                            <rect key="frame" x="218" y="7" width="54" height="30"/>
+                            <color key="backgroundColor" red="1" green="0.40000000000000002" blue="0.35686274509999999" alpha="1" colorSpace="calibratedRGB"/>
+                            <state key="normal" title="55_navi"/>
+                            <connections>
+                                <action selector="handleClick:" destination="-1" eventType="touchUpInside" id="01e-Nq-juH"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" tag="50" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CKg-1f-IYI">
+                            <rect key="frame" x="277" y="7" width="67" height="30"/>
+                            <color key="backgroundColor" red="1" green="0.40000000000000002" blue="0.35686274509999999" alpha="1" colorSpace="calibratedRGB"/>
+                            <state key="normal" title="50_String"/>
+                            <connections>
+                                <action selector="handleClick:" destination="-1" eventType="touchUpInside" id="iFJ-tf-paU"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" tag="51" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gr5-Ms-TfG">
+                            <rect key="frame" x="349" y="7" width="49" height="30"/>
+                            <color key="backgroundColor" red="1" green="0.40000000000000002" blue="0.35686274509999999" alpha="1" colorSpace="calibratedRGB"/>
+                            <state key="normal" title="51录屏"/>
+                            <connections>
+                                <action selector="handleClick:" destination="-1" eventType="touchUpInside" id="WBb-HM-G2j"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="44" id="SQI-Uk-mDv"/>
+                        <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="44" id="ZqV-eh-XxV"/>
                     </constraints>
                 </stackView>
             </subviews>
@@ -480,8 +531,11 @@
                 <constraint firstItem="frV-13-JUL" firstAttribute="leading" secondItem="yiv-9e-lLZ" secondAttribute="leading" id="LoS-by-bne"/>
                 <constraint firstItem="yiv-9e-lLZ" firstAttribute="top" secondItem="1fS-P6-FT2" secondAttribute="bottom" constant="8" id="MOw-Wm-zvz"/>
                 <constraint firstAttribute="trailing" secondItem="E8i-0I-Tew" secondAttribute="trailing" constant="8" id="R4C-qo-3ia"/>
+                <constraint firstItem="up5-im-7d6" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="8" id="Rvk-E7-AoH"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="25T-u5-u9F" secondAttribute="trailing" constant="8" id="S1y-VY-5QR"/>
+                <constraint firstAttribute="trailing" secondItem="up5-im-7d6" secondAttribute="trailing" constant="8" id="SaE-s3-M2L"/>
                 <constraint firstItem="25T-u5-u9F" firstAttribute="top" secondItem="E8i-0I-Tew" secondAttribute="bottom" constant="8" id="YNF-nE-6ql"/>
+                <constraint firstItem="up5-im-7d6" firstAttribute="top" secondItem="25T-u5-u9F" secondAttribute="bottom" constant="8" symbolic="YES" id="Zo3-5c-rwb"/>
                 <constraint firstItem="IFQ-YM-444" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="5" id="a9n-PF-Qy3"/>
                 <constraint firstItem="vyg-O4-ulE" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="9" id="aER-CS-LQa"/>
                 <constraint firstItem="yiv-9e-lLZ" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="8" id="cCO-51-MWd"/>

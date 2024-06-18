@@ -23,7 +23,7 @@ class FuncTestVC: MMBaseViewController {
     
     var unit: UITableView = UITableView()
     
-    var model: MMSimpleModel?
+    var model: MMSimpleStruct?
     
     @objc dynamic var obStr: String = ""
     
@@ -147,14 +147,16 @@ class FuncTestVC: MMBaseViewController {
         case 13:
             tool.stringTest_50()
         case 14:
-            testNumber()
+            MMSyntaxTool().start()
+//            testNumber()
         case 15:
             testDict()
         case 16:
             printTest()
             tool.printTest()
         case 17:
-            urlTest()
+//            urlTest()
+            tool.urltest_17()
         case 18:
             typeTest()
         case 19:
@@ -209,10 +211,9 @@ class FuncTestVC: MMBaseViewController {
         case 36:
             tool.timerTest36()
         case 37:
-            tool.urltest()
 //            tool.userDefaultTest37()
 //            tool.deviceTest()
-//            tool.audioTest_37_2()
+            tool.audioTest_37_2()
         case 38:
             tool.numberFormatter()
         case 39:
@@ -220,7 +221,7 @@ class FuncTestVC: MMBaseViewController {
         case 40:
             MMFileTest().readStr_40()
         case 41:
-            MMFuncTool().crashTest_41()
+            tool.crashTest_41()
         case 42:
             MMFuncTool().structTest_42()
         case 43:
@@ -266,6 +267,8 @@ class FuncTestVC: MMBaseViewController {
             MMNetworkTest.shared.test()
         case 55:
             MMFuncTool().naviTest()
+        case 56:
+            tool.memoryTest_56()
         default:
             break
         }
@@ -372,6 +375,7 @@ extension FuncTestVC {
     }
     
     func emptyTest() {
+        
         var str: String? = " "
         let e1 = "".isEmpty
         let e2 = " ".isEmpty
@@ -403,6 +407,30 @@ extension FuncTestVC {
         if array?.isEmpty == false {  // false
             mm_printLog("empty_arr2")
         }
+        
+        let classModel: MMSimpleClass? = MMSimpleClass()
+        let classModel_2: MMSimpleClass? = nil
+        let classModel_3: MMSimpleClass? = MMSimpleClass()
+
+        // true
+        let empty = classModel?.name.isEmpty() == true
+        // false
+        let empty1 = classModel?.name.isEmpty() == false
+        // false
+        let empty2 = classModel_2?.name.isEmpty() == true
+        // false
+        let empty2_1 = classModel_2?.name.isEmpty() == false
+        
+        // 结论: 无论中间间隔多少个model 判断不影响最终结果。 因为会为nil。
+        // false :  classModel?.otherClass?.name.isEmpty() == nil
+        let empty_3 = classModel?.otherClass?.name.isEmpty() == false
+        // false
+        let empty_3_1 = classModel?.otherClass?.name.isEmpty() == true
+        classModel?.otherClass = classModel_3
+        // false
+        let empty_4 = classModel?.otherClass?.name.isEmpty() == false
+        // true
+        let empty_4_1 = classModel?.otherClass?.name.isEmpty() == true
         mm_printLog("end")
     }
     

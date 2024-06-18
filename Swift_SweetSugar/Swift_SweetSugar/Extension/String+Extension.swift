@@ -79,6 +79,14 @@ public extension String {
     
 }
 
+public protocol OptionalString {}
+extension String: OptionalString {}
+extension Optional where Wrapped : OptionalString {
+    public func isEmpty() -> Bool {
+        return (self == nil || (self as! String).isEmpty)
+    }
+}
+
 public extension String {
     var isEnglistWord: Bool {
         if isEmpty {

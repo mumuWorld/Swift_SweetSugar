@@ -30,7 +30,8 @@ extension MMFuncTool {
 extension MMFuncTool {
     
     func regularTest_22() {
-        printDeviceInfo()
+//        printDeviceInfo()
+        equalTest()
 //        regularTest()
     }
     
@@ -83,6 +84,51 @@ extension MMFuncTool {
         let str_3 = "mm+"
         let result_3 = str_3.mm_hasSpecialCharactor()
         mm_printLog("test")
+    }
+    
+    func equalTest() {
+        // struct_1 == struct_2    true
+        // === 不合法， 必须是对象
+        var struct_1 = MMSimpleStruct()
+        let struct_2 = MMSimpleStruct()
+        // struct_1 == struct_3 不合法，类型不一致
+        let struct_3 = MMSimpleStruct2()
+//         结构体的 == 挨个比较元素的值。 跟是否可变无关
+//        struct_1.name = "aaa"
+//        struct_2.name = "bbb"
+
+        // class_1 === class_2        false
+        // == 不能直接比较。需要实现  Equatable 协议
+        let class_1 = MMSimpleClass()
+        let class_2 = MMSimpleClass()
+        
+        // ocClass_1 === ocClass_2         false
+        // ocClass_1 == ocClass_2        false: oc对象的== 实际上比较的是哈希值， 因为NSObject实际上实现了 Equatable 协议
+        let ocClass_1 = MMSimpleOCClass()
+        let ocClass_2 = MMSimpleOCClass()
+        // ocClass_3 == ocClass_1 true
+        let ocClass_3 = ocClass_1
+
+        let hashValue_1 = ocClass_1.hashValue
+        let hashValue_2 = ocClass_2.hashValue
+        
+        // array1 == array2     true
+        let array1 = [1, 2]
+        let array2 = [1, 2]
+        
+        // == 因为元素不能用 == 比较， 所以不合法
+        let array3 = [class_1]
+        let array4 = [class_1]
+
+        // dict1 == dict2 true
+        let dict1 = ["1": 1]
+        let dict2 = ["1": 1]
+
+        // == 因为元素不能用 == 比较， 所以不合法
+        let dict3 = ["1": class_1]
+        let dict4 = ["1": class_1]
+        
+        mm_printLog("test-> \(class_1 === class_2)")
     }
 }
 

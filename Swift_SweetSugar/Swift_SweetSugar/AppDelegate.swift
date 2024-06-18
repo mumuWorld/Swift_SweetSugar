@@ -10,6 +10,7 @@ import UIKit
 import BackgroundTasks
 import OSLog
 import DoraemonKit
+import KSCrash
 
 //import FlipperKit
 
@@ -20,8 +21,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
-        
-       
+//        KSCrash.sharedInstance().monitoring = KSCrashMonitorType.RawValue
+        let installation = KSCrashInstallationEmail.sharedInstance()
+        installation?.recipients = ["617958070@qq.com"]
+        installation?.addConditionalAlert(withTitle: "crash了", message: "what fk", yesAnswer: "yes", noAnswer: "a")
+        installation?.install()
         
         window = UIWindow(frame: UIScreen.main.bounds)
         window?.rootViewController = MMTabBarViewController()
@@ -34,12 +38,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //            client?.add(FlipperKitLayoutPlugin(rootNode: application, with: layoutDescriptorMapper!))
 //            client?.start()
         
-        do {
-            let socket = try NWListener.init(using: .udp, on: 1000)
-            print("test->error:\(socket)")
-        } catch {
-            print("test->error:\(error)")
-        }
+//        do {
+//            let socket = try NWListener.init(using: .udp, on: 1000)
+//            print("test->error:\(socket)")
+//        } catch {
+//            print("test->error:\(error)")
+//        }
         DoraemonStatisticsUtil.shareInstance().noUpLoad = true
         DoraemonManager.shareInstance().install()
         return true
@@ -181,7 +185,7 @@ func mm_printLog<T>(_ message : T, file : String = #file, funcName : String = #f
     // 1.2 获取文件名
     let fileName = fileArray[0]
     // 2.打印内容
-    let printStr = "🔨[\(fileName) \(funcName)](\(lineNum)): \(message)"
+    let printStr = "test->🔨[\(fileName) \(funcName)](\(lineNum)): \(message)"
     if #available(iOS 14.0, *) {
         debugPrint(printStr)
 //        let str = "This is a debug message.:\(type(of: printStr))"

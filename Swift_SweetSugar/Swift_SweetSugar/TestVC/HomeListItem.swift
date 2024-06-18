@@ -7,10 +7,8 @@
 //
 
 import Foundation
-import HandyJSON
 
-
-struct HomeListItem: HandyJSON {
+struct HomeListItem: Codable {
     var showName = ""
     var routerVC = ""
     var desc = ""

@@ -8,12 +8,21 @@
 
 import Foundation
 
-struct MMSimpleModel {
+struct MMSimpleStruct: Equatable {
     var name: String?
 //    var target: AnyObject?
 //    
 //    static func post<P: Codable>(url: String, param: P? = nil) {
 //        
+//    }
+}
+
+struct MMSimpleStruct2: Equatable {
+    var name: String?
+//    var target: AnyObject?
+//
+//    static func post<P: Codable>(url: String, param: P? = nil) {
+//
 //    }
 }
 
@@ -25,8 +34,22 @@ class MMSimpleClass {
     static func post<P: Codable>(url: String, param: P? = nil) {
         
     }
+    final var name: String?
+    
+    var otherClass: MMSimpleClass?
+    
+    // 不能同时修饰
+//    final class var clsName: String?
 }
+
 
 class MMSimpleChildClass: MMSimpleClass {
     
 }
+
+
+class MMSimpleOCClass: NSObject {
+    var name: String?
+}
+
+
