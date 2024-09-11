@@ -97,4 +97,25 @@ extension MMTableViewVC: UITableViewDelegate, UITableViewDataSource {
         let item = dataArray[indexPath.row]
         item.clickHandle()
     }
+    
+    
+    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        let action_1 = UIContextualAction(style: .normal, title: "测试") { _, _, handle in
+            
+        }
+        
+        let action_2 = UIContextualAction(style: .destructive, title: "测试2") { _, _, handle in
+            
+        }
+        action_2.image = UIImage(named: "ic_tab_course_pressed")
+        
+        if indexPath.row == 0 {
+            let configure = UISwipeActionsConfiguration(actions: [action_1])
+            configure.performsFirstActionWithFullSwipe = false
+            return configure
+        }
+        let configure = UISwipeActionsConfiguration(actions: [action_1, action_2])
+        configure.performsFirstActionWithFullSwipe = false
+        return configure
+    }
 }

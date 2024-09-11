@@ -11,6 +11,13 @@ import Kingfisher
 
 extension UITestVC {
     
+    func fonttest() {
+                let font = UIFont(name: "iconfont", size: 30)
+                let family = UIFont.familyNames
+                widthLabel.font = font
+                widthLabel.text = "大 \u{e60b}"
+    }
+    
     /// 绘制高亮
     func customDrawTest() {
         customDrawView?.removeFromSuperview()

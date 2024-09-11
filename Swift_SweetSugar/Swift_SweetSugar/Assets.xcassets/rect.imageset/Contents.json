@@ -1,14 +1,18 @@
 {
   "images" : [
     {
-      "filename" : "test.jpg",
+      "idiom" : "universal",
+      "scale" : "1x"
+    },
+    {
+      "filename" : "矩形 1@2x.png",
       "idiom" : "universal",
       "resizing" : {
         "cap-insets" : {
-          "bottom" : 680,
-          "left" : 509,
-          "right" : 510,
-          "top" : 679
+          "bottom" : 83,
+          "left" : 75,
+          "right" : 507,
+          "top" : 65
         },
         "center" : {
           "height" : 1,
@@ -17,10 +21,6 @@
         },
         "mode" : "9-part"
       },
-      "scale" : "1x"
-    },
-    {
-      "idiom" : "universal",
       "scale" : "2x"
     },
     {

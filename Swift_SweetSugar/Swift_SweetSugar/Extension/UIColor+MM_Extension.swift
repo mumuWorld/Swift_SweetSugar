@@ -67,4 +67,23 @@ extension UIColor {
             return UIColor.clear
         }
     }
+    class func mm_dynamicColorFromHex(light: UInt64, dark: UInt64) -> UIColor {
+        return mm_dynamicColor(lightColor: mm_colorFromHex(color_vaule: light), darkColor: mm_colorFromHex(color_vaule: dark))
+    }
+    
+    class func mm_dynamicColor(lightColor: UIColor, darkColor: UIColor?) -> UIColor {
+        var retColor = lightColor
+        if #available(iOS 13.0, *) {
+            if let darkColor {
+                retColor = UIColor.init { (traitCollection) -> UIColor in
+                    if traitCollection.userInterfaceStyle == .dark {
+                        return darkColor
+                    } else {
+                        return lightColor
+                    }
+                }
+            }
+        }
+        return retColor
+    }
 }

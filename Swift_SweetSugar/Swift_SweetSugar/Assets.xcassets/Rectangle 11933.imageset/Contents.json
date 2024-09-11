@@ -12,6 +12,20 @@
     {
       "filename" : "Rectangle 11933@3x.png",
       "idiom" : "universal",
+      "resizing" : {
+        "cap-insets" : {
+          "bottom" : 61,
+          "left" : 61,
+          "right" : 61,
+          "top" : 61
+        },
+        "center" : {
+          "height" : 21,
+          "mode" : "tile",
+          "width" : 24
+        },
+        "mode" : "9-part"
+      },
       "scale" : "3x"
     }
   ],

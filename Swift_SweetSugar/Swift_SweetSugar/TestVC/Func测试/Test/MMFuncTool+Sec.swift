@@ -97,6 +97,11 @@ extension MMFuncTool {
 //        struct_1.name = "aaa"
 //        struct_2.name = "bbb"
 
+        let str3_1 = MMSimpleStruct3(name: "123")
+        let str3_2 = MMSimpleStruct3(name: "123")
+        
+//        let reuslt = str3_1 != str3_2
+        
         // class_1 === class_2        false
         // == 不能直接比较。需要实现  Equatable 协议
         let class_1 = MMSimpleClass()

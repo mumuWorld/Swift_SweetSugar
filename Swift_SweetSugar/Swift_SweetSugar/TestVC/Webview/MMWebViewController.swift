@@ -77,9 +77,9 @@ class MMWebViewController: UIViewController {
             make.edges.equalToSuperview()
         }
             
-        url = "https://shared.youdao.com/dict/market/shop-window-test/#/?category=12&componentId=1&uid=urs-phoneyd.d978037eb3c0483d9%40163.com&promoteImageUrl=https://img14.360buyimg.com/pop/jfs/t1/195403/21/29656/185966/6363360aE604053f0/fa4132d1d68f2613.jpg&itemName=%E7%BD%91%E6%98%93%E4%B8%A5%E9%80%89%20%E6%97%A0%E7%BA%BF%E6%8C%89%E6%91%A9%E5%99%A8%20%E9%A2%88%E6%A4%8E%E6%8C%89%E6%91%A9%E5%99%A8%E6%8C%89%E6%91%A9%E5%9E%AB%E9%9D%A0%E6%9E%95%E8%85%B0%E9%83%A8%E8%83%8C%E9%83%A8%E6%8C%89%E6%91%A9%E5%99%A8%20%E5%85%A8%E8%BA%AB%E6%8C%89%E6%91%A9%E4%BB%AA%20%E5%86%B0%E5%B2%9B%E8%93%9D%E7%94%9F%E6%97%A5%E7%A4%BC%E7%89%A9%E8%8A%82%E6%97%A5%E9%80%81%E7%A4%BC%E9%80%81%E6%9C%8B%E5%8F%8B%E9%80%81%E7%88%B6%E6%AF%8D&itemPrice=29900&strikeThroughPrice=30000&buttonText=%E8%B4%AD%E4%B9%B0&nickname=%E5%88%9B%E4%BD%9C%E8%80%85%E5%90%8D%E7%A7%B0&avatar=https://ydlunacommon-cdn.nosdn.127.net/91aa66226b7f4567c7db9d321ab2503b.png&landingPageUrl=https://union-click.jd.com/jdc?e=&p=JF8BAO0JK1olXwYFUVlVAUsXA18BG1kRXwYAZBoCUBVIMzZNXhpXVhgcDBsJVFRMVnBaRQcLVAYAUFxdClRORjNVK1pAIn5pLBpbaFFPWwhhHRtvHBxWNwhRBHsSA24JElIRXwcHZF5cCUkVB2cKGVMlbQYHZBwz3se31MaqzPOehbeTg_rc3tqn2tmTwvqBiIyQg-X5OEkWAmsJGVIWXQUyVFlaC0oUCm8AHl4WWTYCXFptUx55BmldHw8TDgEDXFlVAHsnM2w4K2sVbQUyCjBcW0wSC24BEzVIW15ECg4PUyUUBGYLG10SbQQDVVxfOHs&hide-toolbar=true"
-//        url = "http://www.globaltimes.cn"
-        loadLocal()
+//        url = "https://shared.youdao.com/dict/market/shop-window-test/#/?category=12&componentId=1&uid=urs-phoneyd.d978037eb3c0483d9%40163.com&promoteImageUrl=https://img14.360buyimg.com/pop/jfs/t1/195403/21/29656/185966/6363360aE604053f0/fa4132d1d68f2613.jpg&itemName=%E7%BD%91%E6%98%93%E4%B8%A5%E9%80%89%20%E6%97%A0%E7%BA%BF%E6%8C%89%E6%91%A9%E5%99%A8%20%E9%A2%88%E6%A4%8E%E6%8C%89%E6%91%A9%E5%99%A8%E6%8C%89%E6%91%A9%E5%9E%AB%E9%9D%A0%E6%9E%95%E8%85%B0%E9%83%A8%E8%83%8C%E9%83%A8%E6%8C%89%E6%91%A9%E5%99%A8%20%E5%85%A8%E8%BA%AB%E6%8C%89%E6%91%A9%E4%BB%AA%20%E5%86%B0%E5%B2%9B%E8%93%9D%E7%94%9F%E6%97%A5%E7%A4%BC%E7%89%A9%E8%8A%82%E6%97%A5%E9%80%81%E7%A4%BC%E9%80%81%E6%9C%8B%E5%8F%8B%E9%80%81%E7%88%B6%E6%AF%8D&itemPrice=29900&strikeThroughPrice=30000&buttonText=%E8%B4%AD%E4%B9%B0&nickname=%E5%88%9B%E4%BD%9C%E8%80%85%E5%90%8D%E7%A7%B0&avatar=https://ydlunacommon-cdn.nosdn.127.net/91aa66226b7f4567c7db9d321ab2503b.png&landingPageUrl=https://union-click.jd.com/jdc?e=&p=JF8BAO0JK1olXwYFUVlVAUsXA18BG1kRXwYAZBoCUBVIMzZNXhpXVhgcDBsJVFRMVnBaRQcLVAYAUFxdClRORjNVK1pAIn5pLBpbaFFPWwhhHRtvHBxWNwhRBHsSA24JElIRXwcHZF5cCUkVB2cKGVMlbQYHZBwz3se31MaqzPOehbeTg_rc3tqn2tmTwvqBiIyQg-X5OEkWAmsJGVIWXQUyVFlaC0oUCm8AHl4WWTYCXFptUx55BmldHw8TDgEDXFlVAHsnM2w4K2sVbQUyCjBcW0wSC24BEzVIW15ECg4PUyUUBGYLG10SbQQDVVxfOHs&hide-toolbar=true"
+        url = "https://www.baidu.com"
+//        loadLocal()
 //        webview.scrollView.panGestureRecognizer.cancelsTouchesInView = false
 //        webview.scrollView.panGestureRecognizer.delaysTouchesEnded = false
 //        webview.scrollView.panGestureRecognizer.require(toFail: pan)
@@ -347,10 +347,11 @@ extension MMWebViewController: WKNavigationDelegate {
     
     func webView(_ webView: WKWebView, decidePolicyFor navigationResponse: WKNavigationResponse, decisionHandler: @escaping (WKNavigationResponsePolicy) -> Void) {
         decisionHandler(.allow)
+        mm_printLog("test->加载policy")
     }
     
     func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
-        mm_printLog("加载完成")
+        mm_printLog("test->加载完成")
 //        let jsUrl = URL(string: "https://c.youdao.com/fanyiguan/webTrans/index.js")
 //        let str = try? String(contentsOf: jsUrl!, encoding: .utf8)
 //        webView.evaluateJavaScript(str!, completionHandler: nil)
@@ -359,7 +360,7 @@ extension MMWebViewController: WKNavigationDelegate {
 //        }
     }
     func webView(_ webView: WKWebView, didFail navigation: WKNavigation!, withError error: Error) {
-        mm_printLog("加载失败")
+        mm_printLog("test->加载失败")
     }
 }
 

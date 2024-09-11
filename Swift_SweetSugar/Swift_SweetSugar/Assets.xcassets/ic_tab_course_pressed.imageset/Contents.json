@@ -15,7 +15,7 @@
       "scale" : "1x"
     },
     {
-      "filename" : "noteShowBg@2x.png",
+      "filename" : "学习@2x.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
@@ -26,23 +26,12 @@
           "value" : "dark"
         }
       ],
-      "filename" : "noteShowBg@2x-1.png",
+      "filename" : "学习@2x 1.png",
       "idiom" : "universal",
-      "resizing" : {
-        "cap-insets" : {
-          "bottom" : 53,
-          "top" : 29
-        },
-        "center" : {
-          "height" : 1,
-          "mode" : "tile"
-        },
-        "mode" : "3-part-vertical"
-      },
       "scale" : "2x"
     },
     {
-      "filename" : "noteShowBg@3x.png",
+      "filename" : "学习@3x.png",
       "idiom" : "universal",
       "scale" : "3x"
     },
@@ -53,19 +42,8 @@
           "value" : "dark"
         }
       ],
-      "filename" : "noteShowBg@3x-1.png",
+      "filename" : "学习@3x 1.png",
       "idiom" : "universal",
-      "resizing" : {
-        "cap-insets" : {
-          "bottom" : 133,
-          "top" : 45
-        },
-        "center" : {
-          "height" : 1,
-          "mode" : "tile"
-        },
-        "mode" : "3-part-vertical"
-      },
       "scale" : "3x"
     }
   ],

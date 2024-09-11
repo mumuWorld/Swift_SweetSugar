@@ -8,12 +8,16 @@
 
 import Foundation
 
+public protocol MMTestPrintProtocol {
+    func testPrint() -> Void
+}
+
 /// 语法练习
 class MMLanguageTest {
     
     var name: String = "" {
         didSet {
-            print("test->name1: \(name)")
+            print("test->name_super: \(name)")
         }
     }
     
@@ -22,7 +26,7 @@ class MMLanguageTest {
             return "calName1特斯特"
         }
         set {
-            print("test->calName1:\(newValue)")
+            print("test->calName_super:\(newValue)")
         }
     }
     func test() {
@@ -42,12 +46,18 @@ class MMLanguageTest {
     }
 }
 
+extension MMLanguageTest: MMTestPrintProtocol {
+    open func testPrint() {
+        print("test->MMLanguageTest")
+    }
+}
+
 
 class MMLanguageChildTest: MMLanguageTest {
     
     override var name: String {
         didSet {
-            print("test->name2: \(name)")
+            print("test->name_child: \(name)")
         }
     }
     
@@ -58,7 +68,7 @@ class MMLanguageChildTest: MMLanguageTest {
         set {
             // 必须手动调用super
             super.calName = "测试"
-            print("test->calName2:\(newValue)")
+            print("test->calName_child:\(newValue)")
         }
     }
     override init() {
@@ -71,10 +81,41 @@ class MMLanguageChildTest: MMLanguageTest {
         print("test->self: \(self)")
         print("test->self: \(self)")
     }
+    
 }
 
 
 struct MMSortItem {
     var couponPrice: Int?
     var expiredTime: Int?
+}
+
+protocol Greetable {
+    func greet()
+}
+
+class Parent {
+    // 在类主体中实现协议方法
+    func greet() {
+        print("Hello from Parent")
+    }
+}
+
+// 通过扩展来遵循协议
+extension Parent: Greetable { }
+
+class Child: Parent {
+    override func greet() {
+        print("Hello from Child")
+    }
+}
+
+func teset() {
+    // 使用示例
+    let parent = Parent()
+    parent.greet()  // 输出: Hello from Parent
+
+    let child = Child()
+    child.greet()  // 输出: Hello from Child
+    // 输出: Hello from Child
 }

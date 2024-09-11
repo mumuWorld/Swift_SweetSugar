@@ -25,14 +25,18 @@
 		652D4D6E2963FC9900CC4EA3 /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 652D4D6D2963FC9900CC4EA3 /* UIViewController+Extension.swift */; };
 		652DA2922A08ADDE00434352 /* MMLanguageTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 652DA2912A08ADDE00434352 /* MMLanguageTest.swift */; };
 		652DA2952A090A2800434352 /* UITestVC+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 652DA2942A090A2800434352 /* UITestVC+Extension.swift */; };
+		6534925A2C65BE7A005FF934 /* MMCombineTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 653492592C65BE7A005FF934 /* MMCombineTest.swift */; };
 		653710862A9307CE0005EF4A /* MMHighlightView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 653710852A9307CE0005EF4A /* MMHighlightView.swift */; };
 		653A49782A2F2CCD003DC1BE /* MMGradientLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 653A49772A2F2CCD003DC1BE /* MMGradientLabel.swift */; };
 		654BA72B2AA7403F000B4C34 /* MMCollectionPaoMaDengScroll.swift in Sources */ = {isa = PBXBuildFile; fileRef = 654BA72A2AA7403F000B4C34 /* MMCollectionPaoMaDengScroll.swift */; };
+		654D01AD2C23BEFF00090AB0 /* GradientRingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 654D01AC2C23BEFE00090AB0 /* GradientRingView.swift */; };
 		654DEFC728780831009F6757 /* Data+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 654DEFC628780831009F6757 /* Data+Extension.swift */; };
 		6550B9EF292728F30093B437 /* 百度一下，你就知道_files in Resources */ = {isa = PBXBuildFile; fileRef = 6550B9ED292728F30093B437 /* 百度一下，你就知道_files */; };
 		6550B9F0292728F30093B437 /* 百度一下，你就知道.html in Resources */ = {isa = PBXBuildFile; fileRef = 6550B9EE292728F30093B437 /* 百度一下，你就知道.html */; };
 		6550B9F2292729940093B437 /* sw in Resources */ = {isa = PBXBuildFile; fileRef = 6550B9F1292729940093B437 /* sw */; };
 		6581922A2AD4FBAB00F71608 /* MMFuncTool+Sec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 658192292AD4FBAB00F71608 /* MMFuncTool+Sec.swift */; };
+		6584AA4E2C35282200C8E1F6 /* DingTalkJinBuTi-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6584AA4D2C35282200C8E1F6 /* DingTalkJinBuTi-Regular.ttf */; };
+		658BE6CC2C339B9500888B0B /* UITestVC+Animation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 658BE6CB2C339B9500888B0B /* UITestVC+Animation.swift */; };
 		6599CE4229EEAB34005DD9B5 /* MMSingleLabelCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6599CE4029EEAB34005DD9B5 /* MMSingleLabelCollectionViewCell.swift */; };
 		6599CE4329EEAB34005DD9B5 /* MMSingleLabelCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6599CE4129EEAB34005DD9B5 /* MMSingleLabelCollectionViewCell.xib */; };
 		659BE68F2A7B3E1D00F18E1C /* MMNetworkTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 659BE68E2A7B3E1D00F18E1C /* MMNetworkTest.swift */; };
@@ -43,11 +47,17 @@
 		65C3C4E029E9452A00FFA11C /* MMListAutoHeightViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65C3C4DE29E9452A00FFA11C /* MMListAutoHeightViewController.swift */; };
 		65C3C4E129E9452A00FFA11C /* MMListAutoHeightViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 65C3C4DF29E9452A00FFA11C /* MMListAutoHeightViewController.xib */; };
 		65C3C4E429E945BB00FFA11C /* MMAutoLabelTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65C3C4E329E945BB00FFA11C /* MMAutoLabelTableViewCell.swift */; };
+		65C7F91A2C6B2F2600A97F6D /* TTSManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65C7F9192C6B2F2600A97F6D /* TTSManager.swift */; };
+		65C7F9202C6EF51600A97F6D /* MMAViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 65C7F91F2C6EF51600A97F6D /* MMAViewController.xib */; };
+		65C7F9212C6EF51600A97F6D /* MMAViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65C7F91E2C6EF51600A97F6D /* MMAViewController.swift */; };
+		65C7F9242C6EF54400A97F6D /* MMBViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 65C7F9232C6EF54400A97F6D /* MMBViewController.xib */; };
+		65C7F9252C6EF54400A97F6D /* MMBViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65C7F9222C6EF54400A97F6D /* MMBViewController.swift */; };
 		65CA65C62B889AD50018DBBD /* LRUTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65CA65C52B889AD50018DBBD /* LRUTest.swift */; };
 		65CB983A29C179A400893157 /* MMTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65CB983929C179A400893157 /* MMTool.swift */; };
 		65CDAAF82B5516EF00F7F142 /* MMTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65CDAAF72B5516EF00F7F142 /* MMTabBarViewController.swift */; };
 		65CDAAFB2B5517C000F7F142 /* MMBaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65CDAAFA2B5517C000F7F142 /* MMBaseViewController.swift */; };
 		65CDAAFD2B5517E000F7F142 /* MMMineViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65CDAAFC2B5517E000F7F142 /* MMMineViewController.swift */; };
+		65CE02F62C607953005E755D /* CALayer+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65CE02F52C607953005E755D /* CALayer+Extension.swift */; };
 		65D292332811506D00B31DFD /* ScrollTestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65D292312811506D00B31DFD /* ScrollTestViewController.swift */; };
 		65D292342811506D00B31DFD /* ScrollTestViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 65D292322811506D00B31DFD /* ScrollTestViewController.xib */; };
 		65D29237281154D800B31DFD /* LabelTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65D29235281154D800B31DFD /* LabelTableViewCell.swift */; };
@@ -264,14 +274,18 @@
 		652D4D6D2963FC9900CC4EA3 /* UIViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
 		652DA2912A08ADDE00434352 /* MMLanguageTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MMLanguageTest.swift; sourceTree = "<group>"; };
 		652DA2942A090A2800434352 /* UITestVC+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITestVC+Extension.swift"; sourceTree = "<group>"; };
+		653492592C65BE7A005FF934 /* MMCombineTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MMCombineTest.swift; sourceTree = "<group>"; };
 		653710852A9307CE0005EF4A /* MMHighlightView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MMHighlightView.swift; sourceTree = "<group>"; };
 		653A49772A2F2CCD003DC1BE /* MMGradientLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MMGradientLabel.swift; sourceTree = "<group>"; };
 		654BA72A2AA7403F000B4C34 /* MMCollectionPaoMaDengScroll.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MMCollectionPaoMaDengScroll.swift; sourceTree = "<group>"; };
+		654D01AC2C23BEFE00090AB0 /* GradientRingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientRingView.swift; sourceTree = "<group>"; };
 		654DEFC628780831009F6757 /* Data+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Data+Extension.swift"; sourceTree = "<group>"; };
 		6550B9ED292728F30093B437 /* 百度一下，你就知道_files */ = {isa = PBXFileReference; lastKnownFileType = folder; path = "百度一下，你就知道_files"; sourceTree = "<group>"; };
 		6550B9EE292728F30093B437 /* 百度一下，你就知道.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = "百度一下，你就知道.html"; sourceTree = "<group>"; };
 		6550B9F1292729940093B437 /* sw */ = {isa = PBXFileReference; lastKnownFileType = folder; path = sw; sourceTree = "<group>"; };
 		658192292AD4FBAB00F71608 /* MMFuncTool+Sec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MMFuncTool+Sec.swift"; sourceTree = "<group>"; };
+		6584AA4D2C35282200C8E1F6 /* DingTalkJinBuTi-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "DingTalkJinBuTi-Regular.ttf"; sourceTree = "<group>"; };
+		658BE6CB2C339B9500888B0B /* UITestVC+Animation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITestVC+Animation.swift"; sourceTree = "<group>"; };
 		6599CE4029EEAB34005DD9B5 /* MMSingleLabelCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MMSingleLabelCollectionViewCell.swift; sourceTree = "<group>"; };
 		6599CE4129EEAB34005DD9B5 /* MMSingleLabelCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MMSingleLabelCollectionViewCell.xib; sourceTree = "<group>"; };
 		659BE68E2A7B3E1D00F18E1C /* MMNetworkTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MMNetworkTest.swift; sourceTree = "<group>"; };
@@ -282,11 +296,18 @@
 		65C3C4DE29E9452A00FFA11C /* MMListAutoHeightViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MMListAutoHeightViewController.swift; sourceTree = "<group>"; };
 		65C3C4DF29E9452A00FFA11C /* MMListAutoHeightViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MMListAutoHeightViewController.xib; sourceTree = "<group>"; };
 		65C3C4E329E945BB00FFA11C /* MMAutoLabelTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MMAutoLabelTableViewCell.swift; sourceTree = "<group>"; };
+		65C7F9192C6B2F2600A97F6D /* TTSManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TTSManager.swift; sourceTree = "<group>"; };
+		65C7F91E2C6EF51600A97F6D /* MMAViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MMAViewController.swift; sourceTree = "<group>"; };
+		65C7F91F2C6EF51600A97F6D /* MMAViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MMAViewController.xib; sourceTree = "<group>"; };
+		65C7F9222C6EF54400A97F6D /* MMBViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MMBViewController.swift; sourceTree = "<group>"; };
+		65C7F9232C6EF54400A97F6D /* MMBViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MMBViewController.xib; sourceTree = "<group>"; };
 		65CA65C52B889AD50018DBBD /* LRUTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LRUTest.swift; sourceTree = "<group>"; };
+		65CB90EA2C21939800BEAD21 /* Swift_SweetSugar.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Swift_SweetSugar.entitlements; sourceTree = "<group>"; };
 		65CB983929C179A400893157 /* MMTool.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MMTool.swift; sourceTree = "<group>"; usesTabs = 0; };
 		65CDAAF72B5516EF00F7F142 /* MMTabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MMTabBarViewController.swift; sourceTree = "<group>"; };
 		65CDAAFA2B5517C000F7F142 /* MMBaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MMBaseViewController.swift; sourceTree = "<group>"; };
 		65CDAAFC2B5517E000F7F142 /* MMMineViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MMMineViewController.swift; sourceTree = "<group>"; };
+		65CE02F52C607953005E755D /* CALayer+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CALayer+Extension.swift"; sourceTree = "<group>"; };
 		65D292312811506D00B31DFD /* ScrollTestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollTestViewController.swift; sourceTree = "<group>"; };
 		65D292322811506D00B31DFD /* ScrollTestViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ScrollTestViewController.xib; sourceTree = "<group>"; };
 		65D29235281154D800B31DFD /* LabelTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelTableViewCell.swift; sourceTree = "<group>"; };
@@ -583,6 +604,17 @@
 			path = Cell;
 			sourceTree = "<group>";
 		};
+		65C7F91D2C6EF4C200A97F6D /* NavigationBar */ = {
+			isa = PBXGroup;
+			children = (
+				65C7F91E2C6EF51600A97F6D /* MMAViewController.swift */,
+				65C7F91F2C6EF51600A97F6D /* MMAViewController.xib */,
+				65C7F9222C6EF54400A97F6D /* MMBViewController.swift */,
+				65C7F9232C6EF54400A97F6D /* MMBViewController.xib */,
+			);
+			path = NavigationBar;
+			sourceTree = "<group>";
+		};
 		65CDAAF92B55171E00F7F142 /* Mine */ = {
 			isa = PBXGroup;
 			children = (
@@ -695,6 +727,7 @@
 		B4063D59260B49B800F3135E /* TestVC */ = {
 			isa = PBXGroup;
 			children = (
+				65C7F91D2C6EF4C200A97F6D /* NavigationBar */,
 				65CDAAF92B55171E00F7F142 /* Mine */,
 				65F26B2B2ABC4BC50025C93E /* Swift语法 */,
 				65D487CA2A5C03C20024F82D /* PreView */,
@@ -745,6 +778,7 @@
 				B4063D9A260B60C100F3135E /* UITestVC.xib */,
 				B4A1808627B36112009E21D3 /* UITestVC+Test.swift */,
 				652DA2942A090A2800434352 /* UITestVC+Extension.swift */,
+				658BE6CB2C339B9500888B0B /* UITestVC+Animation.swift */,
 			);
 			path = "UI测试";
 			sourceTree = "<group>";
@@ -802,6 +836,7 @@
 		B425AC672252526000B02B77 /* Swift_SweetSugar */ = {
 			isa = PBXGroup;
 			children = (
+				65CB90EA2C21939800BEAD21 /* Swift_SweetSugar.entitlements */,
 				651C9A9F2862BED800713590 /* ToolVC */,
 				B4C06FE627423CCC00681C95 /* resource */,
 				B474765526948B2C006922D8 /* RPReplay.MP4 */,
@@ -821,6 +856,7 @@
 				B425AC6F2252526200B02B77 /* Assets.xcassets */,
 				B425AC712252526200B02B77 /* LaunchScreen.storyboard */,
 				B425AC742252526200B02B77 /* Info.plist */,
+				6584AA4D2C35282200C8E1F6 /* DingTalkJinBuTi-Regular.ttf */,
 			);
 			path = Swift_SweetSugar;
 			sourceTree = "<group>";
@@ -853,6 +889,7 @@
 				B49D61DB23390BA700ED9352 /* UIView+Extension.swift */,
 				DF128F3C232F2C5A00491475 /* Date+MM_Extension.swift */,
 				B425AC972252529A00B02B77 /* UIKit+Extension.swift */,
+				65CE02F52C607953005E755D /* CALayer+Extension.swift */,
 				DF9227E622CB07A600ABB221 /* UIColor+MM_Extension.swift */,
 				DFF332A92328C5DE0015295C /* Bundle+MM_extension.swift */,
 				B4063D92260B546500F3135E /* UITableViewCell+Extension.swift */,
@@ -1002,6 +1039,7 @@
 				B407B599279308C100398F92 /* MMPageControl.swift */,
 				B49C47822739296B0041F245 /* MMShadowButton.swift */,
 				B4D32E6A279EA17800C0EB64 /* MMAnimationLabel.swift */,
+				654D01AC2C23BEFE00090AB0 /* GradientRingView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1215,6 +1253,7 @@
 		B4DDA666279FE69300DBDB56 /* Tool */ = {
 			isa = PBXGroup;
 			children = (
+				65C7F9192C6B2F2600A97F6D /* TTSManager.swift */,
 				652DA2912A08ADDE00434352 /* MMLanguageTest.swift */,
 				B4DDA668279FE6A900DBDB56 /* MMLocalSpeech.swift */,
 				B4C9397927C8D118005FA0EE /* MMCustomOCObj.h */,
@@ -1224,6 +1263,7 @@
 				65E4C9122A60E7AA0019D94B /* MMSyntaxTool.swift */,
 				650892842A6F6EE7009FF1B2 /* MMTaskTest.swift */,
 				652D43A92AE24E42003E01FE /* MMBlockClass.swift */,
+				653492592C65BE7A005FF934 /* MMCombineTest.swift */,
 			);
 			path = Tool;
 			sourceTree = "<group>";
@@ -1409,6 +1449,7 @@
 				B4A7E0C1277303FE0091687C /* MMListUpdateViewController.xib in Resources */,
 				B4A4510A27674FE3005AC2E4 /* result.json in Resources */,
 				B4E70FDC27BF8E040020259A /* iconfont.ttf in Resources */,
+				65C7F9242C6EF54400A97F6D /* MMBViewController.xib in Resources */,
 				B425AC732252526200B02B77 /* LaunchScreen.storyboard in Resources */,
 				65D29238281154D800B31DFD /* LabelTableViewCell.xib in Resources */,
 				B4C194C22772C8670019553E /* MMSingleLabelTableCell.xib in Resources */,
@@ -1417,6 +1458,7 @@
 				B4C6AA0F261D9A9800D4B243 /* GestureTestVC.xib in Resources */,
 				B495035226E2463C00C10601 /* MMGraphicViewController.xib in Resources */,
 				B4063D73260B4F1300F3135E /* home_list.plist in Resources */,
+				6584AA4E2C35282200C8E1F6 /* DingTalkJinBuTi-Regular.ttf in Resources */,
 				B4A1808C27B3E14E009E21D3 /* textview.json in Resources */,
 				65C3C4E129E9452A00FFA11C /* MMListAutoHeightViewController.xib in Resources */,
 				B49BAB8B262022730097DFC9 /* CollectionViewController.xib in Resources */,
@@ -1437,6 +1479,7 @@
 				6550B9F2292729940093B437 /* sw in Resources */,
 				6550B9EF292728F30093B437 /* 百度一下，你就知道_files in Resources */,
 				65D292342811506D00B31DFD /* ScrollTestViewController.xib in Resources */,
+				65C7F9202C6EF51600A97F6D /* MMAViewController.xib in Resources */,
 				B474765626948B2C006922D8 /* RPReplay.MP4 in Resources */,
 				B425AC6E2252526000B02B77 /* Main.storyboard in Resources */,
 				B4063D89260B530C00F3135E /* HomeListItemCell.xib in Resources */,
@@ -1585,6 +1628,7 @@
 				659BE68F2A7B3E1D00F18E1C /* MMNetworkTest.swift in Sources */,
 				DF2ED5D8238546F7001617F8 /* Stack.swift in Sources */,
 				65D292402811583700B31DFD /* ScrollTableViewCell.swift in Sources */,
+				658BE6CC2C339B9500888B0B /* UITestVC+Animation.swift in Sources */,
 				65E9C7FA2BC3FF56008F97CD /* MMStartUpTest.m in Sources */,
 				B4D32E6B279EA17800C0EB64 /* MMAnimationLabel.swift in Sources */,
 				B480AD0E266882F600E53DED /* MMTextVC.swift in Sources */,
@@ -1629,6 +1673,7 @@
 				65D292332811506D00B31DFD /* ScrollTestViewController.swift in Sources */,
 				DFF332AA2328C5DE0015295C /* Bundle+MM_extension.swift in Sources */,
 				650892852A6F6EE7009FF1B2 /* MMTaskTest.swift in Sources */,
+				6534925A2C65BE7A005FF934 /* MMCombineTest.swift in Sources */,
 				B45853632386D95E005A4FFA /* MonitorViewController.swift in Sources */,
 				B4C9397B27C8D118005FA0EE /* MMCustomOCObj.m in Sources */,
 				DF2ED5DA23854856001617F8 /* Queue.swift in Sources */,
@@ -1649,9 +1694,11 @@
 				65D29237281154D800B31DFD /* LabelTableViewCell.swift in Sources */,
 				B4B69E78233E55D40061AF93 /* CreateTool.swift in Sources */,
 				65DDED9B2BD799420025A71E /* MMTableView.swift in Sources */,
+				65C7F91A2C6B2F2600A97F6D /* TTSManager.swift in Sources */,
 				650E7B952AA9DE2F00059409 /* MMRotateView.swift in Sources */,
 				B4E390B02796B3ED000670FC /* WordWidget.intentdefinition in Sources */,
 				65EDEAF12B4E378700E26254 /* MMStartEngine.swift in Sources */,
+				65CE02F62C607953005E755D /* CALayer+Extension.swift in Sources */,
 				652DA2922A08ADDE00434352 /* MMLanguageTest.swift in Sources */,
 				65E188DD2995F1AE00B177C1 /* AnimationTest.swift in Sources */,
 				B4A17DE42669FA870030E40D /* MMTableViewVC.swift in Sources */,
@@ -1677,6 +1724,7 @@
 				B45853582386D899005A4FFA /* LXDBacktraceLogger.m in Sources */,
 				B4C6AA18261D9CE000D4B243 /* MMTouchView.swift in Sources */,
 				B4C51C1627918AE600F56FEC /* MMTextContainer.swift in Sources */,
+				65C7F9212C6EF51600A97F6D /* MMAViewController.swift in Sources */,
 				B4B6FDAF26CE6D6400C57423 /* MMStackCollectionViewLayout.swift in Sources */,
 				B45853592386D899005A4FFA /* LXDAppFluecyMonitor.m in Sources */,
 				B4063DA6260B618A00F3135E /* ConstParams.swift in Sources */,
@@ -1700,12 +1748,14 @@
 				B47468F126FED2F300C79F2C /* MMGraphic2VC.swift in Sources */,
 				B4A1808F27B3E9D9009E21D3 /* MMJsonNode.swift in Sources */,
 				B4C6046C277AC72500EA287E /* Structured.swift in Sources */,
+				65C7F9252C6EF54400A97F6D /* MMBViewController.swift in Sources */,
 				654BA72B2AA7403F000B4C34 /* MMCollectionPaoMaDengScroll.swift in Sources */,
 				65D2923D2811566600B31DFD /* TestCollectionViewCell.swift in Sources */,
 				B4DDA669279FE6A900DBDB56 /* MMLocalSpeech.swift in Sources */,
 				B4063D6D260B4E2800F3135E /* HomeListItem.swift in Sources */,
 				651F696128F3CCDA00BE565A /* MMBubbleLayoutFragment.swift in Sources */,
 				B422B2A525A3194500293646 /* String+Extension.swift in Sources */,
+				654D01AD2C23BEFF00090AB0 /* GradientRingView.swift in Sources */,
 				DF9227E722CB07A600ABB221 /* UIColor+MM_Extension.swift in Sources */,
 				65CDAAF82B5516EF00F7F142 /* MMTabBarViewController.swift in Sources */,
 				65CB983A29C179A400893157 /* MMTool.swift in Sources */,
@@ -1901,8 +1951,9 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Swift_SweetSugar/Swift_SweetSugar.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = DQMV9NHZ7M;
+				DEVELOPMENT_TEAM = HUW3H8NBU9;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Swift_SweetSugar/Component",
@@ -1983,14 +2034,14 @@
 					"-ObjC",
 				);
 				OTHER_SWIFT_FLAGS = "$(inherited) -D COCOAPODS -sanitize-coverage=func -sanitize=undefined";
-				PRODUCT_BUNDLE_IDENTIFIER = com.mm.sugar.demo;
+				PRODUCT_BUNDLE_IDENTIFIER = com.youdao.dict.mumu.test;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG Test";
 				SWIFT_OBJC_BRIDGING_HEADER = "$(SRCROOT)/Swift_SweetSugar/Swift-Sugar-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = 1;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
@@ -2000,8 +2051,9 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Swift_SweetSugar/Swift_SweetSugar.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = DQMV9NHZ7M;
+				DEVELOPMENT_TEAM = HUW3H8NBU9;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Swift_SweetSugar/Component",
@@ -2021,13 +2073,13 @@
 				);
 				MERGED_BINARY_TYPE = automatic;
 				OTHER_SWIFT_FLAGS = "$(inherited) -D COCOAPODS";
-				PRODUCT_BUNDLE_IDENTIFIER = com.mm.sugar.demo;
+				PRODUCT_BUNDLE_IDENTIFIER = com.youdao.dict.mumu.test;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
 				SWIFT_OBJC_BRIDGING_HEADER = "$(SRCROOT)/Swift_SweetSugar/Swift-Sugar-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = 1;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};

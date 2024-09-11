@@ -54,8 +54,10 @@ class MMFuncTool: NSObject {
         let urlStr_9 = "https://shared.youdao.com/dict/market/living-study-ranking/#/?keyfrom=doc"
         let urlStr_10 = "https://reg.163.com/naq/findPassword#/verifyAccount"
         let urlStr_11 = "https://shared.youdao.com/dict/market/global-pronounce-list-test/?timestamp=1715238322671#/?rankType=total&topIndex=0&word=hello&hide-toolbar=true&full-screen=true&adjustSafeArea="
-
-
+        
+        let url_12 = "localDefault://ydlunacommon-cdn.nosdn.127.net/913a2f38efd21e0acd8fabced4b21a5f.png?imageView=&type=webp"
+        let url_13 = URL.init(string: url_12)
+        
     
     
 //        let encode_url = urlStr.urlEncoded()
@@ -570,6 +572,8 @@ After apologising, Mr Musk said that Mr Thorleifsson was considering coming back
 //            mm_printLog("item->\(item)")
 //            return item < 4
 //        }.prefix(2).map({ $0 * 2 })
+        removeTest()
+        
         let item1 = MMSortItem(couponPrice: 10, expiredTime: 3)
         let item2 = MMSortItem(couponPrice: 10, expiredTime: 5)
         let item3 = MMSortItem(couponPrice: 9, expiredTime: 3)
@@ -681,6 +685,17 @@ After apologising, Mr Musk said that Mr Thorleifsson was considering coming back
         let range = 0..<10
         let create_1 = Array(0..<10)
         mm_printLog(create_1)
+    }
+    
+    func removeTest() {
+        var toolStrArr: [String] = ["0","1","2","3","4"]
+        if toolStrArr.count > 4 {
+            toolStrArr.remove(at: 4)
+            toolStrArr.insert("5", at: 4)
+            print("test->arr:\(toolStrArr)")
+        } else {
+            print("test->个数不对:")
+        }
     }
     
     func dictTest() {
@@ -1164,6 +1179,27 @@ extension MMFuncTool {
         mm_printLog("test->\(sender.name)")
     }
     
+    
+    /// https://juejin.cn/post/6844903682320891912
+    func addSIRITest_57() {
+        let activity = NSUserActivity(activityType: "com.AppCoda.SiriSortcuts.sayHi") // 1
+        activity.title = "Say Hi" // 2
+        activity.userInfo = ["speech" : "hi"] // 3
+        activity.isEligibleForSearch = true // 4
+        activity.isEligibleForPrediction = true // 5
+        activity.persistentIdentifier = NSUserActivityPersistentIdentifier("com.AppCoda.SiriSortcuts.sayHi") // 6
+        UIViewController.currentViewController()?.view.userActivity = activity
+//        view.userActivity = activity // 7
+        activity.becomeCurrent() // 8
+        
+    }
+    // check error
+    public func sayHi() {
+        let alert = UIAlertController(title: "Hi There!", message: "Hey there! Glad to see you got this working!", preferredStyle: UIAlertController.Style.alert)
+        alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
+        UIViewController.currentViewController()?.present(alert, animated: true, completion: nil)
+        
+    }
 }
 extension MMFuncTool {
     func rangeTest() {
@@ -1375,7 +1411,7 @@ extension MMFuncTool {
         //        }
         
         var timerCount = 0
-        // 返回一个新的 Timer 对象，并且把它安排在当前的运行循环中的默认模式下
+        // 返回一个新的 Timer 对象，并且把它安排在当前的运行循环中的默认模式下， 需要手动停止，进入后台也会调用
         timer = Timer.scheduledTimer(withTimeInterval: 2, repeats: true) { timer in
 //            if count == 30 {
 //                timer.invalidate()

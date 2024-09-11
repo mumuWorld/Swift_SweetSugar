@@ -138,5 +138,13 @@
 		<key>showName</key>
 		<string>自定义滚动动画</string>
 	</dict>
+	<dict>
+		<key>desc</key>
+		<string>Navigationbar</string>
+		<key>routerVC</key>
+		<string>MMAViewController</string>
+		<key>showName</key>
+		<string>导航栏</string>
+	</dict>
 </array>
 </plist>

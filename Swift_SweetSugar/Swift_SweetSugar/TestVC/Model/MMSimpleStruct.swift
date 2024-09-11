@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct MMSimpleStruct: Equatable {
+struct MMSimpleStruct {
     var name: String?
 //    var target: AnyObject?
 //    
@@ -25,6 +25,11 @@ struct MMSimpleStruct2: Equatable {
 //
 //    }
 }
+
+struct MMSimpleStruct3 {
+    var name: String
+}
+
 
 //protocol MMSimpleProtocol {
 //    static func post<P: Codable>(url: String, param: P? = nil)

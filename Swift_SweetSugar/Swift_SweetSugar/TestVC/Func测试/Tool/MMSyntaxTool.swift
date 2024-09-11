@@ -45,6 +45,12 @@ class MMSyntaxTool {
         }
     }
     
+    var student: MMStruct? {
+        didSet {
+            print("test2_didSet")
+        }
+    }
+    
     func start() {
         print("test->-----------:1 setter start")
         _student = MMStruct()
@@ -59,11 +65,49 @@ class MMSyntaxTool {
         student?.name = "hello2"
         print("test->-----------:3 didSet end")
     }
+
     
-    var student: MMStruct? {
+    var person: MMClass? {
         didSet {
-            print("test2_didSet")
+            print("test->person didSet")
         }
+    }
+    
+    var _person: MMClass?
+    var person_2:  MMClass? {
+        get {
+            return _person
+        }
+        set {
+            _person = newValue
+            print("test_setter_person_2")
+        }
+    }
+    
+    func start2() {
+        // 调用 test->person didSet
+        person = MMClass()
+        print("test->-----------:1 setter start")
+        // 不调用
+        person?.name = "hello"
+        print("test->-----------:1 setter end")
+        
+        print("test->-----------:2 didSet start")
+        _person = MMClass()
+        // 不调用
+        person_2?.name = "hello2"
+        print("test->-----------:2 didSet end")
+    }
+    
+    func testSwift() {
+        print("test->----------")
+
+       let model = MMLanguageChildTest()
+        model.name = "name1"
+        print("test->----------")
+        model.calName = "name2"
+        
+        print("test->model.call:\(model.calName)")
     }
 }
 
@@ -72,4 +116,8 @@ extension MMSyntaxTool: SayYES, SayNO {
     func sayYes() {
         mm_printLog("test")
     }
+}
+
+class MMClass {
+    var name: String?
 }

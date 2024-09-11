@@ -76,11 +76,13 @@
 	<string>用你相册</string>
 	<key>NSUserActivityTypes</key>
 	<array>
-		<string>com.mumu.func</string>
+		<string>com.AppCoda.SiriSortcuts.sayHi</string>
+		<string>com.youdao.dict.mumu.test.good</string>
 	</array>
 	<key>UIAppFonts</key>
 	<array>
 		<string>iconfont.ttf</string>
+		<string>DingTalkJinBuTi-Regular.ttf</string>
 	</array>
 	<key>UIBackgroundModes</key>
 	<array>

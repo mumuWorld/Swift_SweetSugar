@@ -97,7 +97,9 @@ class MMFileTest {
 //        } catch let e {
 //            mm_printLog(e)
 //        }
-        pathTest()
+//        pathTest()
+        // 删除测试
+        deleTest()
     }
     
     func pathTest() {
@@ -150,5 +152,32 @@ class MMFileTest {
             print("test->删除文件失败:\(error)")
         }
         mm_printLog("end")
+    }
+    
+    func deleTest() {
+        // 先创建
+        let path = URL(fileURLWithPath: NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0]).appendingPathComponent("test")
+        if !FileManager.default.fileExists(atPath: path.path) {
+            do {
+                try FileManager.default.createDirectory(at: path, withIntermediateDirectories: true, attributes: nil)
+            } catch {
+                print("test->创建失败: \(error)")
+            }
+        }
+        //  path: file:///var/mobile/Containers/Data/Application/655237F4-B1A8-4DEE-8A51-5E97F21B7612/Documents/test/
+        // path.path: "/var/mobile/Containers/Data/Application/655237F4-B1A8-4DEE-8A51-5E97F21B7612/Documents/test"
+        FileManager.default.deleteFolder(folderPath: path.path)
+    }
+}
+
+public extension FileManager {
+    func deleteFolder(folderPath: String) {
+        if fileExists(atPath: folderPath) {
+            let childFilePath = subpaths(atPath: folderPath)
+            for path in childFilePath! {
+                let fileAbsoluePath = folderPath + "/" + path
+                try? removeItem(atPath: fileAbsoluePath)
+            }
+        }
     }
 }

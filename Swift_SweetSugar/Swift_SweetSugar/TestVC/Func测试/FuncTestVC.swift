@@ -78,21 +78,21 @@ class FuncTestVC: MMBaseViewController {
 //        MMFuncTool().operationQueueTest()
         self.testPrint()
         
-        let attrSet = CSSearchableItemAttributeSet(itemContentType: kUTTypeText as String)
-        attrSet.contentDescription = "查词/拍照翻译/文档翻译/语音翻译"
-        attrSet.thumbnailData = UIImage(named: "ic_mark_ocr")!.pngData()
-        attrSet.keywords = ["词典", "翻译官", "有道", "翻译"]
-        let activity = NSUserActivity(activityType: "com.mumu.test")
-        activity.title = "测试标题"
-        activity.userInfo = ["test": "testbody"]
-        activity.isEligibleForSearch = true
-        if #available(iOS 12.0, *) {
-            activity.isEligibleForPrediction = true
-        } else {
-            // Fallback on earlier versions
-        }
-        activity.contentAttributeSet = attrSet
-        userActivity = activity
+//        let attrSet = CSSearchableItemAttributeSet(itemContentType: kUTTypeText as String)
+//        attrSet.contentDescription = "查词/拍照翻译/文档翻译/语音翻译"
+//        attrSet.thumbnailData = UIImage(named: "ic_mark_ocr")!.pngData()
+//        attrSet.keywords = ["词典", "翻译官", "有道", "翻译"]
+//        let activity = NSUserActivity(activityType: "com.mumu.test")
+//        activity.title = "测试标题"
+//        activity.userInfo = ["test": "testbody"]
+//        activity.isEligibleForSearch = true
+//        if #available(iOS 12.0, *) {
+//            activity.isEligibleForPrediction = true
+//        } else {
+//            // Fallback on earlier versions
+//        }
+//        activity.contentAttributeSet = attrSet
+//        userActivity = activity
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -147,7 +147,8 @@ class FuncTestVC: MMBaseViewController {
         case 13:
             tool.stringTest_50()
         case 14:
-            MMSyntaxTool().start()
+//            MMSyntaxTool().testSwift()
+            MMCombineTest.share.start()
 //            testNumber()
         case 15:
             testDict()
@@ -269,6 +270,8 @@ class FuncTestVC: MMBaseViewController {
             MMFuncTool().naviTest()
         case 56:
             tool.memoryTest_56()
+        case 57:
+            tool.addSIRITest_57()
         default:
             break
         }

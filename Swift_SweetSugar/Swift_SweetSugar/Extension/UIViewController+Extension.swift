@@ -35,3 +35,17 @@ extension UIViewController {
         return base
     }
 }
+
+
+extension UIViewController {
+    func mm_dismiss(animted: Bool = true, complete: (() -> Void)?) {
+        if presentingViewController != nil {
+            dismiss(animated: animted, completion: complete)
+        } else {
+            navigationController?.popViewController(animated: animted)
+            CATransaction.begin()
+            CATransaction.setCompletionBlock(complete)
+            CATransaction.commit()
+        }
+    }
+}

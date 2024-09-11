@@ -146,6 +146,8 @@ class UITestVC: UIViewController {
 
     let touchView: MMTouchView = MMTouchView()
     
+    @IBOutlet weak var transitionImgV: UIImageView!
+    
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
         print("test-> isViewLoaded1: \(isViewLoaded)")
@@ -166,17 +168,17 @@ class UITestVC: UIViewController {
 //        shadowView.layer.shadowRadius = 3
 //        shadowView.layer.shadowOpacity = 1
 
-        view.addSubview(bar)
-        bar.snp.makeConstraints { make in
-            make.top.equalToSuperview().offset(100)
-            make.leading.equalToSuperview()
-            make.width.height.equalTo(200)
-        }
+//        view.addSubview(bar)
+//        bar.snp.makeConstraints { make in
+//            make.top.equalToSuperview().offset(100)
+//            make.leading.equalToSuperview()
+//            make.width.height.equalTo(200)
+//        }
 
-        let baseFrame = CGRect(x: 10, y: 200, width: 200, height: 200)
-        touchView.frame = baseFrame
-        touchView.backgroundColor = .red
-        view.addSubview(touchView)
+//        let baseFrame = CGRect(x: 10, y: 200, width: 200, height: 200)
+//        touchView.frame = baseFrame
+//        touchView.backgroundColor = .red
+//        view.addSubview(touchView)
 //        shadowView.snp.makeConstraints { make in
 //            make.leading.equalToSuperview().offset(10)
 //            make.top.equalTo(_compareView!.snp.bottom).offset(20)
@@ -191,10 +193,7 @@ class UITestVC: UIViewController {
         
 //        view.addSubview(attrText)
 
-        //也会进行放大。
-//        let font = UIFont(name: "iconfont", size: 30)
-//        widthLabel.font = font
-//        widthLabel.text = "大 \u{e60b}"
+//        也会进行放大。
         
 //        pieChartView.colors = [.brown,.brown,.green, .yellow]
 //        pieChartView.drawWidth = 20
@@ -236,8 +235,54 @@ class UITestVC: UIViewController {
 //        netImageTest()
 //        createBtn()
         
-        adjustImage()
+//        adjustImage()
         /*addScrollLabel*/()
+//        maoboli()
+        addPathPanGestureView()
+    }
+    
+    func addPathPanGestureView() {
+        view.addSubview(panGestureView)
+        panGestureView.snp.makeConstraints { make in
+            make.leading.top.equalTo(100)
+            make.width.height.equalTo(100)
+        }
+    }
+    
+    func skeletonview() {
+        textView.showSkeleton()
+        // 模拟数据加载
+        DispatchQueue.main.asyncAfter(deadline: .now() + 3.0) {
+            // 隐藏骨架动画
+//            self.textView.hideSkeleton()
+            
+            // 显示实际内容
+            // self.loadContent()
+        }
+    }
+    
+    func maoboli() {
+        // 创建一个背景视图
+//        let backgroundView = UIImageView(frame: self.view.bounds)
+//        backgroundView.image = UIImage(named: "your_image")
+//        backgroundView.contentMode = .scaleAspectFill
+//        self.view.addSubview(backgroundView)
+        
+        // 创建毛玻璃效果视图
+        let blurEffect = UIBlurEffect(style: .light) // 你可以使用 .extraLight, .light, .dark 来调整效果深浅
+        let blurEffectView = UIVisualEffectView(effect: blurEffect)
+//        blurEffectView.frame = self.view.bounds.inset(by: UIEdgeInsets(top: 50, left: 50, bottom: 50, right: 50))
+        blurEffectView.layer.cornerRadius = 20
+//        blurEffectView.clipsToBounds = true
+        self.view.addSubview(blurEffectView)
+        
+        blurEffectView.snp.makeConstraints { make in
+            make.edges.equalToSuperview().inset(100)
+        }
+        
+        // 调整毛玻璃效果深浅的方法
+        let blurIntensity: CGFloat = 1.0 // 调整这个值来改变毛玻璃的深浅
+        blurEffectView.alpha = blurIntensity
     }
     
     func shadow() {
@@ -437,6 +482,8 @@ class UITestVC: UIViewController {
         print("test-> isViewLoaded5: \(isViewLoaded)")
     }
     
+    
+    
     var show = false
     var model = 200
     
@@ -475,6 +522,26 @@ class UITestVC: UIViewController {
         
 //        pushVC()
 //    }
+    
+    @IBAction func sliderValueChange(_ sender: UISlider) {
+        let h = 100 * sender.value
+        _gradientView?.snp.updateConstraints { make in
+            make.height.equalTo(50 + h)
+        }
+    }
+    
+    var _gradientView: GradientRingView?
+    
+    func gradientRingView() {
+        let _ringView = GradientRingView(frame: CGRect(x: 100, y: 100, width: 200, height: 200))
+        view.addSubview(_ringView)
+        _ringView.snp.makeConstraints { make in
+            make.top.left.equalToSuperview().offset(100)
+            make.width.equalTo(200)
+            make.height.equalTo(100)
+        }
+        _gradientView = _ringView
+    }
     
     /// stackView 间距测试: 可以自定义某个 子视图之后的间距
     func stackViewTest() {
@@ -581,6 +648,7 @@ class UITestVC: UIViewController {
 
     }
     
+    var tag: Bool = true
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         mm_printLog("test->touchesBegan")
 //        animationButton()
@@ -589,6 +657,26 @@ class UITestVC: UIViewController {
 //        let vc = MMEmitterVC()
 //        vc.modalPresentationStyle = .fullScreen
 //        self.present(vc, animated: true, completion: nil)
+//        gradientRingView()
+        if tag {
+            addCATransition(subType: .fromBottom)
+//            testButton.setImage(UIImage(named: "tab_arrow_up"), for: .normal)
+//            testButton.imageView?.image = UIImage(named: "tab_arrow_up")
+        } else {
+            addCATransition(subType: .fromTop)
+//            testButton.setImage(UIImage(named: "tab_arrow_down"), for: .normal)
+
+//            testButton.imageView?.image = UIImage(named: "tab_arrow_down")
+        }
+//        testButton.isSelected.toggle()
+//        tag.toggle()
+//        let font = UIFont.systemFont(ofSize: 14,weight: .medium)
+        let f = UIFont.familyNames
+        let sysF = UIFont.systemFont(ofSize: 14)
+        let name = sysF.fontName
+        let fN = sysF.familyName
+        print("test->字体： \(f)")
+//        skeletonview()
     }
     
     override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -608,6 +696,7 @@ class UITestVC: UIViewController {
     }
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
+        print("test->viewDidLayoutSubviews:")
 //        if view.mm_width > view.mm_height {
 ////            graphicImageView.layer.masksToBounds = true
 //            graphicImageView.layer.cornerRadius = 50
@@ -1262,4 +1351,47 @@ class MMPassthroughView: UIView {
 //            }
 //            return nil
 //        }
+    lazy var redView: UIView = {
+        let item = UIView()
+        item.backgroundColor = .red
+        return item
+    }()
+    
+    var timer: Timer?
+    
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+            
+        addSubview(redView)
+        redView.frame = CGRect(x: 0, y: 0, width: 50, height: 50)
+            
+        var timerCount = 0
+        timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { [weak self] _ in
+            if timerCount == 10 {
+                self?.timer?.invalidate()
+            }
+            timerCount += 1
+            print("test->调用layoutIfNeeded:")
+            
+                // 只调用 x += 1 不会调用 layoutSubviews
+//            self?.mm_x += 1
+            self?.mm_width += 10
+                        self?.layoutIfNeeded()
+            // 调用size， 会先调用 父视图的 viewDidLayoutSubviews ，然后调用自己的 layoutSubviews
+//            self?.mm_width += 1
+        }
+        
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        print("test->调用layoutSubviews:")
+
+    }
+    
+    
 }

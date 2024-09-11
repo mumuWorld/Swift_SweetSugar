@@ -142,6 +142,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return true
     }
     
+    func application(_ application: UIApplication, continue userActivity: NSUserActivity, restorationHandler: @escaping ([any UIUserActivityRestoring]?) -> Void) -> Bool {
+        mm_printLog("mumu")
+        if userActivity.activityType.hasPrefix("com.AppCoda.SiriSortcuts.sayHi") {
+            let alert = UIAlertController(title: "Siri Shortcut", message: "Siri Shortcut for saying 'Hi' was used.", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+            UIViewController.currentViewController()?.present(alert, animated: true)
+            return true
+        }
+        return false
+    }
+    
     func application(_ application: UIApplication, didUpdate userActivity: NSUserActivity) {
         mm_printLog("mumu")
     }
