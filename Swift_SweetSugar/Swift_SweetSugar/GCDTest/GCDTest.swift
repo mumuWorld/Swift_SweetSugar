@@ -14,7 +14,7 @@ class GCDTest {
         let ser = DispatchQueue(label: "serial")
         let con = DispatchQueue(label: "con", qos: .default, attributes: .concurrent, autoreleaseFrequency: .inherit, target: nil)
         //        ser.async {
-        //            mm_printLog("1")
+        mm_printLog("1")
         DispatchQueue.global().async {
             mm_printLog("2")
             DispatchQueue.main.async {
@@ -25,6 +25,8 @@ class GCDTest {
             }
             mm_printLog("5")
         }
+        mm_printLog("6")
+
     }
     //    }
     

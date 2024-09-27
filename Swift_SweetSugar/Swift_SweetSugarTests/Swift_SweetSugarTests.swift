@@ -10,6 +10,10 @@ import XCTest
 @testable import Swift_SweetSugar
 
 class Swift_SweetSugarTests: XCTestCase {
+    
+    func testArray() {
+        HardArray().start()
+    }
 
     override func setUp() {
         

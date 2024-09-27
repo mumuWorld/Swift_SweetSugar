@@ -401,8 +401,16 @@ extension FuncTestVC {
         if str2?.isEmpty == true {  // false
             mm_printLog("empty_3")
         }
+        
+        var str3_empty: String?
+        var str4_empty: String?
+        // nil == nil  true
+        if str3_empty == str4_empty {
+            print("test-> nil == nil")
+        }
 
         var array: [String]?
+        
         
         if array?.isEmpty == true {  // false
             mm_printLog("empty_arr1")

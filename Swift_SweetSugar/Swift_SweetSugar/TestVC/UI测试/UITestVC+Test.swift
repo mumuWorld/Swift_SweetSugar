@@ -15,7 +15,28 @@ extension UITestVC {
                 let font = UIFont(name: "iconfont", size: 30)
                 let family = UIFont.familyNames
                 widthLabel.font = font
-                widthLabel.text = "大 \u{e60b}"
+        print("test->测试2: \(family)")
+//                widthLabel.text = "大 \u{e60b}"
+        widthLabel.text = "abcdefg ABCDEFG 123456789"
+        var _font: UIFont?
+        _font = UIFont.init(name: "HelveticaNeue-Light", size: 20)
+        let _font1 = UIFont.init(name: "HelveticaNeue", size: 20)
+        let _font2 = UIFont.init(name: "HelveticaNeue-Medium", size: 20)
+        let _font3 = UIFont.init(name: "HelveticaNeue-Bold", size: 40)
+        
+        widthLabel.font = _font
+        print("test->测试: \(_font)")
+
+        // 设置 Helvetica Neue 的字体和权重
+        let fontDescriptor = UIFontDescriptor(name: "Helvetica Neue", size: 17)
+            .addingAttributes([UIFontDescriptor.AttributeName.traits: [UIFontDescriptor.TraitKey.weight: UIFont.Weight.bold]])
+
+        let customFont = UIFont(descriptor: fontDescriptor, size: 17)
+
+        // 使用这个字体
+        let label = UILabel()
+        label.font = customFont
+        
     }
     
     /// 绘制高亮

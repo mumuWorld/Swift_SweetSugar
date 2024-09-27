@@ -671,11 +671,9 @@ class UITestVC: UIViewController {
 //        testButton.isSelected.toggle()
 //        tag.toggle()
 //        let font = UIFont.systemFont(ofSize: 14,weight: .medium)
-        let f = UIFont.familyNames
-        let sysF = UIFont.systemFont(ofSize: 14)
-        let name = sysF.fontName
-        let fN = sysF.familyName
-        print("test->字体： \(f)")
+
+        
+        fonttest()
 //        skeletonview()
     }
     
