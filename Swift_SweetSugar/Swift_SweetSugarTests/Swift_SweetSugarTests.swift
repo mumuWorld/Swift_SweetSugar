@@ -12,7 +12,8 @@ import XCTest
 class Swift_SweetSugarTests: XCTestCase {
     
     func testArray() {
-        HardArray().start()
+//        HardArray().start()
+        HardArray().start9()
     }
 
     override func setUp() {
