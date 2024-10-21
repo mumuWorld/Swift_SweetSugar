@@ -238,7 +238,7 @@ class UITestVC: UIViewController {
 //        adjustImage()
         /*addScrollLabel*/()
 //        maoboli()
-        addPathPanGestureView()
+//        addPathPanGestureView()
     }
     
     func addPathPanGestureView() {

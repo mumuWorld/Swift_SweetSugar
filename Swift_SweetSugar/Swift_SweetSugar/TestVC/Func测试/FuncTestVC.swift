@@ -273,7 +273,8 @@ class FuncTestVC: MMBaseViewController {
         case 57:
             tool.addSIRITest_57()
         case 58:
-            HardArray().start9()
+//            HardArray().start9()
+            Test_Tmp2().test()
         default:
             break
         }

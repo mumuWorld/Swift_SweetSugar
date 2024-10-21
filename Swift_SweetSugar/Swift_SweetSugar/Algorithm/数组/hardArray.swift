@@ -46,7 +46,10 @@ class HardArray {
         
         
     }
+    
     /*
+     7-6 计算岛屿最大面积
+
      1.    DFS 函数 dfs：从某个格子开始，如果它是 1（陆地），我们将它标记为 0（水），以避免重复访问。然后递归地访问它的四个相邻格子，并将每个相邻格子的面积加到当前面积中。
      2.    网格遍历：我们遍历整个网格，找到每一个未访问的 1，并从它开始执行 DFS 计算它所连通的岛屿的面积。
      3.    最大面积计算：对于每一个岛屿的面积，我们与当前最大面积进行比较，记录最大的那个。
@@ -88,6 +91,7 @@ class HardArray {
 
 
 /*
+ 7-1 按格式合并两个链表
  给定两个链表L1​=a1​→a2​→⋯→an−1​→an​ 和L2​=b1​→b2​→⋯→bm−1​→bm​，其中n≥2m。
 
  需要将较短的链表L2​反转并合并到较长的链表L1​中
@@ -249,6 +253,7 @@ func startList() {
  3.    compare(nums1, i, nums2, j)：比较两个数组从 i 和 j 开始的子数组，哪个更大。用于在合并数组时做出决策。
  4.    maxNumber(nums1, nums2, k)：主函数，枚举从数组1中选出 i 个数，数组2中选出 k-i 个数，合并后得到最大数。
 
+ https://leetcode.cn/problems/create-maximum-number/description/
  */
 
 
@@ -259,6 +264,7 @@ func test3() {
         var stack = [Int]()
         var drop = nums.count - t
         for num in nums {
+            // drop > 0
             while drop > 0 && !stack.isEmpty && stack.last! < num {
                 stack.removeLast()
                 drop -= 1
@@ -273,6 +279,7 @@ func test3() {
         var result = [Int]()
         var i = 0, j = 0
         while i < nums1.count || j < nums2.count {
+            // 合并直接用compare
             if compare(nums1, i, nums2, j) {
                 result.append(nums1[i])
                 i += 1
@@ -302,6 +309,7 @@ func test3() {
         var result = [Int]()
         let m = nums1.count, n = nums2.count
         for i in 0...k {
+            // 注意这里是<=
             if i <= m && k - i <= n {
                 let subsequence1 = maxSubsequence(nums1, i)
                 let subsequence2 = maxSubsequence(nums2, k - i)
@@ -343,8 +351,9 @@ func lengthOfLIS(_ nums: [Int]) -> Int {
     // 创建一个数组来存储每个位置的最长递增子序列的长度
     var dp = Array(repeating: 1, count: nums.count)
     
-    // 遍历数组，更新 dp 数组
+    // 遍历数组，更新 dp 数组, 从1开始
     for i in 1..<nums.count {
+        // 从0 到 <i
         for j in 0..<i {
             // 只有在当前元素大于前一个元素时，才能形成递增子序列
             if nums[i] > nums[j] {
@@ -361,6 +370,87 @@ func start4() {
     let nums = readLine()!.split(separator:" ").compactMap({ Int($0) })
     let result = lengthOfLIS(nums)
     print(result)
+}
+
+/*
+ 7-5 二叉树的最大路径和
+
+ 二叉树中的 路径 被定义为一条节点序列，序列中每对相邻节点之间都存在一条边。同一个节点在一条路径序列中 至多出现一次 。该路径 至少包含一个 节点，且不一定经过根节点。
+ 路径和 是路径中各节点值的总和。
+ 给你一个二叉树的根节点 root ，返回其 最大路径和 。
+
+ 输入格式:
+ 树上的节点数满足 0 <= n <= 1000, 每个节点的值满足 -1000 <= val <= 1000
+
+ （注：null节点的左右叶子不会再打印null）
+
+ 输出格式:
+ 输出最大路径的和
+
+
+ 输入样例:
+ 在这里给出一组输入。例如：
+
+ -10,9,20,null,null,15,7
+ */
+
+//class TreeNode {
+//    var val: Int
+//    var left: TreeNode?
+//    var right: TreeNode?
+//    init(_ val: Int) {
+//        self.val = val
+//        self.left = nil
+//        self.right = nil
+//    }
+//}
+
+func createBinaryTree(_ nodes: [String]) -> TreeNode? {
+    
+    if nodes.isEmpty == true { // 使用-9999作为null的占位符
+        return nil
+    }
+    let nodeValue = Int(nodes[0])
+    let node = TreeNode(nodeValue!)
+    var queue: [TreeNode] = [node]
+    var index = 1
+    while queue.isEmpty == false && index < nodes.count {
+        let current = queue.removeFirst()
+        if index < nodes.count, nodes[index] != "null" {
+            let leftNode = TreeNode(Int(nodes[index])!)
+            current.left = leftNode
+            queue.append(leftNode)
+        }
+        index += 1
+        
+        // 构建右子节点
+        if index < nodes.count, nodes[index] != "null" {
+            let rightNode = TreeNode(Int(nodes[index])!)
+            current.right = rightNode
+            queue.append(rightNode)
+
+        }
+        index += 1
+    }
+    return node
+}
+
+var sum: Int = 0
+func dfs(_ node: TreeNode?) -> Int? {
+    guard let node else { return nil }
+    let leftSum = max(dfs(node.left) ?? 0, 0)
+    let rightSum = max(dfs(node.right) ?? 0, 0)
+    let curSum = node.val + leftSum + rightSum
+    sum = max(curSum, sum)
+    return node.val + max(leftSum, rightSum)
+}
+
+func start() {
+    // 将字符串转换为数组，null用-9999代替
+let data: [String] = readLine()!.split(separator: ",").compactMap({ String($0) })
+    let root = createBinaryTree(data)
+    let _ = dfs(root)
+    print(sum)
 }
 
 
@@ -383,7 +473,8 @@ func start4() {
  在这里给出一组输入。例如：
 
  4,1000
-
+思路分别 从奇数和偶数 的一半创建回文数，
+ 1 然后求这个数的平方 是否超出右边，
  */
 
 func isRightNumb(_ num: Int64) -> Bool {
@@ -428,6 +519,13 @@ func findNumbs(_ left: String, _ right: String) {
     }
     print(result.sorted())
 }
+
+func testtest(_ s: String) {
+    var preDict: [Int: Int] = [0: -1]
+    var result = 0
+    let characters = Array(s).compactMap({ Int(String($0))})
+}
+
 func start10() {
     let words: [String] = readLine()!.components(separatedBy: ",")
     findNumbs(words[0], words[1])
@@ -439,7 +537,13 @@ func start10() {
 /*
  7-13 无重复字符的最长子串
  给定一个字符串 s ，请你找出其中不含有重复字符的 最长子串 的长度。
-
+ 输入样例1:
+ 在这里给出一组输入。例如：
+ abcabcbb
+ 
+ 输出样例1:
+ 在这里给出相应的输出。例如：
+ 3
  */
 func lengthOfLongestSubstring(_ s: String) -> Int{
     var map: [Character: Int] = [:]
@@ -470,6 +574,7 @@ func longestAwesome(_ s: String) -> Int {
         let n = s.count
         var prefix: [Int: Int] = [0: -1] // 前缀和与索引的映射
         var ans = 0
+        // 通过异或 来判断奇偶状态
         var sequence = 0
         
         // 将字符串转换为字符数组以便遍历
@@ -524,20 +629,32 @@ func longestAwesome(_ s: String) -> Int {
  */
 
 func maxUncrossedLines(_ nums1: [Int], _ nums2: [Int]) -> Int {
+    // 获取 nums1 和 nums2 的长度
     let m = nums1.count
     let n = nums2.count
+    
+    // 创建一个二维数组 dp，大小为 (m + 1) x (n + 1)
+    // dp[i][j] 表示 nums1 的前 i 个元素与 nums2 的前 j 个元素之间
+    // 最多能够画出多少不相交的线。初始值都为 0
     var dp = Array(repeating: Array(repeating: 0, count: n + 1), count: m + 1)
     
+    // 遍历 nums1 和 nums2 的所有元素
     for i in 1...m {
         for j in 1...n {
+            // 如果 nums1[i-1] 和 nums2[j-1] 相等，表示可以画出一条线
+            // 同时该线与之前的线不相交，因此将 dp[i-1][j-1] 的值加 1
             if nums1[i - 1] == nums2[j - 1] {
                 dp[i][j] = dp[i - 1][j - 1] + 1
             } else {
+                // 如果元素不相等，不能画线，因此取上一个状态的最大值
+                // 要么忽略 nums1[i-1]，那么看 dp[i-1][j]
+                // 要么忽略 nums2[j-1]，那么看 dp[i][j-1]
                 dp[i][j] = max(dp[i - 1][j], dp[i][j - 1])
             }
         }
     }
 
+    // 最终 dp[m][n] 存储的是 nums1 和 nums2 之间最多能够画出的不相交线的数量
     return dp[m][n]
 }
 
@@ -556,6 +673,13 @@ func maxUncrossedLines(_ nums1: [Int], _ nums2: [Int]) -> Int {
 
  输出格式:
  数组能分成的最多块数
+ 
+ 1.    使用一个栈 stack 来维护当前处理的最大块。当我们遍历数组 arr 时，如果当前元素 num 大于等于栈顶元素（即 stack.last!），说明当前元素可以加入这个块，保持块内元素有序。因此直接将 num 压入栈中。
+     2.    如果当前元素 num 小于栈顶元素，说明当前块需要与前面的块合并，因为此时必须打破当前块的顺序性。此时，我们做以下几件事：
+     •    首先，弹出栈顶元素，并将其暂时存储在变量 tmp 中，这表示我们将合并的块的最大值。
+     •    然后，不断弹出栈顶元素，直到找到一个栈顶元素小于或等于当前元素 num 为止。这个过程就是不断合并前面的块。
+     •    最后，将 tmp 压回栈中，确保合并后的块的最大值保持不变。
+     3.    遍历结束后，栈的大小即为可以分块的数量。
  */
 func maxChunksToSorted(_ arr: [Int]) -> Int {
    var stack = [Int]()
@@ -573,6 +697,254 @@ func maxChunksToSorted(_ arr: [Int]) -> Int {
     return stack.count
 }
 
+/*
+ 7-12 最长有效括号
+ 
+ 给你一个只包含 '(' 和 ')' 的字符串，找出最长有效（格式正确且连续）括号子串的长度。
+
+ 输入格式:
+ 包含 '(' 和 ')' 的字符串
+
+ 输出格式:
+ 有效括号子串的长度
+
+ 输入样例1:
+ 在这里给出一组输入。例如：
+
+ (()
+ 输出样例1:
+ 在这里给出相应的输出。例如：
+
+ */
+func longestValidParentheses(_ s: String) -> Int {
+        var maxLength = 0
+        var stack = [-1] // 初始化栈，包含一个初始值 -1
+        
+        for (index, char) in s.enumerated() {
+            if char == "(" {
+                // 如果是左括号，将其索引压入栈中
+                stack.append(index)
+                // print("push:\(index)")
+            } else {
+                // 如果是右括号，将栈顶元素弹出
+                stack.removeLast()
+                // print("removeLast:\(index)")
+                if stack.isEmpty {
+                    // 如果栈为空，将当前右括号的索引压入栈
+                    stack.append(index)
+                    // print("push2: \(index), \(stack)")
+                } else {
+                    // 否则，计算有效子串的长度
+                    maxLength = max(maxLength, index - stack.last!)
+                                        // print("计算: \(index),\(maxLength)")
+                }
+            }
+        }
+        
+        return maxLength
+    }
+
+/* 7-14 按位与为零的三元组
+
+ 给你一个整数数组 nums ，返回其中 按位与三元组 的数目。
+
+ 按位与三元组 是由下标 (i, j, k) 组成的三元组，并满足下述全部条件：
+
+ 0 <= i < nums.length
+
+ 0 <= j < nums.length
+
+ 0 <= k < nums.length
+
+ nums[i] & nums[j] & nums[k] == 0 ，其中 & 表示按位与运算符。
+
+ 提示：
+
+ 1 <= nums.length <= 1000
+
+ 0 <= nums[i] < 2^16
+
+ 注意：时间复杂度是 O(n^3)的算法，会超出时间限制。
+ */
+
+func countTriplets(_ nums: [Int]) -> Int {
+    var count = 0
+    var andResults = [Int: Int]()
+    
+    // 枚举前两个数的按位与结果，并统计这些结果出现的次数
+    for i in 0..<nums.count {
+        for j in 0..<nums.count {
+            let andValue = nums[i] & nums[j]
+            andResults[andValue, default: 0] += 1
+        }
+    }
+
+    // 枚举第三个数，检查与之前的按位与结果是否为 0
+    for k in 0..<nums.count {
+        for (andValue, frequency) in andResults {
+            if (andValue & nums[k]) == 0 {
+                count += frequency
+            }
+        }
+    }
+    
+    return count
+}
+
+/*
+ 7-8 解码异或后的排列
+
+ 给你一个整数数组 perm ，它是前 n 个正整数（1,2,3,4,5,…,n-1,n 共n个正整数）的排列，且 n 是个奇数 。
+
+ 它被加密成另一个长度为 n-1 的整数数组 encoded ，满足 encoded[i] = perm[i] XOR perm[i+1]。比方说，如果 perm=[1,3,2] ，那么 encoded=[2,1]。
+
+ 给你 encoded 数组，请你返回原始数组 perm 。题目保证答案存在且唯一。
+
+ 提示：
+
+ n 是奇数。
+
+ 3 <= n < 10^5
+
+ encoded.length == n - 1
+
+ 输入格式:
+ 整数数组encoded，以",”分隔字符串形式作为输入
+
+ 输出格式:
+ 解码后的原始整数数组perm，以",”分隔字符串形式作为输出
+ */
+
+func decode(_ encoded: [Int]) -> [Int] {
+    let n = encoded.count + 1
+    var totalXOR = 0
+    var oddXOR = 0
+    
+    // 计算 totalXOR: 1 到 n 的全部异或
+    for i in 1...n {
+        totalXOR ^= i
+    }
+    
+    // 计算 oddXOR: encoded 中所有奇数下标元素的异或
+    for i in 1..<encoded.count {
+        if i % 2 != 0 {
+            oddXOR ^= encoded[i]
+        }
+    }
+    
+    // 计算 perm[0]
+    var perm = [Int](repeating: 0, count: n)
+    perm[0] = totalXOR ^ oddXOR
+    
+    // 依次计算 perm[i]，通过 encoded[i-1] = perm[i-1] XOR perm[i]
+    for i in 1..<n {
+        perm[i] = perm[i-1] ^ encoded[i-1]
+    }
+    
+    return perm
+    
+}
+
+//
+//// 解析输入和输出
+//if let input = readLine() {
+//    let encoded = input.split(separator: ",").compactMap { Int($0) }
+//    let result = decode(encoded)
+//    print(result.map { String($0) }.joined(separator: ","))
+//}
+
+
+/*
+ 7-2 按公因数计算最大组件大小
+
+ 给定一个由不同正整数组成的非空数组 nums，考虑下面的构图：
+
+ 有 nums.length 个节点，按照从 nums[0]到 nums[nums.length-1]标记；
+
+ 只有当 nums[i] 和 nums[j] 共用一个大于 1 的公因数时，nums[i] 和 nums[j] 之间才有一条边。
+
+ 返回构图中最大连通组件的大小。
+
+ 输入格式:
+ 输入为数组元素，空格分隔
+
+ 输出格式:
+ 输出最大连通组件的大小
+
+ 输入样例1:
+ 在这里给出一组输入。例如：
+
+ 4 6 15 35
+ */
+
+class UnionFind {
+    private var parent: [Int]
+    private var size: [Int]
+    
+    init(_ n: Int) {
+        parent = Array(0..<n)
+        size = Array(repeating: 1, count: n)
+    }
+    
+    func find(_ x: Int) -> Int {
+        if parent[x] != x {
+            parent[x] = find(parent[x])  // 路径压缩
+        }
+        return parent[x]
+    }
+    
+    func union(_ x: Int, _ y: Int) {
+        let rootX = find(x)
+        let rootY = find(y)
+        
+        if rootX != rootY {
+            if size[rootX] > size[rootY] {
+                parent[rootY] = rootX
+                size[rootX] += size[rootY]
+            } else {
+                parent[rootX] = rootY
+                size[rootY] += size[rootX]
+            }
+        }
+    }
+}
+
+func largestComponentSize(_ nums: [Int]) -> Int {
+    let maxNum = nums.max() ?? 0
+    let uf = UnionFind(maxNum + 1)
+    
+    // 将具有共同因数的数连在一起
+    for num in nums {
+        var factor = 2
+        while factor * factor <= num {
+            if num % factor == 0 {
+                uf.union(num, factor)
+                uf.union(num, num / factor)
+            }
+            factor += 1
+        }
+    }
+    
+    // 统计每个根节点的连通分量的大小
+    var componentCount = [Int: Int]()
+    var maxSize = 0
+    for num in nums {
+        let root = uf.find(num)
+        componentCount[root, default: 0] += 1
+        maxSize = max(maxSize, componentCount[root]!)
+    }
+    
+    return maxSize
+}
+
+//// 解析输入和输出
+//if let input = readLine() {
+//    let nums = input.split(separator: " ").compactMap { Int($0) }
+//    let result = largestComponentSize(nums)
+//    print(result)
+//}
+
+
 extension HardArray {
     
     func start7() {
@@ -583,5 +955,9 @@ extension HardArray {
         let result = longestAwesome("3242415")
         print("ans:11 \(result)")
         
+        let size = largestComponentSize([4, 6, 15, 35])
+        print("ans:11 \(size)")
+    
     }
 }
+
