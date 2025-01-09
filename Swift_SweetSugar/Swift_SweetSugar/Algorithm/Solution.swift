@@ -220,4 +220,57 @@ class Solution {
         }
         return tmpList.first!
     }
+    
+    /*
+     https://leetcode.cn/problems/alternating-groups-i/description/?envType=daily-question&envId=2024-11-26
+     3206. 交替组 I
+     */
+    class Solution {
+        func numberOfAlternatingGroups(_ colors: [Int]) -> Int {
+            var count = 0
+            for (i, item) in colors.enumerated() {
+                let leftItem = i == 0 ? colors.count - 1 : i - 1
+                let rightItem = i == colors.count - 1 ? 0 : i + 1
+                let left = colors[leftItem]
+                let right = colors[rightItem]
+                if item != left && item != right {
+                    count += 1
+                }
+            }
+            return count
+        }
+    }
+    /*
+     6. Z 字形变换
+     https://leetcode.cn/problems/zigzag-conversion/description/
+     */
+    func convert(_ s: String, _ numRows: Int) -> String {
+        if numRows < 2 { // 边界条件
+            return s
+        }
+        var result: [[Character]] = Array(repeating: [], count: numRows)
+        var row = 0
+        var down = false
+        
+        for c in s {
+            result[row].append(c)
+            if row == 0 || row == numRows - 1 {
+                down.toggle()
+            }
+            row += down ? 1 : -1
+            print("test->row: \(row), \(down)")
+        }
+        let str = result.flatMap { $0 }.map({ String($0) }).joined()
+        return str
+    }
+    
+    /*
+     
+     */
+    func findMedianSortedArrays(_ nums1: [Int], _ nums2: [Int]) -> Double {
+        // find middle number
+        let count = nums1.count + nums2.count
+        
+        return 0
+    }
 }

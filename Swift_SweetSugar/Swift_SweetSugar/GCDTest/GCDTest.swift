@@ -68,6 +68,26 @@ class GCDTest {
         }
     }
     
+    func test6() {
+        print("1")
+
+        let queue = DispatchQueue(label: "com.example.serialQueue")
+
+        queue.async {
+            print("2")
+            
+            queue.sync {
+                print("3")
+            }
+            print("4")
+        }
+        print("5")
+//
+//        1.    代码的输出顺序是什么？
+//        2.    如果程序会发生死锁，请指出原因。
+//        3.    如何修改代码来避免死锁，并保持尽量相似的输出顺序？
+    }
+    
     func test_sync() {
         let queue = DispatchQueue(label: "com.example.myQueue")
         queue.sync {
