@@ -14,9 +14,9 @@ class MMDateTest {
 //        test2()
 //        create()
 //        createType()
-//        createType_2()
+        createType_2()
 //        hourTest()
-        formatTest()
+//        formatTest()
     }
     
     class func formatTest() {
@@ -110,7 +110,9 @@ class MMDateTest {
         let media = CACurrentMediaTime()
         //682402463.341505,  从 Jan 1 2001 00:00:00 GMT.
         let abso = CFAbsoluteTimeGetCurrent()
+        //1733127777.932874
         let date = Date().timeIntervalSince1970
+        // me->365395.3615600001, abs->754820577.932873, date->1733127777.932874\
         mm_printsLog("me->\(media), abs->\(abso), date->\(date)")
     }
     

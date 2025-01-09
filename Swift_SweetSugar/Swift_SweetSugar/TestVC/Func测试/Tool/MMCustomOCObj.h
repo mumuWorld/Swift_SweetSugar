@@ -22,6 +22,8 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)asserttest;
 
 - (void)callBlock;
+
+- (NSArray *)createNSArray;
 @end
 
 NS_ASSUME_NONNULL_END

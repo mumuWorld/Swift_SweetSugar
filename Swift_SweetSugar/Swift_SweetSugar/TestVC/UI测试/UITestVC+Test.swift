@@ -8,8 +8,76 @@
 
 import UIKit
 import Kingfisher
-
+/*
+ 本页面包括:
+ 渐变处理
+ 字体测试
+ 
+ */
 extension UITestVC {
+    
+    /// 渐变处理测试
+    func gradientTest() {
+//        let layer0 = CAGradientLayer()
+//        layer0.colors = [
+//          UIColor(red: 0.078, green: 0.055, blue: 0.18, alpha: 1).cgColor,
+//          UIColor(red: 0.145, green: 0.035, blue: 0.133, alpha: 1).cgColor
+//        ]
+//        layer0.locations = [0, 1]
+//        layer0.startPoint = CGPoint(x: 0.25, y: 0.5)
+//        layer0.endPoint = CGPoint(x: 0.75, y: 0.5)
+//        layer0.transform = CATransform3DMakeAffineTransform(CGAffineTransform(a: 0, b: 1, c: -1, d: 0, tx: 1, ty: 0))
+//        layer0.bounds = view.bounds.insetBy(dx: -0.5*view.bounds.size.width, dy: -0.5*view.bounds.size.height)
+//        layer0.position = view.center
+//        view.layer.addSublayer(layer0)
+        
+//        let layer0 = CAGradientLayer()
+//        layer0.colors = [
+//          UIColor(red: 1, green: 0.917, blue: 0.962, alpha: 1).cgColor,
+//          UIColor(red: 0.796, green: 0.762, blue: 1, alpha: 1).cgColor
+//        ]
+//        layer0.locations = [0, 1]
+//        layer0.startPoint = CGPoint(x: 0.25, y: 0.5)
+//        layer0.endPoint = CGPoint(x: 0.75, y: 0.5)
+//        layer0.transform = CATransform3DMakeAffineTransform(CGAffineTransform(a: -0.73, b: -0.05, c: -0.77, d: -1.37, tx: 1.4, ty: 0.77))
+        let time = NSDate()
+//        // 性能比较 使用layer 内存低，速度快。
+        for _ in 0...100 {
+            let v = MMGradientView()
+            view.addSubview(v)
+            v.snp.makeConstraints { make in
+                make.leading.trailing.bottom.equalToSuperview()
+                make.height.equalTo(200)
+            }
+            //        v.frame = CGRect(x: 100, y: 200, width: 300, height: 300)
+            v.update(colors: [UIColor.brown,
+                              UIColor.yellow,
+                              UIColor.brown], start: CGPoint(x: 0.5, y: 0), end: CGPoint(x: 0.5, y: 1), locations: [0, 0.99,  1])
+
+        }
+        //"🔨[UITestVC gradientTest()](317): test->耗时:0.016939163208007812"
+//        "🔨[UITestVC gradientTest()](318): test->耗时:0.058474063873291016"  真机 内存 23.2M - 22 = 1M
+        mm_printLog("test->耗时:\(NSDate().timeIntervalSince1970 - time.timeIntervalSince1970)")
+        
+//        for _ in 0...100 {
+//            let v = SampleGradientView()
+//            view.addSubview(v)
+//            v.snp.makeConstraints { make in
+//                make.leading.trailing.equalToSuperview()
+//                make.bottom.equalToSuperview().offset(-200)
+//                make.height.equalTo(200)
+//            }
+//            v.colors = [UIColor(red: 0.212, green: 0.224, blue: 0.255, alpha: 0),
+//                        UIColor(red: 0.212, green: 0.224, blue: 0.255, alpha: 0.7),
+//                        UIColor(red: 0.212, green: 0.224, blue: 0.255, alpha: 1)]
+//            v.locations =  [0, 0.3, 0.63, 1]
+//
+//        }
+//        //test->耗时:0.019596099853515625"
+//        //"🔨[UITestVC gradientTest()](336): test->耗时:0.06610107421875" 真机  0.1   286 - 22M = 264M
+//        mm_printLog("test->耗时:\(NSDate().timeIntervalSince1970 - time.timeIntervalSince1970)")
+
+    }
     
     func fonttest() {
                 let font = UIFont(name: "iconfont", size: 30)
@@ -44,9 +112,9 @@ extension UITestVC {
         customDrawView?.removeFromSuperview()
         
         let _customDrawView = MMHighlightView()
-//        _customDrawView.backgroundColor = UIColor.black.withAlphaComponent(0.3)
+        _customDrawView.backgroundColor = UIColor.black.withAlphaComponent(0.6)
         // 不设置背景色，会在draw中默认为黑色背景
-        _customDrawView.backgroundColor = .clear
+//        _customDrawView.backgroundColor = .clear
         view.addSubview(_customDrawView)
         _customDrawView.snp.makeConstraints { make in
             make.top.equalToSuperview().offset(100)
@@ -54,6 +122,7 @@ extension UITestVC {
             make.height.equalTo(200)
         }
         customDrawView = _customDrawView
+        _customDrawView.path = UIBezierPath()
     }
     
     func netImageTest() {

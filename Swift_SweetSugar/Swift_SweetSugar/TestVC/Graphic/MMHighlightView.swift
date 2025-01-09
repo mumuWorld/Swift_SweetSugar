@@ -11,20 +11,26 @@ import UIKit
 /// 透明、高亮绘制
 class MMHighlightView: UIView {
     
-
+    var path: UIBezierPath? {
+        didSet {
+            setNeedsDisplay()
+        }
+    }
+    
     override func draw(_ rect: CGRect) {
         super.draw(rect)
         guard let context = UIGraphicsGetCurrentContext() else { return }
         // 绘制背景
-        context.setFillColor(UIColor.yellow.withAlphaComponent(0.5).cgColor)
-        context.addRect(rect)
-        context.fillPath()
+//        context.setFillColor(UIColor.yellow.withAlphaComponent(0.5).cgColor)
+//        context.setFillColor(UIColor.clear.cgColor)
+//        context.addRect(rect)
+//        context.fillPath()
 //        context.setAlpha(0.1)
 //        context.fill(rect)
         
-        
+        // 不能用这种全路径的方式创建后，再去添加子路径。
 //        let fullTextPath = UIBezierPath(rect: CGRect(origin: .zero, size: rect.size))
-        let fullTextPath = UIBezierPath(rect: CGRect(x: 10, y: 10, width: 100, height: 10))
+        let fullTextPath = UIBezierPath(rect: CGRect(x: 10, y: 10, width: 1000, height: 10))
         let fullTextPath_2 = UIBezierPath(rect: CGRect(x: 10, y: 15, width: 100, height: 10))
         fullTextPath.append(fullTextPath_2)
         
@@ -38,18 +44,17 @@ class MMHighlightView: UIView {
   // https://blog.csdn.net/qq_14920635/article/details/75617188.
         context.setBlendMode(.clear)
         context.fillPath()
-//        context.strokePath()
-//        
-        let fullTextPath_10 = UIBezierPath(rect: CGRect(x: 10, y: 30, width: 100, height: 10))
-        context.addPath(fullTextPath_10.cgPath)
-//        context.setStrokeColor(UIColor.red.cgColor)
-        context.setFillColor(UIColor.green.cgColor)
-        context.setBlendMode(.normal)
-        //填充路径的区域
-        context.fillPath()
+////        context.strokePath()
+////        测试一下其他颜色
+//        let fullTextPath_10 = UIBezierPath(rect: CGRect(x: 10, y: 30, width: 100, height: 10))
+//        context.addPath(fullTextPath_10.cgPath)
+////        context.setStrokeColor(UIColor.red.cgColor)
+//        context.setFillColor(UIColor.green.cgColor)
+//        context.setBlendMode(.normal)
+//        //填充路径的区域
+//        context.fillPath()
         // 绘制path，不会填充
         //context.strokePath()
-
     }
 
     /// 绘制全文路径

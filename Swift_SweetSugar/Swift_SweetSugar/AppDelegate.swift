@@ -14,6 +14,31 @@ import KSCrash
 
 //import FlipperKit
 
+private var previousExceptionHandler: (@convention(c) (NSException) -> Void)?
+
+func setupUncaughtExceptionHandler() {
+    // 获取之前的异常处理程序
+    previousExceptionHandler = NSGetUncaughtExceptionHandler()
+
+    // 设置自定义异常处理程序
+    NSSetUncaughtExceptionHandler { exception in
+        handleUncaughtException(exception)
+
+        // 调用之前的异常处理程序（如果存在）
+       previousExceptionHandler?(exception)
+    }
+}
+
+func handleUncaughtException(_ exception: NSException) {
+    print("Uncaught exception detected: \(exception.name)")
+    print("Reason: \(exception.reason ?? "Unknown reason")")
+    print("Call stack: \(exception.callStackSymbols)")
+
+    // 可以在此处将日志写入文件或上传到远程服务
+    UserDefaults.standard.set(exception.callStackSymbols, forKey: "kMMCrashCallStack")
+    UserDefaults.standard.set("\(Date())", forKey: "kMMCrashCallStackDate")
+}
+
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
@@ -49,6 +74,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         DoraemonManager.shareInstance().install()
         return true
     }
+
     
     func application(_ application: UIApplication, willFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
         if MMMainManager.shared.isPrintLifeLog {

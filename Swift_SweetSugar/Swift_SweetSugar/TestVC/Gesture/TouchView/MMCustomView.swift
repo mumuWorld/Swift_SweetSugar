@@ -12,6 +12,8 @@ class MMCustomView: UIView {
 
     lazy var control: MMControlView = MMControlView()
     
+    var customName: String = "MMCustomView"
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         addSubview(control)
@@ -26,6 +28,11 @@ class MMCustomView: UIView {
         control.snp.makeConstraints { make in
             make.edges.equalToSuperview()
         }
+    }
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        print("test->frame \(customName): \(frame)")
     }
     
     /// 移除window时也会调用

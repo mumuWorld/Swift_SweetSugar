@@ -12,6 +12,7 @@ import SwiftyJSON
 import AVFoundation
 import NaturalLanguage
 import CoreMotion
+import Toaster
 
 enum MMTest {
     case one
@@ -38,7 +39,16 @@ class MMFuncTool: NSObject {
     
     private var observer: NSObjectProtocol?
 
+    func urltest_17_1() -> Void {
+        // 不会crash
+        let url = URL(string: "null")!
+        // 会crash
+        let url2 = URL(string: "")!
+        print("test->test")
+    }
     func urltest_17() -> Void {
+        urltest_17_1()
+        return;
         let urlStr = "https://shared.youdao.com/dict/market/living-study-ranking-test/index.html#/?hide-toolbar=true"
 //        let urlStr_2 = "https://shared.youdao.com/dict/market/training-camp-test/index.html/campDetails"
         let urlStr_3 = "https://shared.youdao.com/dict/market/living-study-ranking-test?hide-toolbar=true/#/"
@@ -600,11 +610,23 @@ After apologising, Mr Musk said that Mr Thorleifsson was considering coming back
         case nil:
             break // 什么都不做
         }
+        
+        // 并不影响原数组
+        let resultArr = toolStrArr.dropFirst()
+        print("test->toolStr:\(toolStrArr)")
+        
+        let arr2 = MMCustomOCObj().createNSArray()
+        print("test->arr:\(arr2)")
+        let resultArr2 = arr.dropFirst()
+        print("test->resultArr2:\(resultArr2)")
 
-     
+        
         var toolArr: [Int] = [0,1,2,3,4,5]
         var toolOptionStrArr: [String?] = ["0","1","str","3"]
 
+ 
+        
+        
         var emptyArray: [Int] = []
         // 不会崩
         emptyArray.insert(contentsOf: toolArr, at: 0)
@@ -986,9 +1008,12 @@ extension MMFuncTool {
 //        _sendError(error: err_2)
         
 //        blockCrashTest()
-        stopCount = 0
-        NotificationCenter.default.addObserver(self, selector: #selector(removeSplash), name: Notification.Name(rawValue: "dismissVC"), object: nil)
-        cmmotionManagerCrash()
+        // 现在这里注释
+//        stopCount = 0
+//        NotificationCenter.default.addObserver(self, selector: #selector(removeSplash), name: Notification.Name(rawValue: "dismissVC"), object: nil)
+//        cmmotionManagerCrash()
+        
+        crash_test41_2()
     }
     
     func cmmotionManagerCrash() {
@@ -1042,13 +1067,18 @@ extension MMFuncTool {
     
     //结构体测试
     func structTest_42() {
-        var arr:[MMSimpleStruct] = []
+//        var arr:[MMSimpleStruct] = []
         var model_1 = MMSimpleStruct()
-        arr.append(model_1)
+//        arr.append(model_1)
         model_1.name = "test"
         //并不影响数组内的结构体数据
-        mm_printLog(arr)
         
+        var c_1 = MMSimpleClass()
+        c_1.s = model_1
+        model_1.c = c_1
+        
+        mm_printLog(c_1)
+        return;
         var model_2 = model_1
         
         withUnsafePointer(to: &model_1) { pointer in
@@ -1393,10 +1423,10 @@ extension MMFuncTool {
     func timerTest36() {
         var count = 0
         //锁屏、进后台会暂停
-        timerStr = MMDispatchTimer.createTimer(startTime: 1, infiniteInterval: 2, isRepeat: true, async: true) {
-            count += 1
-            mm_printLog("DpatchTimer->\(count)")
-        }
+//        timerStr = MMDispatchTimer.createTimer(startTime: 1, infiniteInterval: 2, isRepeat: true, async: true) {
+//            count += 1
+//            mm_printLog("DpatchTimer->\(count)")
+//        }
         
         //需要手动将timer放到 runloop中
 //        timer = Timer(fire: Date(timeIntervalSince1970: Date().timeIntervalSince1970 + 2), interval: 2, repeats: true, block: { _ in
@@ -1410,19 +1440,33 @@ extension MMFuncTool {
         //            self.timer?.fire()
         //        }
         
-        var timerCount = 0
+//        var timerCount = 0
         // 返回一个新的 Timer 对象，并且把它安排在当前的运行循环中的默认模式下， 需要手动停止，进入后台也会调用
-        timer = Timer.scheduledTimer(withTimeInterval: 2, repeats: true) { timer in
-//            if count == 30 {
-//                timer.invalidate()
-//            }
-            timerCount += 1;
-            mm_printLog("timer->\(Date().timeIntervalSince1970), \(timerCount)")
-        }
-
+//        timer = Timer.scheduledTimer(withTimeInterval: 2, repeats: true) { timer in
+////            if count == 30 {
+////                timer.invalidate()
+////            }
+//            timerCount += 1;
+//            mm_printLog("timer->\(Date().timeIntervalSince1970), \(timerCount)")
+//        }
         
-        
+        UserDefaults.standard.removeObject(forKey: "kMMFuncToolTimerKey")
+        MMFuncTool.timerCount = 0
+        // 进后台会暂停,(默认添加到 RunLoop.Mode.default)
+        timer = Timer.scheduledTimer(timeInterval: 2, target: self, selector: #selector(handleTimer(sender:)), userInfo: nil, repeats: true)
+        // 不调用此方法也能执行，会在2s后执行。 调用此方法会立即执行一次。
+//        timer?.fire()
         mm_printLog("timer->end")
+    }
+    static var timerCount: Int = 0
+    @objc func handleTimer(sender: Timer) {
+        print("test->timer: \(sender),\(MMFuncTool.timerCount)")
+//        if MMFuncTool.timerCount == 30 {
+//            timer?.invalidate()
+//        }
+        Toast(text: "timer: \(MMFuncTool.timerCount)").show()
+        UserDefaults.standard.set(MMFuncTool.timerCount, forKey: "kMMFuncToolTimerKey")
+        MMFuncTool.timerCount += 1
     }
     
     func audioTest_37_2() {

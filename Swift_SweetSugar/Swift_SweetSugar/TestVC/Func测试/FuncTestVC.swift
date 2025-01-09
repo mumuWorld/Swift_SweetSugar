@@ -136,9 +136,12 @@ class FuncTestVC: MMBaseViewController {
 
     @IBAction func handleClick(_ sender: UIButton) {
         switch sender.tag {
-        case 10: break
+        case 10: 
             //此代码会造成循环引用
 //            self.block = testFunc
+//            navigationController?.pushViewController(TypingEffectViewController(), animated: true)
+//            let result = await URLSession.shared.data(for: URLRequest(url: URL(string: "https://www.baidu.com")!))
+            MMConcurrencyTest().test()
         case 11:
             //propertyWrapper 测试
             UserDefaultsUnit.test = "test_str"
@@ -274,7 +277,12 @@ class FuncTestVC: MMBaseViewController {
             tool.addSIRITest_57()
         case 58:
 //            HardArray().start9()
-            Test_Tmp2().test()
+//            Test_Tmp2().test()
+            LRUCacheTest2.test()
+        case 59:
+//            LRUCacheTest2.test()
+            let str = Solution().convert("PA", 1)
+            print("test->\(str)")
         default:
             break
         }
@@ -341,6 +349,7 @@ extension FuncTestVC {
     /// 只要停止了timer。就会释放
     func invalidateTimer() {
         timer?.invalidate()
+        tool.timer?.invalidate()
         print("test->停止定时器")
     }
     

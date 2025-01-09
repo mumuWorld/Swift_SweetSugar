@@ -21,8 +21,9 @@ class Swift_SweetSugarTests: XCTestCase {
     }
     
     func testString() {
-        let arr = StringSolution().permute("abcd")
-        print("test->arr:\(arr)")
+//        let arr = StringSolution().permute("abcd")
+        let str = Solution().convert("PAYPALISHIRING", 3)
+        print("test->arr:\(str)")
     }
     
     func testSwift() {
@@ -41,7 +42,7 @@ class Swift_SweetSugarTests: XCTestCase {
     }
 
     func testExample() {
-        GCDTest().test3()
+        GCDTest().test6()
 //      let result =  ArrayAlgorithm().longestConsecutive(nums: [7,6,5,3,2,1,8])
 //        print("test->reuslt:\(result)")
         

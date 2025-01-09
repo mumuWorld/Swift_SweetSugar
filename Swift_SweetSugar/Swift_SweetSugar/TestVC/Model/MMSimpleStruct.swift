@@ -10,6 +10,10 @@ import Foundation
 
 struct MMSimpleStruct {
     var name: String?
+    
+    /// 不会参与引用计数
+    var c: MMSimpleClass?
+
 //    var target: AnyObject?
 //    
 //    static func post<P: Codable>(url: String, param: P? = nil) {
@@ -42,6 +46,7 @@ class MMSimpleClass {
     final var name: String?
     
     var otherClass: MMSimpleClass?
+    var s: MMSimpleStruct?
     
     // 不能同时修饰
 //    final class var clsName: String?

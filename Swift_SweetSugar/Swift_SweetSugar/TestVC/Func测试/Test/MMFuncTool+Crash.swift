@@ -7,3 +7,9 @@
 //
 
 import Foundation
+
+let solution: Solution2 = Solution2()
+
+func crash_test41_2() {
+    solution.lockTest()
+}
