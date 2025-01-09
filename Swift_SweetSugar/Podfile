@@ -22,6 +22,7 @@ target 'Swift_SweetSugar' do
   pod 'FBRetainCycleDetector', :git => 'git@gitlab.corp.youdao.com:lunafork/FBRetainCycleDetector.git', :branch => 'feature/yd_dev'
   pod 'LookinServer', :configurations => ['Debug']
   pod 'DoraemonKit/Core', '~> 3.0.4', :configurations => ['Debug'] #必选
+  pod 'Toaster'
   # Pods for Swift_SweetSugar
 
   #调试

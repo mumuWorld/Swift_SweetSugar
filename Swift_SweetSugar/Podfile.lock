@@ -88,6 +88,7 @@ PODS:
   - SnapKit (5.7.1)
   - SwiftyJSON (5.0.2)
   - testDev (0.1.0)
+  - Toaster (2.3.0)
   - YYText (1.0.7)
 
 DEPENDENCIES:
@@ -101,6 +102,7 @@ DEPENDENCIES:
   - SnapKit
   - SwiftyJSON
   - testDev (from `./testDev/`)
+  - Toaster
   - YYText
 
 SPEC REPOS:
@@ -115,6 +117,7 @@ SPEC REPOS:
     - MLeaksFinder
     - SnapKit
     - SwiftyJSON
+    - Toaster
     - YYText
 
 EXTERNAL SOURCES:
@@ -142,8 +145,9 @@ SPEC CHECKSUMS:
   SnapKit: d612e99e678a2d3b95bf60b0705ed0a35c03484a
   SwiftyJSON: f5b1bf1cd8dd53cd25887ac0eabcfd92301c6a5a
   testDev: d83d71c6ee7f5eba365d7a30d06ecbc52580e01c
+  Toaster: c3473963c78e8cabbf6ea6f11ad0fdaae6f54987
   YYText: 5c461d709e24d55a182d1441c41dc639a18a4849
 
-PODFILE CHECKSUM: 13cfa45f8859e67f24e474ea8a4d6ae4a6753f4f
+PODFILE CHECKSUM: fb6ac8867206a1935b86223bd593dc589ea1605e
 
 COCOAPODS: 1.15.2
