@@ -5,6 +5,7 @@ source 'https://github.com/CocoaPods/Specs.git'
 #flipperkit_version = '0.128.2'
 
 use_frameworks!
+
 workspace 'Swift_SweetSugar.xcworkspace'
 
 target 'Swift_SweetSugar' do
@@ -16,8 +17,9 @@ target 'Swift_SweetSugar' do
   pod 'lottie-ios', '~> 3.2.3'
   pod 'SwiftyJSON'
   pod 'testDev', :path => './testDev/'
-  pod 'KSCrash', '~> 1.17.4'
-  
+  pod 'KSCrash', '~> 2.0'
+  pod 'Alamofire'
+
   pod 'MLeaksFinder', :configurations => ['Debug']
   pod 'FBRetainCycleDetector', :git => 'git@gitlab.corp.youdao.com:lunafork/FBRetainCycleDetector.git', :branch => 'feature/yd_dev'
   pod 'LookinServer', :configurations => ['Debug']

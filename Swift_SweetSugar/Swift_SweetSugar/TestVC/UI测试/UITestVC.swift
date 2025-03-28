@@ -70,7 +70,7 @@ class UITestVC: UIViewController {
         label.numberOfLines = 0
         label.lineBreakMode = .byWordWrapping
         label.font = UIFont.systemFont(ofSize: 14)
-        label.backgroundColor = .blue
+        label.backgroundColor = .systemYellow
         return label
     }()
     
@@ -191,7 +191,6 @@ class UITestVC: UIViewController {
 //        line.mm_y = 100
 //        view.addSubview(line)
         
-//        view.addSubview(attrText)
 
 //        也会进行放大。
         
@@ -590,8 +589,9 @@ class UITestVC: UIViewController {
     var tag: Bool = true
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         mm_printLog("test->touchesBegan")
+        setupAttr()
 //        animationButton()
-        customDrawTest()
+//        customDrawTest()
 //        layoutTest()
 //        gradientLabelTest()
 //        let vc = MMEmitterVC()
@@ -968,7 +968,9 @@ class UITestVC: UIViewController {
 
     
     func setupAttr() -> Void {
-        let str = "Your project does not explicitly specify the CocoaPodsmassdfssdfter specs repo. Since CDN is now used as the default, you may safely remove it from your repos directory via `pod repo remove master`. To suppress this warning please add `warn_for_unused_master_specs_repo => false` to your Podfile"
+        view.addSubview(attrText)
+
+        let str = "Your project does not explicitly specify the CocoaPodsmassdfssdfter specs repo. Since CDN is now used as the default, you may safely remove "
         
         let attr = NSMutableAttributedString(string: str)
         attr.addAttribute(NSAttributedString.Key.font, value: attrText.font, range: str.mm_range())
@@ -980,10 +982,22 @@ class UITestVC: UIViewController {
         let attach = NSAttributedString.yy_attachmentString(withContent: btn, contentMode: .center, attachmentSize: btn.mm_size, alignTo: attrText.font, alignment: .center)
         
         attr.append(attach)
+        
+        // <Lottie.AnimationView: 0x11c91a400; frame = (0 0; 54 12); clipsToBounds = YES; layer = <CALayer: 0x303e527e0>>
+        // lottie 设置会有大小，但是因为3倍的因素， 所以实际大小 / 3
+        let animationView = AnimationView(name: "text_loading", bundle: .main) // 替换 "yourAnimationName" 为你的动画文件名（不含扩展名）
+        animationView.contentMode = .scaleAspectFit
+        animationView.loopMode = .loop
+        animationView.play()
+        animationView.mm_size = CGSizeMake(18, 4)
+        
+        let attachText = NSMutableAttributedString.yy_attachmentString(withContent: animationView, contentMode: .center, attachmentSize: animationView.mm_size, alignTo: attrText.font, alignment: .bottom)
+        
+        attr.append(attachText)
+        
         let container = YYTextContainer(size: CGSize(width: 200, height: .max))
-        
         let layout = YYTextLayout(container: container, text: attr)
-        
+
         if let lines = layout?.lines, (layout?.lines.count ?? 0) > 20 {
             let maxRange = lines[1]
             guard var subAttr = attr.attributedSubstring(from: NSRange(location: 0, length: NSMaxRange(maxRange.range))).mutableCopy() as? NSMutableAttributedString else {

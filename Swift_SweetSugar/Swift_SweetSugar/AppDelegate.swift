@@ -11,6 +11,7 @@ import BackgroundTasks
 import OSLog
 import DoraemonKit
 import KSCrash
+import Toaster
 
 //import FlipperKit
 
@@ -47,12 +48,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
-//        KSCrash.sharedInstance().monitoring = KSCrashMonitorType.RawValue
-        let installation = KSCrashInstallationEmail.sharedInstance()
-        installation?.recipients = ["617958070@qq.com"]
-        installation?.addConditionalAlert(withTitle: "crash了", message: "what fk", yesAnswer: "yes", noAnswer: "a")
-        installation?.install()
-        
+        setupKSCrash()
         window = UIWindow(frame: UIScreen.main.bounds)
         window?.rootViewController = MMTabBarViewController()
         window?.makeKeyAndVisible()
@@ -74,7 +70,49 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         DoraemonManager.shareInstance().install()
         return true
     }
+    
+    func setupKSCrash() {
+        
+        let config = KSCrashConfiguration()
+        config.monitors = [.all]
+        
+//        let installation = CrashInstallationStandard.shared
+//        if let url = URL(string: "") {
+//            installation.url = url
+//        }
+//
 
+//        
+//        installation.addConditionalAlert(
+//            withTitle: "Crash Detected Common",
+//            message: "The app crashed last time it was launched. Send a crash report?",
+//            yesAnswer: "Sure!",
+//            noAnswer: "No thanks"
+//        )
+        
+        let emailInstallation = CrashInstallationEmail.shared
+        emailInstallation.recipients = ["617958070@qq.com"]
+        emailInstallation.setReportStyle(.apple, useDefaultFilenameFormat: true)
+        
+        emailInstallation.addConditionalAlert(
+                    withTitle: "Crash Detected Email",
+                    message: "The app crashed last time it was launched. Send a crash report?",
+                    yesAnswer: "Sure!",
+                    noAnswer: "No thanks"
+                )
+        
+        do {
+//            try installation.install(with: config)
+            try emailInstallation.install(with: config)
+        } catch {
+            mm_printLog("test->error:\(error)")
+        }
+        emailInstallation.sendAllReports { reports, error in
+            mm_printLog("test->completed,error:\(error), reports:\(reports)")
+        }
+    }
+    
+    var tool: MMFuncTool = MMFuncTool()
     
     func application(_ application: UIApplication, willFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
         if MMMainManager.shared.isPrintLifeLog {
@@ -107,50 +145,42 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //        startBackgroundTaks_2()
     }
     func startBackgroundTaks_2() {
+        // block 只是回调结束，并不是在block内完成任务
         backgroundUpdateTaskID = UIApplication.shared.beginBackgroundTask(expirationHandler: { [weak self] in
             mm_printLog("test->关闭后台任务")
+            UserDefaults.standard.set("\(Date())", forKey: "kMMBackgroundValue2")
+            UserDefaults.standard.set(UIApplication.shared.backgroundTimeRemaining, forKey: "kMMBackgroundTimeRemaining")
             self?.finishBackgroundTaks()
-            self?.startBackgroundTaks_2()
-//            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 6000, qos: .background) {
-//            }
+//            self?.startBackgroundTaks_2()
+
         })
+//        self.tool.timerTest36()
+        UserDefaults.standard.set("\(Date())", forKey: "kMMBackgroundValue1")
+      
+        Toast(text: "start 后台任务").show()
         mm_printLog("test->开启后台任务:\(String(describing: backgroundUpdateTaskID))")
     }
     
     func startBackgroundTaks() {
         backgroundUpdateTaskID = UIApplication.shared.beginBackgroundTask { [weak self] in
-            mm_printLog("测试1")
-            guard let self = self else { return }
-            mm_printLog("测试2")
-            DispatchQueue.global(qos: .background).async {
-                mm_printLog("测试3")
-                // 延长后台任务的时间
-                while true {
-                    mm_printLog("测试4")
-                    if UIApplication.shared.backgroundTimeRemaining <= 30 {
-                        break
-                    }
-                    Thread.sleep(forTimeInterval: 1.0)
-                }
-                mm_printLog("测试5")
-                // 结束后台任务
-                self.finishBackgroundTaks()
-                mm_printLog("测试6")
-            }
+        
         }
     }
     
     func finishBackgroundTaks() {
         guard let backgroundUpdateTaskID = self.backgroundUpdateTaskID else { return }
+        Toast(text: "关闭后台任务").show()
         // 结束后台任务
         UIApplication.shared.endBackgroundTask(backgroundUpdateTaskID)
         self.backgroundUpdateTaskID = .invalid
+        self.tool.timer?.invalidate()
     }
 
     func applicationWillEnterForeground(_ application: UIApplication) {
         // Called as part of the transition from the background to the active state; here you can undo many of the changes made on entering the background.
         UIApplication.shared.endReceivingRemoteControlEvents()
-        finishBackgroundTaks()
+        UserDefaults.standard.set("\(Date())", forKey: "kMMBackgroundValue3")
+//        finishBackgroundTaks()
         mm_printLog("mumu->回到前台结束任务")
     }
 

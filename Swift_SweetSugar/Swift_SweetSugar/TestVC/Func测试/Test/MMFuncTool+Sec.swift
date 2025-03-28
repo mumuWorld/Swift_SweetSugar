@@ -25,9 +25,42 @@ extension MMFuncTool {
     func testFramework() -> Void {
 //        MMHomeWorkTool().start()
     }
+    
+    /// 分享测试
+    func shareTest() {
+        guard let vc = UIViewController.currentViewController() else { return }
+        let text = "分享内容"
+        let image = UIImage(named: "yww_1")
+        let url = URL(string: "https://www.baidu.com")
+
+        let activityViewController = UIActivityViewController(activityItems: [text, image!, url!], applicationActivities: nil)
+
+//         在 iPad 上需要设置 `popoverPresentationController`
+        if let popoverController = activityViewController.popoverPresentationController {
+            popoverController.sourceView = vc.view
+            popoverController.sourceRect = CGRect(x: vc.view.bounds.midX, y: vc.view.bounds.midY, width: 0, height: 0)
+            popoverController.permittedArrowDirections = []
+        }
+
+        // 在 UIViewController 里 present
+        vc.present(activityViewController, animated: true, completion: nil)
+    }
 }
 
 extension MMFuncTool {
+    
+    func sortTest() {
+//        mysticTime=1742976042100;add_param_s_g_1=72566294-7CD9-458B-8256-A33966977BD7;add_param_s_g_0=4B6B36C3-F22A-4F6F-8BF4-F895C4DEFBCD;
+        //
+        let param: [String: String] = ["mysticTime": "1742976042100", "add_param_s_g_1": "72566294-7CD9-458B-8256-A33966977BD7", "add_param_s_g_0": "4B6B36C3-F22A-4F6F-8BF4-F895C4DEFBCD"]
+        
+        let result = param.compactMap { pair in
+            return "\(pair.key)=\(pair.value)"
+        }.sorted { (val1, val2) -> Bool in
+            return val1.compare(val2, options: .caseInsensitive) == .orderedAscending
+        }
+        mm_printLog("test->result = \(result)")
+    }
     
     func regularTest_22() {
 //        printDeviceInfo()

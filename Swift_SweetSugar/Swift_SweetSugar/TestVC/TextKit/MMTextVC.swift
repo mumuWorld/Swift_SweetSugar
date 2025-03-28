@@ -9,6 +9,7 @@
 import UIKit
 import SnapKit
 import YYText
+import Lottie
 
 class MMTextVC: UIViewController {
     @IBOutlet weak var xibTextView: UITextView!
@@ -31,7 +32,8 @@ class MMTextVC: UIViewController {
         storage.addLayoutManager(mmLayoutManager)
 
 //        container.exclusionPaths = [UIBezierPath(roundedRect: CGRect(x: 10, y: 50, width: 100, height: 100), cornerRadius: 50)]
-        let item = UITextView(frame: CGRect(x: 10, y: 300, width: 300, height: 200), textContainer: mmContainer)
+//        let item = UITextView(frame: CGRect(x: 10, y: 300, width: 300, height: 200), textContainer: mmContainer)
+        let item = UITextView()
 //        let item = MMHookTextView(frame: .zero)
         item.font = UIFont.systemFont(ofSize: 20)
         item.textColor = UIColor.red.withAlphaComponent(0.5)
@@ -64,15 +66,16 @@ class MMTextVC: UIViewController {
         let item = YYTextView()
         item.isSelectable = true
         item.placeholderText = "我是YYText"
+        item.backgroundColor = UIColor.green.withAlphaComponent(0.5)
         return item
     }()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         addUITextView()
-        addTextField()
+//        addTextField()
 //        addYYTextView()
-        getText()
+//        getText()
 //        pasteControl()
 //        customMenu()
 //        addObserve()
@@ -86,6 +89,33 @@ class MMTextVC: UIViewController {
             make.width.equalTo(300)
             make.height.equalTo(100)
         }
+        
+//        let animationView = AnimationView(name: "anim_search_loop_light", bundle: .main) // 替换 "yourAnimationName" 为你的动画文件名（不含扩展名）
+//        animationView.contentMode = .scaleAspectFit
+//        animationView.loopMode = .loop
+//        animationView.play()
+//        animationView.mm_size = CGSize(30, 30)
+//        animationView.origin = CGPoint(x: 100, y: 100)
+//        view.addSubview(animationView)
+        
+        addLottie()
+    }
+    
+    func addLottie() {
+        let font = UIFont.systemFont(ofSize: 24)
+        let text = NSMutableAttributedString(string: "测试文本呢神鼎飞丹砂测试文本呢神鼎飞丹砂测试文本呢神鼎飞丹砂", attributes: [.font: font])
+        
+        let animationView = AnimationView(name: "result_trans_loading_loop", bundle: .main) // 替换 "yourAnimationName" 为你的动画文件名（不含扩展名）
+        animationView.contentMode = .scaleAspectFit
+        animationView.loopMode = .loop
+        animationView.play()
+        animationView.mm_size = CGSize(18, 4)
+        
+        let attachText = NSMutableAttributedString.yy_attachmentString(withContent: animationView, contentMode: .topRight, attachmentSize: CGSize(20, 8), alignTo: font, alignment: .bottom)
+        
+        text.append(attachText)
+        
+        yyTextView.attributedText = text
     }
     
     func addTextField() {
@@ -262,11 +292,18 @@ extension MMTextVC: UITextViewDelegate {
     
     func textViewShouldEndEditing(_ textView: UITextView) -> Bool {
         mm_printLog("test->shouldEnd")
+        
+        self.textView.snp.updateConstraints { make in
+            make.height.equalTo(200)
+        }
         return true
     }
     
     func textViewShouldBeginEditing(_ textView: UITextView) -> Bool {
         mm_printLog("test->shouldBegin")
+        self.textView.snp.updateConstraints { make in
+            make.height.equalTo(500)
+        }
         return true
     }
     

@@ -27,9 +27,15 @@ class ViewController: UIViewController {
 //        let arr = CreateTool.createIntArray(count: 10, minP: 0, maxP: 100)
         //        if let octor = CFAllocatorGetDefault() {
 
-        var arr:[Int] = [114,117]
+        var arr:[[Int]] = [[1,3,1],[1,5,1],[4,2,1]]
+        let str = "/../"
         var consolution: LeetCodeTureSubject = LeetCodeTureSubject()
-        let result = consolution.rob(arr);
+//        let result = consolution.rob(arr);
+//        let result = consolution.minPathSum(arr)
+//        let result = consolution.simplifyPath(str)
+//        let result = consolution.minDistance("horse", "ho")
+        var inputArr = [0,1,1,2,2,3]
+        let result = consolution.removeDuplicates(&inputArr)
         mm_printsLog(result)
     }
     

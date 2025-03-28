@@ -42,7 +42,7 @@ class Swift_SweetSugarTests: XCTestCase {
     }
 
     func testExample() {
-        GCDTest().test6()
+        GCDTest().test_sync()
 //      let result =  ArrayAlgorithm().longestConsecutive(nums: [7,6,5,3,2,1,8])
 //        print("test->reuslt:\(result)")
         

@@ -20,11 +20,16 @@ class MMWebViewController: UIViewController {
         userContentController.addUserScript(script)
         let configuration = WKWebViewConfiguration()
         configuration.userContentController = userContentController
+        configuration.preferences.javaScriptEnabled = true
         
         let item = WKWebView(frame: .zero, configuration: configuration)
         item.uiDelegate = self
         item.navigationDelegate = self
         item.backgroundColor = .lightGray
+        // 可调试
+        if #available(iOS 16.4, *) {
+            item.isInspectable = true
+        }
 //        item.observe(\.themeColor) { item, _ in
 //
 //        }
@@ -36,7 +41,7 @@ class MMWebViewController: UIViewController {
     var url: String = "" {
         didSet {
             guard let tUrl = URL(string: url) else { return }
-            let request = URLRequest(url: tUrl)
+            let request = URLRequest(url: tUrl, cachePolicy: .reloadIgnoringLocalAndRemoteCacheData, timeoutInterval: 10)
 
             webview.load(request)
         }
@@ -61,24 +66,29 @@ class MMWebViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-//        view.addSubview(webview)
-        view.addSubview(panGestureView)
+        view.addSubview(webview)
+//        view.addSubview(panGestureView)
 //        view.insertSubview(panGestureView, belowSubview: webview)
 //        panGestureView.addSubview(webview)
-//        webview.snp.makeConstraints { (make) in
-//            make.top.equalToSuperview().offset(100)
-//            make.bottom.equalToSuperview().offset(-200)
-//            make.leading.trailing.equalToSuperview()
-//        }
+        webview.snp.makeConstraints { (make) in
+            make.top.equalToSuperview().offset(100)
+            make.bottom.equalToSuperview().offset(-200)
+            make.leading.trailing.equalToSuperview()
+        }
 //        let pan = UIPanGestureRecognizer(target: self, action: #selector(handlePanGes(sender:)))
 //        pan.delegate = self
 //        webview.scrollView.addGestureRecognizer(pan)
-        panGestureView.snp.makeConstraints { make in
-            make.edges.equalToSuperview()
-        }
+//        panGestureView.snp.makeConstraints { make in
+//            make.edges.equalToSuperview()
+//        }
             
 //        url = "https://shared.youdao.com/dict/market/shop-window-test/#/?category=12&componentId=1&uid=urs-phoneyd.d978037eb3c0483d9%40163.com&promoteImageUrl=https://img14.360buyimg.com/pop/jfs/t1/195403/21/29656/185966/6363360aE604053f0/fa4132d1d68f2613.jpg&itemName=%E7%BD%91%E6%98%93%E4%B8%A5%E9%80%89%20%E6%97%A0%E7%BA%BF%E6%8C%89%E6%91%A9%E5%99%A8%20%E9%A2%88%E6%A4%8E%E6%8C%89%E6%91%A9%E5%99%A8%E6%8C%89%E6%91%A9%E5%9E%AB%E9%9D%A0%E6%9E%95%E8%85%B0%E9%83%A8%E8%83%8C%E9%83%A8%E6%8C%89%E6%91%A9%E5%99%A8%20%E5%85%A8%E8%BA%AB%E6%8C%89%E6%91%A9%E4%BB%AA%20%E5%86%B0%E5%B2%9B%E8%93%9D%E7%94%9F%E6%97%A5%E7%A4%BC%E7%89%A9%E8%8A%82%E6%97%A5%E9%80%81%E7%A4%BC%E9%80%81%E6%9C%8B%E5%8F%8B%E9%80%81%E7%88%B6%E6%AF%8D&itemPrice=29900&strikeThroughPrice=30000&buttonText=%E8%B4%AD%E4%B9%B0&nickname=%E5%88%9B%E4%BD%9C%E8%80%85%E5%90%8D%E7%A7%B0&avatar=https://ydlunacommon-cdn.nosdn.127.net/91aa66226b7f4567c7db9d321ab2503b.png&landingPageUrl=https://union-click.jd.com/jdc?e=&p=JF8BAO0JK1olXwYFUVlVAUsXA18BG1kRXwYAZBoCUBVIMzZNXhpXVhgcDBsJVFRMVnBaRQcLVAYAUFxdClRORjNVK1pAIn5pLBpbaFFPWwhhHRtvHBxWNwhRBHsSA24JElIRXwcHZF5cCUkVB2cKGVMlbQYHZBwz3se31MaqzPOehbeTg_rc3tqn2tmTwvqBiIyQg-X5OEkWAmsJGVIWXQUyVFlaC0oUCm8AHl4WWTYCXFptUx55BmldHw8TDgEDXFlVAHsnM2w4K2sVbQUyCjBcW0wSC24BEzVIW15ECg4PUyUUBGYLG10SbQQDVVxfOHs&hide-toolbar=true"
-        url = "https://www.baidu.com"
+//        url = "https://www.baidu.com"
+//        url = """
+//        https://t1.publicis-groupe.cn/hat?_t=r&type=clk&v=1&_z=m&_inst=saas&hat_id=NDgyMDcmNjIwODA5Myba7w&_ms=0&_dt=PHN&_plt=MBL&hat_iesid=__IESID__&imp_id=__IMPID__&uoo=__UOO__&os=1&meid=__IMEI__&idfa=__IDFA__&oaid=__OAID__&mac=__MAC__&androidid=__ANDROIDID__&openudid=__OPENUDID__&useragent=__UA__&ts=__TS__&ip=220.181.102.181&r=[timestamp]&_rc=590a&uid_type=CAID&_ul=https://visaoffer.hypers.com.cn/studyabroad/interest#parent-us-preparation?hat_id=NDgyMDcmNjIwODA5Myba7w&_inst=saas
+        url = "https://t1.publicis-groupe.cn/hat?_t=r&type=clk&v=1&_z=m&_inst=saas&hat_id=NDgyMDcmNjIwODA5Myba7w&_ms=0&_dt=PHN&_plt=MBL&hat_iesid=__IESID__&imp_id=__IMPID__&uoo=__UOO__&os=1&meid=__IMEI__&idfa=9977C71A-B9E9-475D-9816-59E683D54796&oaid=__OAID__&mac=__MAC__&androidid=__ANDROIDID__&openudid=__OPENUDID__&useragent=__UA__&ts=__TS__&ip=220.181.102.181&r=%5Btimestamp%5D&_rc=590a&uid=%255B%257B%2522version%2522%253A%252220230330%2522%252C%2522caid%2522%253A%2522fe92e23c085e1afff3402f0d612425cb%2522%257D%252C%257B%2522version%2522%253A%252220220111%2522%252C%2522caid%2522%253A%25221b74a4430301f2b1fc118a8119bcc09c%2522%257D%255D&uid_type=CAID&_ul=https%3A%2F%2Fvisaoffer.hypers.com.cn%2Fstudyabroad%2Finterest%23parent-us-preparation%3Fhat_id%3DNDgyMDcmNjIwODA5Myba7w%26_inst%3Dsaas"
+
+//        url = "https://t1.publicis-groupe.cn/hat?_t=r&type=clk&v=1&_z=m&_inst=saas&hat_id=NDgyMDcmNjIwODA5Myba7w&_ms=0&_dt=PHN&_plt=MBL&hat_iesid=__IESID__&imp_id=__IMPID__&uoo=__UOO__&os=1&meid=__IMEI__&idfa=9977C71A-B9E9-475D-9816-59E683D54796&oaid=__OAID__&mac=__MAC__&androidid=__ANDROIDID__&openudid=__OPENUDID__&useragent=__UA__&ts=__TS__&ip=220.181.102.181&r=[timestamp]&_rc=590a&uid=%5B%7B%22version%22%3A%2220230330%22%2C%22caid%22%3A%22fe92e23c085e1afff3402f0d612425cb%22%7D%2C%7B%22version%22%3A%2220220111%22%2C%22caid%22%3A%221b74a4430301f2b1fc118a8119bcc09c%22%7D%5D&uid_type=CAID&_ul=https%3A%2F%2Fvisaoffer.hypers.com.cn%2Fstudyabroad%2Finterest%23parent-us-preparation%3Fhat_id%3DNDgyMDcmNjIwODA5Myba7w%26_inst%3Dsaas"
 //        loadLocal()
 //        webview.scrollView.panGestureRecognizer.cancelsTouchesInView = false
 //        webview.scrollView.panGestureRecognizer.delaysTouchesEnded = false
@@ -95,12 +105,35 @@ class MMWebViewController: UIViewController {
         scrollViewCotnentSizeObserver = webview.scrollView.observe(\.contentSize, options: [.new, .old], changeHandler: { [weak self] scrollView, change in
             guard let newOffset = change.newValue, let old = change.oldValue else { return }
             // 在这里处理scrollView的contentOffset的变化
-            mm_printLog("size->\(newOffset),\(old)")
+//            mm_printLog("size->\(newOffset),\(old)")
         })
         
         
+        navigationItem.rightBarButtonItem = UIBarButtonItem(customView: inputBtn)
     }
     
+    lazy var inputBtn: UIButton = {
+        let btn = UIButton(type: .custom)
+        btn.setTitle("输入 url", for: .normal)
+        btn.setTitleColor(.black, for: .normal)
+        btn.addTarget(self, action: #selector(handleClick), for: .touchUpInside)
+        return btn
+    }()
+    
+    @objc func handleClick() {
+        let alert = UIAlertController(title: "输入url", message: nil, preferredStyle: .alert)
+        alert.addTextField { (textField) in
+            textField.placeholder = "请输入url"
+        }
+        let cancel = UIAlertAction(title: "取消", style: .cancel, handler: nil)
+        let sure = UIAlertAction(title: "确定", style: .default) { [weak self] _ in
+            let url = alert.textFields?.first?.text ?? ""
+            self?.url = url
+        }
+        alert.addAction(cancel)
+        alert.addAction(sure)
+        present(alert, animated: true, completion: nil)
+    }
     
     func loadLocal() {
 //        let path = Bundle.main.path(forResource: "html/14.Some unexpected hidden locations for cameras", ofType: "html")
@@ -346,8 +379,24 @@ extension MMWebViewController: WKUIDelegate {
 extension MMWebViewController: WKNavigationDelegate {
     
     func webView(_ webView: WKWebView, decidePolicyFor navigationResponse: WKNavigationResponse, decisionHandler: @escaping (WKNavigationResponsePolicy) -> Void) {
+//        if let response = navigationResponse.response as? HTTPURLResponse,
+//               (300...399).contains(response.statusCode) {
+//                // 发现重定向，手动处理
+//                if let url = response.url {
+//                    let request = URLRequest(url: url)
+//                    webView.load(request)
+//                }
+//            }
+        mm_printLog("test->加载policy: \(navigationResponse.response)")
+        mm_printLog("test->加载policy: \(String(describing: navigationResponse.response.url))")
+//        if let url = navigationResponse.response.url, url.absoluteString.hasPrefix("https://visaoffer.hypers.com.cn") {
+//            let url = URL(string: "https://visaoffer.hypers.com.cn/studyabroad/interest#parent-uk-pretrip")!
+//            let request = URLRequest(url: url)
+//            webView.load(request)
+//            decisionHandler(.cancel)
+//            return
+//        }
         decisionHandler(.allow)
-        mm_printLog("test->加载policy")
     }
     
     func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
@@ -360,7 +409,32 @@ extension MMWebViewController: WKNavigationDelegate {
 //        }
     }
     func webView(_ webView: WKWebView, didFail navigation: WKNavigation!, withError error: Error) {
-        mm_printLog("test->加载失败")
+        mm_printLog("test->加载失败:\(error)")
+    }
+    
+    // 处理 `app://` 自定义 URL 跳转
+       func webView(_ webView: WKWebView, decidePolicyFor navigationAction: WKNavigationAction, decisionHandler: @escaping (WKNavigationActionPolicy) -> Void) {
+           if let url = navigationAction.request.url, url.scheme == "app" {
+               UIApplication.shared.open(url, options: [:], completionHandler: nil)
+               decisionHandler(.cancel)
+               return
+           }
+           mm_printLog("test->navigationType: \(navigationAction.navigationType)")
+           if(navigationAction.navigationType == .other) {
+//               if let redirectedUrl = navigationAction.request.url {
+//                   mm_printLog("test->重定向1: \(redirectedUrl)")
+//               }
+//               decisionHandler(.cancel)
+//               return
+           }
+           decisionHandler(.allow)
+       }
+    
+    func webView(_ webView: WKWebView, didReceiveServerRedirectForProvisionalNavigation navigation: WKNavigation!) {
+        mm_printLog("test->重定向: \(navigation)")
+        if let url = webView.url?.absoluteString{
+                print("test->url = \(url)")
+            }
     }
 }
 

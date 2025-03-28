@@ -389,11 +389,12 @@ class MMFuncTool: NSObject {
         
         
         // 不会循环引用 不论 blockClass.block1?() 是否调用
-//        blockClass.block1 = { [weak self] in
+//        self.blockClass.block1 = { [weak self] in
 //            guard let self = self else { return }
 //            print("test->测试持有self1:\(self)")
 //            self.blockClass2.block1 = { [weak self] in
-//                print("test->测试持有self2:\(self)")
+//                print("test->测试持有self2:\(self.blockClass)")
+//                
 //            }
 //            // 跟下面block调用也没有关系
 //            self.blockClass2.block1?()
@@ -799,9 +800,11 @@ After apologising, Mr Musk said that Mr Thorleifsson was considering coming back
     }
     
     func deviceTest() {
+        // 3AA4AD73-6082-467B-B7E1-F1AD84CF0246:
         let deviceId = genericeDeviceID()
+        //  5BDDA66F-4130-45A1-8B85-65F612708B84
         let sec = genUUID()
-        mm_printLog(deviceId)
+        mm_printLog("test->deviceId: \(deviceId), sec: \(sec)")
     }
     func genUUID() -> String {
         let uuid = CFUUIDCreate(kCFAllocatorDefault)
@@ -986,7 +989,15 @@ extension MMFuncTool: AVAudioRecorderDelegate {
 
 extension MMFuncTool {
     func netTest_39() {
-        NetTest().mulitRequest()
+//        NetTest().mulitRequest()
+        // 下载测试
+//        MMNetWorkManager.shared.request()
+        // 音频播放
+        AudioPlayerManager.shared.fetchAndPlay()
+        
+        let a = 10
+        let b = 20
+        // a + b = sum
     }
     
     func crashTest_41() {
@@ -1013,7 +1024,8 @@ extension MMFuncTool {
 //        NotificationCenter.default.addObserver(self, selector: #selector(removeSplash), name: Notification.Name(rawValue: "dismissVC"), object: nil)
 //        cmmotionManagerCrash()
         
-        crash_test41_2()
+//        crash_test41_2()
+        crash_threadSafe()
     }
     
     func cmmotionManagerCrash() {
@@ -1134,7 +1146,6 @@ extension MMFuncTool {
         let priceStr = String(format: "￥%.2f", price)
         mm_printLog("test->\(priceStr)")
     }
-    
     
     func stringTest_50_2() -> Void {
 //        let price = 2
@@ -1325,8 +1336,58 @@ extension MMFuncTool {
         mm_printLog("end")
         
     }
+    
+    func readPlistAndSaveChineseNames() {
+        // 获取 plist 文件路径
+        guard let plistPath = Bundle.main.path(forResource: "LanguageDictForTransTab", ofType: "plist"),
+              let dictionary = NSDictionary(contentsOfFile: plistPath) as? [String: Any] else {
+            print("无法找到或加载 plist 文件")
+            return
+        }
+        
+        // 遍历并提取 ChineseName 的值
+        var chineseNames: [String] = []
+        for (_, value) in dictionary {
+            if let dict = value as? [String: Any],
+               let chineseName = dict["ChineseName"] as? String {
+                chineseNames.append(chineseName)
+            }
+        }
+        
+        // 将数组保存到 Mac 的文件路径
+//        let desktopPath = FileManager.default.urls(for: .desktopDirectory, in: .userDomainMask).first!
+//        let outputPath = desktopPath.appendingPathComponent("ChineseNames.txt")
+        let outputPath = URL(fileURLWithPath: "/Users/yangjie01/Downloads/ChineseNames.txt")
+        
+        do {
+            let content = chineseNames.joined(separator: "\n") // 将数组拼接成字符串（换行分隔）
+            try content.write(to: outputPath, atomically: true, encoding: .utf8)
+            print("成功将 ChineseName 保存到文件：\(outputPath.path)")
+        } catch {
+            print("保存文件时发生错误：\(error)")
+        }
+    }
+
+    func regionCodeTest() {
+        let code = Locale.current.regionCode
+        print("test->code: \(code)")
+        
+        if let currentLanguage = Locale.preferredLanguages.first {
+                // 判断语言是否以 "en" 开头（英文）
+                let bool = currentLanguage.starts(with: "en")
+            print("test->currentLanguage: \(currentLanguage)")
+
+        }
+        print("test-> end")
+
+    }
 
     func printTest() {
+        regionCodeTest()
+        return;
+        // 调用函数
+//        readPlistAndSaveChineseNames()
+        
         var typo = Typo.shared
         typo.trans = "test"
         mm_printLog(Typo.shared.trans)
@@ -1366,7 +1427,6 @@ extension MMFuncTool {
         //无论什么情况都会crash
 //        fatalError("test")
 //        mm_printLog(str)
-        GCDTest().AllTestEntry()
     }
     
     func fontTest() {
@@ -1440,20 +1500,20 @@ extension MMFuncTool {
         //            self.timer?.fire()
         //        }
         
-//        var timerCount = 0
+        var timerCount = 0
         // 返回一个新的 Timer 对象，并且把它安排在当前的运行循环中的默认模式下， 需要手动停止，进入后台也会调用
-//        timer = Timer.scheduledTimer(withTimeInterval: 2, repeats: true) { timer in
-////            if count == 30 {
-////                timer.invalidate()
-////            }
-//            timerCount += 1;
-//            mm_printLog("timer->\(Date().timeIntervalSince1970), \(timerCount)")
-//        }
+        timer = Timer.scheduledTimer(withTimeInterval: 2, repeats: true) { timer in
+            if timerCount >= 10 {
+                timer.invalidate()
+            }
+            timerCount += 1;
+            mm_printLog("timer->\(Date().timeIntervalSince1970), \(timerCount)")
+        }
         
-        UserDefaults.standard.removeObject(forKey: "kMMFuncToolTimerKey")
-        MMFuncTool.timerCount = 0
-        // 进后台会暂停,(默认添加到 RunLoop.Mode.default)
-        timer = Timer.scheduledTimer(timeInterval: 2, target: self, selector: #selector(handleTimer(sender:)), userInfo: nil, repeats: true)
+//        UserDefaults.standard.removeObject(forKey: "kMMFuncToolTimerKey")
+//        MMFuncTool.timerCount = 0
+//        // 进后台会暂停,(默认添加到 RunLoop.Mode.default)
+//        timer = Timer.scheduledTimer(timeInterval: 2, target: self, selector: #selector(handleTimer(sender:)), userInfo: nil, repeats: true)
         // 不调用此方法也能执行，会在2s后执行。 调用此方法会立即执行一次。
 //        timer?.fire()
         mm_printLog("timer->end")

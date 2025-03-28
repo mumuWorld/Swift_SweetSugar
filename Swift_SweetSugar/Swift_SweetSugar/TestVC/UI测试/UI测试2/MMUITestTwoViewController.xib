@@ -49,16 +49,43 @@
                     <rect key="frame" x="0.0" y="359" width="109" height="47"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 </imageView>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="progress" translatesAutoresizingMaskIntoConstraints="NO" id="K6J-ca-kbz">
+                    <rect key="frame" x="345" y="190" width="40" height="5"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="5" id="3ga-Ne-aIt"/>
+                        <constraint firstAttribute="width" constant="40" id="YSL-ey-wC7"/>
+                    </constraints>
+                </imageView>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BZh-jq-GAm">
+                    <rect key="frame" x="365" y="103" width="20" height="5"/>
+                    <color key="backgroundColor" systemColor="systemOrangeColor"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="20" id="PJb-eR-dep"/>
+                        <constraint firstAttribute="height" constant="5" id="RkP-hX-mcK"/>
+                    </constraints>
+                </view>
+                <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="bQj-cv-udV">
+                    <rect key="frame" x="206" y="296" width="131" height="31"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <segments>
+                        <segment title="First"/>
+                        <segment title="Second"/>
+                    </segments>
+                </segmentedControl>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemGray4Color"/>
             <constraints>
+                <constraint firstAttribute="trailing" secondItem="K6J-ca-kbz" secondAttribute="trailing" constant="8" id="4C0-jW-WXQ"/>
                 <constraint firstItem="MM8-do-uvc" firstAttribute="centerX" secondItem="mIr-vB-8IF" secondAttribute="centerX" id="E7v-as-H6X"/>
+                <constraint firstItem="BZh-jq-GAm" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="44" id="GmV-tx-vqW"/>
                 <constraint firstItem="mIr-vB-8IF" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="8" id="Icd-XQ-hYX"/>
                 <constraint firstItem="QMh-z4-jUJ" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="8" id="JSe-LM-U5H"/>
                 <constraint firstItem="QMh-z4-jUJ" firstAttribute="top" secondItem="mIr-vB-8IF" secondAttribute="bottom" constant="8" id="MUs-TP-GrJ"/>
                 <constraint firstItem="MM8-do-uvc" firstAttribute="bottom" secondItem="mIr-vB-8IF" secondAttribute="bottom" constant="-9" id="bcf-cB-Fvi"/>
                 <constraint firstItem="mIr-vB-8IF" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="8" id="fdY-ka-wW4"/>
+                <constraint firstItem="K6J-ca-kbz" firstAttribute="bottom" secondItem="QMh-z4-jUJ" secondAttribute="bottom" id="pNt-8l-jjP"/>
+                <constraint firstAttribute="trailing" secondItem="BZh-jq-GAm" secondAttribute="trailing" constant="8" id="ph1-9P-Hm2"/>
             </constraints>
             <point key="canvasLocation" x="130.53435114503816" y="-12.67605633802817"/>
         </view>
@@ -66,8 +93,12 @@
     <resources>
         <image name="5c27563705bd7b06eb747821e60a511d" width="164.66667175292969" height="80"/>
         <image name="lashenceshi" width="79.333335876464844" height="60"/>
+        <image name="progress" width="15" height="5"/>
         <systemColor name="systemGray4Color">
             <color red="0.81960784310000001" green="0.81960784310000001" blue="0.83921568629999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemOrangeColor">
+            <color red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemTealColor">
             <color red="0.18823529410000001" green="0.69019607839999997" blue="0.78039215689999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
