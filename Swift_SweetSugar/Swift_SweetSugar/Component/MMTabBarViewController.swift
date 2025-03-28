@@ -16,12 +16,10 @@ class MMTabBarViewController: UITabBarController {
         let home = HomeListVC()
         let homeNavi = MMBaseNavigationController(rootViewController: home)
         homeNavi.tabBarItem = UITabBarItem(title: "首页", image: UIImage(systemName: "list.bullet.clipboard"), selectedImage: UIImage(systemName: "heart.fill"))
-        homeNavi.hidesBottomBarWhenPushed = true
         
         let mine = MMMineViewController()
         let mineNavi = MMBaseNavigationController(rootViewController: mine)
         mineNavi.tabBarItem = UITabBarItem(title: "我的", image: UIImage(systemName: "questionmark.circle"), selectedImage: UIImage(systemName: "questionmark.circle.fill"))
-        mineNavi.hidesBottomBarWhenPushed = true
 
 //        [homeNavi, mineNavi].forEach { aNav in
 //            aNav.setNavigationBarHidden(true, animated: false)

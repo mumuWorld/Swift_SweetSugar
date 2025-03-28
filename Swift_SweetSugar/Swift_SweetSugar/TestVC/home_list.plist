@@ -20,6 +20,14 @@
 	</dict>
 	<dict>
 		<key>desc</key>
+		<string>suan  fa</string>
+		<key>routerVC</key>
+		<string>ViewController</string>
+		<key>showName</key>
+		<string>功能测试</string>
+	</dict>
+	<dict>
+		<key>desc</key>
 		<string>手势测试</string>
 		<key>routerVC</key>
 		<string>GestureTestVC</string>

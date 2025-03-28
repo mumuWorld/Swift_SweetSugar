@@ -10,6 +10,8 @@ import Foundation
 import os
 
 class GCDTest {
+    static let shared = GCDTest()
+    
     func test1() -> Void {
         let ser = DispatchQueue(label: "serial")
         let con = DispatchQueue(label: "con", qos: .default, attributes: .concurrent, autoreleaseFrequency: .inherit, target: nil)
@@ -88,11 +90,39 @@ class GCDTest {
 //        3.    如何修改代码来避免死锁，并保持尽量相似的输出顺序？
     }
     
-    func test_sync() {
-        let queue = DispatchQueue(label: "com.example.myQueue")
-        queue.sync {
-            print("test->sdfdf")
+    let queue = DispatchQueue(label: "com.example.myQueue")
+    
+    var curCount: Int = 0
+    
+    func test_test_sync() {
+        curCount = 0
+        // 线程安全。
+        for i in 1...5 {
+            DispatchQueue.global().async {
+                self.test_sync(curTime: i)
+            }
         }
+    }
+    
+    func test_sync(curTime: Int) {
+        print("test->1: \(curTime)※")
+        queue.sync {
+            self.curCount += 1
+            print("test->3,\(curTime):\(self.curCount)※ \(Thread.current)")
+        }
+        queue.sync {
+            self.curCount += 1
+            print("test->4,\(curTime):\(self.curCount)※ \(Thread.current)")
+        }
+        queue.sync {
+            self.curCount += 1
+            print("test->5,\(curTime):\(self.curCount)※ \(Thread.current)")
+        }
+        queue.sync {
+            self.curCount += 1
+            print("test->6,\(curTime):\(self.curCount)※ \(Thread.current)")
+        }
+        print("2")
     }
     
     

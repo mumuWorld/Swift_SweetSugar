@@ -13,7 +13,7 @@ class MMBaseNavigationController: UINavigationController {
     open override func viewDidLoad() {
         super.viewDidLoad()
         self.interactivePopGestureRecognizer?.delegate = self
-//        super.delegate = self
+        delegate = self
     }
     
     override var childForStatusBarStyle: UIViewController? {
@@ -37,5 +37,20 @@ extension MMBaseNavigationController: UIGestureRecognizerDelegate {
             }
         }
         return isInteracitvePopEnable
+    }
+}
+
+extension MMBaseNavigationController: UINavigationControllerDelegate {
+    public func navigationController(_ navigationController: UINavigationController, willShow viewController: UIViewController, animated: Bool) {
+//        if  viewControllers.count > 1 {
+//            viewController.hidesBottomBarWhenPushed = true
+//        }
+    }
+    
+    override func pushViewController(_ viewController: UIViewController, animated: Bool) {
+        if viewControllers.count > 0 {
+            viewController.hidesBottomBarWhenPushed = true
+        }
+        super.pushViewController(viewController, animated: animated)
     }
 }

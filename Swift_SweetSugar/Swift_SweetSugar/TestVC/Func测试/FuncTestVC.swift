@@ -154,9 +154,10 @@ class FuncTestVC: MMBaseViewController {
             MMCombineTest.share.start()
 //            testNumber()
         case 15:
-            testDict()
+            tool.shareTest()
+//            testDict()
         case 16:
-            printTest()
+//            printTest()
             tool.printTest()
         case 17:
 //            urlTest()
@@ -171,6 +172,7 @@ class FuncTestVC: MMBaseViewController {
             emptyTest()
         case 22:
             tool.regularTest_22()
+//            tool.sortTest()
         case 23:
             speechSynthesisVoiceTest()
         case 24:
@@ -216,8 +218,8 @@ class FuncTestVC: MMBaseViewController {
             tool.timerTest36()
         case 37:
 //            tool.userDefaultTest37()
-//            tool.deviceTest()
-            tool.audioTest_37_2()
+            tool.deviceTest()
+//            tool.audioTest_37_2()
         case 38:
             tool.numberFormatter()
         case 39:
@@ -281,8 +283,9 @@ class FuncTestVC: MMBaseViewController {
             LRUCacheTest2.test()
         case 59:
 //            LRUCacheTest2.test()
-            let str = Solution().convert("PA", 1)
-            print("test->\(str)")
+//            let str = Solution().convert("PA", 1)
+//            print("test->\(str)")
+            GCDTest.shared.test_test_sync()
         default:
             break
         }
