@@ -1,4 +1,5 @@
 PODS:
+  - Alamofire (5.10.2)
   - DoraemonKit/Core (3.0.7):
     - FMDB
     - GCDWebServer
@@ -16,68 +17,28 @@ PODS:
   - GCDWebServer/WebUploader (3.5.4):
     - GCDWebServer/Core
   - Kingfisher (7.11.0)
-  - KSCrash (1.17.4):
-    - KSCrash/Installations (= 1.17.4)
-  - KSCrash/Installations (1.17.4):
+  - KSCrash (2.0.0):
+    - KSCrash/Installations (= 2.0.0)
+  - KSCrash/Core (2.0.0)
+  - KSCrash/DemangleFilter (2.0.0):
     - KSCrash/Recording
-    - KSCrash/Reporting
-  - KSCrash/Recording (1.17.4):
-    - KSCrash/Recording/Tools (= 1.17.4)
-  - KSCrash/Recording/Tools (1.17.4)
-  - KSCrash/Reporting (1.17.4):
+  - KSCrash/Filters (2.0.0):
     - KSCrash/Recording
-    - KSCrash/Reporting/Filters (= 1.17.4)
-    - KSCrash/Reporting/MessageUI (= 1.17.4)
-    - KSCrash/Reporting/Sinks (= 1.17.4)
-    - KSCrash/Reporting/Tools (= 1.17.4)
-  - KSCrash/Reporting/Filters (1.17.4):
+    - KSCrash/RecordingCore
+    - KSCrash/ReportingCore
+  - KSCrash/Installations (2.0.0):
+    - KSCrash/DemangleFilter
+    - KSCrash/Filters
     - KSCrash/Recording
-    - KSCrash/Reporting/Filters/Alert (= 1.17.4)
-    - KSCrash/Reporting/Filters/AppleFmt (= 1.17.4)
-    - KSCrash/Reporting/Filters/Base (= 1.17.4)
-    - KSCrash/Reporting/Filters/Basic (= 1.17.4)
-    - KSCrash/Reporting/Filters/GZip (= 1.17.4)
-    - KSCrash/Reporting/Filters/JSON (= 1.17.4)
-    - KSCrash/Reporting/Filters/Sets (= 1.17.4)
-    - KSCrash/Reporting/Filters/Stringify (= 1.17.4)
-    - KSCrash/Reporting/Filters/Tools (= 1.17.4)
-  - KSCrash/Reporting/Filters/Alert (1.17.4):
-    - KSCrash/Recording
-    - KSCrash/Reporting/Filters/Base
-  - KSCrash/Reporting/Filters/AppleFmt (1.17.4):
-    - KSCrash/Recording
-    - KSCrash/Reporting/Filters/Base
-  - KSCrash/Reporting/Filters/Base (1.17.4):
-    - KSCrash/Recording
-  - KSCrash/Reporting/Filters/Basic (1.17.4):
-    - KSCrash/Recording
-    - KSCrash/Reporting/Filters/Base
-  - KSCrash/Reporting/Filters/GZip (1.17.4):
-    - KSCrash/Recording
-    - KSCrash/Reporting/Filters/Base
-  - KSCrash/Reporting/Filters/JSON (1.17.4):
-    - KSCrash/Recording
-    - KSCrash/Reporting/Filters/Base
-  - KSCrash/Reporting/Filters/Sets (1.17.4):
-    - KSCrash/Recording
-    - KSCrash/Reporting/Filters/AppleFmt
-    - KSCrash/Reporting/Filters/Base
-    - KSCrash/Reporting/Filters/Basic
-    - KSCrash/Reporting/Filters/GZip
-    - KSCrash/Reporting/Filters/JSON
-    - KSCrash/Reporting/Filters/Stringify
-  - KSCrash/Reporting/Filters/Stringify (1.17.4):
-    - KSCrash/Recording
-    - KSCrash/Reporting/Filters/Base
-  - KSCrash/Reporting/Filters/Tools (1.17.4):
-    - KSCrash/Recording
-  - KSCrash/Reporting/MessageUI (1.17.4):
-    - KSCrash/Recording
-  - KSCrash/Reporting/Sinks (1.17.4):
-    - KSCrash/Recording
-    - KSCrash/Reporting/Filters
-    - KSCrash/Reporting/Tools
-  - KSCrash/Reporting/Tools (1.17.4):
+    - KSCrash/Sinks
+  - KSCrash/Recording (2.0.0):
+    - KSCrash/RecordingCore
+  - KSCrash/RecordingCore (2.0.0):
+    - KSCrash/Core
+  - KSCrash/ReportingCore (2.0.0):
+    - KSCrash/Core
+  - KSCrash/Sinks (2.0.0):
+    - KSCrash/Filters
     - KSCrash/Recording
   - LookinServer (1.2.8):
     - LookinServer/Core (= 1.2.8)
@@ -92,10 +53,11 @@ PODS:
   - YYText (1.0.7)
 
 DEPENDENCIES:
+  - Alamofire
   - DoraemonKit/Core (~> 3.0.4)
   - "FBRetainCycleDetector (from `git@gitlab.corp.youdao.com:lunafork/FBRetainCycleDetector.git`, branch `feature/yd_dev`)"
   - Kingfisher
-  - KSCrash (~> 1.17.4)
+  - KSCrash (~> 2.0)
   - LookinServer
   - lottie-ios (~> 3.2.3)
   - MLeaksFinder
@@ -107,6 +69,7 @@ DEPENDENCIES:
 
 SPEC REPOS:
   https://github.com/CocoaPods/Specs.git:
+    - Alamofire
     - DoraemonKit
     - FMDB
     - GCDWebServer
@@ -133,12 +96,13 @@ CHECKOUT OPTIONS:
     :git: "git@gitlab.corp.youdao.com:lunafork/FBRetainCycleDetector.git"
 
 SPEC CHECKSUMS:
+  Alamofire: 7193b3b92c74a07f85569e1a6c4f4237291e7496
   DoraemonKit: 32fb97f3aa82efa133111d193080ca5462cef135
   FBRetainCycleDetector: 46daef95c2dfa9be34b53087edf6a8f34e4c749c
   FMDB: eae540775bf7d0c87a5af926ae37af69effe5a19
   GCDWebServer: 2c156a56c8226e2d5c0c3f208a3621ccffbe3ce4
   Kingfisher: b9c985d864d43515f404f1ef4a8ce7d802ace3ac
-  KSCrash: 158a0998f08ae7d4e54ef8a2da62d6e08b46d03a
+  KSCrash: ad271a7799f0a2841be0fb7d6bd105444c440832
   LookinServer: 1b2b61c6402ae29fa22182d48f5cd067b4e99e80
   lottie-ios: c058aeafa76daa4cf64d773554bccc8385d0150e
   MLeaksFinder: 8c435bd2f6d070af18cff082b503b21adc130fc0
@@ -148,6 +112,6 @@ SPEC CHECKSUMS:
   Toaster: c3473963c78e8cabbf6ea6f11ad0fdaae6f54987
   YYText: 5c461d709e24d55a182d1441c41dc639a18a4849
 
-PODFILE CHECKSUM: fb6ac8867206a1935b86223bd593dc589ea1605e
+PODFILE CHECKSUM: c59bdc15fb9a53a6b5cacf5e70baaf852d8ac4df
 
-COCOAPODS: 1.15.2
+COCOAPODS: 1.16.2
