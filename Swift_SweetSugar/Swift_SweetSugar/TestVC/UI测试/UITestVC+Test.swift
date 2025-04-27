@@ -202,13 +202,13 @@ extension UITestVC {
     
     func gradientLabelTest() {
         
-        gradientLabelTest3()
-        return
+//        gradientLabelTest3()
+//        return
         
-        let label = UILabel()
-        label.text = "这是一段文本文本wenbesdfjslkafjlsk"
-        label.font = UIFont.systemFont(ofSize: 20)
-        label.sizeToFit()
+//        let label = UILabel()
+//        label.text = "这是一段文本文本wenbesdfjslkafjlsk"
+//        label.font = UIFont.systemFont(ofSize: 20)
+//        label.sizeToFit()
 //        view.addSubview(label)
 //        label.snp.makeConstraints { make in
 //            make.edges.equalTo(gradientView)
@@ -219,17 +219,17 @@ extension UITestVC {
         
         let gradientView = MMGradientView()
         view.addSubview(gradientView)
-        gradientView.addSubview(label)
+//        gradientView.addSubview(label)
         gradientView.snp.makeConstraints { make in
             make.leading.bottom.equalToSuperview()
             make.height.equalTo(200)
-            make.width.equalTo(label.mm_width)
+            make.width.equalTo(200)
         }
-        gradientView.update(colors: [UIColor.mm_colorFromHex(color_vaule: 0x7d42d4),
-                                     UIColor.mm_colorFromHex(color_vaule: 0x534dd1),
-                                     UIColor.mm_colorFromHex(color_vaule: 0x78a0e5)], start: CGPoint(x: 0, y: 0.5), end: CGPoint(x: 1, y: 0.5), locations: [0.2, 0.5,  1])
-        gradientView.layer.mask = label.layer
-        label.frame = gradientView.bounds
+        gradientView.update(colors: [UIColor.mm_colorFromHex(color_vaule: 0xDDEAFE, alpha: 0.3),
+                                     UIColor.mm_colorFromHex(color_vaule: 0xCADFFF, alpha: 0.5),
+                                     UIColor.mm_colorFromHex(color_vaule: 0xDDEAFE, alpha: 0.6)], start: CGPoint(x: 0, y: 0.5), end: CGPoint(x: 1, y: 0.5), locations: [0.2, 0.5,  1])
+//        gradientView.layer.mask = label.layer
+//        label.frame = gradientView.bounds
     }
     
     func gradientLabelTest3() {

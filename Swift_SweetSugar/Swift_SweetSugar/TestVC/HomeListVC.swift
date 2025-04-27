@@ -41,30 +41,29 @@ class HomeListVC: MMBaseViewController {
         // get log
 //        mm_printLog("get log")
         #endif
-        
-        NSSetUncaughtExceptionHandler { exception in
-            let stack = exception.callStackReturnAddresses
-            mm_printLog(stack)
-            let sy = exception.callStackSymbols
-            mm_printLog(sy)
-            let data = try? JSONSerialization.data(withJSONObject: sy, options: .fragmentsAllowed)
-            try? data?.write(to: URL(fileURLWithPath: "/Users/mumu/Downloads/image_download/crash.text"))
-        }
-        let sigs = [SIGHUP, SIGINT, SIGQUIT, SIGILL, SIGTRAP, SIGABRT,
-                    SIGIOT, SIGEMT, SIGFPE, SIGKILL, SIGBUS, SIGSEGV, SIGSYS]
-        for sig in sigs {
-            signal(sig) { value in
-                mm_printLog("crash->\(String(value))")
-                mm_printLog("stack->\(Thread.callStackSymbols)")
-                do {
-                    let stack = Thread.callStackSymbols.joined(separator: "\n")
-                    let data = stack.data(using: .utf8)
-                    try data?.write(to: URL(fileURLWithPath: "/Users/mumu/Downloads/image_download/crash.text"))
-                } catch let e {
-                    mm_printLog(e)
-                }
-            }
-        }
+//        NSSetUncaughtExceptionHandler { exception in
+//            let stack = exception.callStackReturnAddresses
+//            mm_printLog(stack)
+//            let sy = exception.callStackSymbols
+//            mm_printLog(sy)
+//            let data = try? JSONSerialization.data(withJSONObject: sy, options: .fragmentsAllowed)
+//            try? data?.write(to: URL(fileURLWithPath: "/Users/mumu/Downloads/image_download/crash.text"))
+//        }
+//        let sigs = [SIGHUP, SIGINT, SIGQUIT, SIGILL, SIGTRAP, SIGABRT,
+//                    SIGIOT, SIGEMT, SIGFPE, SIGKILL, SIGBUS, SIGSEGV, SIGSYS]
+//        for sig in sigs {
+//            signal(sig) { value in
+//                mm_printLog("crash->\(String(value))")
+//                mm_printLog("stack->\(Thread.callStackSymbols)")
+//                do {
+//                    let stack = Thread.callStackSymbols.joined(separator: "\n")
+//                    let data = stack.data(using: .utf8)
+//                    try data?.write(to: URL(fileURLWithPath: "/Users/mumu/Downloads/image_download/crash.text"))
+//                } catch let e {
+//                    mm_printLog(e)
+//                }
+//            }
+//        }
     }
 
     override func viewWillAppear(_ animated: Bool) {

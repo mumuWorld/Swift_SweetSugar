@@ -35,7 +35,10 @@ class ViewController: UIViewController {
 //        let result = consolution.simplifyPath(str)
 //        let result = consolution.minDistance("horse", "ho")
         var inputArr = [0,1,1,2,2,3]
-        let result = consolution.removeDuplicates(&inputArr)
+//        let result = consolution.removeDuplicates(&inputArr)
+        // 链表
+        let list = ListNode.createLinkedList(from: [1,2,3,4,5])
+        let result = MMListSubject().reverseBetween(list, 3, 5)
         mm_printsLog(result)
     }
     

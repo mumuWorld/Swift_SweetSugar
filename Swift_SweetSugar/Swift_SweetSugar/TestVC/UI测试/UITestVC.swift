@@ -46,6 +46,8 @@ class UITestVC: UIViewController {
     
     var newWindow: UIWindow?
     
+    @IBOutlet weak var tmpImageView: UIImageView!
+    
     lazy var customButton: YDCustomButton = {
         let item = YDCustomButton()
         item.backgroundColor = .brown
@@ -589,11 +591,12 @@ class UITestVC: UIViewController {
     var tag: Bool = true
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         mm_printLog("test->touchesBegan")
-        setupAttr()
+//        setupAttr()
 //        animationButton()
 //        customDrawTest()
 //        layoutTest()
 //        gradientLabelTest()
+        testVideoImage()
 //        let vc = MMEmitterVC()
 //        vc.modalPresentationStyle = .fullScreen
 //        self.present(vc, animated: true, completion: nil)

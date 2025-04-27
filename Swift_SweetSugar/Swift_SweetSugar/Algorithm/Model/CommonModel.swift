@@ -12,9 +12,23 @@ import Foundation
 class ListNode {
     public var val: Int
     public var next: ListNode?
-    public init(_ val: Int) {
-        self.val = val
-        self.next = nil
+    public init() { self.val = 0; self.next = nil; }
+    public init(_ val: Int) { self.val = val; self.next = nil; }
+    public init(_ val: Int, _ next: ListNode?) { self.val = val; self.next = next; }
+    
+    
+    static func createLinkedList(from array: [Int]) -> ListNode? {
+        guard !array.isEmpty else { return nil }
+
+        let dummy = ListNode(0)
+        var current = dummy
+
+        for value in array {
+            current.next = ListNode(value)
+            current = current.next!
+        }
+
+        return dummy.next
     }
 }
 

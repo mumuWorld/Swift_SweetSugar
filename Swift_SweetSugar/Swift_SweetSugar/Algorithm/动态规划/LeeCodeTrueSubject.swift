@@ -253,4 +253,35 @@ class LeetCodeTureSubject {
         }
         return slow
     }
+    
+    // 91. 解码方程
+    func numDecodings(_ s: String) -> Int {
+        if s.isEmpty || s.first! == "0" {
+            return 0
+        }
+        if s.count == 1 {
+            return 1
+        }
+        let chars = Array(s)
+        let n = chars.count
+        var dp = [Int](repeating: 0, count: n + 1)
+
+        dp[0] = 1  // 空字符串
+        dp[1] = 1  // 第一位已经不是 0，肯定能解
+
+        for i in 2...n {
+            let oneDigit = Int(String(chars[i - 1]))!
+            let twoDigits = Int(String(chars[i - 2...i - 1]))!
+            
+            if oneDigit != 0 {
+                dp[i] += dp[i - 1]
+            }
+
+            if twoDigits >= 10 && twoDigits <= 26 {
+                dp[i] += dp[i - 2]
+            }
+        }
+
+        return dp[n]
+    }
 }

@@ -48,6 +48,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        
+        SDKLogManager.shared.addLog(info: "test->启动: \(String(describing: launchOptions))")
         setupKSCrash()
         window = UIWindow(frame: UIScreen.main.bounds)
         window?.rootViewController = MMTabBarViewController()
@@ -89,35 +91,57 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //            yesAnswer: "Sure!",
 //            noAnswer: "No thanks"
 //        )
+        // 控制台打印
+        let console = CrashInstallationConsole.shared
+        console.printAppleFormat = true
         
-        let emailInstallation = CrashInstallationEmail.shared
-        emailInstallation.recipients = ["617958070@qq.com"]
-        emailInstallation.setReportStyle(.apple, useDefaultFilenameFormat: true)
+//        let emailInstallation = CrashInstallationEmail.shared
+//        emailInstallation.recipients = ["617958070@qq.com"]
+//        emailInstallation.setReportStyle(.apple, useDefaultFilenameFormat: true)
         
-        emailInstallation.addConditionalAlert(
-                    withTitle: "Crash Detected Email",
-                    message: "The app crashed last time it was launched. Send a crash report?",
-                    yesAnswer: "Sure!",
-                    noAnswer: "No thanks"
-                )
-        
+//        emailInstallation.addConditionalAlert(
+//                    withTitle: "Crash Detected Email",
+//                    message: "The app crashed last time it was launched. Send a crash report?",
+//                    yesAnswer: "Sure!",
+//                    noAnswer: "No thanks"
+//                )
+        var installation: CrashInstallation?
         do {
 //            try installation.install(with: config)
-            try emailInstallation.install(with: config)
+//            try emailInstallation.install(with: config)
+            try console.install(with: config)
+            installation = console
         } catch {
             mm_printLog("test->error:\(error)")
         }
-        emailInstallation.sendAllReports { reports, error in
+        installation?.sendAllReports { reports, error in
             mm_printLog("test->completed,error:\(error), reports:\(reports)")
+            reports?.forEach { item in
+                if let _dict = item as? CrashReportDictionary {
+                    let v = _dict.value
+                    mm_printLog(_dict)
+                    let data = try? JSONSerialization.data(withJSONObject: v, options: .fragmentsAllowed)
+                    try? data?.write(to: URL(fileURLWithPath: "/Users/mumu/Downloads/image_download/crash.text"))
+                } else if let strReport = item as? CrashReportString {
+                    let data = strReport.value.data(using: .utf8)
+                    try? data?.write(to: URL(fileURLWithPath: "/Users/mumu/Downloads/image_download/crash.text"))
+                }
+            }
         }
     }
     
     var tool: MMFuncTool = MMFuncTool()
     
     func application(_ application: UIApplication, willFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
+        SDKLogManager.shared.addLog(info: "test->willFinishLaun: \(String(describing: launchOptions))")
         if MMMainManager.shared.isPrintLifeLog {
             mm_printLog(launchOptions ?? [:])
         }
+        return true
+    }
+    
+    func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
+        SDKLogManager.shared.addLog(info: "test->open: \(String(describing: options))")
         return true
     }
     

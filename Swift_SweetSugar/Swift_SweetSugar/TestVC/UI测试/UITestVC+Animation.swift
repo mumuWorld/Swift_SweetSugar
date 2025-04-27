@@ -20,4 +20,12 @@ extension UITestVC {
 //        transitionImgV.image = UIImage(named: "tab_arrow_up")
         testButton.imageView?.layer.add(transition, forKey: nil)
     }
+    
+    func testVideoImage() {
+        TestTool().testImg { [weak self] img, color in
+            guard let self = self else { return }
+            self.tmpImageView.image = img
+            self.view.backgroundColor = color
+        }
+    }
 }
