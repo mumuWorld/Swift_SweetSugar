@@ -85,6 +85,24 @@ class CollectionViewController: UIViewController {
         return item
     }()
 
+    lazy var collectionView_4: UICollectionView = {
+        let layout = UICollectionViewFlowLayout()
+        layout.minimumLineSpacing = 0
+        layout.minimumInteritemSpacing = 0
+        layout.scrollDirection = .horizontal
+        
+        let item = UICollectionView(frame: .zero, collectionViewLayout: layout)
+        item.showsHorizontalScrollIndicator = false
+        item.showsVerticalScrollIndicator = false
+        item.dataSource = self
+        item.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
+        item.delegate = self
+//        item.contentInsetAdjustmentBehavior = .never
+        item.backgroundColor = .lightGray
+        item.isPagingEnabled = true
+        item.mm_registerNibCell(classType: MMSingleLabelCollectionViewCell.self)
+        return item
+    }()
     
     var curOffset: CGPoint = .zero
     
@@ -104,12 +122,22 @@ class CollectionViewController: UIViewController {
         addFirstCollectionView()
 //        view.addSubview(collectionView_2)
         bgImageView.isHidden = true
-        addCollection3()
+//        addCollection3()
 //        addCustomScroll()
+        addFourCollectionView()
     }
     
     var _eachItemWidth: CGFloat = 0
 
+    func addFourCollectionView() {
+        view.addSubview(collectionView_4)
+        collectionView_4.snp.makeConstraints { (make) in
+            make.top.equalTo(300)
+            make.leading.trailing.equalToSuperview()
+            make.height.equalTo(200)
+        }
+    }
+    
     func addFirstCollectionView() {
         view.addSubview(collectionView)
         collectionView.snp.makeConstraints { make in
@@ -273,6 +301,8 @@ class CollectionViewController: UIViewController {
 //            mm_printLog("动画完成")
 //        }
 //        showCollection()
+        
+        collectionView_4.scrollToItem(at: IndexPath(row: 10, section: 0), at: .bottom, animated: false)
     }
     
     func showCollection() {
@@ -290,9 +320,13 @@ class CollectionViewController: UIViewController {
     }
 }
 
-//extension CollectionViewController: UICollectionViewDelegateFlowLayout {
-//
-//}
+extension CollectionViewController: UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView,
+                        layout collectionViewLayout: UICollectionViewLayout,
+                        sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return collectionView.bounds.size
+    }
+}
 extension CollectionViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if collectionView == collectionView_3 {
@@ -302,17 +336,21 @@ extension CollectionViewController: UICollectionViewDelegate, UICollectionViewDa
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        if collectionView == collectionView_3 {
+        if collectionView == collectionView_3 || collectionView == collectionView_4 {
             let cell = collectionView.mm_dequeueReusableCell(classType: MMSingleLabelCollectionViewCell.self, indexPath: indexPath)
             cell.textLabel.text = "水电费:\(indexPath.row)"
             cell.contentView.backgroundColor = UIColor.mm_randomColor()
+            print("test-> 加载 cell: \(indexPath.row)")
             return cell
         }
+        
         let cell = collectionView.mm_dequeueReusableCell(classType: SingleViewCell.self, indexPath: indexPath)
         cell.index = indexPath.row
         mm_printLog("加载了->\(indexPath.row)")
         return cell
     }
+    
+
     
     func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
         curOffset = scrollView.contentOffset

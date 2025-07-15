@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="23504" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="23727" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="23506"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="23721"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -20,7 +21,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="lashenceshi" translatesAutoresizingMaskIntoConstraints="NO" id="mIr-vB-8IF">
-                    <rect key="frame" x="8" y="67" width="80" height="60"/>
+                    <rect key="frame" x="8" y="126" width="80" height="60"/>
                     <color key="backgroundColor" systemColor="systemTealColor"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="60" id="aXz-dy-Upz"/>
@@ -28,7 +29,7 @@
                     </constraints>
                 </imageView>
                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="lashenceshi" translatesAutoresizingMaskIntoConstraints="NO" id="QMh-z4-jUJ">
-                    <rect key="frame" x="8" y="135" width="120" height="60"/>
+                    <rect key="frame" x="8" y="194" width="120" height="60"/>
                     <color key="backgroundColor" systemColor="systemTealColor"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="60" id="Lcd-DE-3mh"/>
@@ -36,7 +37,7 @@
                     </constraints>
                 </imageView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="单词本" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MM8-do-uvc">
-                    <rect key="frame" x="30" y="103" width="36" height="15"/>
+                    <rect key="frame" x="30" y="162" width="36" height="15"/>
                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
@@ -50,14 +51,14 @@
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 </imageView>
                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="progress" translatesAutoresizingMaskIntoConstraints="NO" id="K6J-ca-kbz">
-                    <rect key="frame" x="345" y="190" width="40" height="5"/>
+                    <rect key="frame" x="345" y="249" width="40" height="5"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="5" id="3ga-Ne-aIt"/>
                         <constraint firstAttribute="width" constant="40" id="YSL-ey-wC7"/>
                     </constraints>
                 </imageView>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BZh-jq-GAm">
-                    <rect key="frame" x="365" y="103" width="20" height="5"/>
+                    <rect key="frame" x="365" y="162" width="20" height="5"/>
                     <color key="backgroundColor" systemColor="systemOrangeColor"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="20" id="PJb-eR-dep"/>
@@ -72,6 +73,20 @@
                         <segment title="Second"/>
                     </segments>
                 </segmentedControl>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XwZ-6h-U1k">
+                    <rect key="frame" x="8" y="82" width="55" height="15"/>
+                    <color key="backgroundColor" systemColor="systemGreenColor"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="15" id="D5q-19-dzE"/>
+                        <constraint firstAttribute="width" constant="55" id="e7w-7a-thu"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="11"/>
+                    <inset key="titleEdgeInsets" minX="-24" minY="0.0" maxX="0.0" maxY="0.0"/>
+                    <inset key="imageEdgeInsets" minX="40" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                    <state key="normal" title="查看详情" image="ic_result_ad_video_more_white">
+                        <color key="titleColor" name="AccentColor"/>
+                    </state>
+                </button>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemGray4Color"/>
@@ -84,18 +99,27 @@
                 <constraint firstItem="QMh-z4-jUJ" firstAttribute="top" secondItem="mIr-vB-8IF" secondAttribute="bottom" constant="8" id="MUs-TP-GrJ"/>
                 <constraint firstItem="MM8-do-uvc" firstAttribute="bottom" secondItem="mIr-vB-8IF" secondAttribute="bottom" constant="-9" id="bcf-cB-Fvi"/>
                 <constraint firstItem="mIr-vB-8IF" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="8" id="fdY-ka-wW4"/>
+                <constraint firstItem="XwZ-6h-U1k" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="8" id="hXL-hU-XI7"/>
                 <constraint firstItem="K6J-ca-kbz" firstAttribute="bottom" secondItem="QMh-z4-jUJ" secondAttribute="bottom" id="pNt-8l-jjP"/>
                 <constraint firstAttribute="trailing" secondItem="BZh-jq-GAm" secondAttribute="trailing" constant="8" id="ph1-9P-Hm2"/>
+                <constraint firstItem="XwZ-6h-U1k" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="82" id="sTV-Qh-9ay"/>
             </constraints>
             <point key="canvasLocation" x="130.53435114503816" y="-12.67605633802817"/>
         </view>
     </objects>
     <resources>
         <image name="5c27563705bd7b06eb747821e60a511d" width="164.66667175292969" height="80"/>
+        <image name="ic_result_ad_video_more_white" width="16" height="24"/>
         <image name="lashenceshi" width="79.333335876464844" height="60"/>
         <image name="progress" width="15" height="5"/>
+        <namedColor name="AccentColor">
+            <color red="0.0" green="0.46000000000000002" blue="0.89000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <systemColor name="systemGray4Color">
             <color red="0.81960784310000001" green="0.81960784310000001" blue="0.83921568629999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemGreenColor">
+            <color red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemOrangeColor">
             <color red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

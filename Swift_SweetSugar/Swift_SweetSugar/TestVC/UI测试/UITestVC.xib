@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="23727" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
-    <device id="iPad13_0rounded" orientation="portrait" layout="fullscreen" appearance="dark"/>
+    <device id="iPad13_0rounded" orientation="portrait" layout="fullscreen" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="23721"/>
@@ -145,27 +145,41 @@
                         <action selector="sliderValueChange:" destination="-1" eventType="valueChanged" id="5qc-jK-92g"/>
                     </connections>
                 </slider>
-                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="YUs-0Y-GPJ">
-                    <rect key="frame" x="9" y="557" width="1014" height="59"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YUs-0Y-GPJ">
+                    <rect key="frame" x="9" y="1233" width="1014" height="88"/>
                     <subviews>
-                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="pic_tab_bg_left" translatesAutoresizingMaskIntoConstraints="NO" id="dck-Hm-WxB">
-                            <rect key="frame" x="0.0" y="0.0" width="444" height="59"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pic_tab_bg_left" translatesAutoresizingMaskIntoConstraints="NO" id="dck-Hm-WxB">
+                            <rect key="frame" x="0.0" y="0.0" width="444" height="88"/>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         </imageView>
-                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="pic_tab_bg_mid" translatesAutoresizingMaskIntoConstraints="NO" id="Llz-lv-IIk">
-                            <rect key="frame" x="444" y="0.0" width="130" height="59"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pic_tab_bg_mid" translatesAutoresizingMaskIntoConstraints="NO" id="Llz-lv-IIk">
+                            <rect key="frame" x="444" y="0.0" width="130" height="88"/>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="130" id="KO5-CR-Owo"/>
+                            </constraints>
                         </imageView>
-                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="pic_tab_bg_right" translatesAutoresizingMaskIntoConstraints="NO" id="7hc-Qy-x0G">
-                            <rect key="frame" x="574" y="0.0" width="440" height="59"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pic_tab_bg_right" translatesAutoresizingMaskIntoConstraints="NO" id="7hc-Qy-x0G">
+                            <rect key="frame" x="574" y="0.0" width="440" height="88"/>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         </imageView>
                     </subviews>
                     <color key="backgroundColor" systemColor="systemBrownColor"/>
+                    <constraints>
+                        <constraint firstItem="Llz-lv-IIk" firstAttribute="top" secondItem="YUs-0Y-GPJ" secondAttribute="top" id="3Er-Ew-ug1"/>
+                        <constraint firstAttribute="bottom" secondItem="Llz-lv-IIk" secondAttribute="bottom" id="5fI-gK-grR"/>
+                        <constraint firstItem="dck-Hm-WxB" firstAttribute="top" secondItem="YUs-0Y-GPJ" secondAttribute="top" id="C3I-yW-Md9"/>
+                        <constraint firstAttribute="height" constant="88" id="Fke-U3-VsD"/>
+                        <constraint firstItem="7hc-Qy-x0G" firstAttribute="width" secondItem="dck-Hm-WxB" secondAttribute="width" multiplier="0.99187" id="Kyv-sj-f6d"/>
+                        <constraint firstAttribute="bottom" secondItem="7hc-Qy-x0G" secondAttribute="bottom" id="QnC-Uc-Gbd"/>
+                        <constraint firstAttribute="trailing" secondItem="7hc-Qy-x0G" secondAttribute="trailing" id="WVs-It-WYG"/>
+                        <constraint firstItem="Llz-lv-IIk" firstAttribute="leading" secondItem="dck-Hm-WxB" secondAttribute="trailing" id="bxP-CH-ThS"/>
+                        <constraint firstItem="7hc-Qy-x0G" firstAttribute="leading" secondItem="Llz-lv-IIk" secondAttribute="trailing" id="dNk-Gj-tTQ"/>
+                        <constraint firstItem="7hc-Qy-x0G" firstAttribute="leading" secondItem="Llz-lv-IIk" secondAttribute="trailing" id="nVA-lh-ohR"/>
+                        <constraint firstAttribute="bottom" secondItem="dck-Hm-WxB" secondAttribute="bottom" id="tS5-06-qgM"/>
+                        <constraint firstItem="dck-Hm-WxB" firstAttribute="leading" secondItem="YUs-0Y-GPJ" secondAttribute="leading" id="tYd-XC-ri3"/>
+                        <constraint firstItem="7hc-Qy-x0G" firstAttribute="top" secondItem="YUs-0Y-GPJ" secondAttribute="top" id="yPn-1n-ugU"/>
+                    </constraints>
                 </view>
                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="icS-MH-7Gc">
                     <rect key="frame" x="947" y="374" width="75" height="46"/>
@@ -191,6 +205,9 @@
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemMintColor"/>
             <constraints>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="YUs-0Y-GPJ" secondAttribute="bottom" constant="10" id="L1q-bZ-fnX"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="YUs-0Y-GPJ" secondAttribute="trailing" constant="9" id="L2o-2N-iFO"/>
+                <constraint firstItem="YUs-0Y-GPJ" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="9" id="YRh-15-kxD"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="Ugm-HH-YRJ" secondAttribute="trailing" constant="41" id="w1D-5P-k0M"/>
             </constraints>
             <variation key="default">
@@ -206,9 +223,9 @@
         <image name="btn_heart_selected" width="24" height="24"/>
         <image name="graphic" width="750" height="1334"/>
         <image name="ic_tab_course_pressed" width="28" height="28"/>
-        <image name="pic_tab_bg_left" width="123" height="59"/>
-        <image name="pic_tab_bg_mid" width="130" height="69.5"/>
-        <image name="pic_tab_bg_right" width="122" height="61"/>
+        <image name="pic_tab_bg_left" width="123" height="48"/>
+        <image name="pic_tab_bg_mid" width="130" height="60"/>
+        <image name="pic_tab_bg_right" width="122" height="48"/>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

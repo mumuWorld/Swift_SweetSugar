@@ -20,8 +20,8 @@
       "resizing" : {
         "cap-insets" : {
           "bottom" : 42,
-          "left" : 121,
-          "right" : 122,
+          "left" : 40,
+          "right" : 203,
           "top" : 79
         },
         "center" : {
@@ -44,10 +44,10 @@
       "idiom" : "universal",
       "resizing" : {
         "cap-insets" : {
-          "bottom" : 24,
-          "left" : 71,
-          "right" : 172,
-          "top" : 83
+          "bottom" : 16,
+          "left" : 34,
+          "right" : 209,
+          "top" : 87
         },
         "center" : {
           "height" : 1,
@@ -59,7 +59,22 @@
       "scale" : "2x"
     },
     {
+      "filename" : "bg_indextab_right@3x.png",
       "idiom" : "universal",
+      "resizing" : {
+        "cap-insets" : {
+          "bottom" : 33,
+          "left" : 64,
+          "right" : 301,
+          "top" : 120
+        },
+        "center" : {
+          "height" : 1,
+          "mode" : "tile",
+          "width" : 1
+        },
+        "mode" : "9-part"
+      },
       "scale" : "3x"
     },
     {
@@ -69,7 +84,22 @@
           "value" : "dark"
         }
       ],
+      "filename" : "bg_tab_right_dark@3x.png",
       "idiom" : "universal",
+      "resizing" : {
+        "cap-insets" : {
+          "bottom" : 18,
+          "left" : 47,
+          "right" : 318,
+          "top" : 131
+        },
+        "center" : {
+          "height" : 1,
+          "mode" : "tile",
+          "width" : 1
+        },
+        "mode" : "9-part"
+      },
       "scale" : "3x"
     }
   ],

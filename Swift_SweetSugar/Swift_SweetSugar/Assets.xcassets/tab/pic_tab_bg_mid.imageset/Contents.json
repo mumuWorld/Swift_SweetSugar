@@ -41,8 +41,8 @@
       "idiom" : "universal",
       "resizing" : {
         "cap-insets" : {
-          "bottom" : 11,
-          "top" : 122
+          "bottom" : 8,
+          "top" : 111
         },
         "center" : {
           "height" : 1,
@@ -79,8 +79,8 @@
       "idiom" : "universal",
       "resizing" : {
         "cap-insets" : {
-          "bottom" : 14,
-          "top" : 178
+          "bottom" : 15,
+          "top" : 176
         },
         "center" : {
           "height" : 1,

@@ -68,6 +68,8 @@ class FuncTestVC: MMBaseViewController {
 //        navigationItem.leftBarButtonItems = leftArr
         model?.name = "change"
         
+        UserDefaults.standard.set(Date(), forKey: "kMMUserDefaultsDate")
+
         let index = Int(2.0 / 4.0)
         mm_printLog("")
 //        relase 会打印
@@ -286,6 +288,8 @@ class FuncTestVC: MMBaseViewController {
 //            let str = Solution().convert("PA", 1)
 //            print("test->\(str)")
             GCDTest.shared.test_test_sync()
+        case 60:
+            tool.testEventCalendar_60()
         default:
             break
         }

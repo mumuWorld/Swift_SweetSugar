@@ -9,6 +9,150 @@
 import Foundation
 import UIKit
 //import MMHomeWork
+import EventKit
+
+var testEventCalendaIsRun: Bool = false
+
+let signTitle: String = "每日签到活动"
+
+extension MMFuncTool {
+    func testEventCalendar_60() {
+        if testEventCalendaIsRun == false {
+            requestCalendarAccess { eventStore in
+                if let store = eventStore {
+                    self.checkIfCheckInReminderExists(in: store) { exists in
+                        if exists {
+                            print("⚠️ 已存在签到提醒，跳过添加")
+                        } else {
+                            self.addDailyCheckInReminder(with: store)
+                        }
+                    }
+                    testEventCalendaIsRun = true
+                } else {
+                    // 可以提示用户去设置里授权
+                    mm_printLog("test-> ❌ 日历权限未授权")
+                }
+            }
+        } else {
+            deleteCheckInReminders()
+            testEventCalendaIsRun = false
+        }
+    }
+    
+    func checkIfCheckInReminderExists(in store: EKEventStore, completion: @escaping (Bool) -> Void) {
+        let calendar = Calendar.current
+        let startDate = Date()
+        let endDate = calendar.date(byAdding: .month, value: 1, to: startDate)!
+
+        // 创建查询谓词（一个月范围内）
+        let predicate = store.predicateForEvents(withStart: startDate, end: endDate, calendars: nil)
+        let events = store.events(matching: predicate)
+
+        // 判断是否存在至少一个匹配的签到事件
+        let exists = events.contains {
+            $0.title == signTitle
+        }
+        
+        completion(exists)
+    }
+    
+    func requestCalendarAccess(completion: @escaping (EKEventStore?) -> Void) {
+        let eventStore = EKEventStore()
+        eventStore.requestAccess(to: .event) { granted, error in
+            DispatchQueue.main.async {
+                if granted {
+                    completion(eventStore)
+                } else {
+                    print("❌ 日历权限未授权")
+                    completion(nil)
+                }
+            }
+        }
+    }
+    
+    func addDailyCheckInReminder(with eventStore: EKEventStore) {
+        let event = EKEvent(eventStore: eventStore)
+        
+        let calendar = Calendar.current
+        var components = calendar.dateComponents([.year, .month, .day], from: Date())
+        components.hour = 9
+        components.minute = 0
+        
+        guard let startDate = calendar.date(from: components) else { return }
+        let endDate = startDate.addingTimeInterval(10 * 60 * 60) // 10小时后（19:00）
+
+        event.title = signTitle
+        event.notes = "去签到领取VIP奖励吧~"
+        event.startDate = startDate
+        event.endDate = endDate
+        event.url = URL(string: "")
+        event.calendar = eventStore.defaultCalendarForNewEvents
+
+        // 提醒：事件开始时
+        let alarm = EKAlarm(relativeOffset: 0)
+        event.alarms = [alarm]
+
+        // 每天重复
+        let recurrenceRule = EKRecurrenceRule(
+            recurrenceWith: .daily,
+            interval: 1,
+            end: nil
+        )
+        event.recurrenceRules = [recurrenceRule]
+
+        do {
+            try eventStore.save(event, span: .futureEvents)
+            print("✅ 签到提醒已添加到系统日历")
+        } catch {
+            print("❌ 添加日历事件失败: \(error.localizedDescription)")
+        }
+    }
+    
+    func deleteCheckInReminders() {
+        let eventStore = EKEventStore()
+        
+        eventStore.requestAccess(to: .event) { granted, error in
+            guard granted else {
+                print("❌ 无法访问日历")
+                return
+            }
+            
+            // 查找时间范围：从 1 年前到未来 1 年
+            let calendar = Calendar.current
+            let oneYearAgo = calendar.date(byAdding: .year, value: -1, to: Date())!
+            let oneYearLater = calendar.date(byAdding: .year, value: 1, to: Date())!
+            
+            // 创建搜索谓词
+            let predicate = eventStore.predicateForEvents(withStart: oneYearAgo, end: oneYearLater, calendars: nil)
+            
+            // 搜索匹配标题的事件
+            let events = eventStore.events(matching: predicate).filter {
+                $0.title == signTitle
+            }
+            
+            if events.isEmpty {
+                print("⚠️ 未找到可删除的签到提醒")
+                return
+            }
+            
+            // 删除找到的事件
+            for event in events {
+                do {
+                    try eventStore.remove(event, span: .futureEvents, commit: false)
+                } catch {
+                    print("❌ 删除事件失败: \(error.localizedDescription)")
+                }
+            }
+            
+            do {
+                try eventStore.commit()
+                print("✅ 已删除签到提醒（共 \(events.count) 个）")
+            } catch {
+                print("❌ 提交删除失败: \(error.localizedDescription)")
+            }
+        }
+    }
+}
 
 //MARK: - Some Any
 

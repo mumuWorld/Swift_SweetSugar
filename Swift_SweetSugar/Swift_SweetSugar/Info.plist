@@ -74,6 +74,8 @@
 	<string>用一下</string>
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string>用你相册</string>
+	<key>NSCalendarsUsageDescription</key>
+	<string>用下日历访问</string>
 	<key>NSUserActivityTypes</key>
 	<array>
 		<string>com.AppCoda.SiriSortcuts.sayHi</string>

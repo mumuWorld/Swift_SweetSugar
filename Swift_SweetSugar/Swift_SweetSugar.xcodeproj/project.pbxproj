@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 54;
+	objectVersion = 70;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -47,6 +47,11 @@
 		6564297F2DA7B49E00F4F500 /* TestTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6564297E2DA7B49E00F4F500 /* TestTool.swift */; };
 		6581922A2AD4FBAB00F71608 /* MMFuncTool+Sec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 658192292AD4FBAB00F71608 /* MMFuncTool+Sec.swift */; };
 		6584AA4E2C35282200C8E1F6 /* DingTalkJinBuTi-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6584AA4D2C35282200C8E1F6 /* DingTalkJinBuTi-Regular.ttf */; };
+		6585198F2DC0BFCA00F795CD /* MMShareExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 658519852DC0BFCA00F795CD /* MMShareExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		658519992DC0C8BB00F795CD /* UniformTypeIdentifiers.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 655D54B62DBB953E00D9087F /* UniformTypeIdentifiers.framework */; };
+		658519A52DC0C8BB00F795CD /* MMActionExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 658519982DC0C8BB00F795CD /* MMActionExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		658519AF2DC0D3BC00F795CD /* UniformTypeIdentifiers.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 655D54B62DBB953E00D9087F /* UniformTypeIdentifiers.framework */; };
+		658519BA2DC0D3BC00F795CD /* MMActionNOUIExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 658519AE2DC0D3BC00F795CD /* MMActionNOUIExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		658B3D122CB926D40083840F /* Test_Tmp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 658B3D112CB926D40083840F /* Test_Tmp.swift */; };
 		658BE6CC2C339B9500888B0B /* UITestVC+Animation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 658BE6CB2C339B9500888B0B /* UITestVC+Animation.swift */; };
 		65933D872D081B0600720751 /* DaZiJiVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65933D862D081B0600720751 /* DaZiJiVC.swift */; };
@@ -231,6 +236,27 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		6585198D2DC0BFCA00F795CD /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B425AC5D2252526000B02B77 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 658519842DC0BFCA00F795CD;
+			remoteInfo = MMShareExtension;
+		};
+		658519A32DC0C8BB00F795CD /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B425AC5D2252526000B02B77 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 658519972DC0C8BB00F795CD;
+			remoteInfo = MMActionExtension;
+		};
+		658519B82DC0D3BC00F795CD /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B425AC5D2252526000B02B77 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 658519AD2DC0D3BC00F795CD;
+			remoteInfo = MMActionNOUIExtension;
+		};
 		B425AC7A2252526200B02B77 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = B425AC5D2252526000B02B77 /* Project object */;
@@ -264,6 +290,9 @@
 			dstPath = "";
 			dstSubfolderSpec = 13;
 			files = (
+				658519A52DC0C8BB00F795CD /* MMActionExtension.appex in Embed App Extensions */,
+				658519BA2DC0D3BC00F795CD /* MMActionNOUIExtension.appex in Embed App Extensions */,
+				6585198F2DC0BFCA00F795CD /* MMShareExtension.appex in Embed App Extensions */,
 			);
 			name = "Embed App Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -310,6 +339,9 @@
 		6564297E2DA7B49E00F4F500 /* TestTool.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestTool.swift; sourceTree = "<group>"; };
 		658192292AD4FBAB00F71608 /* MMFuncTool+Sec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MMFuncTool+Sec.swift"; sourceTree = "<group>"; };
 		6584AA4D2C35282200C8E1F6 /* DingTalkJinBuTi-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "DingTalkJinBuTi-Regular.ttf"; sourceTree = "<group>"; };
+		658519852DC0BFCA00F795CD /* MMShareExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = MMShareExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		658519982DC0C8BB00F795CD /* MMActionExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = MMActionExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		658519AE2DC0D3BC00F795CD /* MMActionNOUIExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = MMActionNOUIExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		658B3D112CB926D40083840F /* Test_Tmp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Test_Tmp.swift; sourceTree = "<group>"; };
 		658BE6CB2C339B9500888B0B /* UITestVC+Animation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITestVC+Animation.swift"; sourceTree = "<group>"; };
 		65933D862D081B0600720751 /* DaZiJiVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DaZiJiVC.swift; sourceTree = "<group>"; };
@@ -531,7 +563,60 @@
 		FE472623FF9612F2CF526DCF /* Pods_Swift_SweetSugar_Swift_SweetSugarUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Swift_SweetSugar_Swift_SweetSugarUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		658519922DC0BFCA00F795CD /* PBXFileSystemSynchronizedBuildFileExceptionSet */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = 658519842DC0BFCA00F795CD /* MMShareExtension */;
+		};
+		658519A62DC0C8BB00F795CD /* PBXFileSystemSynchronizedBuildFileExceptionSet */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = 658519972DC0C8BB00F795CD /* MMActionExtension */;
+		};
+		658519BB2DC0D3BC00F795CD /* PBXFileSystemSynchronizedBuildFileExceptionSet */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = 658519AD2DC0D3BC00F795CD /* MMActionNOUIExtension */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
+
+/* Begin PBXFileSystemSynchronizedRootGroup section */
+		658519862DC0BFCA00F795CD /* MMShareExtension */ = {isa = PBXFileSystemSynchronizedRootGroup; exceptions = (658519922DC0BFCA00F795CD /* PBXFileSystemSynchronizedBuildFileExceptionSet */, ); explicitFileTypes = {}; explicitFolders = (); path = MMShareExtension; sourceTree = "<group>"; };
+		6585199A2DC0C8BB00F795CD /* MMActionExtension */ = {isa = PBXFileSystemSynchronizedRootGroup; exceptions = (658519A62DC0C8BB00F795CD /* PBXFileSystemSynchronizedBuildFileExceptionSet */, ); explicitFileTypes = {}; explicitFolders = (); path = MMActionExtension; sourceTree = "<group>"; };
+		658519B02DC0D3BC00F795CD /* MMActionNOUIExtension */ = {isa = PBXFileSystemSynchronizedRootGroup; exceptions = (658519BB2DC0D3BC00F795CD /* PBXFileSystemSynchronizedBuildFileExceptionSet */, ); explicitFileTypes = {}; explicitFolders = (); path = MMActionNOUIExtension; sourceTree = "<group>"; };
+/* End PBXFileSystemSynchronizedRootGroup section */
+
 /* Begin PBXFrameworksBuildPhase section */
+		658519822DC0BFCA00F795CD /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		658519952DC0C8BB00F795CD /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				658519992DC0C8BB00F795CD /* UniformTypeIdentifiers.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		658519AB2DC0D3BC00F795CD /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				658519AF2DC0D3BC00F795CD /* UniformTypeIdentifiers.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		7D5188FF9932A09DA3DCCDA3 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -895,6 +980,9 @@
 				DF68A8E4238BB3E900610380 /* InsetrumentDemo */,
 				B49AA837276227CF00E41372 /* SafariTranslate */,
 				B4E390A82796B3EB000670FC /* WordWidget */,
+				658519862DC0BFCA00F795CD /* MMShareExtension */,
+				6585199A2DC0C8BB00F795CD /* MMActionExtension */,
+				658519B02DC0D3BC00F795CD /* MMActionNOUIExtension */,
 				B425AC662252526000B02B77 /* Products */,
 				4E6714CB298AA82AC607BC91 /* Pods */,
 				A4A95448E64B4A94ABF19911 /* Frameworks */,
@@ -908,6 +996,9 @@
 				B425AC792252526200B02B77 /* Swift_SweetSugarTests.xctest */,
 				B425AC842252526200B02B77 /* Swift_SweetSugarUITests.xctest */,
 				DF68A8E3238BB3E900610380 /* InsetrumentDemo.instrdst */,
+				658519852DC0BFCA00F795CD /* MMShareExtension.appex */,
+				658519982DC0C8BB00F795CD /* MMActionExtension.appex */,
+				658519AE2DC0D3BC00F795CD /* MMActionNOUIExtension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -1393,6 +1484,72 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		658519842DC0BFCA00F795CD /* MMShareExtension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 658519932DC0BFCA00F795CD /* Build configuration list for PBXNativeTarget "MMShareExtension" */;
+			buildPhases = (
+				658519812DC0BFCA00F795CD /* Sources */,
+				658519822DC0BFCA00F795CD /* Frameworks */,
+				658519832DC0BFCA00F795CD /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				658519862DC0BFCA00F795CD /* MMShareExtension */,
+			);
+			name = MMShareExtension;
+			packageProductDependencies = (
+			);
+			productName = MMShareExtension;
+			productReference = 658519852DC0BFCA00F795CD /* MMShareExtension.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
+		658519972DC0C8BB00F795CD /* MMActionExtension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 658519A72DC0C8BB00F795CD /* Build configuration list for PBXNativeTarget "MMActionExtension" */;
+			buildPhases = (
+				658519942DC0C8BB00F795CD /* Sources */,
+				658519952DC0C8BB00F795CD /* Frameworks */,
+				658519962DC0C8BB00F795CD /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				6585199A2DC0C8BB00F795CD /* MMActionExtension */,
+			);
+			name = MMActionExtension;
+			packageProductDependencies = (
+			);
+			productName = MMActionExtension;
+			productReference = 658519982DC0C8BB00F795CD /* MMActionExtension.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
+		658519AD2DC0D3BC00F795CD /* MMActionNOUIExtension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 658519BC2DC0D3BC00F795CD /* Build configuration list for PBXNativeTarget "MMActionNOUIExtension" */;
+			buildPhases = (
+				658519AA2DC0D3BC00F795CD /* Sources */,
+				658519AB2DC0D3BC00F795CD /* Frameworks */,
+				658519AC2DC0D3BC00F795CD /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				658519B02DC0D3BC00F795CD /* MMActionNOUIExtension */,
+			);
+			name = MMActionNOUIExtension;
+			packageProductDependencies = (
+			);
+			productName = MMActionNOUIExtension;
+			productReference = 658519AE2DC0D3BC00F795CD /* MMActionNOUIExtension.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 		B425AC642252526000B02B77 /* Swift_SweetSugar */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = B425AC8D2252526200B02B77 /* Build configuration list for PBXNativeTarget "Swift_SweetSugar" */;
@@ -1408,6 +1565,9 @@
 			buildRules = (
 			);
 			dependencies = (
+				6585198E2DC0BFCA00F795CD /* PBXTargetDependency */,
+				658519A42DC0C8BB00F795CD /* PBXTargetDependency */,
+				658519B92DC0D3BC00F795CD /* PBXTargetDependency */,
 			);
 			name = Swift_SweetSugar;
 			packageProductDependencies = (
@@ -1481,6 +1641,15 @@
 				LastUpgradeCheck = 1010;
 				ORGANIZATIONNAME = Mumu;
 				TargetAttributes = {
+					658519842DC0BFCA00F795CD = {
+						CreatedOnToolsVersion = 16.3;
+					};
+					658519972DC0C8BB00F795CD = {
+						CreatedOnToolsVersion = 16.3;
+					};
+					658519AD2DC0D3BC00F795CD = {
+						CreatedOnToolsVersion = 16.3;
+					};
 					B425AC642252526000B02B77 = {
 						CreatedOnToolsVersion = 10.1;
 					};
@@ -1516,11 +1685,35 @@
 				B425AC782252526200B02B77 /* Swift_SweetSugarTests */,
 				B425AC832252526200B02B77 /* Swift_SweetSugarUITests */,
 				DF68A8E2238BB3E900610380 /* InsetrumentDemo */,
+				658519842DC0BFCA00F795CD /* MMShareExtension */,
+				658519972DC0C8BB00F795CD /* MMActionExtension */,
+				658519AD2DC0D3BC00F795CD /* MMActionNOUIExtension */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		658519832DC0BFCA00F795CD /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		658519962DC0C8BB00F795CD /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		658519AC2DC0D3BC00F795CD /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		B425AC632252526000B02B77 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -1706,6 +1899,27 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		658519812DC0BFCA00F795CD /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		658519942DC0C8BB00F795CD /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		658519AA2DC0D3BC00F795CD /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		B425AC612252526000B02B77 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -1905,6 +2119,21 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		6585198E2DC0BFCA00F795CD /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 658519842DC0BFCA00F795CD /* MMShareExtension */;
+			targetProxy = 6585198D2DC0BFCA00F795CD /* PBXContainerItemProxy */;
+		};
+		658519A42DC0C8BB00F795CD /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 658519972DC0C8BB00F795CD /* MMActionExtension */;
+			targetProxy = 658519A32DC0C8BB00F795CD /* PBXContainerItemProxy */;
+		};
+		658519B92DC0D3BC00F795CD /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 658519AD2DC0D3BC00F795CD /* MMActionNOUIExtension */;
+			targetProxy = 658519B82DC0D3BC00F795CD /* PBXContainerItemProxy */;
+		};
 		B425AC7B2252526200B02B77 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = B425AC642252526000B02B77 /* Swift_SweetSugar */;
@@ -1937,6 +2166,201 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		658519902DC0BFCA00F795CD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = HUW3H8NBU9;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = MMShareExtension/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = MMShareExtension;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "Copyright © 2025 Mumu. All rights reserved.";
+				IPHONEOS_DEPLOYMENT_TARGET = 18.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.youdao.dict.mumu.test.MMShareExtension;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		658519912DC0BFCA00F795CD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = HUW3H8NBU9;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = MMShareExtension/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = MMShareExtension;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "Copyright © 2025 Mumu. All rights reserved.";
+				IPHONEOS_DEPLOYMENT_TARGET = 18.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.youdao.dict.mumu.test.MMShareExtension;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		658519A82DC0C8BB00F795CD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = HUW3H8NBU9;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = MMActionExtension/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = MMActionExtension;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "Copyright © 2025 Mumu. All rights reserved.";
+				IPHONEOS_DEPLOYMENT_TARGET = 18.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.youdao.dict.mumu.test.MMActionExtension;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		658519A92DC0C8BB00F795CD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = HUW3H8NBU9;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = MMActionExtension/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = MMActionExtension;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "Copyright © 2025 Mumu. All rights reserved.";
+				IPHONEOS_DEPLOYMENT_TARGET = 18.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.youdao.dict.mumu.test.MMActionExtension;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		658519BD2DC0D3BC00F795CD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = HUW3H8NBU9;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = MMActionNOUIExtension/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = MMActionNOUIExtension;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "Copyright © 2025 Mumu. All rights reserved.";
+				IPHONEOS_DEPLOYMENT_TARGET = 18.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.youdao.dict.mumu.test.MMActionNOUIExtension;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		658519BE2DC0D3BC00F795CD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = HUW3H8NBU9;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = MMActionNOUIExtension/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = MMActionNOUIExtension;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "Copyright © 2025 Mumu. All rights reserved.";
+				IPHONEOS_DEPLOYMENT_TARGET = 18.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.youdao.dict.mumu.test.MMActionNOUIExtension;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 		B425AC8B2252526200B02B77 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -2297,6 +2721,33 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		658519932DC0BFCA00F795CD /* Build configuration list for PBXNativeTarget "MMShareExtension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				658519902DC0BFCA00F795CD /* Debug */,
+				658519912DC0BFCA00F795CD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		658519A72DC0C8BB00F795CD /* Build configuration list for PBXNativeTarget "MMActionExtension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				658519A82DC0C8BB00F795CD /* Debug */,
+				658519A92DC0C8BB00F795CD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		658519BC2DC0D3BC00F795CD /* Build configuration list for PBXNativeTarget "MMActionNOUIExtension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				658519BD2DC0D3BC00F795CD /* Debug */,
+				658519BE2DC0D3BC00F795CD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		B425AC602252526000B02B77 /* Build configuration list for PBXProject "Swift_SweetSugar" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
