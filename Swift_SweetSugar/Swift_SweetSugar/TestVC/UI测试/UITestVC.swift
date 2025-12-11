@@ -163,6 +163,8 @@ class UITestVC: UIViewController {
         super.viewDidLoad()
         print("test-> isViewLoaded2: \(isViewLoaded)")
         textView.delegate = self
+        
+        MMSetTest.runAllTests()
 //        shadowView.layer.cornerRadius = 24
       //        layer.shadowColor = UIColor(hex: 0x3C4D59, alpha: 0.9).cgColor
 //        shadowView.layer.shadowColor = UIColor.black.cgColor

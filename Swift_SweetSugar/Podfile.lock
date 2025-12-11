@@ -6,9 +6,11 @@ PODS:
     - GCDWebServer/WebDAV
     - GCDWebServer/WebUploader
   - FBRetainCycleDetector (0.1.4)
-  - FMDB (2.7.10):
-    - FMDB/standard (= 2.7.10)
-  - FMDB/standard (2.7.10)
+  - FMDB (2.7.12):
+    - FMDB/standard (= 2.7.12)
+  - FMDB/Core (2.7.12)
+  - FMDB/standard (2.7.12):
+    - FMDB/Core
   - GCDWebServer (3.5.4):
     - GCDWebServer/Core (= 3.5.4)
   - GCDWebServer/Core (3.5.4)
@@ -99,7 +101,7 @@ SPEC CHECKSUMS:
   Alamofire: 7193b3b92c74a07f85569e1a6c4f4237291e7496
   DoraemonKit: 32fb97f3aa82efa133111d193080ca5462cef135
   FBRetainCycleDetector: 46daef95c2dfa9be34b53087edf6a8f34e4c749c
-  FMDB: eae540775bf7d0c87a5af926ae37af69effe5a19
+  FMDB: 728731dd336af3936ce00f91d9d8495f5718a0e6
   GCDWebServer: 2c156a56c8226e2d5c0c3f208a3621ccffbe3ce4
   Kingfisher: b9c985d864d43515f404f1ef4a8ce7d802ace3ac
   KSCrash: ad271a7799f0a2841be0fb7d6bd105444c440832
@@ -112,6 +114,6 @@ SPEC CHECKSUMS:
   Toaster: c3473963c78e8cabbf6ea6f11ad0fdaae6f54987
   YYText: 5c461d709e24d55a182d1441c41dc639a18a4849
 
-PODFILE CHECKSUM: c59bdc15fb9a53a6b5cacf5e70baaf852d8ac4df
+PODFILE CHECKSUM: 4e3390abd31a4e1eb956bef769863158a0b27e0a
 
 COCOAPODS: 1.16.2

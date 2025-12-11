@@ -289,7 +289,14 @@ class FuncTestVC: MMBaseViewController {
 //            print("test->\(str)")
             GCDTest.shared.test_test_sync()
         case 60:
-            tool.testEventCalendar_60()
+//            tool.testEventCalendar_60()
+            Task {
+                await TaskGroupSampleTest().start()
+            }
+        case 61:
+            Task {
+                await TaskGroupSampleTest().start()
+            }
         default:
             break
         }

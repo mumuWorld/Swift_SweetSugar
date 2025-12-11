@@ -46,8 +46,16 @@ class MMFuncTool: NSObject {
         let url2 = URL(string: "")!
         print("test->test")
     }
+    
+    func urltest_17_2() {
+        let encodeURL = "https%3A%2F%2Fconfluence.inner.youdao.com%2Fpages%2Fviewpage.action%3FpageId%3D157987177%20"
+        
+        let decodeURL = encodeURL.urlDecoded()
+        
+        print("test->decodeULR: \(decodeURL)")
+    }
     func urltest_17() -> Void {
-        urltest_17_1()
+        urltest_17_2()
         return;
         let urlStr = "https://shared.youdao.com/dict/market/living-study-ranking-test/index.html#/?hide-toolbar=true"
 //        let urlStr_2 = "https://shared.youdao.com/dict/market/training-camp-test/index.html/campDetails"
@@ -1145,6 +1153,8 @@ extension MMFuncTool {
         let price: Double = 0.0001
         let priceStr = String(format: "￥%.2f", price)
         mm_printLog("test->\(priceStr)")
+        
+    
     }
     
     func stringTest_50_2() -> Void {

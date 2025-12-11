@@ -154,5 +154,13 @@
 		<key>showName</key>
 		<string>导航栏</string>
 	</dict>
+	<dict>
+		<key>desc</key>
+		<string>UILabel</string>
+		<key>routerVC</key>
+		<string>MMUILabelTestVC</string>
+		<key>showName</key>
+		<string>label 测试</string>
+	</dict>
 </array>
 </plist>

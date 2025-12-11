@@ -40,6 +40,9 @@
 		654BA72B2AA7403F000B4C34 /* MMCollectionPaoMaDengScroll.swift in Sources */ = {isa = PBXBuildFile; fileRef = 654BA72A2AA7403F000B4C34 /* MMCollectionPaoMaDengScroll.swift */; };
 		654D01AD2C23BEFF00090AB0 /* GradientRingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 654D01AC2C23BEFE00090AB0 /* GradientRingView.swift */; };
 		654DEFC728780831009F6757 /* Data+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 654DEFC628780831009F6757 /* Data+Extension.swift */; };
+		654EAD732E4993680098B911 /* YDImageCompressor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 654EAD722E4993680098B911 /* YDImageCompressor.swift */; };
+		654EAD762E4993C20098B911 /* YDImageAnalysis.swift in Sources */ = {isa = PBXBuildFile; fileRef = 654EAD752E4993C20098B911 /* YDImageAnalysis.swift */; };
+		654EAD782E4993F90098B911 /* YDImageUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 654EAD772E4993F90098B911 /* YDImageUtils.swift */; };
 		6550B9EF292728F30093B437 /* 百度一下，你就知道_files in Resources */ = {isa = PBXBuildFile; fileRef = 6550B9ED292728F30093B437 /* 百度一下，你就知道_files */; };
 		6550B9F0292728F30093B437 /* 百度一下，你就知道.html in Resources */ = {isa = PBXBuildFile; fileRef = 6550B9EE292728F30093B437 /* 百度一下，你就知道.html */; };
 		6550B9F2292729940093B437 /* sw in Resources */ = {isa = PBXBuildFile; fileRef = 6550B9F1292729940093B437 /* sw */; };
@@ -71,11 +74,14 @@
 		65C7F9242C6EF54400A97F6D /* MMBViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 65C7F9232C6EF54400A97F6D /* MMBViewController.xib */; };
 		65C7F9252C6EF54400A97F6D /* MMBViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65C7F9222C6EF54400A97F6D /* MMBViewController.swift */; };
 		65CA65C62B889AD50018DBBD /* LRUTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65CA65C52B889AD50018DBBD /* LRUTest.swift */; };
+		65CAC7A12EAA2F8500657C7A /* MMUILabelTestVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 65CAC7A02EAA2F8500657C7A /* MMUILabelTestVC.xib */; };
+		65CAC7A22EAA2F8500657C7A /* MMUILabelTestVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65CAC79F2EAA2F8500657C7A /* MMUILabelTestVC.swift */; };
 		65CB983A29C179A400893157 /* MMTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65CB983929C179A400893157 /* MMTool.swift */; };
 		65CDAAF82B5516EF00F7F142 /* MMTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65CDAAF72B5516EF00F7F142 /* MMTabBarViewController.swift */; };
 		65CDAAFB2B5517C000F7F142 /* MMBaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65CDAAFA2B5517C000F7F142 /* MMBaseViewController.swift */; };
 		65CDAAFD2B5517E000F7F142 /* MMMineViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65CDAAFC2B5517E000F7F142 /* MMMineViewController.swift */; };
 		65CE02F62C607953005E755D /* CALayer+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65CE02F52C607953005E755D /* CALayer+Extension.swift */; };
+		65CF88592EE95A2000B0BFE9 /* MMSetTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65CF88582EE95A2000B0BFE9 /* MMSetTest.swift */; };
 		65D292332811506D00B31DFD /* ScrollTestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65D292312811506D00B31DFD /* ScrollTestViewController.swift */; };
 		65D292342811506D00B31DFD /* ScrollTestViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 65D292322811506D00B31DFD /* ScrollTestViewController.xib */; };
 		65D29237281154D800B31DFD /* LabelTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65D29235281154D800B31DFD /* LabelTableViewCell.swift */; };
@@ -99,6 +105,7 @@
 		65E9C7F22BC3996E008F97CD /* CustomScrollAnimationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65E9C7F12BC3996E008F97CD /* CustomScrollAnimationViewController.swift */; };
 		65E9C7F42BC39986008F97CD /* ScrollViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65E9C7F32BC39986008F97CD /* ScrollViewExtension.swift */; };
 		65E9C7FA2BC3FF56008F97CD /* MMStartUpTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 65E9C7F92BC3FF56008F97CD /* MMStartUpTest.m */; };
+		65ECAEFE2EA22497001F6520 /* MMConcurrencyTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65ECAEFD2EA22497001F6520 /* MMConcurrencyTest.swift */; };
 		65EDEAF12B4E378700E26254 /* MMStartEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65EDEAF02B4E378700E26254 /* MMStartEngine.swift */; };
 		65F26B2E2ABC4BE60025C93E /* DynamicDispatchTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65F26B2D2ABC4BE60025C93E /* DynamicDispatchTest.swift */; };
 		65F26B302ABD3EA00025C93E /* BaseSynatx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65F26B2F2ABD3EA00025C93E /* BaseSynatx.swift */; };
@@ -331,6 +338,9 @@
 		654BA72A2AA7403F000B4C34 /* MMCollectionPaoMaDengScroll.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MMCollectionPaoMaDengScroll.swift; sourceTree = "<group>"; };
 		654D01AC2C23BEFE00090AB0 /* GradientRingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientRingView.swift; sourceTree = "<group>"; };
 		654DEFC628780831009F6757 /* Data+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Data+Extension.swift"; sourceTree = "<group>"; };
+		654EAD722E4993680098B911 /* YDImageCompressor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YDImageCompressor.swift; sourceTree = "<group>"; };
+		654EAD752E4993C20098B911 /* YDImageAnalysis.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YDImageAnalysis.swift; sourceTree = "<group>"; };
+		654EAD772E4993F90098B911 /* YDImageUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YDImageUtils.swift; sourceTree = "<group>"; };
 		6550B9ED292728F30093B437 /* 百度一下，你就知道_files */ = {isa = PBXFileReference; lastKnownFileType = folder; path = "百度一下，你就知道_files"; sourceTree = "<group>"; };
 		6550B9EE292728F30093B437 /* 百度一下，你就知道.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = "百度一下，你就知道.html"; sourceTree = "<group>"; };
 		6550B9F1292729940093B437 /* sw */ = {isa = PBXFileReference; lastKnownFileType = folder; path = sw; sourceTree = "<group>"; };
@@ -362,12 +372,15 @@
 		65C7F9222C6EF54400A97F6D /* MMBViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MMBViewController.swift; sourceTree = "<group>"; };
 		65C7F9232C6EF54400A97F6D /* MMBViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MMBViewController.xib; sourceTree = "<group>"; };
 		65CA65C52B889AD50018DBBD /* LRUTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LRUTest.swift; sourceTree = "<group>"; };
+		65CAC79F2EAA2F8500657C7A /* MMUILabelTestVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MMUILabelTestVC.swift; sourceTree = "<group>"; };
+		65CAC7A02EAA2F8500657C7A /* MMUILabelTestVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MMUILabelTestVC.xib; sourceTree = "<group>"; };
 		65CB90EA2C21939800BEAD21 /* Swift_SweetSugar.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Swift_SweetSugar.entitlements; sourceTree = "<group>"; };
 		65CB983929C179A400893157 /* MMTool.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MMTool.swift; sourceTree = "<group>"; usesTabs = 0; };
 		65CDAAF72B5516EF00F7F142 /* MMTabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MMTabBarViewController.swift; sourceTree = "<group>"; };
 		65CDAAFA2B5517C000F7F142 /* MMBaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MMBaseViewController.swift; sourceTree = "<group>"; };
 		65CDAAFC2B5517E000F7F142 /* MMMineViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MMMineViewController.swift; sourceTree = "<group>"; };
 		65CE02F52C607953005E755D /* CALayer+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CALayer+Extension.swift"; sourceTree = "<group>"; };
+		65CF88582EE95A2000B0BFE9 /* MMSetTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MMSetTest.swift; sourceTree = "<group>"; };
 		65D292312811506D00B31DFD /* ScrollTestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollTestViewController.swift; sourceTree = "<group>"; };
 		65D292322811506D00B31DFD /* ScrollTestViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ScrollTestViewController.xib; sourceTree = "<group>"; };
 		65D29235281154D800B31DFD /* LabelTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelTableViewCell.swift; sourceTree = "<group>"; };
@@ -394,6 +407,7 @@
 		65E9C7F32BC39986008F97CD /* ScrollViewExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScrollViewExtension.swift; sourceTree = "<group>"; };
 		65E9C7F82BC3FF56008F97CD /* MMStartUpTest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MMStartUpTest.h; sourceTree = "<group>"; };
 		65E9C7F92BC3FF56008F97CD /* MMStartUpTest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MMStartUpTest.m; sourceTree = "<group>"; };
+		65ECAEFD2EA22497001F6520 /* MMConcurrencyTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MMConcurrencyTest.swift; sourceTree = "<group>"; };
 		65EDEAF02B4E378700E26254 /* MMStartEngine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MMStartEngine.swift; sourceTree = "<group>"; };
 		65F26B2D2ABC4BE60025C93E /* DynamicDispatchTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DynamicDispatchTest.swift; sourceTree = "<group>"; };
 		65F26B2F2ABD3EA00025C93E /* BaseSynatx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseSynatx.swift; sourceTree = "<group>"; };
@@ -715,6 +729,16 @@
 			path = List;
 			sourceTree = "<group>";
 		};
+		654EAD742E4993930098B911 /* ImageCompressor */ = {
+			isa = PBXGroup;
+			children = (
+				654EAD722E4993680098B911 /* YDImageCompressor.swift */,
+				654EAD752E4993C20098B911 /* YDImageAnalysis.swift */,
+				654EAD772E4993F90098B911 /* YDImageUtils.swift */,
+			);
+			path = ImageCompressor;
+			sourceTree = "<group>";
+		};
 		6550B961292728D10093B437 /* resources */ = {
 			isa = PBXGroup;
 			children = (
@@ -728,6 +752,7 @@
 		655D54AE2DBB800A00D9087F /* Tool */ = {
 			isa = PBXGroup;
 			children = (
+				654EAD742E4993930098B911 /* ImageCompressor */,
 				655D54AF2DBB804700D9087F /* MMLog.swift */,
 			);
 			path = Tool;
@@ -770,6 +795,15 @@
 				65C7F9232C6EF54400A97F6D /* MMBViewController.xib */,
 			);
 			path = NavigationBar;
+			sourceTree = "<group>";
+		};
+		65CAC79E2EAA2F5500657C7A /* LabelTest */ = {
+			isa = PBXGroup;
+			children = (
+				65CAC79F2EAA2F8500657C7A /* MMUILabelTestVC.swift */,
+				65CAC7A02EAA2F8500657C7A /* MMUILabelTestVC.xib */,
+			);
+			path = LabelTest;
 			sourceTree = "<group>";
 		};
 		65CDAAF92B55171E00F7F142 /* Mine */ = {
@@ -849,6 +883,7 @@
 				65F26B2C2ABC4BD20025C93E /* 动态派发 */,
 				65F26B2F2ABD3EA00025C93E /* BaseSynatx.swift */,
 				65CA65C52B889AD50018DBBD /* LRUTest.swift */,
+				65ECAEFD2EA22497001F6520 /* MMConcurrencyTest.swift */,
 			);
 			path = "Swift语法";
 			sourceTree = "<group>";
@@ -858,6 +893,7 @@
 			children = (
 				65F26B2D2ABC4BE60025C93E /* DynamicDispatchTest.swift */,
 				65DC26D32CF8670000ECF5E4 /* ConcurrencTest.swift */,
+				65CF88582EE95A2000B0BFE9 /* MMSetTest.swift */,
 			);
 			path = "动态派发";
 			sourceTree = "<group>";
@@ -933,6 +969,7 @@
 		B4063D98260B609F00F3135E /* UI测试 */ = {
 			isa = PBXGroup;
 			children = (
+				65CAC79E2EAA2F5500657C7A /* LabelTest */,
 				65933D852D081AE800720751 /* TypingEffectViewController */,
 				652F136E2CE21029009FFC74 /* UI测试2 */,
 				B480D0C32615CEA300965530 /* View */,
@@ -1500,8 +1537,6 @@
 				658519862DC0BFCA00F795CD /* MMShareExtension */,
 			);
 			name = MMShareExtension;
-			packageProductDependencies = (
-			);
 			productName = MMShareExtension;
 			productReference = 658519852DC0BFCA00F795CD /* MMShareExtension.appex */;
 			productType = "com.apple.product-type.app-extension";
@@ -1522,8 +1557,6 @@
 				6585199A2DC0C8BB00F795CD /* MMActionExtension */,
 			);
 			name = MMActionExtension;
-			packageProductDependencies = (
-			);
 			productName = MMActionExtension;
 			productReference = 658519982DC0C8BB00F795CD /* MMActionExtension.appex */;
 			productType = "com.apple.product-type.app-extension";
@@ -1544,8 +1577,6 @@
 				658519B02DC0D3BC00F795CD /* MMActionNOUIExtension */,
 			);
 			name = MMActionNOUIExtension;
-			packageProductDependencies = (
-			);
 			productName = MMActionNOUIExtension;
 			productReference = 658519AE2DC0D3BC00F795CD /* MMActionNOUIExtension.appex */;
 			productType = "com.apple.product-type.app-extension";
@@ -1570,8 +1601,6 @@
 				658519B92DC0D3BC00F795CD /* PBXTargetDependency */,
 			);
 			name = Swift_SweetSugar;
-			packageProductDependencies = (
-			);
 			productName = Swift_SweetSugar;
 			productReference = B425AC652252526000B02B77 /* Swift_SweetSugar.app */;
 			productType = "com.apple.product-type.application";
@@ -1667,7 +1696,7 @@
 				};
 			};
 			buildConfigurationList = B425AC602252526000B02B77 /* Build configuration list for PBXProject "Swift_SweetSugar" */;
-			compatibilityVersion = "Xcode 9.3";
+			compatibilityVersion = "Xcode 12.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -1675,8 +1704,6 @@
 				Base,
 			);
 			mainGroup = B425AC5C2252526000B02B77;
-			packageReferences = (
-			);
 			productRefGroup = B425AC662252526000B02B77 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -1724,6 +1751,7 @@
 				B49BAB822620223B0097DFC9 /* SingleViewCell.xib in Resources */,
 				B4B43475270170CC00F7FAD4 /* MMIpadController.xib in Resources */,
 				B49DC0E12681805A009DE0FB /* MMLayerAnimationVC.xib in Resources */,
+				65CAC7A12EAA2F8500657C7A /* MMUILabelTestVC.xib in Resources */,
 				B4A7E0C1277303FE0091687C /* MMListUpdateViewController.xib in Resources */,
 				6540900C2D38D9AB000F9FD4 /* (null) in Resources */,
 				B4A4510A27674FE3005AC2E4 /* result.json in Resources */,
@@ -1937,6 +1965,7 @@
 				65CA65C62B889AD50018DBBD /* LRUTest.swift in Sources */,
 				B407B59B279308C100398F92 /* MMPageControl.swift in Sources */,
 				B4C9397727C8C878005FA0EE /* Array+MM_Extension.swift in Sources */,
+				65CF88592EE95A2000B0BFE9 /* MMSetTest.swift in Sources */,
 				B4A936962689ADD7001E181B /* MMControlView.swift in Sources */,
 				65348C962D9AAE2F00BAE9F9 /* MMListSubject.swift in Sources */,
 				659BE68F2A7B3E1D00F18E1C /* MMNetworkTest.swift in Sources */,
@@ -1962,6 +1991,7 @@
 				65CDAAFB2B5517C000F7F142 /* MMBaseViewController.swift in Sources */,
 				B4C67653279565A70088D1A2 /* MMTextStorage.swift in Sources */,
 				B495035126E2463C00C10601 /* MMGraphicViewController.swift in Sources */,
+				654EAD762E4993C20098B911 /* YDImageAnalysis.swift in Sources */,
 				65E1B01A2AEF99E3009E5AD8 /* ArrayAlgorithm.swift in Sources */,
 				B4A3625024889B26006696C3 /* MMDispatchTimer.swift in Sources */,
 				B4C6342F279A4E0400375D69 /* MMLocationItem.swift in Sources */,
@@ -1969,6 +1999,7 @@
 				65ADB9EC28768FEA004F6624 /* NetTest.swift in Sources */,
 				B4B43474270170CC00F7FAD4 /* MMIpadController.swift in Sources */,
 				6581922A2AD4FBAB00F71608 /* MMFuncTool+Sec.swift in Sources */,
+				654EAD782E4993F90098B911 /* YDImageUtils.swift in Sources */,
 				B4B69E75233E55950061AF93 /* BaseSort.swift in Sources */,
 				65B100842C00371800817701 /* MMSplashViewController.swift in Sources */,
 				B4A9369B2689B6E9001E181B /* MMButton.swift in Sources */,
@@ -2023,6 +2054,7 @@
 				65E4C9162A60E9970019D94B /* MMMainManager.swift in Sources */,
 				651344EB28729889002FEF1B /* MMUIKitAnimationVC.swift in Sources */,
 				B425AC6B2252526000B02B77 /* ViewController.swift in Sources */,
+				654EAD732E4993680098B911 /* YDImageCompressor.swift in Sources */,
 				65D2923A2811557400B31DFD /* CollectionContainerTableViewCell.swift in Sources */,
 				B4063D66260B4D7100F3135E /* HomeListVC.swift in Sources */,
 				658B3D122CB926D40083840F /* Test_Tmp.swift in Sources */,
@@ -2072,9 +2104,11 @@
 				65C7F9252C6EF54400A97F6D /* MMBViewController.swift in Sources */,
 				654BA72B2AA7403F000B4C34 /* MMCollectionPaoMaDengScroll.swift in Sources */,
 				65D2923D2811566600B31DFD /* TestCollectionViewCell.swift in Sources */,
+				65ECAEFE2EA22497001F6520 /* MMConcurrencyTest.swift in Sources */,
 				B4DDA669279FE6A900DBDB56 /* MMLocalSpeech.swift in Sources */,
 				B4063D6D260B4E2800F3135E /* HomeListItem.swift in Sources */,
 				651F696128F3CCDA00BE565A /* MMBubbleLayoutFragment.swift in Sources */,
+				65CAC7A22EAA2F8500657C7A /* MMUILabelTestVC.swift in Sources */,
 				B422B2A525A3194500293646 /* String+Extension.swift in Sources */,
 				654D01AD2C23BEFF00090AB0 /* GradientRingView.swift in Sources */,
 				DF9227E722CB07A600ABB221 /* UIColor+MM_Extension.swift in Sources */,
@@ -2482,6 +2516,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = C2ACA8F3D60150B1196BFC32 /* Pods-Swift_SweetSugar.debug.xcconfig */;
 			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = Swift_SweetSugar/Swift_SweetSugar.entitlements;
 				CODE_SIGN_STYLE = Automatic;
@@ -2581,6 +2616,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = E91559239FA7BD9C330F7798 /* Pods-Swift_SweetSugar.release.xcconfig */;
 			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = Swift_SweetSugar/Swift_SweetSugar.entitlements;
 				CODE_SIGN_STYLE = Automatic;

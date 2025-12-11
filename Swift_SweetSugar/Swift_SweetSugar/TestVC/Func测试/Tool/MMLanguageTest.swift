@@ -89,33 +89,3 @@ struct MMSortItem {
     var couponPrice: Int?
     var expiredTime: Int?
 }
-
-protocol Greetable {
-    func greet()
-}
-
-class Parent {
-    // 在类主体中实现协议方法
-    func greet() {
-        print("Hello from Parent")
-    }
-}
-
-// 通过扩展来遵循协议
-extension Parent: Greetable { }
-
-class Child: Parent {
-    override func greet() {
-        print("Hello from Child")
-    }
-}
-
-func teset() {
-    // 使用示例
-    let parent = Parent()
-    parent.greet()  // 输出: Hello from Parent
-
-    let child = Child()
-    child.greet()  // 输出: Hello from Child
-    // 输出: Hello from Child
-}
