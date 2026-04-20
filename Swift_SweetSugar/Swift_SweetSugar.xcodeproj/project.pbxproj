@@ -48,6 +48,8 @@
 		6550B9F2292729940093B437 /* sw in Resources */ = {isa = PBXBuildFile; fileRef = 6550B9F1292729940093B437 /* sw */; };
 		655D54B02DBB804700D9087F /* MMLog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 655D54AF2DBB804700D9087F /* MMLog.swift */; };
 		6564297F2DA7B49E00F4F500 /* TestTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6564297E2DA7B49E00F4F500 /* TestTool.swift */; };
+		6577B5672F767AF000FCC83A /* MMImageViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6577B5662F767AF000FCC83A /* MMImageViewController.xib */; };
+		6577B5682F767AF000FCC83A /* MMImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6577B5652F767AF000FCC83A /* MMImageViewController.swift */; };
 		6581922A2AD4FBAB00F71608 /* MMFuncTool+Sec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 658192292AD4FBAB00F71608 /* MMFuncTool+Sec.swift */; };
 		6584AA4E2C35282200C8E1F6 /* DingTalkJinBuTi-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6584AA4D2C35282200C8E1F6 /* DingTalkJinBuTi-Regular.ttf */; };
 		6585198F2DC0BFCA00F795CD /* MMShareExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 658519852DC0BFCA00F795CD /* MMShareExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
@@ -347,6 +349,8 @@
 		655D54AF2DBB804700D9087F /* MMLog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MMLog.swift; sourceTree = "<group>"; };
 		655D54B62DBB953E00D9087F /* UniformTypeIdentifiers.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UniformTypeIdentifiers.framework; path = System/Library/Frameworks/UniformTypeIdentifiers.framework; sourceTree = SDKROOT; };
 		6564297E2DA7B49E00F4F500 /* TestTool.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestTool.swift; sourceTree = "<group>"; };
+		6577B5652F767AF000FCC83A /* MMImageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MMImageViewController.swift; sourceTree = "<group>"; };
+		6577B5662F767AF000FCC83A /* MMImageViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MMImageViewController.xib; sourceTree = "<group>"; };
 		658192292AD4FBAB00F71608 /* MMFuncTool+Sec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MMFuncTool+Sec.swift"; sourceTree = "<group>"; };
 		6584AA4D2C35282200C8E1F6 /* DingTalkJinBuTi-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "DingTalkJinBuTi-Regular.ttf"; sourceTree = "<group>"; };
 		658519852DC0BFCA00F795CD /* MMShareExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = MMShareExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -980,6 +984,8 @@
 				652DA2942A090A2800434352 /* UITestVC+Extension.swift */,
 				658BE6CB2C339B9500888B0B /* UITestVC+Animation.swift */,
 				6564297E2DA7B49E00F4F500 /* TestTool.swift */,
+				6577B5652F767AF000FCC83A /* MMImageViewController.swift */,
+				6577B5662F767AF000FCC83A /* MMImageViewController.xib */,
 			);
 			path = "UI测试";
 			sourceTree = "<group>";
@@ -1771,6 +1777,7 @@
 				65C3C4E129E9452A00FFA11C /* MMListAutoHeightViewController.xib in Resources */,
 				B49BAB8B262022730097DFC9 /* CollectionViewController.xib in Resources */,
 				6500D347292CD7C7000B3535 /* error_result.json in Resources */,
+				6577B5672F767AF000FCC83A /* MMImageViewController.xib in Resources */,
 				65B100852C00371800817701 /* MMSplashViewController.xib in Resources */,
 				652432B228D4766000FE591E /* 90879c75-da87-4b9d-9ab6-9654378198f6.txt in Resources */,
 				B4063D9C260B60C100F3135E /* UITestVC.xib in Resources */,
@@ -2006,6 +2013,7 @@
 				B47F39E6260DB6CF007592A1 /* WrapperTest.swift in Sources */,
 				65C3C4E429E945BB00FFA11C /* MMAutoLabelTableViewCell.swift in Sources */,
 				B4063DAE260B637500F3135E /* FuncTestVC.swift in Sources */,
+				6577B5682F767AF000FCC83A /* MMImageViewController.swift in Sources */,
 				B4C9EE3B27CF60F40047860B /* MMAudioTool.swift in Sources */,
 				B4A1808727B36112009E21D3 /* UITestVC+Test.swift in Sources */,
 				B4A936992689B129001E181B /* MMCustomView.swift in Sources */,
